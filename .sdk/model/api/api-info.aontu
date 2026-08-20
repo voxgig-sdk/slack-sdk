@@ -1,0 +1,27 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      description: "List and read Slack channels."
+      security: {
+        in: "header"
+        name: "Authorization"
+        prefix: "Bearer"
+        scheme: "bearerAuth"
+        type: "http"
+      }
+      servers: [
+        {
+          url: "https://slack.com/api"
+        }
+      ]
+      summary: "List and read Slack channels."
+      title: "Slack Conversations API"
+      version: "1.0.0"
+      website: "https://slack.com"
+    }
+  }
+}
+

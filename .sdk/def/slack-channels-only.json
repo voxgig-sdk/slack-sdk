@@ -1,0 +1,94 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Slack Conversations API",
+    "version": "1.0.0",
+    "description": "List and read Slack channels."
+  },
+  "servers": [
+    { "url": "https://slack.com/api" }
+  ],
+  "security": [
+    { "bearerAuth": [] }
+  ],
+  "paths": {
+    "/conversations.list": {
+      "get": {
+        "operationId": "listChannels",
+        "summary": "List channels",
+        "parameters": [
+          { "name": "limit", "in": "query", "required": false, "schema": { "type": "integer" } },
+          { "name": "cursor", "in": "query", "required": false, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "Channels",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": { "type": "boolean" },
+                    "channels": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Channel" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/conversations.info": {
+      "get": {
+        "operationId": "getChannel",
+        "summary": "Retrieve a channel",
+        "parameters": [
+          { "name": "channel", "in": "query", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "The requested channel",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": { "type": "boolean" },
+                    "channel": { "$ref": "#/components/schemas/Channel" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "Channel": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "is_channel": { "type": "boolean" },
+          "is_private": { "type": "boolean" },
+          "is_archived": { "type": "boolean" },
+          "created": { "type": "integer" },
+          "num_members": { "type": "integer" },
+          "topic": { "type": "object" },
+          "purpose": { "type": "object" }
+        }
+      }
+    }
+  }
+}

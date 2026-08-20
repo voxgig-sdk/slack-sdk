@@ -1,0 +1,40 @@
+# BasicChannelFlow
+
+main: kit: flow: BasicChannelFlow:
+{
+  entity: "channel",
+  kind: "basic",
+  name: "BasicChannelFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "channel_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "channel_ref01",
+        srcdatavar: "channel_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-channel_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicChannelFlow"
+}

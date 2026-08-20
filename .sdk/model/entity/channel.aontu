@@ -1,0 +1,138 @@
+# Entity: channel
+
+main: kit: entity: channel: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "created"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "is_archived"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_channel"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_private"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "num_members"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "purpose"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "topic"
+      req: false
+      type: "`$OBJECT`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "channel"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "cursor"
+                orig: "cursor"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "limit"
+                orig: "limit"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/conversations.list"
+          parts: [
+            "conversations.list"
+          ]
+          select: {
+            exist: [
+              "cursor"
+              "limit"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.channels`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "channel"
+                orig: "channel"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/conversations.info"
+          parts: [
+            "conversations.info"
+          ]
+          select: {
+            exist: [
+              "channel"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.channel`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

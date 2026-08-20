@@ -1,0 +1,53 @@
+{
+  "existing": {
+    "conversationsinfo": {
+      "CONVERSATIONSINFO00": {
+        "created": "s5a",
+        "id": "CONVERSATIONSINFO00",
+        "is_archived": true,
+        "is_channel": false,
+        "is_private": true,
+        "name": "s5f",
+        "num_members": "s60",
+        "purpose": {},
+        "topic": {}
+      },
+      "CONVERSATIONSINFO01": {
+        "created": "sb4",
+        "id": "CONVERSATIONSINFO01",
+        "is_archived": true,
+        "is_channel": false,
+        "is_private": true,
+        "name": "sb9",
+        "num_members": "sba",
+        "purpose": {},
+        "topic": {}
+      },
+      "CONVERSATIONSINFO02": {
+        "created": "s10e",
+        "id": "CONVERSATIONSINFO02",
+        "is_archived": true,
+        "is_channel": false,
+        "is_private": true,
+        "name": "s113",
+        "num_members": "s114",
+        "purpose": {},
+        "topic": {}
+      }
+    }
+  },
+  "new": {
+    "conversationsinfo": {
+      "conversationsinfo_ref01": {
+        "created": "s168",
+        "is_archived": true,
+        "is_channel": false,
+        "is_private": true,
+        "name": "s16d",
+        "num_members": "s16e",
+        "purpose": {},
+        "topic": {}
+      }
+    }
+  }
+}
