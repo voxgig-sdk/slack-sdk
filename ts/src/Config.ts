@@ -59,7 +59,10 @@ class Config {
 
     entity: {
       
-      channel: {
+      conversationsinfo: {
+      },
+
+      conversationslist: {
       },
 
     }
@@ -67,7 +70,7 @@ class Config {
 
 
   entity = {
-    "channel": {
+    "conversationsinfo": {
       "fields": [
         {
           "name": "created",
@@ -106,7 +109,87 @@ class Config {
           "type": "`$OBJECT`"
         }
       ],
-      "name": "channel",
+      "name": "conversationsinfo",
+      "op": {
+        "load": {
+          "input": "data",
+          "name": "load",
+          "points": [
+            {
+              "args": {
+                "query": [
+                  {
+                    "kind": "query",
+                    "name": "channel",
+                    "orig": "channel",
+                    "reqd": true,
+                    "type": "`$STRING`"
+                  }
+                ]
+              },
+              "kind": "http",
+              "method": "GET",
+              "orig": "/conversations.info",
+              "parts": [
+                "conversations.info"
+              ],
+              "select": {
+                "exist": [
+                  "channel"
+                ]
+              },
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.channel`"
+              }
+            }
+          ]
+        }
+      },
+      "relations": {
+        "ancestors": []
+      }
+    },
+    "conversationslist": {
+      "fields": [
+        {
+          "name": "created",
+          "type": "`$INTEGER`"
+        },
+        {
+          "name": "id",
+          "type": "`$STRING`"
+        },
+        {
+          "name": "is_archived",
+          "type": "`$BOOLEAN`"
+        },
+        {
+          "name": "is_channel",
+          "type": "`$BOOLEAN`"
+        },
+        {
+          "name": "is_private",
+          "type": "`$BOOLEAN`"
+        },
+        {
+          "name": "name",
+          "type": "`$STRING`"
+        },
+        {
+          "name": "num_members",
+          "type": "`$INTEGER`"
+        },
+        {
+          "name": "purpose",
+          "type": "`$OBJECT`"
+        },
+        {
+          "name": "topic",
+          "type": "`$OBJECT`"
+        }
+      ],
+      "name": "conversationslist",
       "op": {
         "list": {
           "input": "data",
@@ -144,40 +227,6 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.channels`"
-              }
-            }
-          ]
-        },
-        "load": {
-          "input": "data",
-          "name": "load",
-          "points": [
-            {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "channel",
-                    "orig": "channel",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
-              "kind": "http",
-              "method": "GET",
-              "orig": "/conversations.info",
-              "parts": [
-                "conversations.info"
-              ],
-              "select": {
-                "exist": [
-                  "channel"
-                ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.channel`"
               }
             }
           ]

@@ -5,7 +5,7 @@
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
-export interface Channel {
+export interface Conversationsinfo {
   created?: number
   id?: string
   is_archived?: boolean
@@ -17,7 +17,7 @@ export interface Channel {
   topic?: Record<string, any>
 }
 
-export interface ChannelLoadMatch {
+export interface ConversationsinfoLoadMatch {
   created?: number
   id: string
   is_archived?: boolean
@@ -29,7 +29,19 @@ export interface ChannelLoadMatch {
   topic?: Record<string, any>
 }
 
-export interface ChannelListMatch {
+export interface Conversationslist {
+  created?: number
+  id?: string
+  is_archived?: boolean
+  is_channel?: boolean
+  is_private?: boolean
+  name?: string
+  num_members?: number
+  purpose?: Record<string, any>
+  topic?: Record<string, any>
+}
+
+export interface ConversationslistListMatch {
   created?: number
   id?: string
   is_archived?: boolean

@@ -49,9 +49,9 @@ const client = SlackSDK.test()
 
 ### Instance Methods
 
-#### `Channel(data?: object)`
+#### `Conversationsinfo(data?: object)`
 
-Create a new `Channel` entity instance.
+Create a new `Conversationsinfo` entity instance.
 
 **Parameters:**
 
@@ -59,7 +59,19 @@ Create a new `Channel` entity instance.
 | --- | --- | --- |
 | `data` | `object` | Initial entity data. |
 
-**Returns:** `ChannelEntity` instance.
+**Returns:** `ConversationsinfoEntity` instance.
+
+#### `Conversationslist(data?: object)`
+
+Create a new `Conversationslist` entity instance.
+
+**Parameters:**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| `data` | `object` | Initial entity data. |
+
+**Returns:** `ConversationslistEntity` instance.
 
 #### `options()`
 
@@ -107,10 +119,68 @@ Alias for `SlackSDK.test()`.
 
 ---
 
-## ChannelEntity
+## ConversationsinfoEntity
 
 ```ts
-const channel = client.Channel()
+const conversationsinfo = client.Conversationsinfo()
+```
+
+### Fields
+
+| Field | Type | Required | Description |
+| --- | --- | --- | --- |
+| `created` | `number` | No |  |
+| `id` | `string` | No |  |
+| `is_archived` | `boolean` | No |  |
+| `is_channel` | `boolean` | No |  |
+| `is_private` | `boolean` | No |  |
+| `name` | `string` | No |  |
+| `num_members` | `number` | No |  |
+| `purpose` | `Record<string, any>` | No |  |
+| `topic` | `Record<string, any>` | No |  |
+
+### Operations
+
+#### `load(match: object, ctrl?: object)`
+
+Load a single entity matching the given criteria.
+
+```ts
+const result = await client.Conversationsinfo().load({ id: 'conversationsinfo_id' })
+```
+
+### Common Methods
+
+#### `data(data?: object)`
+
+Get or set the entity data. When called with data, sets the entity's
+internal data and returns the current data. When called without
+arguments, returns a copy of the current data.
+
+#### `match(match?: object)`
+
+Get or set the entity match criteria. Works the same as `data()`.
+
+#### `make()`
+
+Create a new `ConversationsinfoEntity` instance with the same client and
+options.
+
+#### `client()`
+
+Return the parent `SlackSDK` instance.
+
+#### `entopts()`
+
+Return a copy of the entity options.
+
+
+---
+
+## ConversationslistEntity
+
+```ts
+const conversationslist = client.Conversationslist()
 ```
 
 ### Fields
@@ -134,15 +204,7 @@ const channel = client.Channel()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Channel().list()
-```
-
-#### `load(match: object, ctrl?: object)`
-
-Load a single entity matching the given criteria.
-
-```ts
-const result = await client.Channel().load({ id: 'channel_id' })
+const results = await client.Conversationslist().list()
 ```
 
 ### Common Methods
@@ -159,7 +221,7 @@ Get or set the entity match criteria. Works the same as `data()`.
 
 #### `make()`
 
-Create a new `ChannelEntity` instance with the same client and
+Create a new `ConversationslistEntity` instance with the same client and
 options.
 
 #### `client()`

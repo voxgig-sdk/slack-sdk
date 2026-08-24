@@ -1,6 +1,7 @@
 // Slack Ts SDK
 
-import { ChannelEntity } from './entity/ChannelEntity'
+import { ConversationsinfoEntity } from './entity/ConversationsinfoEntity'
+import { ConversationslistEntity } from './entity/ConversationslistEntity'
 
 export type * from './SlackTypes'
 
@@ -291,12 +292,21 @@ class SlackSDK {
 
 
 
-  // Entity access: `client.Channel().list()` / `client.Channel().load({ id })`.
+  // Entity access: `client.Conversationsinfo().list()` / `client.Conversationsinfo().load({ id })`.
   // The argument is the entity OPTIONS object (passed to the entity
   // constructor as entopts), not initial entity data.
-  Channel(entopts?: Record<string, any>) {
+  Conversationsinfo(entopts?: Record<string, any>) {
     const self = this
-    return new ChannelEntity(self, entopts)
+    return new ConversationsinfoEntity(self, entopts)
+  }
+
+
+  // Entity access: `client.Conversationslist().list()` / `client.Conversationslist().load({ id })`.
+  // The argument is the entity OPTIONS object (passed to the entity
+  // constructor as entopts), not initial entity data.
+  Conversationslist(entopts?: Record<string, any>) {
+    const self = this
+    return new ConversationslistEntity(self, entopts)
   }
 
 

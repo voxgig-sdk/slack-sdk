@@ -5,7 +5,7 @@
 The TypeScript SDK for the Slack API — a type-safe, entity-oriented client with full async/await support.
 
 The API is exposed as capitalised, semantic **Entities** — e.g.
-`client.Channel()` — each with a small set of operations (`list`, `load`)
+`client.Conversationsinfo()` — each with a small set of operations (`list`, `load`)
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
@@ -35,28 +35,14 @@ const client = new SlackSDK({
 })
 ```
 
-### 2. List channel records
-
-`list()` resolves to an array of Channel ENTITIES — every operation
-resolves to entities, not raw records. Iterate them directly, and call
-`.data()` on one for the record it holds:
-
-```ts
-const channels = await client.Channel().list()
-
-for (const channel of channels) {
-  console.log(channel)
-}
-```
-
-### 3. Load a channel
+### 3. Load a conversationsinfo
 
 `load()` returns the entity directly and throws on failure:
 
 ```ts
 try {
-  const channel = await client.Channel().load({ id: 'example_id' })
-  console.log(channel)
+  const conversationsinfo = await client.Conversationsinfo().load({ id: 'example_id' })
+  console.log(conversationsinfo)
 } catch (err) {
   console.error('load failed:', err)
 }
@@ -69,10 +55,10 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const channels = await client.Channel().list()
-  console.log(channels)
+  const conversationsinfo = await client.Conversationsinfo().load({ id: "example_id" })
+  console.log(conversationsinfo)
 } catch (err) {
-  console.error('list failed:', err)
+  console.error('load failed:', err)
 }
 ```
 
@@ -136,10 +122,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = SlackSDK.test()
 
-const channel = await client.Channel().list()
-// channel is the entity, populated with mock response data
-// — call channel.data() for the record itself
-console.log(channel)
+const conversationsinfo = await client.Conversationsinfo().load({ id: 'test01' })
+// conversationsinfo is the entity, populated with mock response data
+// — call conversationsinfo.data() for the record itself
+console.log(conversationsinfo)
 ```
 
 You can also use the instance method:
@@ -154,10 +140,10 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Channel()
+const entity = client.Conversationsinfo()
 
 // First call runs the operation and stores its result
-await entity.list()
+await entity.load({ id: 'example' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -236,7 +222,8 @@ new SlackSDK(options?: {
 | `utility()` | `Utility` | Deep copy of the SDK utility object. |
 | `prepare(fetchargs?)` | `Promise<FetchDef>` | Build an HTTP request definition without sending it. |
 | `direct(fetchargs?)` | `Promise<DirectResult>` | Build and send an HTTP request. |
-| `Channel(data?)` | `ChannelEntity` | Create a Channel entity instance. |
+| `Conversationsinfo(data?)` | `ConversationsinfoEntity` | Create a Conversationsinfo entity instance. |
+| `Conversationslist(data?)` | `ConversationslistEntity` | Create a Conversationslist entity instance. |
 | `tester(testopts?, sdkopts?)` | `SlackSDK` | Create a test-mode client instance. |
 
 #### Static methods
@@ -304,7 +291,7 @@ The `prepare()` method returns:
 
 ### Entities
 
-#### Channel
+#### Conversationsinfo
 
 | Field | Description |
 | --- | --- |
@@ -318,7 +305,25 @@ The `prepare()` method returns:
 | `purpose` |  |
 | `topic` |  |
 
-Operations: list, load.
+Operations: load.
+
+API path: `/conversations.info`
+
+#### Conversationslist
+
+| Field | Description |
+| --- | --- |
+| `created` |  |
+| `id` |  |
+| `is_archived` |  |
+| `is_channel` |  |
+| `is_private` |  |
+| `name` |  |
+| `num_members` |  |
+| `purpose` |  |
+| `topic` |  |
+
+Operations: list.
 
 API path: `/conversations.list`
 
@@ -327,15 +332,14 @@ API path: `/conversations.list`
 ## Entities
 
 
-### Channel
+### Conversationsinfo
 
-Create an instance: `const channel = client.Channel()`
+Create an instance: `const conversationsinfo = client.Conversationsinfo()`
 
 #### Operations
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
 | `load(match)` | Load a single entity by match criteria. |
 
 #### Fields
@@ -355,13 +359,38 @@ Create an instance: `const channel = client.Channel()`
 #### Example: Load
 
 ```ts
-const channel = await client.Channel().load({ id: 'channel_id' })
+const conversationsinfo = await client.Conversationsinfo().load({ id: 'conversationsinfo_id' })
 ```
+
+
+### Conversationslist
+
+Create an instance: `const conversationslist = client.Conversationslist()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `list(match)` | List entities matching the criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `created` | `number` |  |
+| `id` | `string` |  |
+| `is_archived` | `boolean` |  |
+| `is_channel` | `boolean` |  |
+| `is_private` | `boolean` |  |
+| `name` | `string` |  |
+| `num_members` | `number` |  |
+| `purpose` | `Record<string, any>` |  |
+| `topic` | `Record<string, any>` |  |
 
 #### Example: List
 
 ```ts
-const channels = await client.Channel().list()
+const conversationslists = await client.Conversationslist().list()
 ```
 
 
@@ -429,16 +458,16 @@ import { SlackSDK } from '@voxgig-sdk/slack'
 
 ### Entity state
 
-Entity instances are stateful. After a successful `list`, the entity
+Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const channel = client.Channel()
-await channel.list()
+const conversationsinfo = client.Conversationsinfo()
+await conversationsinfo.load({ id: "example_id" })
 
-// channel.data() now returns the channel data from the last `list`
-// channel.match() returns the last match criteria
+// conversationsinfo.data() now returns the conversationsinfo data from the last `load`
+// conversationsinfo.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration
