@@ -5,11 +5,14 @@ guide: {
   metrics: count: path: 2
   metrics: count: method: 2
 
-  entity: channel: {
+  entity: conversationsinfo: {
     path: "/conversations.info": {
       op: load: method: *GET
       op: load: transform: res: *("`body.channel`")|top
     }
+  }
+
+  entity: conversationslist: {
     path: "/conversations.list": {
       op: list: method: *GET
       op: list: transform: res: *("`body.channels`")|top

@@ -35,7 +35,7 @@
       "contributor": {},
       "docs": {},
       "entity": {
-        "channel": {
+        "conversationsinfo": {
           "active": true,
           "alias": {
             "field": {}
@@ -100,7 +100,115 @@
             "field": "id",
             "name": "id"
           },
-          "name": "channel",
+          "name": "conversationsinfo",
+          "op": {
+            "load": {
+              "input": "data",
+              "name": "load",
+              "points": [
+                {
+                  "active": true,
+                  "args": {
+                    "query": [
+                      {
+                        "active": true,
+                        "kind": "query",
+                        "name": "channel",
+                        "orig": "channel",
+                        "reqd": true,
+                        "type": "`$STRING`"
+                      }
+                    ]
+                  },
+                  "kind": "http",
+                  "method": "GET",
+                  "orig": "/conversations.info",
+                  "parts": [
+                    "conversations.info"
+                  ],
+                  "select": {
+                    "exist": [
+                      "channel"
+                    ]
+                  },
+                  "transform": {
+                    "req": "`reqdata`",
+                    "res": "`body.channel`"
+                  }
+                }
+              ]
+            }
+          },
+          "relations": {
+            "ancestors": []
+          }
+        },
+        "conversationslist": {
+          "active": true,
+          "alias": {
+            "field": {}
+          },
+          "fields": [
+            {
+              "active": true,
+              "name": "created",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "id",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "is_archived",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "is_channel",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "is_private",
+              "req": false,
+              "type": "`$BOOLEAN`"
+            },
+            {
+              "active": true,
+              "name": "name",
+              "req": false,
+              "type": "`$STRING`"
+            },
+            {
+              "active": true,
+              "name": "num_members",
+              "req": false,
+              "type": "`$INTEGER`"
+            },
+            {
+              "active": true,
+              "name": "purpose",
+              "req": false,
+              "type": "`$OBJECT`"
+            },
+            {
+              "active": true,
+              "name": "topic",
+              "req": false,
+              "type": "`$OBJECT`"
+            }
+          ],
+          "id": {
+            "field": "id",
+            "name": "id"
+          },
+          "name": "conversationslist",
           "op": {
             "list": {
               "input": "data",
@@ -143,42 +251,6 @@
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body.channels`"
-                  }
-                }
-              ]
-            },
-            "load": {
-              "input": "data",
-              "name": "load",
-              "points": [
-                {
-                  "active": true,
-                  "args": {
-                    "query": [
-                      {
-                        "active": true,
-                        "kind": "query",
-                        "name": "channel",
-                        "orig": "channel",
-                        "reqd": true,
-                        "type": "`$STRING`"
-                      }
-                    ]
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/conversations.info",
-                  "parts": [
-                    "conversations.info"
-                  ],
-                  "select": {
-                    "exist": [
-                      "channel"
-                    ]
-                  },
-                  "transform": {
-                    "req": "`reqdata`",
-                    "res": "`body.channel`"
                   }
                 }
               ]
@@ -268,12 +340,42 @@
         }
       },
       "flow": {
-        "BasicChannelFlow": {
+        "BasicConversationsinfoFlow": {
           "active": true,
-          "entity": "channel",
-          "key$": "BasicChannelFlow",
+          "entity": "conversationsinfo",
+          "key$": "BasicConversationsinfoFlow",
           "kind": "basic",
-          "name": "BasicChannelFlow",
+          "name": "BasicConversationsinfoFlow",
+          "param": {},
+          "step": [
+            {
+              "active": true,
+              "data": {},
+              "input": {
+                "ref": "conversationsinfo_ref01",
+                "srcdatavar": "conversationsinfo_ref01_data",
+                "suffix": "_dt0"
+              },
+              "match": {},
+              "op": "load",
+              "spec": [],
+              "valid": [
+                {
+                  "apply": "TextFieldMark",
+                  "def": {
+                    "mark": "Mark01-conversationsinfo_ref01"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "BasicConversationslistFlow": {
+          "active": true,
+          "entity": "conversationslist",
+          "key$": "BasicConversationslistFlow",
+          "kind": "basic",
+          "name": "BasicConversationslistFlow",
           "param": {},
           "step": [
             {
@@ -287,27 +389,7 @@
                 {
                   "apply": "ItemExists",
                   "def": {
-                    "ref": "channel_ref01"
-                  }
-                }
-              ]
-            },
-            {
-              "active": true,
-              "data": {},
-              "input": {
-                "ref": "channel_ref01",
-                "srcdatavar": "channel_ref01_data",
-                "suffix": "_dt0"
-              },
-              "match": {},
-              "op": "load",
-              "spec": [],
-              "valid": [
-                {
-                  "apply": "TextFieldMark",
-                  "def": {
-                    "mark": "Mark01-channel_ref01"
+                    "ref": "conversationslist_ref01"
                   }
                 }
               ]

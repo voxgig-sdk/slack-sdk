@@ -1,6 +1,6 @@
-# Entity: channel
+# Entity: conversationslist
 
-main: kit: entity: channel: {
+main: kit: entity: conversationslist: {
 
   alias: field: {}
 
@@ -57,7 +57,7 @@ main: kit: entity: channel: {
     name: "id"
   }
 
-  name: "channel"
+  name: "conversationslist"
   op: {
     list: {
       name: "list"
@@ -95,38 +95,6 @@ main: kit: entity: channel: {
           transform: {
             req: "`reqdata`"
             res: "`body.channels`"
-          }
-        }
-      ]
-    }
-    load: {
-      name: "load"
-      points: [
-        {
-          args: {
-            query: [
-              {
-                kind: "query"
-                name: "channel"
-                orig: "channel"
-                reqd: true
-                type: "`$STRING`"
-              }
-            ]
-          }
-          method: "GET"
-          orig: "/conversations.info"
-          parts: [
-            "conversations.info"
-          ]
-          select: {
-            exist: [
-              "channel"
-            ]
-          }
-          transform: {
-            req: "`reqdata`"
-            res: "`body.channel`"
           }
         }
       ]
