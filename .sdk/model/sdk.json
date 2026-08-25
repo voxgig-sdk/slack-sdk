@@ -1,15 +1,6 @@
 {
-  "NAME": "SLACK",
-  "Name": "Slack",
   "def": "slack-channels-only.json",
   "main": {
-    "api": {
-      "entity": {},
-      "guide": {}
-    },
-    "custom": {
-      "plurals": {}
-    },
     "def": {
       "desc": ""
     },
@@ -990,8 +981,5 @@
     }
   },
   "name": "slack",
-  "name-": "slack",
-  "name_": "slack",
-  "name__orig": "slack",
   "origin": "voxgig-sdk"
 }
