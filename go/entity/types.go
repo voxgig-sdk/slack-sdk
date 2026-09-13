@@ -27,15 +27,7 @@ type Conversationsinfo struct {
 
 // ConversationsinfoLoadMatch is the typed request payload for Conversationsinfo.LoadTyped.
 type ConversationsinfoLoadMatch struct {
-	Created *int `json:"created,omitempty"`
-	Id string `json:"id"`
-	IsArchived *bool `json:"is_archived,omitempty"`
-	IsChannel *bool `json:"is_channel,omitempty"`
-	IsPrivate *bool `json:"is_private,omitempty"`
-	Name *string `json:"name,omitempty"`
-	NumMembers *int `json:"num_members,omitempty"`
-	Purpose *map[string]any `json:"purpose,omitempty"`
-	Topic *map[string]any `json:"topic,omitempty"`
+	Channel string `json:"channel"`
 }
 
 // Conversationslist is the typed data model for the conversationslist entity.
@@ -53,15 +45,8 @@ type Conversationslist struct {
 
 // ConversationslistListMatch is the typed request payload for Conversationslist.ListTyped.
 type ConversationslistListMatch struct {
-	Created *int `json:"created,omitempty"`
-	Id *string `json:"id,omitempty"`
-	IsArchived *bool `json:"is_archived,omitempty"`
-	IsChannel *bool `json:"is_channel,omitempty"`
-	IsPrivate *bool `json:"is_private,omitempty"`
-	Name *string `json:"name,omitempty"`
-	NumMembers *int `json:"num_members,omitempty"`
-	Purpose *map[string]any `json:"purpose,omitempty"`
-	Topic *map[string]any `json:"topic,omitempty"`
+	Cursor *string `json:"cursor,omitempty"`
+	Limit *int `json:"limit,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

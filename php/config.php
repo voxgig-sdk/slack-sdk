@@ -98,6 +98,10 @@ class SlackConfig
               'type' => '`$OBJECT`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'conversationsinfo',
           'op' => [
             'load' => [
@@ -119,8 +123,10 @@ class SlackConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/conversations.info',
-                  'parts' => [
-                    'conversations.info',
+                  'segments' => [
+                    [
+                      'lit' => 'conversations.info',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -130,6 +136,9 @@ class SlackConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.channel`',
+                  ],
+                  'parts' => [
+                    'conversations.info',
                   ],
                 ],
               ],
@@ -178,6 +187,10 @@ class SlackConfig
               'type' => '`$OBJECT`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'conversationslist',
           'op' => [
             'list' => [
@@ -204,8 +217,10 @@ class SlackConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/conversations.list',
-                  'parts' => [
-                    'conversations.list',
+                  'segments' => [
+                    [
+                      'lit' => 'conversations.list',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -216,6 +231,9 @@ class SlackConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.channels`',
+                  ],
+                  'parts' => [
+                    'conversations.list',
                   ],
                 ],
               ],

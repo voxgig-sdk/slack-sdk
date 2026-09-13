@@ -72,6 +72,10 @@ local function make_config()
             ["type"] = "`$OBJECT`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "conversationsinfo",
         ["op"] = {
           ["load"] = {
@@ -93,8 +97,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/conversations.info",
-                ["parts"] = {
-                  "conversations.info",
+                ["segments"] = {
+                  {
+                    ["lit"] = "conversations.info",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -104,6 +110,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.channel`",
+                },
+                ["parts"] = {
+                  "conversations.info",
                 },
               },
             },
@@ -152,6 +161,10 @@ local function make_config()
             ["type"] = "`$OBJECT`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "conversationslist",
         ["op"] = {
           ["list"] = {
@@ -178,8 +191,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/conversations.list",
-                ["parts"] = {
-                  "conversations.list",
+                ["segments"] = {
+                  {
+                    ["lit"] = "conversations.list",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -190,6 +205,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.channels`",
+                },
+                ["parts"] = {
+                  "conversations.list",
                 },
               },
             },

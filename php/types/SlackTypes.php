@@ -29,15 +29,7 @@ class Conversationsinfo
 /** Request payload for Conversationsinfo#load. */
 class ConversationsinfoLoadMatch
 {
-    public ?int $created = null;
-    public string $id;
-    public ?bool $is_archived = null;
-    public ?bool $is_channel = null;
-    public ?bool $is_private = null;
-    public ?string $name = null;
-    public ?int $num_members = null;
-    public ?array $purpose = null;
-    public ?array $topic = null;
+    public string $channel;
 }
 
 /** Conversationslist entity data model. */
@@ -57,14 +49,7 @@ class Conversationslist
 /** Request payload for Conversationslist#list. */
 class ConversationslistListMatch
 {
-    public ?int $created = null;
-    public ?string $id = null;
-    public ?bool $is_archived = null;
-    public ?bool $is_channel = null;
-    public ?bool $is_private = null;
-    public ?string $name = null;
-    public ?int $num_members = null;
-    public ?array $purpose = null;
-    public ?array $topic = null;
+    public ?string $cursor = null;
+    public ?int $limit = null;
 }
 

@@ -28,19 +28,8 @@ class Conversationsinfo(TypedDict, total=False):
     topic: dict
 
 
-class ConversationsinfoLoadMatchRequired(TypedDict):
-    id: str
-
-
-class ConversationsinfoLoadMatch(ConversationsinfoLoadMatchRequired, total=False):
-    created: int
-    is_archived: bool
-    is_channel: bool
-    is_private: bool
-    name: str
-    num_members: int
-    purpose: dict
-    topic: dict
+class ConversationsinfoLoadMatch(TypedDict):
+    channel: str
 
 
 class Conversationslist(TypedDict, total=False):
@@ -56,12 +45,5 @@ class Conversationslist(TypedDict, total=False):
 
 
 class ConversationslistListMatch(TypedDict, total=False):
-    created: int
-    id: str
-    is_archived: bool
-    is_channel: bool
-    is_private: bool
-    name: str
-    num_members: int
-    purpose: dict
-    topic: dict
+    cursor: str
+    limit: int

@@ -58,15 +58,18 @@ def _conversationsinfo_direct_setup(mockres):
     env = runner.env_override({
         "SLACK_TEST_CONVERSATIONSINFO_ENTID": {},
         "SLACK_TEST_LIVE": "FALSE",
-        "SLACK_APIKEY": "NONE",
+        "SLACK_APIKEY": "",
     })
 
     live = env.get("SLACK_TEST_LIVE") == "TRUE"
 
     if live:
-        merged_opts = {
+        # sdk-test-control.json's test.client.options seeds the live
+        # client; the generated fields below overwrite anything they name.
+        merged_opts = dict(runner.live_client_options())
+        merged_opts.update({
             "apikey": env.get("SLACK_APIKEY"),
-        }
+        })
         client = SlackSDK(merged_opts)
         return {
             "client": client,

@@ -1,3 +1,4 @@
 /dist/
 /slack-cli
 /go-cli
+.jostraca/

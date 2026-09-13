@@ -21,15 +21,7 @@
 
 /**
  * @typedef {Object} ConversationsinfoLoadMatch
- * @property {number} [created]
- * @property {string} id
- * @property {boolean} [is_archived]
- * @property {boolean} [is_channel]
- * @property {boolean} [is_private]
- * @property {string} [name]
- * @property {number} [num_members]
- * @property {Object} [purpose]
- * @property {Object} [topic]
+ * @property {string} channel
  */
 
 /**
@@ -47,14 +39,7 @@
 
 /**
  * @typedef {Object} ConversationslistListMatch
- * @property {number} [created]
- * @property {string} [id]
- * @property {boolean} [is_archived]
- * @property {boolean} [is_channel]
- * @property {boolean} [is_private]
- * @property {string} [name]
- * @property {number} [num_members]
- * @property {Object} [purpose]
- * @property {Object} [topic]
+ * @property {string} [cursor]
+ * @property {number} [limit]
  */
 

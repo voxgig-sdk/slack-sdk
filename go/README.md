@@ -54,7 +54,7 @@ func main() {
     })
 
     // Load a single conversationsinfo — the value is the loaded record.
-    conversationsinfo, err := client.Conversationsinfo(nil).Load(map[string]any{"id": "example_id"}, nil)
+    conversationsinfo, err := client.Conversationsinfo(nil).Load(map[string]any{"channel": "example_channel"}, nil)
     if err != nil {
         panic(err)
     }
@@ -69,7 +69,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-conversationsinfo, err := client.Conversationsinfo(nil).Load(map[string]any{"id": "example_id"}, nil)
+conversationsinfo, err := client.Conversationsinfo(nil).Load(map[string]any{"channel": "example"}, nil)
 if err != nil {
     // handle err
     return
@@ -139,7 +139,7 @@ Create a mock client for unit testing — no server required:
 client := sdk.Test()
 
 conversationsinfo, err := client.Conversationsinfo(nil).Load(
-    map[string]any{"id": "test01"}, nil,
+    map[string]any{"channel": "example"}, nil,
 )
 if err != nil {
     panic(err)
@@ -253,7 +253,7 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    conversationsinfo, err := client.Conversationsinfo(nil).Load(map[string]any{"id": "example_id"}, nil)
+    conversationsinfo, err := client.Conversationsinfo(nil).Load(nil, nil)
     if err != nil { /* handle */ }
     // conversationsinfo is the returned record
 
@@ -330,7 +330,7 @@ Create an instance: `conversationsinfo := client.Conversationsinfo(nil)`
 #### Example: Load
 
 ```go
-conversationsinfo, err := client.Conversationsinfo(nil).Load(map[string]any{"id": "conversationsinfo_id"}, nil)
+conversationsinfo, err := client.Conversationsinfo(nil).Load(map[string]any{"channel": "channel"}, nil)
 if err != nil {
     panic(err)
 }
@@ -371,6 +371,29 @@ if err != nil {
 }
 fmt.Println(conversationslists) // the array of records
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -447,7 +470,7 @@ stores the returned data and match criteria internally.
 
 ```go
 conversationsinfo := client.Conversationsinfo(nil)
-conversationsinfo.Load(map[string]any{"id": "example_id"}, nil)
+conversationsinfo.Load(map[string]any{"channel": "example"}, nil)
 
 // conversationsinfo.Data() now returns the conversationsinfo data from the last load
 // conversationsinfo.Match() returns the last match criteria

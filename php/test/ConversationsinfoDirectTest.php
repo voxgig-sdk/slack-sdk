@@ -67,15 +67,17 @@ function conversationsinfo_direct_setup($mockres)
     $env = Runner::env_override([
         "SLACK_TEST_CONVERSATIONSINFO_ENTID" => [],
         "SLACK_TEST_LIVE" => "FALSE",
-        "SLACK_APIKEY" => "NONE",
+        "SLACK_APIKEY" => "",
     ]);
 
     $live = $env["SLACK_TEST_LIVE"] === "TRUE";
 
     if ($live) {
-        $merged_opts = [
+        // Merged so the generated fields win: sdk-test-control.json's
+        // test.client.options adds to the live client, it does not redirect it.
+        $merged_opts = array_merge(Runner::live_client_options(), [
             "apikey" => $env["SLACK_APIKEY"],
-        ];
+        ]);
         $client = new SlackSDK($merged_opts);
         return [
             "client" => $client,

@@ -76,8 +76,10 @@ main: kit: entity: conversationsinfo: {
           }
           method: "GET"
           orig: "/conversations.info"
-          parts: [
-            "conversations.info"
+          segments: [
+            {
+              lit: "conversations.info"
+            }
           ]
           select: {
             exist: [

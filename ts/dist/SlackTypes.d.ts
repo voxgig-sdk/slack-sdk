@@ -10,15 +10,7 @@ export interface Conversationsinfo {
     topic?: Record<string, any>;
 }
 export interface ConversationsinfoLoadMatch {
-    created?: number;
-    id: string;
-    is_archived?: boolean;
-    is_channel?: boolean;
-    is_private?: boolean;
-    name?: string;
-    num_members?: number;
-    purpose?: Record<string, any>;
-    topic?: Record<string, any>;
+    channel: string;
 }
 export interface Conversationslist {
     created?: number;
@@ -32,13 +24,6 @@ export interface Conversationslist {
     topic?: Record<string, any>;
 }
 export interface ConversationslistListMatch {
-    created?: number;
-    id?: string;
-    is_archived?: boolean;
-    is_channel?: boolean;
-    is_private?: boolean;
-    name?: string;
-    num_members?: number;
-    purpose?: Record<string, any>;
-    topic?: Record<string, any>;
+    cursor?: string;
+    limit?: number;
 }

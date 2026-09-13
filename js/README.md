@@ -36,7 +36,7 @@ const client = new SlackSDK({
 ### Load a Conversationsinfo
 
 ```js
-const conversationsinfo = await client.Conversationsinfo().load({ id: 'conversationsinfo_id' })
+const conversationsinfo = await client.Conversationsinfo().load({ channel: 'example_channel' })
 console.log(conversationsinfo)
 ```
 
@@ -63,7 +63,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const conversationsinfo = await client.Conversationsinfo().load({ id: "example_id" })
+  const conversationsinfo = await client.Conversationsinfo().load({ channel: "example" })
   console.log(conversationsinfo)
 } catch (err) {
   console.error('load failed:', err)
@@ -130,7 +130,7 @@ Create a mock client for unit testing — no server required:
 ```js
 const client = SlackSDK.test()
 
-const conversationsinfo = await client.Conversationsinfo().load({ id: 'test01' })
+const conversationsinfo = await client.Conversationsinfo().load({ channel: 'example_channel' })
 // conversationsinfo is the entity, populated with mock response data
 // — call conversationsinfo.data() for the record itself
 console.log(conversationsinfo)
@@ -151,7 +151,7 @@ Entity instances remember their last match and data:
 const entity = client.Conversationsinfo()
 
 // First call runs the operation and stores its result
-await entity.load({ id: 'example' })
+await entity.load({ channel: 'example_channel' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -360,7 +360,7 @@ Create an instance: `const conversationsinfo = client.Conversationsinfo()`
 #### Example: Load
 
 ```ts
-const conversationsinfo = await client.Conversationsinfo().load({ id: 'conversationsinfo_id' })
+const conversationsinfo = await client.Conversationsinfo().load({ channel: 'channel' })
 ```
 
 
@@ -393,6 +393,29 @@ Create an instance: `const conversationslist = client.Conversationslist()`
 ```ts
 const conversationslists = await client.Conversationslist().list()
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -464,10 +487,10 @@ calls on the same instance can rely on this state.
 
 ```ts
 const conversationsinfo = client.Conversationsinfo()
-await conversationsinfo.load({ id: "example_id" })
+await conversationsinfo.load({ channel: "example" })
 
 // conversationsinfo.data() now returns the conversationsinfo data from the last `load`
-// conversationsinfo.match() returns { id: "example_id" }
+// conversationsinfo.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

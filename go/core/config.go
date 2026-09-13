@@ -76,6 +76,10 @@ func MakeConfig() map[string]any {
 						"type": "`$OBJECT`",
 					},
 				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
+				},
 				"name": "conversationsinfo",
 				"op": map[string]any{
 					"load": map[string]any{
@@ -97,8 +101,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/conversations.info",
-								"parts": []any{
-									"conversations.info",
+								"segments": []any{
+									map[string]any{
+										"lit": "conversations.info",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -108,6 +114,9 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.channel`",
+								},
+								"parts": []any{
+									"conversations.info",
 								},
 							},
 						},
@@ -156,6 +165,10 @@ func MakeConfig() map[string]any {
 						"type": "`$OBJECT`",
 					},
 				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
+				},
 				"name": "conversationslist",
 				"op": map[string]any{
 					"list": map[string]any{
@@ -182,8 +195,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/conversations.list",
-								"parts": []any{
-									"conversations.list",
+								"segments": []any{
+									map[string]any{
+										"lit": "conversations.list",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -195,6 +210,9 @@ func MakeConfig() map[string]any {
 									"req": "`reqdata`",
 									"res": "`body.channels`",
 								},
+								"parts": []any{
+									"conversations.list",
+								},
 							},
 						},
 					},
@@ -205,6 +223,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

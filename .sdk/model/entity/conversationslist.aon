@@ -83,8 +83,10 @@ main: kit: entity: conversationslist: {
           }
           method: "GET"
           orig: "/conversations.list"
-          parts: [
-            "conversations.list"
+          segments: [
+            {
+              lit: "conversations.list"
+            }
           ]
           select: {
             exist: [

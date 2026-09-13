@@ -18,15 +18,7 @@
 ---@field topic? table
 
 ---@class ConversationsinfoLoadMatch
----@field created? number
----@field id string
----@field is_archived? boolean
----@field is_channel? boolean
----@field is_private? boolean
----@field name? string
----@field num_members? number
----@field purpose? table
----@field topic? table
+---@field channel string
 
 ---@class Conversationslist
 ---@field created? number
@@ -40,15 +32,8 @@
 ---@field topic? table
 
 ---@class ConversationslistListMatch
----@field created? number
----@field id? string
----@field is_archived? boolean
----@field is_channel? boolean
----@field is_private? boolean
----@field name? string
----@field num_members? number
----@field purpose? table
----@field topic? table
+---@field cursor? string
+---@field limit? number
 
 local M = {}
 

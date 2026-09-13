@@ -38,7 +38,7 @@ local client = sdk.new({
 ### 3. Load a conversationsinfo
 
 ```lua
-local conversationsinfo, err = client:Conversationsinfo():load({ id = "example_id" })
+local conversationsinfo, err = client:Conversationsinfo():load({ channel = "example_channel" })
 if err then error(err) end
 print(conversationsinfo)
 ```
@@ -50,7 +50,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local conversationsinfo, err = client:Conversationsinfo():load({ id = "example_id" })
+local conversationsinfo, err = client:Conversationsinfo():load({ channel = "example" })
 if err then error(err) end
 ```
 
@@ -108,7 +108,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Conversationsinfo():load({ id = "test01" })
+local result, err = client:Conversationsinfo():load({ channel = "example" })
 -- result is the returned data; err is set on failure
 ```
 
@@ -219,7 +219,7 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local conversationsinfo, err = client:Conversationsinfo():load({ id = "example_id" })
+    local conversationsinfo, err = client:Conversationsinfo():load()
     if err then error(err) end
     -- conversationsinfo is the loaded record
 
@@ -296,7 +296,7 @@ Create an instance: `local conversationsinfo = client:Conversationsinfo(nil)`
 #### Example: Load
 
 ```lua
-local conversationsinfo, err = client:Conversationsinfo():load({ id = "conversationsinfo_id" })
+local conversationsinfo, err = client:Conversationsinfo():load({ channel = "channel" })
 ```
 
 
@@ -329,6 +329,29 @@ Create an instance: `local conversationslist = client:Conversationslist(nil)`
 ```lua
 local conversationslists, err = client:Conversationslist():list()
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -408,7 +431,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local conversationsinfo = client:Conversationsinfo()
-conversationsinfo:load({ id = "example_id" })
+conversationsinfo:load({ channel = "example" })
 
 -- conversationsinfo:data_get() now returns the conversationsinfo data from the last load
 -- conversationsinfo:match_get() returns the last match criteria

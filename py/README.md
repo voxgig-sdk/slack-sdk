@@ -45,7 +45,7 @@ client = SlackSDK({
 
 ```python
 try:
-    conversationsinfo = client.Conversationsinfo().load({"id": "example_id"})
+    conversationsinfo = client.Conversationsinfo().load({"channel": "example_channel"})
     print(conversationsinfo)
 except Exception as err:
     print(f"load failed: {err}")
@@ -58,7 +58,7 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    conversationsinfo = client.Conversationsinfo().load({"id": "example_id"})
+    conversationsinfo = client.Conversationsinfo().load({"channel": "example"})
     print(conversationsinfo)
 except Exception as err:
     print(f"load failed: {err}")
@@ -127,7 +127,7 @@ client = SlackSDK.test()
 
 # Entity ops return the ENTITY and raises on error;
 # call data_get() for the record.
-conversationsinfo = client.Conversationsinfo().load({"id": "test01"})
+conversationsinfo = client.Conversationsinfo().load({"channel": "example"})
 # conversationsinfo contains the mock response record
 ```
 
@@ -312,7 +312,7 @@ Create an instance: `conversationsinfo = client.Conversationsinfo()`
 #### Example: Load
 
 ```python
-conversationsinfo = client.Conversationsinfo().load({"id": "conversationsinfo_id"})
+conversationsinfo = client.Conversationsinfo().load({"channel": "channel"})
 ```
 
 
@@ -345,6 +345,29 @@ Create an instance: `conversationslist = client.Conversationslist()`
 ```python
 conversationslists = client.Conversationslist().list()
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -423,7 +446,7 @@ stores the returned data and match criteria internally.
 
 ```python
 conversationsinfo = client.Conversationsinfo()
-conversationsinfo.load({"id": "example_id"})
+conversationsinfo.load({"channel": "example"})
 
 # conversationsinfo.data_get() now returns the conversationsinfo data from the last load
 # conversationsinfo.match_get() returns the last match criteria
