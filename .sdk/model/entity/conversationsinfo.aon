@@ -74,6 +74,12 @@ main: kit: entity: conversationsinfo: {
               }
             ]
           }
+          contract: {
+            id: "GET /conversations.info"
+            json: "{\"operationId\":\"getChannel\",\"parameters\":[{\"in\":\"query\",\"name\":\"channel\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"channel\":{\"properties\":{\"created\":{\"type\":\"integer\"},\"id\":{\"type\":\"string\"},\"is_archived\":{\"type\":\"boolean\"},\"is_channel\":{\"type\":\"boolean\"},\"is_private\":{\"type\":\"boolean\"},\"name\":{\"type\":\"string\"},\"num_members\":{\"type\":\"integer\"},\"purpose\":{\"type\":\"object\"},\"topic\":{\"type\":\"object\"}},\"type\":\"object\"},\"ok\":{\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"The requested channel\"}},\"security\":[{\"bearerAuth\":[]}],\"securitySchemes\":{\"bearerAuth\":{\"scheme\":\"bearer\",\"type\":\"http\"}},\"securitySource\":\"definition\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/conversations.info"
           segments: [

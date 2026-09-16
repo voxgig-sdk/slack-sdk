@@ -4,7 +4,14 @@ declare(strict_types=1);
 // Slack SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/DebugFeature.php';
+require_once __DIR__ . '/feature/IdempotencyFeature.php';
+require_once __DIR__ . '/feature/MetricsFeature.php';
+require_once __DIR__ . '/feature/PagingFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class SlackFeatures
@@ -14,8 +21,22 @@ class SlackFeatures
         switch ($name) {
             case "base":
                 return new SlackBaseFeature();
+            case "debug":
+                return new SlackDebugFeature();
+            case "idempotency":
+                return new SlackIdempotencyFeature();
+            case "metrics":
+                return new SlackMetricsFeature();
+            case "paging":
+                return new SlackPagingFeature();
+            case "ratelimit":
+                return new SlackRatelimitFeature();
+            case "retry":
+                return new SlackRetryFeature();
             case "test":
                 return new SlackTestFeature();
+            case "timeout":
+                return new SlackTimeoutFeature();
             default:
                 return new SlackBaseFeature();
         }
@@ -31,7 +52,14 @@ class SlackFeatures
     {
         switch ($name) {
             case "base":
+            case "debug":
+            case "idempotency":
+            case "metrics":
+            case "paging":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

@@ -81,6 +81,12 @@ main: kit: entity: conversationslist: {
               }
             ]
           }
+          contract: {
+            id: "GET /conversations.list"
+            json: "{\"operationId\":\"listChannels\",\"parameters\":[{\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"type\":\"integer\"}},{\"in\":\"query\",\"name\":\"cursor\",\"required\":false,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"channels\":{\"items\":{\"properties\":{\"created\":{\"type\":\"integer\"},\"id\":{\"type\":\"string\"},\"is_archived\":{\"type\":\"boolean\"},\"is_channel\":{\"type\":\"boolean\"},\"is_private\":{\"type\":\"boolean\"},\"name\":{\"type\":\"string\"},\"num_members\":{\"type\":\"integer\"},\"purpose\":{\"type\":\"object\"},\"topic\":{\"type\":\"object\"}},\"type\":\"object\"},\"type\":\"array\"},\"ok\":{\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"Channels\"}},\"security\":[{\"bearerAuth\":[]}],\"securitySchemes\":{\"bearerAuth\":{\"scheme\":\"bearer\",\"type\":\"http\"}},\"securitySource\":\"definition\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/conversations.list"
           segments: [

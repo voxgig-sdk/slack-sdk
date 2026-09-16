@@ -1,12 +1,14 @@
 
 const envlocal = __dirname + '/../../../.env.local'
-require('dotenv').config({ quiet: true, path: [envlocal] })
+require('../../utility').loadEnvLocal(envlocal)
 
 const Path = require('node:path')
 const Fs = require('node:fs')
 
 const { test, describe, afterEach } = require('node:test')
 const assert = require('node:assert')
+const { createLiveTransport } = require('../../live-runner')
+const { runLiveEntity } = require('../../live-entity')
 
 
 const { SlackSDK, BaseFeature, stdutil, config } = require('../../..')
@@ -36,9 +38,13 @@ describe('ConversationsinfoEntity', async () => {
   })
 
 
-  test('basic', async () => {
+  test('basic', async (t) => {
 
+    
     const setup = basicSetup()
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"created","req":false,"type":"`$INTEGER`","index$":0},{"active":true,"name":"id","req":false,"type":"`$STRING`","index$":1},{"active":true,"name":"is_archived","req":false,"type":"`$BOOLEAN`","index$":2},{"active":true,"name":"is_channel","req":false,"type":"`$BOOLEAN`","index$":3},{"active":true,"name":"is_private","req":false,"type":"`$BOOLEAN`","index$":4},{"active":true,"name":"name","req":false,"type":"`$STRING`","index$":5},{"active":true,"name":"num_members","req":false,"type":"`$INTEGER`","index$":6},{"active":true,"name":"purpose","req":false,"type":"`$OBJECT`","index$":7},{"active":true,"name":"topic","req":false,"type":"`$OBJECT`","index$":8}],"id":{"field":"id","name":"id"},"name":"conversationsinfo","op":{"load":{"input":"data","name":"load","points":[{"active":true,"args":{"query":[{"active":true,"kind":"query","name":"channel","orig":"channel","reqd":true,"type":"`$STRING`","index$":0}]},"contract":{"id":"GET /conversations.info","json":"{\"operationId\":\"getChannel\",\"parameters\":[{\"in\":\"query\",\"name\":\"channel\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"channel\":{\"properties\":{\"created\":{\"type\":\"integer\"},\"id\":{\"type\":\"string\"},\"is_archived\":{\"type\":\"boolean\"},\"is_channel\":{\"type\":\"boolean\"},\"is_private\":{\"type\":\"boolean\"},\"name\":{\"type\":\"string\"},\"num_members\":{\"type\":\"integer\"},\"purpose\":{\"type\":\"object\"},\"topic\":{\"type\":\"object\"}},\"type\":\"object\"},\"ok\":{\"type\":\"boolean\"}},\"type\":\"object\"}}},\"description\":\"The requested channel\"}},\"security\":[{\"bearerAuth\":[]}],\"securitySchemes\":{\"bearerAuth\":{\"scheme\":\"bearer\",\"type\":\"http\"}},\"securitySource\":\"definition\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/conversations.info","segments":[{"lit":"conversations.info"}],"select":{"exist":["channel"]},"transform":{"req":"`reqdata`","res":"`body.channel`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"conversationsinfo","name__orig":"conversationsinfo","Name":"Conversationsinfo","name_":"conversationsinfo","name-":"conversationsinfo","NAME":"CONVERSATIONSINFO","index$":0}, {"active":true,"entity":"conversationsinfo","key$":"BasicConversationsinfoFlow","kind":"basic","name":"BasicConversationsinfoFlow","param":{},"step":[{"active":true,"data":{},"input":{"ref":"conversationsinfo_ref01","srcdatavar":"conversationsinfo_ref01_data","suffix":"_dt0"},"match":{},"op":"load","spec":[],"valid":[{"apply":"TextFieldMark","def":{"mark":"Mark01-conversationsinfo_ref01"}}],"index$":0}]}, 'Conversationsinfo')
+    }
     const client = setup.client
     const struct = setup.struct
 
@@ -100,7 +106,14 @@ function basicSetup(extra) {
 
   idmap = env['SLACK_TEST_CONVERSATIONSINFO_ENTID']
 
-  if ('TRUE' === env.SLACK_TEST_LIVE) {
+  const live = 'TRUE' === env.SLACK_TEST_LIVE
+  const transport = createLiveTransport()
+  if (live) {
+    const rawIds = process.env['SLACK_TEST_CONVERSATIONSINFO_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new SlackSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -112,7 +125,8 @@ function basicSetup(extra) {
       // the last entry is undefined, and basicSetup is normally called with no
       // argument at all - so a bare 'extra' silently discarded the apikey and
       // server values above and handed the SDK undefined.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -124,6 +138,8 @@ function basicSetup(extra) {
     struct,
     data: entityData,
     explain: 'TRUE' === env.SLACK_TEST_EXPLAIN,
+    live,
+    transport,
     now: Date.now(),
   }
 
