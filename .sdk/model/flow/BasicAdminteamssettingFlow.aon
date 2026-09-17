@@ -1,0 +1,36 @@
+# BasicAdminteamssettingFlow
+
+main: kit: flow: BasicAdminteamssettingFlow:
+{
+  entity: "adminteamssetting",
+  kind: "basic",
+  name: "BasicAdminteamssettingFlow",
+  step: [
+    {
+      input: {
+        ref: "adminteamssetting_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "adminteamssetting_ref01",
+        srcdatavar: "adminteamssetting_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-adminteamssetting_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAdminteamssettingFlow"
+}

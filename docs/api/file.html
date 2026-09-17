@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>File | Slack Web API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Slack Web API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/slack-sdk">voxgig-sdk/slack-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Slack Web API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/adminapp.html">Adminapp</a>
+<a href="../api/adminappsapproved.html">Adminappsapproved</a>
+<a href="../api/adminappsrequest.html">Adminappsrequest</a>
+<a href="../api/adminappsrestricted.html">Adminappsrestricted</a>
+<a href="../api/adminconversation.html">Adminconversation</a>
+<a href="../api/adminconversationsekm.html">Adminconversationsekm</a>
+<a href="../api/adminconversationsrestrict_access.html">AdminconversationsrestrictAccess</a>
+<a href="../api/adminemoji.html">Adminemoji</a>
+<a href="../api/admininvite_request.html">AdmininviteRequest</a>
+<a href="../api/admininvite_requestsapproved.html">AdmininviteRequestsapproved</a>
+<a href="../api/admininvite_requestsdenied.html">AdmininviteRequestsdenied</a>
+<a href="../api/adminteam.html">Adminteam</a>
+<a href="../api/adminteamsadmin.html">Adminteamsadmin</a>
+<a href="../api/adminteamsowner.html">Adminteamsowner</a>
+<a href="../api/adminteamssetting.html">Adminteamssetting</a>
+<a href="../api/adminuser.html">Adminuser</a>
+<a href="../api/adminusergroup.html">Adminusergroup</a>
+<a href="../api/adminuserssession.html">Adminuserssession</a>
+<a href="../api/api.html">Api</a>
+<a href="../api/app.html">App</a>
+<a href="../api/appseventauthorization.html">Appseventauthorization</a>
+<a href="../api/appspermission.html">Appspermission</a>
+<a href="../api/appspermissionsresource.html">Appspermissionsresource</a>
+<a href="../api/appspermissionsscope.html">Appspermissionsscope</a>
+<a href="../api/appspermissionsuser.html">Appspermissionsuser</a>
+<a href="../api/auth.html">Auth</a>
+<a href="../api/bot.html">Bot</a>
+<a href="../api/call.html">Call</a>
+<a href="../api/callsparticipant.html">Callsparticipant</a>
+<a href="../api/chat.html">Chat</a>
+<a href="../api/chatscheduled_message.html">ChatscheduledMessage</a>
+<a href="../api/conversation.html">Conversation</a>
+<a href="../api/dialog.html">Dialog</a>
+<a href="../api/dnd.html">Dnd</a>
+<a href="../api/emoji.html">Emoji</a>
+<a aria-current="page" href="../api/file.html">File</a><div class="nav-sections"><a class="nav-section" href="#post-filesupload">POST /files.upload</a>
+<a class="nav-section" href="#post-filesdelete">POST /files.delete</a>
+<a class="nav-section" href="#post-filesrevokepublicurl">POST /files.revokePublicURL</a>
+<a class="nav-section" href="#post-filessharedpublicurl">POST /files.sharedPublicURL</a>
+<a class="nav-section" href="#get-fileslist">GET /files.list</a>
+<a class="nav-section" href="#get-filesinfo">GET /files.info</a></div>
+<a href="../api/filescomment.html">Filescomment</a>
+<a href="../api/filesremote.html">Filesremote</a>
+<a href="../api/migration.html">Migration</a>
+<a href="../api/oauth.html">Oauth</a>
+<a href="../api/oauthv2.html">Oauthv2</a>
+<a href="../api/pin.html">Pin</a>
+<a href="../api/reaction.html">Reaction</a>
+<a href="../api/reminder.html">Reminder</a>
+<a href="../api/rtm.html">Rtm</a>
+<a href="../api/search.html">Search</a>
+<a href="../api/star.html">Star</a>
+<a href="../api/team.html">Team</a>
+<a href="../api/teamprofile.html">Teamprofile</a>
+<a href="../api/user.html">User</a>
+<a href="../api/usergroup.html">Usergroup</a>
+<a href="../api/usergroupsuser.html">Usergroupsuser</a>
+<a href="../api/usersprofile.html">Usersprofile</a>
+<a href="../api/view.html">View</a>
+<a href="../api/workflow.html">Workflow</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/js.html">JavaScript</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Request/response capture ring buffer for debugging</a>
+<a href="../features/idempotency.html">Idempotency keys for safe retries of mutating operations</a>
+<a href="../features/metrics.html">Statistics capture: per-operation counters and latency</a>
+<a href="../features/paging.html">Pagination signals for list operations</a>
+<a href="../features/ratelimit.html">Client-side rate limiting via a token bucket</a>
+<a href="../features/retry.html">Automatic retry of transient failures with exponential backoff</a>
+<a href="../features/test.html">In-memory mock transport for testing without a live server</a>
+<a href="../features/timeout.html">Per-request timeout with transport abort</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="file">File</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-filesupload"><code>/files.upload</code></a></td>
+<td><code>create</code></td>
+<td>Success response after uploading a file to a channel with an initial message</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-filesdelete"><code>/files.delete</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-filesrevokepublicurl"><code>/files.revokePublicURL</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-filessharedpublicurl"><code>/files.sharedPublicURL</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-fileslist"><code>/files.list</code></a></td>
+<td><code>list</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-filesinfo"><code>/files.info</code></a></td>
+<td><code>list</code></td>
+<td>Typical success response</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>channels</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>comments</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>comments_count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>content_html</code></td>
+<td><code>null</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>date_delete</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>display_as_bot</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>editable</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>editor</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>external_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>external_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>external_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>file</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>filetype</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>groups</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>has_rich_preview</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>image_exif_rotation</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ims</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_external</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_public</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_starred</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_tombstoned</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>last_editor</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>mimetype</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>mode</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>non_owner_editable</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>num_stars</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ok</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>original_h</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>original_w</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>paging</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permalink</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permalink_public</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pinned_info</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pinned_to</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pretty_type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>preview</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>public_url_shared</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>reactions</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>response_metadata</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>shares</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>source_team</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_1024</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_1024_h</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_1024_w</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_160</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_360</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_360_h</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_360_w</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_480</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_480_h</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_480_w</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_64</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_720</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_720_h</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_720_w</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_80</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_800</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_800_h</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_800_w</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_960</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_960_h</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_960_w</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thumb_tiny</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>url_private</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>url_private_download</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user_team</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>username</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-filesupload" class="operation" data-method="post"><code>POST</code> /files.upload</h3>
+<p>Operation ID: <code>files_upload</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>formData</code> | <code>any</code> | No | Authentication token. Requires scope: <code>files:write:user</code> |
+| <code>file</code> | <code>formData</code> | <code>any</code> | No | File contents via <code>multipart/form-data</code>. If omitting this parameter, you must submit <code>content</code>. |
+| <code>content</code> | <code>formData</code> | <code>any</code> | No | File contents via a POST variable. If omitting this parameter, you must provide a <code>file</code>. |
+| <code>filetype</code> | <code>formData</code> | <code>any</code> | No | A <a href="/types/file#file_types">file type</a> identifier. |
+| <code>filename</code> | <code>formData</code> | <code>any</code> | No | Filename of file. |
+| <code>title</code> | <code>formData</code> | <code>any</code> | No | Title of file. |
+| <code>initial_comment</code> | <code>formData</code> | <code>any</code> | No | The message text introducing the file in specified <code>channels</code>. |
+| <code>channels</code> | <code>formData</code> | <code>any</code> | No | Comma-separated list of channel names or IDs where the file will be shared. |
+| <code>thread_ts</code> | <code>formData</code> | <code>any</code> | No | Provide another message's <code>ts</code> value to upload this file as a reply. Never use a reply's <code>ts</code> value; use its parent instead. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-success-response-after-uploading-a-file-to-a-channel-with-an-initial-message" class="status" data-status="2xx">200: Success response after uploading a file to a channel with an initial message</h5>
+<h5 id="default-typical-error-response">default: Typical error response</h5>
+<h3 id="post-filesdelete" class="operation" data-method="post"><code>POST</code> /files.delete</h3>
+<p>Operation ID: <code>files_delete</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | No | Authentication token. Requires scope: <code>files:write:user</code> |
+| <code>file</code> | <code>formData</code> | <code>any</code> | No | ID of file to delete. |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-typical-success-response" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-1">default: Typical error response</h5>
+<h3 id="post-filesrevokepublicurl" class="operation" data-method="post"><code>POST</code> /files.revokePublicURL</h3>
+<p>Operation ID: <code>files_revokePublicURL</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | No | Authentication token. Requires scope: <code>files:write:user</code> |
+| <code>file</code> | <code>formData</code> | <code>any</code> | No | File to revoke |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-typical-success-response-1" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-2">default: Typical error response</h5>
+<h3 id="post-filessharedpublicurl" class="operation" data-method="post"><code>POST</code> /files.sharedPublicURL</h3>
+<p>Operation ID: <code>files_sharedPublicURL</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | No | Authentication token. Requires scope: <code>files:write:user</code> |
+| <code>file</code> | <code>formData</code> | <code>any</code> | No | File to share |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-typical-success-response-2" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-3">default: Typical error response</h5>
+<h2 id="list">list</h2>
+<h3 id="get-fileslist" class="operation" data-method="get"><code>GET</code> /files.list</h3>
+<p>Operation ID: <code>files_list</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>query</code> | <code>any</code> | No | Authentication token. Requires scope: <code>files:read</code> |
+| <code>user</code> | <code>query</code> | <code>any</code> | No | Filter files created by a single user. |
+| <code>channel</code> | <code>query</code> | <code>any</code> | No | Filter files appearing in a specific channel, indicated by its ID. |
+| <code>ts_from</code> | <code>query</code> | <code>any</code> | No | Filter files created after this timestamp (inclusive). |
+| <code>ts_to</code> | <code>query</code> | <code>any</code> | No | Filter files created before this timestamp (inclusive). |
+| <code>types</code> | <code>query</code> | <code>any</code> | No | Filter files by type (<a href="#file_types">see below</a>). You can pass multiple values in the types argument, like <code>types=spaces,snippets</code>.The default value is <code>all</code>, which does not filter the list. |
+| <code>count</code> | <code>query</code> | <code>any</code> | No |  |
+| <code>page</code> | <code>query</code> | <code>any</code> | No |  |
+| <code>show_files_hidden_by_limit</code> | <code>query</code> | <code>any</code> | No | Show truncated file info for files hidden due to being too old, and the team who owns the file being over the file limit. |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-typical-success-response-3" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-4">default: Typical error response</h5>
+<h3 id="get-filesinfo" class="operation" data-method="get"><code>GET</code> /files.info</h3>
+<p>Operation ID: <code>files_info</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>query</code> | <code>any</code> | No | Authentication token. Requires scope: <code>files:read</code> |
+| <code>file</code> | <code>query</code> | <code>any</code> | No | Specify a file by providing its ID. |
+| <code>count</code> | <code>query</code> | <code>any</code> | No |  |
+| <code>page</code> | <code>query</code> | <code>any</code> | No |  |
+| <code>limit</code> | <code>query</code> | <code>any</code> | No | The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached. |
+| <code>cursor</code> | <code>query</code> | <code>any</code> | No | Parameter for pagination. File comments are paginated for a single file. Set <code>cursor</code> equal to the <code>next_cursor</code> attribute returned by the previous request's <code>response_metadata</code>. This parameter is optional, but pagination is mandatory: the default value simply fetches the first &quot;page&quot; of the collection of comments. See <a href="/docs/pagination">pagination</a> for more details. |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-typical-success-response-4" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-5">default: Typical error response</h5>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

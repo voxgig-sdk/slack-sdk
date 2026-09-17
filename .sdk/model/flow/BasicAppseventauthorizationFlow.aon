@@ -1,0 +1,28 @@
+# BasicAppseventauthorizationFlow
+
+main: kit: flow: BasicAppseventauthorizationFlow:
+{
+  entity: "appseventauthorization",
+  kind: "basic",
+  name: "BasicAppseventauthorizationFlow",
+  step: [
+    {
+      input: {
+        ref: "appseventauthorization_ref01",
+        srcdatavar: "appseventauthorization_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-appseventauthorization_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAppseventauthorizationFlow"
+}

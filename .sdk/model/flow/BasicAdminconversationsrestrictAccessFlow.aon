@@ -1,0 +1,36 @@
+# BasicAdminconversationsrestrictAccessFlow
+
+main: kit: flow: BasicAdminconversationsrestrictAccessFlow:
+{
+  entity: "adminconversationsrestrict_access",
+  kind: "basic",
+  name: "BasicAdminconversationsrestrictAccessFlow",
+  step: [
+    {
+      input: {
+        ref: "adminconversationsrestrict_access_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "adminconversationsrestrict_access_ref01",
+        srcdatavar: "adminconversationsrestrict_access_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-adminconversationsrestrict_access_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAdminconversationsrestrictAccessFlow"
+}

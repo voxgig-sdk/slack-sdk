@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>User | Slack Web API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Slack Web API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/slack-sdk">voxgig-sdk/slack-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Slack Web API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/adminapp.html">Adminapp</a>
+<a href="../api/adminappsapproved.html">Adminappsapproved</a>
+<a href="../api/adminappsrequest.html">Adminappsrequest</a>
+<a href="../api/adminappsrestricted.html">Adminappsrestricted</a>
+<a href="../api/adminconversation.html">Adminconversation</a>
+<a href="../api/adminconversationsekm.html">Adminconversationsekm</a>
+<a href="../api/adminconversationsrestrict_access.html">AdminconversationsrestrictAccess</a>
+<a href="../api/adminemoji.html">Adminemoji</a>
+<a href="../api/admininvite_request.html">AdmininviteRequest</a>
+<a href="../api/admininvite_requestsapproved.html">AdmininviteRequestsapproved</a>
+<a href="../api/admininvite_requestsdenied.html">AdmininviteRequestsdenied</a>
+<a href="../api/adminteam.html">Adminteam</a>
+<a href="../api/adminteamsadmin.html">Adminteamsadmin</a>
+<a href="../api/adminteamsowner.html">Adminteamsowner</a>
+<a href="../api/adminteamssetting.html">Adminteamssetting</a>
+<a href="../api/adminuser.html">Adminuser</a>
+<a href="../api/adminusergroup.html">Adminusergroup</a>
+<a href="../api/adminuserssession.html">Adminuserssession</a>
+<a href="../api/api.html">Api</a>
+<a href="../api/app.html">App</a>
+<a href="../api/appseventauthorization.html">Appseventauthorization</a>
+<a href="../api/appspermission.html">Appspermission</a>
+<a href="../api/appspermissionsresource.html">Appspermissionsresource</a>
+<a href="../api/appspermissionsscope.html">Appspermissionsscope</a>
+<a href="../api/appspermissionsuser.html">Appspermissionsuser</a>
+<a href="../api/auth.html">Auth</a>
+<a href="../api/bot.html">Bot</a>
+<a href="../api/call.html">Call</a>
+<a href="../api/callsparticipant.html">Callsparticipant</a>
+<a href="../api/chat.html">Chat</a>
+<a href="../api/chatscheduled_message.html">ChatscheduledMessage</a>
+<a href="../api/conversation.html">Conversation</a>
+<a href="../api/dialog.html">Dialog</a>
+<a href="../api/dnd.html">Dnd</a>
+<a href="../api/emoji.html">Emoji</a>
+<a href="../api/file.html">File</a>
+<a href="../api/filescomment.html">Filescomment</a>
+<a href="../api/filesremote.html">Filesremote</a>
+<a href="../api/migration.html">Migration</a>
+<a href="../api/oauth.html">Oauth</a>
+<a href="../api/oauthv2.html">Oauthv2</a>
+<a href="../api/pin.html">Pin</a>
+<a href="../api/reaction.html">Reaction</a>
+<a href="../api/reminder.html">Reminder</a>
+<a href="../api/rtm.html">Rtm</a>
+<a href="../api/search.html">Search</a>
+<a href="../api/star.html">Star</a>
+<a href="../api/team.html">Team</a>
+<a href="../api/teamprofile.html">Teamprofile</a>
+<a aria-current="page" href="../api/user.html">User</a><div class="nav-sections"><a class="nav-section" href="#post-userssetphoto">POST /users.setPhoto</a>
+<a class="nav-section" href="#post-userssetpresence">POST /users.setPresence</a>
+<a class="nav-section" href="#post-usersdeletephoto">POST /users.deletePhoto</a>
+<a class="nav-section" href="#post-userssetactive">POST /users.setActive</a>
+<a class="nav-section" href="#get-usersconversations">GET /users.conversations</a>
+<a class="nav-section" href="#get-userslist">GET /users.list</a>
+<a class="nav-section" href="#get-usersinfo">GET /users.info</a>
+<a class="nav-section" href="#get-userslookupbyemail">GET /users.lookupByEmail</a>
+<a class="nav-section" href="#get-usersgetpresence">GET /users.getPresence</a>
+<a class="nav-section" href="#get-usersidentity">GET /users.identity</a></div>
+<a href="../api/usergroup.html">Usergroup</a>
+<a href="../api/usergroupsuser.html">Usergroupsuser</a>
+<a href="../api/usersprofile.html">Usersprofile</a>
+<a href="../api/view.html">View</a>
+<a href="../api/workflow.html">Workflow</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/js.html">JavaScript</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Request/response capture ring buffer for debugging</a>
+<a href="../features/idempotency.html">Idempotency keys for safe retries of mutating operations</a>
+<a href="../features/metrics.html">Statistics capture: per-operation counters and latency</a>
+<a href="../features/paging.html">Pagination signals for list operations</a>
+<a href="../features/ratelimit.html">Client-side rate limiting via a token bucket</a>
+<a href="../features/retry.html">Automatic retry of transient failures with exponential backoff</a>
+<a href="../features/test.html">In-memory mock transport for testing without a live server</a>
+<a href="../features/timeout.html">Per-request timeout with transport abort</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="user">User</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-userssetphoto"><code>/users.setPhoto</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-userssetpresence"><code>/users.setPresence</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-usersdeletephoto"><code>/users.deletePhoto</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-userssetactive"><code>/users.setActive</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-usersconversations"><code>/users.conversations</code></a></td>
+<td><code>list</code></td>
+<td>Typical success response with only public channels. Note how <code>num_members</code> and <code>is_member</code> are not returned like typical <code>conversations</code> objects</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-userslist"><code>/users.list</code></a></td>
+<td><code>list</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-usersinfo"><code>/users.info</code></a></td>
+<td><code>load</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-userslookupbyemail"><code>/users.lookupByEmail</code></a></td>
+<td><code>load</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-usersgetpresence"><code>/users.getPresence</code></a></td>
+<td><code>load</code></td>
+<td>When requesting information for a different user, this method just returns the current presence (either <code>active</code> or <code>away</code>)</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-usersidentity"><code>/users.identity</code></a></td>
+<td><code>load</code></td>
+<td>You will receive at a minimum the following information:</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>auto_away</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>avatar_hash</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>cache_ts</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channels</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>connection_count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>image_1024</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>image_192</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>image_24</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>image_32</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>image_48</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>image_512</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>image_72</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>image_original</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>last_activity</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>manual_away</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>members</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ok</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>online</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>presence</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>response_metadata</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>team</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td><code>any</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-userssetphoto" class="operation" data-method="post"><code>POST</code> /users.setPhoto</h3>
+<p>Operation ID: <code>users_setPhoto</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>formData</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>users.profile:write</code> |
+| <code>crop_w</code> | <code>formData</code> | <code>any</code> | No | Width/height of crop box (always square) |
+| <code>crop_x</code> | <code>formData</code> | <code>any</code> | No | X coordinate of top-left corner of crop box |
+| <code>crop_y</code> | <code>formData</code> | <code>any</code> | No | Y coordinate of top-left corner of crop box |
+| <code>image</code> | <code>formData</code> | <code>any</code> | No | File contents via <code>multipart/form-data</code>. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-typical-success-response" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response">default: Typical error response</h5>
+<h3 id="post-userssetpresence" class="operation" data-method="post"><code>POST</code> /users.setPresence</h3>
+<p>Operation ID: <code>users_setPresence</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>users:write</code> |
+| <code>presence</code> | <code>formData</code> | <code>any</code> | Yes | Either <code>auto</code> or <code>away</code> |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-typical-success-response-1" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-1">default: Typical error response</h5>
+<h3 id="post-usersdeletephoto" class="operation" data-method="post"><code>POST</code> /users.deletePhoto</h3>
+<p>Operation ID: <code>users_deletePhoto</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>formData</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>users.profile:write</code> |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-typical-success-response-2" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-2">default: Typical error response</h5>
+<h3 id="post-userssetactive" class="operation" data-method="post"><code>POST</code> /users.setActive</h3>
+<p>Operation ID: <code>users_setActive</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>users:write</code> |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-typical-success-response-3" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-3">default: Typical error response</h5>
+<h2 id="list">list</h2>
+<h3 id="get-usersconversations" class="operation" data-method="get"><code>GET</code> /users.conversations</h3>
+<p>Operation ID: <code>users_conversations</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>query</code> | <code>any</code> | No | Authentication token. Requires scope: <code>conversations:read</code> |
+| <code>user</code> | <code>query</code> | <code>any</code> | No | Browse conversations by a specific user ID's membership. Non-public channels are restricted to those where the calling user shares membership. |
+| <code>types</code> | <code>query</code> | <code>any</code> | No | Mix and match channel types by providing a comma-separated list of any combination of <code>public_channel</code>, <code>private_channel</code>, <code>mpim</code>, <code>im</code> |
+| <code>exclude_archived</code> | <code>query</code> | <code>any</code> | No | Set to <code>true</code> to exclude archived channels from the list |
+| <code>limit</code> | <code>query</code> | <code>any</code> | No | The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached. Must be an integer no larger than 1000. |
+| <code>cursor</code> | <code>query</code> | <code>any</code> | No | Paginate through collections of data by setting the <code>cursor</code> parameter to a <code>next_cursor</code> attribute returned by a previous request's <code>response_metadata</code>. Default value fetches the first &quot;page&quot; of the collection. See <a href="/docs/pagination">pagination</a> for more detail. |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-typical-success-response-with-only-public-channels-note-how-num_members-and-is_member-are-not-returned-like-typical-conversations-objects" class="status" data-status="2xx">200: Typical success response with only public channels. Note how <code>num_members</code> and <code>is_member</code> are not returned like typical <code>conversations</code> objects</h5>
+<h5 id="default-typical-error-response-4">default: Typical error response</h5>
+<h3 id="get-userslist" class="operation" data-method="get"><code>GET</code> /users.list</h3>
+<p>Operation ID: <code>users_list</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>query</code> | <code>any</code> | No | Authentication token. Requires scope: <code>users:read</code> |
+| <code>limit</code> | <code>query</code> | <code>any</code> | No | The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the users list hasn't been reached. Providing no <code>limit</code> value will result in Slack attempting to deliver you the entire result set. If the collection is too large you may experience <code>limit_required</code> or HTTP 500 errors. |
+| <code>cursor</code> | <code>query</code> | <code>any</code> | No | Paginate through collections of data by setting the <code>cursor</code> parameter to a <code>next_cursor</code> attribute returned by a previous request's <code>response_metadata</code>. Default value fetches the first &quot;page&quot; of the collection. See <a href="/docs/pagination">pagination</a> for more detail. |
+| <code>include_locale</code> | <code>query</code> | <code>any</code> | No | Set this to <code>true</code> to receive the locale for users. Defaults to <code>false</code> |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-typical-success-response-4" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-5">default: Typical error response</h5>
+<h2 id="load">load</h2>
+<h3 id="get-usersinfo" class="operation" data-method="get"><code>GET</code> /users.info</h3>
+<p>Operation ID: <code>users_info</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>query</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>users:read</code> |
+| <code>include_locale</code> | <code>query</code> | <code>any</code> | No | Set this to <code>true</code> to receive the locale for this user. Defaults to <code>false</code> |
+| <code>user</code> | <code>query</code> | <code>any</code> | No | User to get info on |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-typical-success-response-5" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-6">default: Typical error response</h5>
+<h3 id="get-userslookupbyemail" class="operation" data-method="get"><code>GET</code> /users.lookupByEmail</h3>
+<p>Operation ID: <code>users_lookupByEmail</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>query</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>users:read.email</code> |
+| <code>email</code> | <code>query</code> | <code>any</code> | Yes | An email address belonging to a user in the workspace |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-typical-success-response-6" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-7">default: Typical error response</h5>
+<h3 id="get-usersgetpresence" class="operation" data-method="get"><code>GET</code> /users.getPresence</h3>
+<p>Operation ID: <code>users_getPresence</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>query</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>users:read</code> |
+| <code>user</code> | <code>query</code> | <code>any</code> | No | User to get presence info on. Defaults to the authed user. |</p>
+<h4 id="responses-8">Responses</h4>
+<h5 id="200-when-requesting-information-for-a-different-user-this-method-just-returns-the-current-presence-either-active-or-away" class="status" data-status="2xx">200: When requesting information for a different user, this method just returns the current presence (either <code>active</code> or <code>away</code>)</h5>
+<h5 id="default-typical-error-response-8">default: Typical error response</h5>
+<h3 id="get-usersidentity" class="operation" data-method="get"><code>GET</code> /users.identity</h3>
+<p>Operation ID: <code>users_identity</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-9">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>query</code> | <code>any</code> | No | Authentication token. Requires scope: <code>identity.basic</code> |</p>
+<h4 id="responses-9">Responses</h4>
+<h5 id="200-you-will-receive-at-a-minimum-the-following-information" class="status" data-status="2xx">200: You will receive at a minimum the following information:</h5>
+<h5 id="default-typical-error-response-9">default: Typical error response</h5>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

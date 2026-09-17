@@ -338,19 +338,443 @@ func (sdk *SlackSDK) Graphql(
 }
 
 
-// Conversationsinfo returns a Conversationsinfo entity bound to this client.
-// Idiomatic usage: client.Conversationsinfo(nil).List(nil, nil) or
-// client.Conversationsinfo(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *SlackSDK) Conversationsinfo(data map[string]any) SlackEntity {
-	return NewConversationsinfoEntityFunc(sdk, data)
+// Adminapp returns a Adminapp entity bound to this client.
+// Idiomatic usage: client.Adminapp(nil).List(nil, nil) or
+// client.Adminapp(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Adminapp(data map[string]any) SlackEntity {
+	return NewAdminappEntityFunc(sdk, data)
 }
 
 
-// Conversationslist returns a Conversationslist entity bound to this client.
-// Idiomatic usage: client.Conversationslist(nil).List(nil, nil) or
-// client.Conversationslist(nil).Load(map[string]any{"id": ...}, nil).
-func (sdk *SlackSDK) Conversationslist(data map[string]any) SlackEntity {
-	return NewConversationslistEntityFunc(sdk, data)
+// Adminappsapproved returns a Adminappsapproved entity bound to this client.
+// Idiomatic usage: client.Adminappsapproved(nil).List(nil, nil) or
+// client.Adminappsapproved(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Adminappsapproved(data map[string]any) SlackEntity {
+	return NewAdminappsapprovedEntityFunc(sdk, data)
+}
+
+
+// Adminappsrequest returns a Adminappsrequest entity bound to this client.
+// Idiomatic usage: client.Adminappsrequest(nil).List(nil, nil) or
+// client.Adminappsrequest(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Adminappsrequest(data map[string]any) SlackEntity {
+	return NewAdminappsrequestEntityFunc(sdk, data)
+}
+
+
+// Adminappsrestricted returns a Adminappsrestricted entity bound to this client.
+// Idiomatic usage: client.Adminappsrestricted(nil).List(nil, nil) or
+// client.Adminappsrestricted(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Adminappsrestricted(data map[string]any) SlackEntity {
+	return NewAdminappsrestrictedEntityFunc(sdk, data)
+}
+
+
+// Adminconversation returns a Adminconversation entity bound to this client.
+// Idiomatic usage: client.Adminconversation(nil).List(nil, nil) or
+// client.Adminconversation(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Adminconversation(data map[string]any) SlackEntity {
+	return NewAdminconversationEntityFunc(sdk, data)
+}
+
+
+// Adminconversationsekm returns a Adminconversationsekm entity bound to this client.
+// Idiomatic usage: client.Adminconversationsekm(nil).List(nil, nil) or
+// client.Adminconversationsekm(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Adminconversationsekm(data map[string]any) SlackEntity {
+	return NewAdminconversationsekmEntityFunc(sdk, data)
+}
+
+
+// AdminconversationsrestrictAccess returns a AdminconversationsrestrictAccess entity bound to this client.
+// Idiomatic usage: client.AdminconversationsrestrictAccess(nil).List(nil, nil) or
+// client.AdminconversationsrestrictAccess(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) AdminconversationsrestrictAccess(data map[string]any) SlackEntity {
+	return NewAdminconversationsrestrictAccessEntityFunc(sdk, data)
+}
+
+
+// Adminemoji returns a Adminemoji entity bound to this client.
+// Idiomatic usage: client.Adminemoji(nil).List(nil, nil) or
+// client.Adminemoji(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Adminemoji(data map[string]any) SlackEntity {
+	return NewAdminemojiEntityFunc(sdk, data)
+}
+
+
+// AdmininviteRequest returns a AdmininviteRequest entity bound to this client.
+// Idiomatic usage: client.AdmininviteRequest(nil).List(nil, nil) or
+// client.AdmininviteRequest(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) AdmininviteRequest(data map[string]any) SlackEntity {
+	return NewAdmininviteRequestEntityFunc(sdk, data)
+}
+
+
+// AdmininviteRequestsapproved returns a AdmininviteRequestsapproved entity bound to this client.
+// Idiomatic usage: client.AdmininviteRequestsapproved(nil).List(nil, nil) or
+// client.AdmininviteRequestsapproved(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) AdmininviteRequestsapproved(data map[string]any) SlackEntity {
+	return NewAdmininviteRequestsapprovedEntityFunc(sdk, data)
+}
+
+
+// AdmininviteRequestsdenied returns a AdmininviteRequestsdenied entity bound to this client.
+// Idiomatic usage: client.AdmininviteRequestsdenied(nil).List(nil, nil) or
+// client.AdmininviteRequestsdenied(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) AdmininviteRequestsdenied(data map[string]any) SlackEntity {
+	return NewAdmininviteRequestsdeniedEntityFunc(sdk, data)
+}
+
+
+// Adminteam returns a Adminteam entity bound to this client.
+// Idiomatic usage: client.Adminteam(nil).List(nil, nil) or
+// client.Adminteam(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Adminteam(data map[string]any) SlackEntity {
+	return NewAdminteamEntityFunc(sdk, data)
+}
+
+
+// Adminteamsadmin returns a Adminteamsadmin entity bound to this client.
+// Idiomatic usage: client.Adminteamsadmin(nil).List(nil, nil) or
+// client.Adminteamsadmin(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Adminteamsadmin(data map[string]any) SlackEntity {
+	return NewAdminteamsadminEntityFunc(sdk, data)
+}
+
+
+// Adminteamsowner returns a Adminteamsowner entity bound to this client.
+// Idiomatic usage: client.Adminteamsowner(nil).List(nil, nil) or
+// client.Adminteamsowner(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Adminteamsowner(data map[string]any) SlackEntity {
+	return NewAdminteamsownerEntityFunc(sdk, data)
+}
+
+
+// Adminteamssetting returns a Adminteamssetting entity bound to this client.
+// Idiomatic usage: client.Adminteamssetting(nil).List(nil, nil) or
+// client.Adminteamssetting(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Adminteamssetting(data map[string]any) SlackEntity {
+	return NewAdminteamssettingEntityFunc(sdk, data)
+}
+
+
+// Adminuser returns a Adminuser entity bound to this client.
+// Idiomatic usage: client.Adminuser(nil).List(nil, nil) or
+// client.Adminuser(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Adminuser(data map[string]any) SlackEntity {
+	return NewAdminuserEntityFunc(sdk, data)
+}
+
+
+// Adminusergroup returns a Adminusergroup entity bound to this client.
+// Idiomatic usage: client.Adminusergroup(nil).List(nil, nil) or
+// client.Adminusergroup(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Adminusergroup(data map[string]any) SlackEntity {
+	return NewAdminusergroupEntityFunc(sdk, data)
+}
+
+
+// Adminuserssession returns a Adminuserssession entity bound to this client.
+// Idiomatic usage: client.Adminuserssession(nil).List(nil, nil) or
+// client.Adminuserssession(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Adminuserssession(data map[string]any) SlackEntity {
+	return NewAdminuserssessionEntityFunc(sdk, data)
+}
+
+
+// Api returns a Api entity bound to this client.
+// Idiomatic usage: client.Api(nil).List(nil, nil) or
+// client.Api(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Api(data map[string]any) SlackEntity {
+	return NewApiEntityFunc(sdk, data)
+}
+
+
+// App returns a App entity bound to this client.
+// Idiomatic usage: client.App(nil).List(nil, nil) or
+// client.App(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) App(data map[string]any) SlackEntity {
+	return NewAppEntityFunc(sdk, data)
+}
+
+
+// Appseventauthorization returns a Appseventauthorization entity bound to this client.
+// Idiomatic usage: client.Appseventauthorization(nil).List(nil, nil) or
+// client.Appseventauthorization(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Appseventauthorization(data map[string]any) SlackEntity {
+	return NewAppseventauthorizationEntityFunc(sdk, data)
+}
+
+
+// Appspermission returns a Appspermission entity bound to this client.
+// Idiomatic usage: client.Appspermission(nil).List(nil, nil) or
+// client.Appspermission(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Appspermission(data map[string]any) SlackEntity {
+	return NewAppspermissionEntityFunc(sdk, data)
+}
+
+
+// Appspermissionsresource returns a Appspermissionsresource entity bound to this client.
+// Idiomatic usage: client.Appspermissionsresource(nil).List(nil, nil) or
+// client.Appspermissionsresource(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Appspermissionsresource(data map[string]any) SlackEntity {
+	return NewAppspermissionsresourceEntityFunc(sdk, data)
+}
+
+
+// Appspermissionsscope returns a Appspermissionsscope entity bound to this client.
+// Idiomatic usage: client.Appspermissionsscope(nil).List(nil, nil) or
+// client.Appspermissionsscope(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Appspermissionsscope(data map[string]any) SlackEntity {
+	return NewAppspermissionsscopeEntityFunc(sdk, data)
+}
+
+
+// Appspermissionsuser returns a Appspermissionsuser entity bound to this client.
+// Idiomatic usage: client.Appspermissionsuser(nil).List(nil, nil) or
+// client.Appspermissionsuser(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Appspermissionsuser(data map[string]any) SlackEntity {
+	return NewAppspermissionsuserEntityFunc(sdk, data)
+}
+
+
+// Auth returns a Auth entity bound to this client.
+// Idiomatic usage: client.Auth(nil).List(nil, nil) or
+// client.Auth(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Auth(data map[string]any) SlackEntity {
+	return NewAuthEntityFunc(sdk, data)
+}
+
+
+// Bot returns a Bot entity bound to this client.
+// Idiomatic usage: client.Bot(nil).List(nil, nil) or
+// client.Bot(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Bot(data map[string]any) SlackEntity {
+	return NewBotEntityFunc(sdk, data)
+}
+
+
+// Call returns a Call entity bound to this client.
+// Idiomatic usage: client.Call(nil).List(nil, nil) or
+// client.Call(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Call(data map[string]any) SlackEntity {
+	return NewCallEntityFunc(sdk, data)
+}
+
+
+// Callsparticipant returns a Callsparticipant entity bound to this client.
+// Idiomatic usage: client.Callsparticipant(nil).List(nil, nil) or
+// client.Callsparticipant(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Callsparticipant(data map[string]any) SlackEntity {
+	return NewCallsparticipantEntityFunc(sdk, data)
+}
+
+
+// Chat returns a Chat entity bound to this client.
+// Idiomatic usage: client.Chat(nil).List(nil, nil) or
+// client.Chat(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Chat(data map[string]any) SlackEntity {
+	return NewChatEntityFunc(sdk, data)
+}
+
+
+// ChatscheduledMessage returns a ChatscheduledMessage entity bound to this client.
+// Idiomatic usage: client.ChatscheduledMessage(nil).List(nil, nil) or
+// client.ChatscheduledMessage(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) ChatscheduledMessage(data map[string]any) SlackEntity {
+	return NewChatscheduledMessageEntityFunc(sdk, data)
+}
+
+
+// Conversation returns a Conversation entity bound to this client.
+// Idiomatic usage: client.Conversation(nil).List(nil, nil) or
+// client.Conversation(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Conversation(data map[string]any) SlackEntity {
+	return NewConversationEntityFunc(sdk, data)
+}
+
+
+// Dialog returns a Dialog entity bound to this client.
+// Idiomatic usage: client.Dialog(nil).List(nil, nil) or
+// client.Dialog(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Dialog(data map[string]any) SlackEntity {
+	return NewDialogEntityFunc(sdk, data)
+}
+
+
+// Dnd returns a Dnd entity bound to this client.
+// Idiomatic usage: client.Dnd(nil).List(nil, nil) or
+// client.Dnd(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Dnd(data map[string]any) SlackEntity {
+	return NewDndEntityFunc(sdk, data)
+}
+
+
+// Emoji returns a Emoji entity bound to this client.
+// Idiomatic usage: client.Emoji(nil).List(nil, nil) or
+// client.Emoji(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Emoji(data map[string]any) SlackEntity {
+	return NewEmojiEntityFunc(sdk, data)
+}
+
+
+// File returns a File entity bound to this client.
+// Idiomatic usage: client.File(nil).List(nil, nil) or
+// client.File(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) File(data map[string]any) SlackEntity {
+	return NewFileEntityFunc(sdk, data)
+}
+
+
+// Filescomment returns a Filescomment entity bound to this client.
+// Idiomatic usage: client.Filescomment(nil).List(nil, nil) or
+// client.Filescomment(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Filescomment(data map[string]any) SlackEntity {
+	return NewFilescommentEntityFunc(sdk, data)
+}
+
+
+// Filesremote returns a Filesremote entity bound to this client.
+// Idiomatic usage: client.Filesremote(nil).List(nil, nil) or
+// client.Filesremote(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Filesremote(data map[string]any) SlackEntity {
+	return NewFilesremoteEntityFunc(sdk, data)
+}
+
+
+// Migration returns a Migration entity bound to this client.
+// Idiomatic usage: client.Migration(nil).List(nil, nil) or
+// client.Migration(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Migration(data map[string]any) SlackEntity {
+	return NewMigrationEntityFunc(sdk, data)
+}
+
+
+// Oauth returns a Oauth entity bound to this client.
+// Idiomatic usage: client.Oauth(nil).List(nil, nil) or
+// client.Oauth(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Oauth(data map[string]any) SlackEntity {
+	return NewOauthEntityFunc(sdk, data)
+}
+
+
+// Oauthv2 returns a Oauthv2 entity bound to this client.
+// Idiomatic usage: client.Oauthv2(nil).List(nil, nil) or
+// client.Oauthv2(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Oauthv2(data map[string]any) SlackEntity {
+	return NewOauthv2EntityFunc(sdk, data)
+}
+
+
+// Pin returns a Pin entity bound to this client.
+// Idiomatic usage: client.Pin(nil).List(nil, nil) or
+// client.Pin(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Pin(data map[string]any) SlackEntity {
+	return NewPinEntityFunc(sdk, data)
+}
+
+
+// Reaction returns a Reaction entity bound to this client.
+// Idiomatic usage: client.Reaction(nil).List(nil, nil) or
+// client.Reaction(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Reaction(data map[string]any) SlackEntity {
+	return NewReactionEntityFunc(sdk, data)
+}
+
+
+// Reminder returns a Reminder entity bound to this client.
+// Idiomatic usage: client.Reminder(nil).List(nil, nil) or
+// client.Reminder(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Reminder(data map[string]any) SlackEntity {
+	return NewReminderEntityFunc(sdk, data)
+}
+
+
+// Rtm returns a Rtm entity bound to this client.
+// Idiomatic usage: client.Rtm(nil).List(nil, nil) or
+// client.Rtm(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Rtm(data map[string]any) SlackEntity {
+	return NewRtmEntityFunc(sdk, data)
+}
+
+
+// Search returns a Search entity bound to this client.
+// Idiomatic usage: client.Search(nil).List(nil, nil) or
+// client.Search(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Search(data map[string]any) SlackEntity {
+	return NewSearchEntityFunc(sdk, data)
+}
+
+
+// Star returns a Star entity bound to this client.
+// Idiomatic usage: client.Star(nil).List(nil, nil) or
+// client.Star(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Star(data map[string]any) SlackEntity {
+	return NewStarEntityFunc(sdk, data)
+}
+
+
+// Team returns a Team entity bound to this client.
+// Idiomatic usage: client.Team(nil).List(nil, nil) or
+// client.Team(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Team(data map[string]any) SlackEntity {
+	return NewTeamEntityFunc(sdk, data)
+}
+
+
+// Teamprofile returns a Teamprofile entity bound to this client.
+// Idiomatic usage: client.Teamprofile(nil).List(nil, nil) or
+// client.Teamprofile(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Teamprofile(data map[string]any) SlackEntity {
+	return NewTeamprofileEntityFunc(sdk, data)
+}
+
+
+// User returns a User entity bound to this client.
+// Idiomatic usage: client.User(nil).List(nil, nil) or
+// client.User(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) User(data map[string]any) SlackEntity {
+	return NewUserEntityFunc(sdk, data)
+}
+
+
+// Usergroup returns a Usergroup entity bound to this client.
+// Idiomatic usage: client.Usergroup(nil).List(nil, nil) or
+// client.Usergroup(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Usergroup(data map[string]any) SlackEntity {
+	return NewUsergroupEntityFunc(sdk, data)
+}
+
+
+// Usergroupsuser returns a Usergroupsuser entity bound to this client.
+// Idiomatic usage: client.Usergroupsuser(nil).List(nil, nil) or
+// client.Usergroupsuser(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Usergroupsuser(data map[string]any) SlackEntity {
+	return NewUsergroupsuserEntityFunc(sdk, data)
+}
+
+
+// Usersprofile returns a Usersprofile entity bound to this client.
+// Idiomatic usage: client.Usersprofile(nil).List(nil, nil) or
+// client.Usersprofile(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Usersprofile(data map[string]any) SlackEntity {
+	return NewUsersprofileEntityFunc(sdk, data)
+}
+
+
+// View returns a View entity bound to this client.
+// Idiomatic usage: client.View(nil).List(nil, nil) or
+// client.View(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) View(data map[string]any) SlackEntity {
+	return NewViewEntityFunc(sdk, data)
+}
+
+
+// Workflow returns a Workflow entity bound to this client.
+// Idiomatic usage: client.Workflow(nil).List(nil, nil) or
+// client.Workflow(nil).Load(map[string]any{"id": ...}, nil).
+func (sdk *SlackSDK) Workflow(data map[string]any) SlackEntity {
+	return NewWorkflowEntityFunc(sdk, data)
 }
 
 

@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Adminconversation | Slack Web API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Slack Web API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/slack-sdk">voxgig-sdk/slack-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Slack Web API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/adminapp.html">Adminapp</a>
+<a href="../api/adminappsapproved.html">Adminappsapproved</a>
+<a href="../api/adminappsrequest.html">Adminappsrequest</a>
+<a href="../api/adminappsrestricted.html">Adminappsrestricted</a>
+<a aria-current="page" href="../api/adminconversation.html">Adminconversation</a><div class="nav-sections"><a class="nav-section" href="#post-adminconversationscreate">POST /admin.conversations.create</a>
+<a class="nav-section" href="#post-adminconversationssetteams">POST /admin.conversations.setTeams</a>
+<a class="nav-section" href="#post-adminconversationsdisconnectshared">POST /admin.conversations.disconnectShared</a>
+<a class="nav-section" href="#post-adminconversationsrename">POST /admin.conversations.rename</a>
+<a class="nav-section" href="#post-adminconversationssetconversationprefs">POST /admin.conversations.setConversationPrefs</a>
+<a class="nav-section" href="#post-adminconversationsinvite">POST /admin.conversations.invite</a>
+<a class="nav-section" href="#post-adminconversationsarchive">POST /admin.conversations.archive</a>
+<a class="nav-section" href="#post-adminconversationsconverttoprivate">POST /admin.conversations.convertToPrivate</a>
+<a class="nav-section" href="#post-adminconversationsdelete">POST /admin.conversations.delete</a>
+<a class="nav-section" href="#post-adminconversationsunarchive">POST /admin.conversations.unarchive</a>
+<a class="nav-section" href="#get-adminconversationssearch">GET /admin.conversations.search</a>
+<a class="nav-section" href="#get-adminconversationsgetteams">GET /admin.conversations.getTeams</a>
+<a class="nav-section" href="#get-adminconversationsgetconversationprefs">GET /admin.conversations.getConversationPrefs</a></div>
+<a href="../api/adminconversationsekm.html">Adminconversationsekm</a>
+<a href="../api/adminconversationsrestrict_access.html">AdminconversationsrestrictAccess</a>
+<a href="../api/adminemoji.html">Adminemoji</a>
+<a href="../api/admininvite_request.html">AdmininviteRequest</a>
+<a href="../api/admininvite_requestsapproved.html">AdmininviteRequestsapproved</a>
+<a href="../api/admininvite_requestsdenied.html">AdmininviteRequestsdenied</a>
+<a href="../api/adminteam.html">Adminteam</a>
+<a href="../api/adminteamsadmin.html">Adminteamsadmin</a>
+<a href="../api/adminteamsowner.html">Adminteamsowner</a>
+<a href="../api/adminteamssetting.html">Adminteamssetting</a>
+<a href="../api/adminuser.html">Adminuser</a>
+<a href="../api/adminusergroup.html">Adminusergroup</a>
+<a href="../api/adminuserssession.html">Adminuserssession</a>
+<a href="../api/api.html">Api</a>
+<a href="../api/app.html">App</a>
+<a href="../api/appseventauthorization.html">Appseventauthorization</a>
+<a href="../api/appspermission.html">Appspermission</a>
+<a href="../api/appspermissionsresource.html">Appspermissionsresource</a>
+<a href="../api/appspermissionsscope.html">Appspermissionsscope</a>
+<a href="../api/appspermissionsuser.html">Appspermissionsuser</a>
+<a href="../api/auth.html">Auth</a>
+<a href="../api/bot.html">Bot</a>
+<a href="../api/call.html">Call</a>
+<a href="../api/callsparticipant.html">Callsparticipant</a>
+<a href="../api/chat.html">Chat</a>
+<a href="../api/chatscheduled_message.html">ChatscheduledMessage</a>
+<a href="../api/conversation.html">Conversation</a>
+<a href="../api/dialog.html">Dialog</a>
+<a href="../api/dnd.html">Dnd</a>
+<a href="../api/emoji.html">Emoji</a>
+<a href="../api/file.html">File</a>
+<a href="../api/filescomment.html">Filescomment</a>
+<a href="../api/filesremote.html">Filesremote</a>
+<a href="../api/migration.html">Migration</a>
+<a href="../api/oauth.html">Oauth</a>
+<a href="../api/oauthv2.html">Oauthv2</a>
+<a href="../api/pin.html">Pin</a>
+<a href="../api/reaction.html">Reaction</a>
+<a href="../api/reminder.html">Reminder</a>
+<a href="../api/rtm.html">Rtm</a>
+<a href="../api/search.html">Search</a>
+<a href="../api/star.html">Star</a>
+<a href="../api/team.html">Team</a>
+<a href="../api/teamprofile.html">Teamprofile</a>
+<a href="../api/user.html">User</a>
+<a href="../api/usergroup.html">Usergroup</a>
+<a href="../api/usergroupsuser.html">Usergroupsuser</a>
+<a href="../api/usersprofile.html">Usersprofile</a>
+<a href="../api/view.html">View</a>
+<a href="../api/workflow.html">Workflow</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/js.html">JavaScript</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Request/response capture ring buffer for debugging</a>
+<a href="../features/idempotency.html">Idempotency keys for safe retries of mutating operations</a>
+<a href="../features/metrics.html">Statistics capture: per-operation counters and latency</a>
+<a href="../features/paging.html">Pagination signals for list operations</a>
+<a href="../features/ratelimit.html">Client-side rate limiting via a token bucket</a>
+<a href="../features/retry.html">Automatic retry of transient failures with exponential backoff</a>
+<a href="../features/test.html">In-memory mock transport for testing without a live server</a>
+<a href="../features/timeout.html">Per-request timeout with transport abort</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="adminconversation">Adminconversation</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-adminconversationscreate"><code>/admin.conversations.create</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-adminconversationssetteams"><code>/admin.conversations.setTeams</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-adminconversationsdisconnectshared"><code>/admin.conversations.disconnectShared</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-adminconversationsrename"><code>/admin.conversations.rename</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-adminconversationssetconversationprefs"><code>/admin.conversations.setConversationPrefs</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-adminconversationsinvite"><code>/admin.conversations.invite</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-adminconversationsarchive"><code>/admin.conversations.archive</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-adminconversationsconverttoprivate"><code>/admin.conversations.convertToPrivate</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-adminconversationsdelete"><code>/admin.conversations.delete</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-adminconversationsunarchive"><code>/admin.conversations.unarchive</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-adminconversationssearch"><code>/admin.conversations.search</code></a></td>
+<td><code>list</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-adminconversationsgetteams"><code>/admin.conversations.getTeams</code></a></td>
+<td><code>list</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-adminconversationsgetconversationprefs"><code>/admin.conversations.getConversationPrefs</code></a></td>
+<td><code>load</code></td>
+<td>Typical success response</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>accepted_user</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>can_thread</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channel_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>creator</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_archived</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_channel</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_frozen</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_general</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_member</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_moved</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_mpim</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_non_threadable</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_org_shared</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_pending_ext_shared</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_private</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_read_only</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_shared</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_thread_only</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>last_read</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>latest</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>members</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>name_normalized</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>num_members</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ok</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pending_shared</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>previous_names</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>priority</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>purpose</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>response_metadata</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>team_ids</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>topic</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>unlinked</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>unread_count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>unread_count_display</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>who_can_post</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-adminconversationscreate" class="operation" data-method="post"><code>POST</code> /admin.conversations.create</h3>
+<p>Operation ID: <code>admin_conversations_create</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.conversations:write</code> |
+| <code>name</code> | <code>formData</code> | <code>any</code> | Yes | Name of the public or private channel to create. |
+| <code>description</code> | <code>formData</code> | <code>any</code> | No | Description of the public or private channel to create. |
+| <code>is_private</code> | <code>formData</code> | <code>any</code> | Yes | When <code>true</code>, creates a private channel instead of a public channel |
+| <code>org_wide</code> | <code>formData</code> | <code>any</code> | No | When <code>true</code>, the channel will be available org-wide. Note: if the channel is not <code>org_wide=true</code>, you must specify a <code>team_id</code> for this channel |
+| <code>team_id</code> | <code>formData</code> | <code>any</code> | No | The workspace to create the channel in. Note: this argument is required unless you set <code>org_wide=true</code>. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-typical-success-response" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response">default: Typical error response</h5>
+<h3 id="post-adminconversationssetteams" class="operation" data-method="post"><code>POST</code> /admin.conversations.setTeams</h3>
+<p>Operation ID: <code>admin_conversations_setTeams</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.conversations:write</code> |
+| <code>channel_id</code> | <code>formData</code> | <code>any</code> | Yes | The encoded <code>channel_id</code> to add or remove to workspaces. |
+| <code>team_id</code> | <code>formData</code> | <code>any</code> | No | The workspace to which the channel belongs. Omit this argument if the channel is a cross-workspace shared channel. |
+| <code>target_team_ids</code> | <code>formData</code> | <code>any</code> | No | A comma-separated list of workspaces to which the channel should be shared. Not required if the channel is being shared org-wide. |
+| <code>org_channel</code> | <code>formData</code> | <code>any</code> | No | True if channel has to be converted to an org channel |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-typical-success-response-1" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-1">default: Typical error response</h5>
+<h3 id="post-adminconversationsdisconnectshared" class="operation" data-method="post"><code>POST</code> /admin.conversations.disconnectShared</h3>
+<p>Operation ID: <code>admin_conversations_disconnectShared</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.conversations:write</code> |
+| <code>channel_id</code> | <code>formData</code> | <code>any</code> | Yes | The channel to be disconnected from some workspaces. |
+| <code>leaving_team_ids</code> | <code>formData</code> | <code>any</code> | No | The team to be removed from the channel. Currently only a single team id can be specified. |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-typical-success-response-2" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-2">default: Typical error response</h5>
+<h3 id="post-adminconversationsrename" class="operation" data-method="post"><code>POST</code> /admin.conversations.rename</h3>
+<p>Operation ID: <code>admin_conversations_rename</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.conversations:write</code> |
+| <code>channel_id</code> | <code>formData</code> | <code>any</code> | Yes | The channel to rename. |
+| <code>name</code> | <code>formData</code> | <code>any</code> | Yes |  |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-typical-success-response-3" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-3">default: Typical error response</h5>
+<h3 id="post-adminconversationssetconversationprefs" class="operation" data-method="post"><code>POST</code> /admin.conversations.setConversationPrefs</h3>
+<p>Operation ID: <code>admin_conversations_setConversationPrefs</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.conversations:write</code> |
+| <code>channel_id</code> | <code>formData</code> | <code>any</code> | Yes | The channel to set the prefs for |
+| <code>prefs</code> | <code>formData</code> | <code>any</code> | Yes | The prefs for this channel in a stringified JSON format. |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-typical-success-response-4" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-4">default: Typical error response</h5>
+<h3 id="post-adminconversationsinvite" class="operation" data-method="post"><code>POST</code> /admin.conversations.invite</h3>
+<p>Operation ID: <code>admin_conversations_invite</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.conversations:write</code> |
+| <code>user_ids</code> | <code>formData</code> | <code>any</code> | Yes | The users to invite. |
+| <code>channel_id</code> | <code>formData</code> | <code>any</code> | Yes | The channel that the users will be invited to. |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-typical-success-response-5" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-5">default: Typical error response</h5>
+<h3 id="post-adminconversationsarchive" class="operation" data-method="post"><code>POST</code> /admin.conversations.archive</h3>
+<p>Operation ID: <code>admin_conversations_archive</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.conversations:write</code> |
+| <code>channel_id</code> | <code>formData</code> | <code>any</code> | Yes | The channel to archive. |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-typical-success-response-6" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-6">default: Typical error response</h5>
+<h3 id="post-adminconversationsconverttoprivate" class="operation" data-method="post"><code>POST</code> /admin.conversations.convertToPrivate</h3>
+<p>Operation ID: <code>admin_conversations_convertToPrivate</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.conversations:write</code> |
+| <code>channel_id</code> | <code>formData</code> | <code>any</code> | Yes | The channel to convert to private. |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-typical-success-response-7" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-7">default: Typical error response</h5>
+<h3 id="post-adminconversationsdelete" class="operation" data-method="post"><code>POST</code> /admin.conversations.delete</h3>
+<p>Operation ID: <code>admin_conversations_delete</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.conversations:write</code> |
+| <code>channel_id</code> | <code>formData</code> | <code>any</code> | Yes | The channel to delete. |</p>
+<h4 id="responses-8">Responses</h4>
+<h5 id="200-typical-success-response-8" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-8">default: Typical error response</h5>
+<h3 id="post-adminconversationsunarchive" class="operation" data-method="post"><code>POST</code> /admin.conversations.unarchive</h3>
+<p>Operation ID: <code>admin_conversations_unarchive</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-9">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.conversations:write</code> |
+| <code>channel_id</code> | <code>formData</code> | <code>any</code> | Yes | The channel to unarchive. |</p>
+<h4 id="responses-9">Responses</h4>
+<h5 id="200-typical-success-response-9" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-9">default: Typical error response</h5>
+<h2 id="list">list</h2>
+<h3 id="get-adminconversationssearch" class="operation" data-method="get"><code>GET</code> /admin.conversations.search</h3>
+<p>Operation ID: <code>admin_conversations_search</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-10">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.conversations:read</code> |
+| <code>team_ids</code> | <code>query</code> | <code>any</code> | No | Comma separated string of team IDs, signifying the workspaces to search through. |
+| <code>query</code> | <code>query</code> | <code>any</code> | No | Name of the channel to query by. |
+| <code>limit</code> | <code>query</code> | <code>any</code> | No | Maximum number of items to be returned. Must be between 1 - 20 both inclusive. Default is 10. |
+| <code>cursor</code> | <code>query</code> | <code>any</code> | No | Set <code>cursor</code> to <code>next_cursor</code> returned by the previous call to list items in the next page. |
+| <code>search_channel_types</code> | <code>query</code> | <code>any</code> | No | The type of channel to include or exclude in the search. For example <code>private</code> will search private channels, while <code>private_exclude</code> will exclude them. For a full list of types, check the <a href="#types">Types section</a>. |
+| <code>sort</code> | <code>query</code> | <code>any</code> | No | Possible values are <code>relevant</code> (search ranking based on what we think is closest), <code>name</code> (alphabetical), <code>member_count</code> (number of users in the channel), and <code>created</code> (date channel was created). You can optionally pair this with the <code>sort_dir</code> arg to change how it is sorted |
+| <code>sort_dir</code> | <code>query</code> | <code>any</code> | No | Sort direction. Possible values are <code>asc</code> for ascending order like (1, 2, 3) or (a, b, c), and <code>desc</code> for descending order like (3, 2, 1) or (c, b, a) |</p>
+<h4 id="responses-10">Responses</h4>
+<h5 id="200-typical-success-response-10" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-10">default: Typical error response</h5>
+<h3 id="get-adminconversationsgetteams" class="operation" data-method="get"><code>GET</code> /admin.conversations.getTeams</h3>
+<p>Operation ID: <code>admin_conversations_getTeams</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-11">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.conversations:read</code> |
+| <code>channel_id</code> | <code>query</code> | <code>any</code> | Yes | The channel to determine connected workspaces within the organization for. |
+| <code>cursor</code> | <code>query</code> | <code>any</code> | No | Set <code>cursor</code> to <code>next_cursor</code> returned by the previous call to list items in the next page |
+| <code>limit</code> | <code>query</code> | <code>any</code> | No | The maximum number of items to return. Must be between 1 - 1000 both inclusive. |</p>
+<h4 id="responses-11">Responses</h4>
+<h5 id="200-typical-success-response-11" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-11">default: Typical error response</h5>
+<h2 id="load">load</h2>
+<h3 id="get-adminconversationsgetconversationprefs" class="operation" data-method="get"><code>GET</code> /admin.conversations.getConversationPrefs</h3>
+<p>Operation ID: <code>admin_conversations_getConversationPrefs</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-12">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.conversations:read</code> |
+| <code>channel_id</code> | <code>query</code> | <code>any</code> | Yes | The channel to get preferences for. |</p>
+<h4 id="responses-12">Responses</h4>
+<h5 id="200-typical-success-response-12" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-12">default: Typical error response</h5>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

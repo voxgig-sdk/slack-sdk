@@ -1,0 +1,28 @@
+# BasicAdminappsrequestFlow
+
+main: kit: flow: BasicAdminappsrequestFlow:
+{
+  entity: "adminappsrequest",
+  kind: "basic",
+  name: "BasicAdminappsrequestFlow",
+  step: [
+    {
+      input: {
+        ref: "adminappsrequest_ref01",
+        srcdatavar: "adminappsrequest_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-adminappsrequest_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAdminappsrequestFlow"
+}

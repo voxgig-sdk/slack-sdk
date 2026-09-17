@@ -19,15 +19,13 @@ make build
 export SLACK_APIKEY=sk_live_xxx
 
 # 4. Each command line is ONE boru expression, run against the API:
-./slack-cli load 1 conversationsinfo            # {id:1} shorthand
-./slack-cli load '{id:1}' conversationsinfo       # explicit match map
 
 # 5. Override the API base URL for a single call
-SLACK_BASE=https://api.example.com ./slack-cli load 1 conversationsinfo
+SLACK_BASE=https://api.example.com ./slack-cli --help
 
 # 6. No arguments -> interactive REPL
 ./slack-cli
-slack> load 1 conversationsinfo
+slack> /help
 slack> /quit
 ```
 
@@ -53,7 +51,7 @@ slack> /quit
    arguments to open the REPL):
 
    ```sh
-   ./dist/*/slack-cli load 1 conversationsinfo
+   ./dist/*/slack-cli --help
    ```
 
 4. **Go interactive.** Run the binary with no arguments to open the REPL, then
@@ -63,16 +61,6 @@ That is the whole loop: *build → set key → evaluate boru expressions*.
 
 ## How-to guides
 
-### Load a single record
-
-```sh
-./slack-cli load 1 conversationsinfo          # scalar shorthand for {id:1}
-./slack-cli load '{id:1}' conversationsinfo     # explicit match map
-```
-
-The query is either a **scalar** (`1`, treated as `{id:1}`) or a **match map**
-(`{id:1}`, `{slug:"acme"}`). Quote the map so your shell passes it through intact.
-
 ### Authenticate and choose an environment
 
 Configuration is read from the environment — nothing is written to disk:
@@ -80,7 +68,7 @@ Configuration is read from the environment — nothing is written to disk:
 ```sh
 export SLACK_APIKEY=sk_live_xxx            # API key
 export SLACK_BASE=https://api.example.com  # optional: override the API base URL
-./slack-cli load 1 conversationsinfo
+./slack-cli --help
 ```
 
 Both are injectable by a secrets vault, so the key never has to be typed inline.
@@ -92,7 +80,6 @@ evaluated as its own boru expression:
 
 ```text
 $ ./slack-cli
-slack> load 1 conversationsinfo
 slack> /help
 slack> /quit
 ```
@@ -107,7 +94,7 @@ make build-all   # linux/darwin/windows x amd64/arm64, under dist/<os>-<arch>/
 ### Discover the available entities
 
 `/help` in the REPL prints the full entity list, or see [Entities](#entities)
-below — this SDK exposes 2 entities.
+below — this SDK exposes 55 entities.
 
 ## Reference
 
@@ -120,7 +107,7 @@ The CLI registers these boru words, each bound to the SDK:
 | `list`   | `list <entity>` · `list <query> <entity>`     | First page of records          |
 | `load`   | `load <entity>` · `load <query> <entity>`     | A single record                |
 
-- `<entity>` is a bareword, auto-quoted as an boru atom (e.g. `conversationsinfo`).
+- `<entity>` is a bareword, auto-quoted as an boru atom (e.g. `adminapp`).
 - `<query>` is either a **Map** (`{id:1}`) or a **Scalar** (`1`, treated as
   `{id:1}`). A scalar is always wrapped as `{id:<value>}`.
 
@@ -161,9 +148,9 @@ Meta-commands use the `/` prefix (everything else on a line is evaluated as boru
 
 ### Entities
 
-The 2 entities this SDK exposes (any is valid as `<entity>`):
+The 55 entities this SDK exposes (any is valid as `<entity>`):
 
-conversationsinfo conversationslist
+adminapp adminappsapproved adminappsrequest adminappsrestricted adminconversation adminconversationsekm adminconversationsrestrict_access adminemoji admininvite_request admininvite_requestsapproved admininvite_requestsdenied adminteam adminteamsadmin adminteamsowner adminteamssetting adminuser adminusergroup adminuserssession api app appseventauthorization appspermission appspermissionsresource appspermissionsscope appspermissionsuser auth bot call callsparticipant chat chatscheduled_message conversation dialog dnd emoji file filescomment filesremote migration oauth oauthv2 pin reaction reminder rtm search star team teamprofile user usergroup usergroupsuser usersprofile view workflow
 
 ## Explanation
 

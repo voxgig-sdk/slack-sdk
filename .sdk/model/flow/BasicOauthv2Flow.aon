@@ -1,0 +1,28 @@
+# BasicOauthv2Flow
+
+main: kit: flow: BasicOauthv2Flow:
+{
+  entity: "oauthv2",
+  kind: "basic",
+  name: "BasicOauthv2Flow",
+  step: [
+    {
+      input: {
+        ref: "oauthv2_ref01",
+        srcdatavar: "oauthv2_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-oauthv2_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicOauthv2Flow"
+}

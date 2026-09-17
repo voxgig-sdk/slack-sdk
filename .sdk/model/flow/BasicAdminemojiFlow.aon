@@ -1,0 +1,36 @@
+# BasicAdminemojiFlow
+
+main: kit: flow: BasicAdminemojiFlow:
+{
+  entity: "adminemoji",
+  kind: "basic",
+  name: "BasicAdminemojiFlow",
+  step: [
+    {
+      input: {
+        ref: "adminemoji_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "adminemoji_ref01",
+        srcdatavar: "adminemoji_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-adminemoji_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAdminemojiFlow"
+}

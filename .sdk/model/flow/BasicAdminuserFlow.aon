@@ -1,0 +1,36 @@
+# BasicAdminuserFlow
+
+main: kit: flow: BasicAdminuserFlow:
+{
+  entity: "adminuser",
+  kind: "basic",
+  name: "BasicAdminuserFlow",
+  step: [
+    {
+      input: {
+        ref: "adminuser_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "adminuser_ref01",
+        srcdatavar: "adminuser_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-adminuser_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAdminuserFlow"
+}

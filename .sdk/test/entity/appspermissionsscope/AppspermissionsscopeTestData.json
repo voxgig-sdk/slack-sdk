@@ -1,0 +1,322 @@
+{
+  "existing": {
+    "appspermissionsscope": {
+      "APPSPERMISSIONSSCOPE00": {
+        "app_home": [],
+        "channel": [],
+        "group": [],
+        "im": [],
+        "mpim": [],
+        "team": [],
+        "user": [],
+        "id": "APPSPERMISSIONSSCOPE00"
+      },
+      "APPSPERMISSIONSSCOPE01": {
+        "app_home": [],
+        "channel": [],
+        "group": [],
+        "im": [],
+        "mpim": [],
+        "team": [],
+        "user": [],
+        "id": "APPSPERMISSIONSSCOPE01"
+      },
+      "APPSPERMISSIONSSCOPE02": {
+        "app_home": [],
+        "channel": [],
+        "group": [],
+        "im": [],
+        "mpim": [],
+        "team": [],
+        "user": [],
+        "id": "APPSPERMISSIONSSCOPE02"
+      }
+    }
+  },
+  "new": {
+    "appspermissionsscope": {
+      "appspermissionsscope_ref01": {
+        "app_home": [],
+        "channel": [],
+        "group": [],
+        "im": [],
+        "mpim": [],
+        "team": [],
+        "user": []
+      }
+    }
+  },
+  "requests": {
+    "GET /apps.permissions.scopes.list": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "operationId": "apps_permissions_scopes_list",
+        "parameters": [
+          {
+            "description": "Authentication token. Requires scope: `none`",
+            "in": "query",
+            "name": "token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Typical successful paginated response",
+            "examples": {
+              "application/json": {
+                "ok": true,
+                "scopes": {
+                  "app_home": [
+                    "chat:write",
+                    "im:history",
+                    "im:read"
+                  ],
+                  "channel": [
+                    "channels:history",
+                    "chat:write"
+                  ],
+                  "group": [
+                    "chat:write"
+                  ],
+                  "im": [
+                    "chat:write"
+                  ],
+                  "mpim": [
+                    "chat:write"
+                  ],
+                  "team": [
+                    "users:read"
+                  ],
+                  "user": []
+                }
+              }
+            },
+            "schema": {
+              "additionalProperties": true,
+              "description": "Schema for successful response api.permissions.scopes.list method",
+              "properties": {
+                "ok": {
+                  "enum": [
+                    true
+                  ],
+                  "title": "default success response",
+                  "type": "boolean"
+                },
+                "scopes": {
+                  "additionalProperties": true,
+                  "properties": {
+                    "app_home": {
+                      "items": {
+                        "title": "Named OAuth scopes",
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "channel": {
+                      "items": {
+                        "title": "Named OAuth scopes",
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "group": {
+                      "items": {
+                        "title": "Named OAuth scopes",
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "im": {
+                      "items": {
+                        "title": "Named OAuth scopes",
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "mpim": {
+                      "items": {
+                        "title": "Named OAuth scopes",
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "team": {
+                      "items": {
+                        "title": "Named OAuth scopes",
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "user": {
+                      "items": {
+                        "title": "Named OAuth scopes",
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              },
+              "required": [
+                "ok",
+                "scopes"
+              ],
+              "title": "api.permissions.scopes.list success schema",
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "Typical error response",
+            "examples": {
+              "application/json": {
+                "error": "invalid_auth",
+                "ok": false
+              }
+            },
+            "schema": {
+              "additionalProperties": false,
+              "description": "Schema for error response from apps.permissions.scopes.list method",
+              "properties": {
+                "callstack": {
+                  "description": "Note: PHP callstack is only visible in dev/qa",
+                  "type": "string"
+                },
+                "error": {
+                  "enum": [
+                    "not_authed",
+                    "invalid_auth",
+                    "account_inactive",
+                    "token_revoked",
+                    "no_permission",
+                    "org_login_required",
+                    "user_is_bot",
+                    "invalid_arg_name",
+                    "invalid_array_arg",
+                    "invalid_charset",
+                    "invalid_form_data",
+                    "invalid_post_type",
+                    "missing_post_type",
+                    "team_added_to_org",
+                    "invalid_json",
+                    "json_not_object",
+                    "request_timeout",
+                    "upgrade_required",
+                    "fatal_error"
+                  ],
+                  "type": "string"
+                },
+                "ok": {
+                  "enum": [
+                    false
+                  ],
+                  "title": "default failure response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok",
+                "error"
+              ],
+              "title": "apps.permissions.scopes.list error schema",
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "slackAuth": [
+              "none"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "slackAuth": {
+            "authorizationUrl": "https://slack.com/oauth/authorize",
+            "flow": "accessCode",
+            "scopes": {
+              "admin": "admin",
+              "admin.apps:read": "admin.apps:read",
+              "admin.apps:write": "admin.apps:write",
+              "admin.conversations:read": "admin.conversations:read",
+              "admin.conversations:write": "admin.conversations:write",
+              "admin.invites:read": "admin.invites:read",
+              "admin.invites:write": "admin.invites:write",
+              "admin.teams:read": "admin.teams:read",
+              "admin.teams:write": "admin.teams:write",
+              "admin.usergroups:read": "admin.usergroups:read",
+              "admin.usergroups:write": "admin.usergroups:write",
+              "admin.users:read": "admin.users:read",
+              "admin.users:write": "admin.users:write",
+              "authorizations:read": "authorizations:read",
+              "bot": "Bot user scope",
+              "calls:read": "calls:read",
+              "calls:write": "calls:write",
+              "channels:history": "channels:history",
+              "channels:manage": "channels:manage",
+              "channels:read": "channels:read",
+              "channels:write": "channels:write",
+              "chat:write": "chat:write",
+              "chat:write:bot": "Author messages as a bot",
+              "chat:write:user": "Author messages as a user",
+              "conversations:history": "conversations:history",
+              "conversations:read": "conversations:read",
+              "conversations:write": "conversations:write",
+              "dnd:read": "dnd:read",
+              "dnd:write": "dnd:write",
+              "emoji:read": "emoji:read",
+              "files:read": "files:read",
+              "files:write:user": "files:write:user",
+              "groups:history": "groups:history",
+              "groups:read": "groups:read",
+              "groups:write": "groups:write",
+              "identity.basic": "identity.basic",
+              "im:history": "im:history",
+              "im:read": "im:read",
+              "im:write": "im:write",
+              "links:write": "links:write",
+              "mpim:history": "mpim:history",
+              "mpim:read": "mpim:read",
+              "mpim:write": "mpim:write",
+              "none": "No scope required",
+              "pins:read": "pins:read",
+              "pins:write": "pins:write",
+              "reactions:read": "reactions:read",
+              "reactions:write": "reactions:write",
+              "reminders:read": "reminders:read",
+              "reminders:write": "reminders:write",
+              "remote_files:read": "remote_files:read",
+              "remote_files:share": "remote_files:share",
+              "remote_files:write": "remote_files:write",
+              "rtm:stream": "rtm:stream",
+              "search:read": "search:read",
+              "stars:read": "stars:read",
+              "stars:write": "stars:write",
+              "team:read": "team:read",
+              "tokens.basic": "tokens.basic",
+              "usergroups:read": "usergroups:read",
+              "usergroups:write": "usergroups:write",
+              "users.profile:read": "users.profile:read",
+              "users.profile:write": "users.profile:write",
+              "users:read": "users:read",
+              "users:read.email": "users:read.email",
+              "users:write": "users:write",
+              "workflow.steps:execute": "workflow.steps:execute"
+            },
+            "tokenUrl": "https://slack.com/api/oauth.access",
+            "type": "oauth2"
+          }
+        },
+        "securitySource": "operation"
+      }
+    }
+  }
+}

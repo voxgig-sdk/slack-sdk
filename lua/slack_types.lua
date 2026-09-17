@@ -6,34 +6,1438 @@
 -- @voxgig/apidef VALID_CANON). Annotations only — no runtime effect. Do not
 -- edit by hand.
 
----@class Conversationsinfo
----@field created? number
----@field id? string
----@field is_archived? boolean
----@field is_channel? boolean
----@field is_private? boolean
----@field name? string
----@field num_members? number
----@field purpose? table
----@field topic? table
+---@class Adminapp
+---@field ok boolean
 
----@class ConversationsinfoLoadMatch
----@field channel string
+---@class AdminappCreateData
+---@field app_id? string
+---@field request_id? string
+---@field team_id? string
+---@field ok boolean
 
----@class Conversationslist
----@field created? number
----@field id? string
----@field is_archived? boolean
----@field is_channel? boolean
----@field is_private? boolean
----@field name? string
----@field num_members? number
----@field purpose? table
----@field topic? table
+---@class Adminappsapproved
+---@field ok boolean
 
----@class ConversationslistListMatch
----@field cursor? string
+---@class AdminappsapprovedLoadMatch
+---@field cursor? any
+---@field enterprise_id? string
 ---@field limit? number
+---@field team_id? string
+---@field token string
+
+---@class Adminappsrequest
+---@field ok boolean
+
+---@class AdminappsrequestLoadMatch
+---@field cursor? any
+---@field limit? number
+---@field team_id? string
+---@field token string
+
+---@class Adminappsrestricted
+---@field ok boolean
+
+---@class AdminappsrestrictedLoadMatch
+---@field cursor? any
+---@field enterprise_id? string
+---@field limit? number
+---@field team_id? string
+---@field token string
+
+---@class Adminconversation
+---@field accepted_user? string
+---@field can_thread? table
+---@field channel_id? string
+---@field created number
+---@field creator string
+---@field id string
+---@field is_archived? boolean
+---@field is_channel boolean
+---@field is_frozen? boolean
+---@field is_general? boolean
+---@field is_member? boolean
+---@field is_moved? number
+---@field is_mpim boolean
+---@field is_non_threadable? boolean
+---@field is_org_shared boolean
+---@field is_pending_ext_shared? boolean
+---@field is_private boolean
+---@field is_read_only? boolean
+---@field is_shared boolean
+---@field is_thread_only? boolean
+---@field last_read? string
+---@field latest? any
+---@field members table
+---@field name string
+---@field name_normalized string
+---@field num_members? number
+---@field ok boolean
+---@field pending_shared? table
+---@field previous_names? table
+---@field priority? number
+---@field purpose table
+---@field response_metadata table
+---@field team_ids table
+---@field topic table
+---@field unlinked? number
+---@field unread_count? number
+---@field unread_count_display? number
+---@field who_can_post? table
+
+---@class AdminconversationLoadMatch
+---@field channel_id string
+
+---@class AdminconversationListMatch
+---@field cursor? any
+---@field limit? number
+---@field query? any
+---@field search_channel_type? any
+---@field sort? any
+---@field sort_dir? any
+---@field team_id? string
+
+---@class AdminconversationCreateData
+---@field description? string
+---@field is_private boolean
+---@field name string
+---@field org_wide? any
+---@field team_id? string
+---@field accepted_user? string
+---@field can_thread? table
+---@field channel_id? string
+---@field created number
+---@field creator string
+---@field id string
+---@field is_archived? boolean
+---@field is_channel boolean
+---@field is_frozen? boolean
+---@field is_general? boolean
+---@field is_member? boolean
+---@field is_moved? number
+---@field is_mpim boolean
+---@field is_non_threadable? boolean
+---@field is_org_shared boolean
+---@field is_pending_ext_shared? boolean
+---@field is_read_only? boolean
+---@field is_shared boolean
+---@field is_thread_only? boolean
+---@field last_read? string
+---@field latest? any
+---@field members table
+---@field name_normalized string
+---@field num_members? number
+---@field ok boolean
+---@field pending_shared? table
+---@field previous_names? table
+---@field priority? number
+---@field purpose table
+---@field response_metadata table
+---@field team_ids table
+---@field topic table
+---@field unlinked? number
+---@field unread_count? number
+---@field unread_count_display? number
+---@field who_can_post? table
+
+---@class Adminconversationsekm
+---@field ok boolean
+
+---@class AdminconversationsekmLoadMatch
+---@field channel_id? string
+---@field cursor? any
+---@field limit? number
+---@field team_id? string
+---@field token string
+
+---@class AdminconversationsrestrictAccess
+---@field ok boolean
+
+---@class AdminconversationsrestrictAccessLoadMatch
+---@field channel_id string
+---@field team_id? string
+---@field token string
+
+---@class AdminconversationsrestrictAccessCreateData
+---@field channel_id string
+---@field group_id string
+---@field team_id? string
+---@field token string
+---@field ok boolean
+
+---@class Adminemoji
+---@field ok boolean
+
+---@class AdminemojiLoadMatch
+---@field cursor? any
+---@field limit? number
+---@field token string
+
+---@class AdminemojiCreateData
+---@field alias_for? any
+---@field name string
+---@field token string
+---@field new_name? any
+---@field url? string
+---@field ok boolean
+
+---@class AdmininviteRequest
+---@field ok boolean
+
+---@class AdmininviteRequestLoadMatch
+---@field cursor? any
+---@field limit? number
+---@field team_id? string
+
+---@class AdmininviteRequestCreateData
+---@field invite_request_id string
+---@field team_id? string
+---@field ok boolean
+
+---@class AdmininviteRequestsapproved
+---@field ok boolean
+
+---@class AdmininviteRequestsapprovedLoadMatch
+---@field cursor? any
+---@field limit? number
+---@field team_id? string
+
+---@class AdmininviteRequestsdenied
+---@field ok boolean
+
+---@class AdmininviteRequestsdeniedLoadMatch
+---@field cursor? any
+---@field limit? number
+---@field team_id? string
+
+---@class Adminteam
+---@field ok boolean
+
+---@class AdminteamLoadMatch
+---@field cursor? any
+---@field limit? number
+
+---@class AdminteamCreateData
+---@field team_description? any
+---@field team_discoverability? any
+---@field team_domain any
+---@field team_name any
+---@field ok boolean
+
+---@class Adminteamsadmin
+---@field ok boolean
+
+---@class AdminteamsadminLoadMatch
+---@field cursor? any
+---@field limit? number
+---@field team_id string
+---@field token string
+
+---@class Adminteamsowner
+---@field ok boolean
+
+---@class AdminteamsownerLoadMatch
+---@field cursor? any
+---@field limit? number
+---@field team_id string
+---@field token string
+
+---@class Adminteamssetting
+---@field ok boolean
+
+---@class AdminteamssettingLoadMatch
+---@field team_id string
+
+---@class AdminteamssettingCreateData
+---@field channel_id? string
+---@field team_id string
+---@field token? string
+---@field description? string
+---@field discoverability? any
+---@field image_url? any
+---@field name? string
+---@field ok boolean
+
+---@class Adminuser
+---@field ok boolean
+
+---@class AdminuserLoadMatch
+---@field cursor? any
+---@field limit? number
+---@field team_id string
+
+---@class AdminuserCreateData
+---@field channel_id? string
+---@field custom_message? any
+---@field email? string
+---@field guest_expiration_t? any
+---@field is_restricted? boolean
+---@field is_ultra_restricted? boolean
+---@field real_name? any
+---@field resend? any
+---@field team_id string
+---@field user_id? string
+---@field expiration_t? any
+---@field ok boolean
+
+---@class Adminusergroup
+---@field ok boolean
+
+---@class AdminusergroupLoadMatch
+---@field include_num_member? any
+---@field team_id? string
+---@field usergroup_id string
+
+---@class AdminusergroupCreateData
+---@field auto_provision? any
+---@field team_id? string
+---@field usergroup_id string
+---@field channel_id? string
+---@field ok boolean
+
+---@class Adminuserssession
+---@field ok boolean
+
+---@class AdminuserssessionCreateData
+---@field mobile_only? any
+---@field user_id string
+---@field web_only? any
+---@field ok boolean
+
+---@class Api
+---@field ok boolean
+
+---@class ApiLoadMatch
+---@field error? any
+---@field foo? any
+
+---@class App
+---@field ok boolean
+
+---@class AppLoadMatch
+---@field client_id? string
+---@field client_secret? any
+---@field token? string
+
+---@class Appseventauthorization
+---@field ok boolean
+
+---@class AppseventauthorizationLoadMatch
+---@field cursor? any
+---@field event_context any
+---@field limit? number
+
+---@class Appspermission
+---@field app_home table
+---@field channel table
+---@field group table
+---@field im table
+---@field mpim table
+---@field ok boolean
+---@field team table
+
+---@class AppspermissionLoadMatch
+---@field scope any
+---@field token string
+---@field trigger_id string
+
+---@class Appspermissionsresource
+---@field id? string
+---@field type? string
+
+---@class AppspermissionsresourceListMatch
+---@field cursor? any
+---@field limit? number
+---@field token string
+
+---@class Appspermissionsscope
+---@field app_home? table
+---@field channel? table
+---@field group? table
+---@field im? table
+---@field mpim? table
+---@field team? table
+---@field user? table
+
+---@class AppspermissionsscopeLoadMatch
+---@field token string
+
+---@class Appspermissionsuser
+---@field ok boolean
+
+---@class AppspermissionsuserLoadMatch
+---@field scope? any
+---@field token string
+---@field trigger_id? string
+---@field user? any
+---@field cursor? any
+---@field limit? number
+
+---@class Auth
+---@field bot_id? string
+---@field is_enterprise_install? boolean
+---@field ok boolean
+---@field revoked boolean
+---@field team string
+---@field team_id string
+---@field url string
+---@field user string
+---@field user_id string
+
+---@class AuthLoadMatch
+---@field test? any
+---@field token string
+
+---@class Bot
+---@field app_id string
+---@field deleted boolean
+---@field icons table
+---@field id string
+---@field name string
+---@field updated number
+---@field user_id? string
+
+---@class BotLoadMatch
+---@field bot? any
+---@field token string
+
+---@class Call
+---@field ok boolean
+
+---@class CallLoadMatch
+---@field id string
+
+---@class CallCreateData
+---@field created_by? any
+---@field date_start? any
+---@field desktop_app_join_url? any
+---@field external_display_id? string
+---@field external_unique_id string
+---@field join_url any
+---@field title? string
+---@field user? any
+---@field ok boolean
+
+---@class Callsparticipant
+---@field ok boolean
+
+---@class CallsparticipantCreateData
+---@field id string
+---@field user any
+---@field ok boolean
+
+---@class Chat
+---@field attachments? table
+---@field blocks? table
+---@field bot_id? string
+---@field bot_profile table
+---@field channel string
+---@field client_msg_id? string
+---@field comment table
+---@field display_as_bot? boolean
+---@field file? table
+---@field files? table
+---@field icons? table
+---@field inviter? string
+---@field is_delayed_message? boolean
+---@field is_intro? boolean
+---@field is_starred? boolean
+---@field last_read? string
+---@field latest_reply? string
+---@field message_ts string
+---@field name? string
+---@field ok boolean
+---@field old_name? string
+---@field parent_user_id? string
+---@field permalink string
+---@field pinned_to? table
+---@field purpose? string
+---@field reactions? table
+---@field reply_count? number
+---@field reply_users? table
+---@field reply_users_count? number
+---@field source_team? string
+---@field subscribed? boolean
+---@field subtype? string
+---@field team? string
+---@field text string
+---@field thread_ts? string
+---@field topic? string
+---@field ts string
+---@field type string
+---@field unread_count? number
+---@field upload? boolean
+---@field user? string
+---@field user_profile table
+---@field user_team? string
+---@field username? string
+
+---@class ChatLoadMatch
+---@field channel any
+---@field message_t any
+---@field token string
+
+---@class ChatCreateData
+---@field as_user? any
+---@field attachment? any
+---@field block? any
+---@field channel any
+---@field icon_emoji? any
+---@field icon_url? any
+---@field link_name? any
+---@field mrkdwn? any
+---@field parse? any
+---@field reply_broadcast? any
+---@field text? any
+---@field thread_t? any
+---@field unfurl_link? any
+---@field unfurl_media? any
+---@field username? string
+---@field attachments? table
+---@field blocks? table
+---@field bot_id? string
+---@field bot_profile table
+---@field client_msg_id? string
+---@field comment table
+---@field display_as_bot? boolean
+---@field file? table
+---@field files? table
+---@field icons? table
+---@field inviter? string
+---@field is_delayed_message? boolean
+---@field is_intro? boolean
+---@field is_starred? boolean
+---@field last_read? string
+---@field latest_reply? string
+---@field message_ts string
+---@field name? string
+---@field ok boolean
+---@field old_name? string
+---@field parent_user_id? string
+---@field permalink string
+---@field pinned_to? table
+---@field purpose? string
+---@field reactions? table
+---@field reply_count? number
+---@field reply_users? table
+---@field reply_users_count? number
+---@field source_team? string
+---@field subscribed? boolean
+---@field subtype? string
+---@field team? string
+---@field thread_ts? string
+---@field topic? string
+---@field ts string
+---@field type string
+---@field unread_count? number
+---@field upload? boolean
+---@field user? string
+---@field user_profile table
+---@field user_team? string
+
+---@class ChatscheduledMessage
+---@field channel_id string
+---@field date_created number
+---@field id string
+---@field post_at number
+---@field text? string
+
+---@class ChatscheduledMessageListMatch
+---@field channel? any
+---@field cursor? any
+---@field latest? any
+---@field limit? number
+---@field oldest? any
+
+---@class Conversation
+---@field already_closed? boolean
+---@field already_open? boolean
+---@field attachments? table
+---@field blocks? table
+---@field bot_id? string
+---@field bot_profile table
+---@field channel any
+---@field channels table
+---@field client_msg_id? string
+---@field comment table
+---@field display_as_bot? boolean
+---@field file? table
+---@field files? table
+---@field has_more? boolean
+---@field icons? table
+---@field inviter? string
+---@field is_delayed_message? boolean
+---@field is_intro? boolean
+---@field is_starred? boolean
+---@field last_read? string
+---@field latest_reply? string
+---@field members table
+---@field messages table
+---@field name? string
+---@field no_op? boolean
+---@field not_in_channel? boolean
+---@field ok boolean
+---@field old_name? string
+---@field parent_user_id? string
+---@field permalink? string
+---@field pinned_to? table
+---@field purpose? string
+---@field reactions? table
+---@field reply_count? number
+---@field reply_users? table
+---@field reply_users_count? number
+---@field response_metadata? table
+---@field source_team? string
+---@field subscribed? boolean
+---@field subtype? string
+---@field team? string
+---@field text string
+---@field thread_ts? string
+---@field topic? string
+---@field ts string
+---@field type string
+---@field unread_count? number
+---@field upload? boolean
+---@field user? string
+---@field user_profile table
+---@field user_team? string
+---@field username? string
+---@field warning? string
+
+---@class ConversationLoadMatch
+---@field channel? any
+---@field include_locale? any
+---@field include_num_member? any
+---@field token? string
+
+---@class ConversationListMatch
+---@field channel? any
+---@field cursor? any
+---@field inclusive? any
+---@field latest? any
+---@field limit? number
+---@field oldest? any
+---@field token? string
+---@field ts? any
+
+---@class ConversationCreateData
+---@field channel? any
+---@field return_im? any
+---@field user? any
+---@field already_closed? boolean
+---@field already_open? boolean
+---@field attachments? table
+---@field blocks? table
+---@field bot_id? string
+---@field bot_profile table
+---@field channels table
+---@field client_msg_id? string
+---@field comment table
+---@field display_as_bot? boolean
+---@field file? table
+---@field files? table
+---@field has_more? boolean
+---@field icons? table
+---@field inviter? string
+---@field is_delayed_message? boolean
+---@field is_intro? boolean
+---@field is_starred? boolean
+---@field last_read? string
+---@field latest_reply? string
+---@field members table
+---@field messages table
+---@field name? string
+---@field no_op? boolean
+---@field not_in_channel? boolean
+---@field ok boolean
+---@field old_name? string
+---@field parent_user_id? string
+---@field permalink? string
+---@field pinned_to? table
+---@field purpose? string
+---@field reactions? table
+---@field reply_count? number
+---@field reply_users? table
+---@field reply_users_count? number
+---@field response_metadata? table
+---@field source_team? string
+---@field subscribed? boolean
+---@field subtype? string
+---@field team? string
+---@field text string
+---@field thread_ts? string
+---@field topic? string
+---@field ts string
+---@field type string
+---@field unread_count? number
+---@field upload? boolean
+---@field user_profile table
+---@field user_team? string
+---@field username? string
+---@field warning? string
+
+---@class Dialog
+---@field ok boolean
+
+---@class DialogLoadMatch
+---@field dialog any
+---@field trigger_id string
+
+---@class Dnd
+---@field dnd_enabled boolean
+---@field next_dnd_end_ts number
+---@field next_dnd_start_ts number
+---@field ok boolean
+---@field snooze_enabled? boolean
+---@field snooze_endtime? number
+---@field snooze_remaining? number
+
+---@class DndLoadMatch
+---@field token? string
+---@field user? any
+
+---@class DndCreateData
+---@field num_minute number
+---@field token string
+---@field dnd_enabled boolean
+---@field next_dnd_end_ts number
+---@field next_dnd_start_ts number
+---@field ok boolean
+---@field snooze_enabled? boolean
+---@field snooze_endtime? number
+---@field snooze_remaining? number
+
+---@class Emoji
+---@field ok boolean
+
+---@class EmojiLoadMatch
+---@field token string
+
+---@class File
+---@field channels? table
+---@field comments table
+---@field comments_count? number
+---@field content_html? nil
+---@field created? number
+---@field date_delete? number
+---@field display_as_bot? boolean
+---@field editable? boolean
+---@field editor? string
+---@field external_id? string
+---@field external_type? string
+---@field external_url? string
+---@field file table
+---@field filetype? string
+---@field groups? table
+---@field has_rich_preview? boolean
+---@field id? string
+---@field image_exif_rotation? number
+---@field ims? table
+---@field is_external? boolean
+---@field is_public? boolean
+---@field is_starred? boolean
+---@field is_tombstoned? boolean
+---@field last_editor? string
+---@field mimetype? string
+---@field mode? string
+---@field name? string
+---@field non_owner_editable? boolean
+---@field num_stars? number
+---@field ok boolean
+---@field original_h? number
+---@field original_w? number
+---@field paging table
+---@field permalink? string
+---@field permalink_public? string
+---@field pinned_info? table
+---@field pinned_to? table
+---@field pretty_type? string
+---@field preview? string
+---@field public_url_shared? boolean
+---@field reactions? table
+---@field response_metadata? any
+---@field shares? table
+---@field size? number
+---@field source_team? string
+---@field state? string
+---@field thumb_1024? string
+---@field thumb_1024_h? number
+---@field thumb_1024_w? number
+---@field thumb_160? string
+---@field thumb_360? string
+---@field thumb_360_h? number
+---@field thumb_360_w? number
+---@field thumb_480? string
+---@field thumb_480_h? number
+---@field thumb_480_w? number
+---@field thumb_64? string
+---@field thumb_720? string
+---@field thumb_720_h? number
+---@field thumb_720_w? number
+---@field thumb_80? string
+---@field thumb_800? string
+---@field thumb_800_h? number
+---@field thumb_800_w? number
+---@field thumb_960? string
+---@field thumb_960_h? number
+---@field thumb_960_w? number
+---@field thumb_tiny? string
+---@field timestamp? number
+---@field title? string
+---@field updated? number
+---@field url_private? string
+---@field url_private_download? string
+---@field user? string
+---@field user_team? string
+---@field username? string
+
+---@class FileListMatch
+---@field channel? any
+---@field count? any
+---@field page? number
+---@field show_files_hidden_by_limit? any
+---@field token? string
+---@field ts_from? any
+---@field ts_to? any
+---@field type? any
+---@field user? any
+
+---@class FileCreateData
+---@field channel? any
+---@field content? any
+---@field file? any
+---@field filename? any
+---@field filetype? any
+---@field initial_comment? any
+---@field thread_t? any
+---@field title? string
+---@field token? string
+---@field channels? table
+---@field comments table
+---@field comments_count? number
+---@field content_html? nil
+---@field created? number
+---@field date_delete? number
+---@field display_as_bot? boolean
+---@field editable? boolean
+---@field editor? string
+---@field external_id? string
+---@field external_type? string
+---@field external_url? string
+---@field groups? table
+---@field has_rich_preview? boolean
+---@field id? string
+---@field image_exif_rotation? number
+---@field ims? table
+---@field is_external? boolean
+---@field is_public? boolean
+---@field is_starred? boolean
+---@field is_tombstoned? boolean
+---@field last_editor? string
+---@field mimetype? string
+---@field mode? string
+---@field name? string
+---@field non_owner_editable? boolean
+---@field num_stars? number
+---@field ok boolean
+---@field original_h? number
+---@field original_w? number
+---@field paging table
+---@field permalink? string
+---@field permalink_public? string
+---@field pinned_info? table
+---@field pinned_to? table
+---@field pretty_type? string
+---@field preview? string
+---@field public_url_shared? boolean
+---@field reactions? table
+---@field response_metadata? any
+---@field shares? table
+---@field size? number
+---@field source_team? string
+---@field state? string
+---@field thumb_1024? string
+---@field thumb_1024_h? number
+---@field thumb_1024_w? number
+---@field thumb_160? string
+---@field thumb_360? string
+---@field thumb_360_h? number
+---@field thumb_360_w? number
+---@field thumb_480? string
+---@field thumb_480_h? number
+---@field thumb_480_w? number
+---@field thumb_64? string
+---@field thumb_720? string
+---@field thumb_720_h? number
+---@field thumb_720_w? number
+---@field thumb_80? string
+---@field thumb_800? string
+---@field thumb_800_h? number
+---@field thumb_800_w? number
+---@field thumb_960? string
+---@field thumb_960_h? number
+---@field thumb_960_w? number
+---@field thumb_tiny? string
+---@field timestamp? number
+---@field updated? number
+---@field url_private? string
+---@field url_private_download? string
+---@field user? string
+---@field user_team? string
+---@field username? string
+
+---@class Filescomment
+---@field ok boolean
+
+---@class FilescommentCreateData
+---@field file? any
+---@field id? string
+---@field ok boolean
+
+---@class Filesremote
+---@field ok boolean
+
+---@class FilesremoteLoadMatch
+---@field channel? any
+---@field cursor? any
+---@field limit? number
+---@field token? string
+---@field ts_from? any
+---@field ts_to? any
+
+---@class FilesremoteCreateData
+---@field external_id? string
+---@field external_url? any
+---@field file? any
+---@field filetype? any
+---@field indexable_file_content? any
+---@field preview_image? any
+---@field title? string
+---@field token? string
+---@field ok boolean
+
+---@class Migration
+---@field enterprise_id string
+---@field invalid_user_ids? table
+---@field ok boolean
+---@field team_id string
+---@field user_id_map? table
+
+---@class MigrationListMatch
+---@field team_id? string
+---@field to_old? any
+---@field token string
+---@field user any
+
+---@class Oauth
+---@field ok boolean
+
+---@class OauthLoadMatch
+---@field client_id? string
+---@field client_secret? any
+---@field code? any
+---@field redirect_uri? any
+---@field single_channel? any
+
+---@class Oauthv2
+---@field ok boolean
+
+---@class Oauthv2LoadMatch
+---@field client_id? string
+---@field client_secret? any
+---@field code any
+---@field redirect_uri? any
+
+---@class Pin
+---@field items? table
+---@field ok? boolean
+
+---@class PinLoadMatch
+---@field channel any
+---@field token string
+
+---@class PinCreateData
+---@field channel any
+---@field timestamp? any
+---@field items? table
+---@field ok? boolean
+
+---@class Reaction
+---@field file? table
+---@field items table
+---@field ok? boolean
+---@field paging table
+---@field response_metadata? any
+---@field type? string
+
+---@class ReactionLoadMatch
+---@field channel? any
+---@field file? any
+---@field file_comment? any
+---@field full? any
+---@field timestamp? any
+---@field token string
+
+---@class ReactionListMatch
+---@field count? any
+---@field cursor? any
+---@field full? any
+---@field limit? number
+---@field page? number
+---@field token string
+---@field user? any
+
+---@class ReactionCreateData
+---@field channel? any
+---@field file? any
+---@field file_comment? any
+---@field name string
+---@field timestamp? any
+---@field items table
+---@field ok? boolean
+---@field paging table
+---@field response_metadata? any
+---@field type? string
+
+---@class Reminder
+---@field complete_ts? number
+---@field creator string
+---@field id string
+---@field ok boolean
+---@field recurring boolean
+---@field text string
+---@field time? number
+---@field user string
+
+---@class ReminderLoadMatch
+---@field reminder? any
+---@field token? string
+
+---@class ReminderListMatch
+---@field token? string
+
+---@class ReminderCreateData
+---@field text any
+---@field time any
+---@field user? any
+---@field complete_ts? number
+---@field creator string
+---@field id string
+---@field ok boolean
+---@field recurring boolean
+
+---@class Rtm
+---@field ok boolean
+---@field self table
+---@field team table
+---@field url string
+
+---@class RtmLoadMatch
+---@field batch_presence_aware? any
+---@field presence_sub? any
+---@field token string
+
+---@class Search
+---@field ok boolean
+
+---@class SearchLoadMatch
+---@field count? any
+---@field highlight? any
+---@field page? number
+---@field query any
+---@field sort? any
+---@field sort_dir? any
+---@field token string
+
+---@class Star
+---@field items table
+---@field ok boolean
+---@field paging table
+
+---@class StarListMatch
+---@field count? any
+---@field cursor? any
+---@field limit? number
+---@field page? number
+---@field token? string
+
+---@class StarCreateData
+---@field channel? any
+---@field file? any
+---@field file_comment? any
+---@field timestamp? any
+---@field items table
+---@field ok boolean
+---@field paging table
+
+---@class Team
+---@field admin_app_id? string
+---@field app_id string
+---@field app_type string
+---@field archived? boolean
+---@field avatar_base_url? string
+---@field change_type string
+---@field channel? string
+---@field count number
+---@field country string|nil
+---@field created? number
+---@field date string
+---@field date_create? number
+---@field date_first number
+---@field date_last number
+---@field deleted? boolean
+---@field description? nil|string
+---@field discoverable? any
+---@field domain string
+---@field email_domain string
+---@field enterprise_id? string
+---@field enterprise_name? string
+---@field external_org_migrations table
+---@field has_compliance_export? boolean
+---@field icon table
+---@field id string
+---@field ip string|nil
+---@field is_assigned? boolean
+---@field is_enterprise? number
+---@field is_over_storage_limit? boolean
+---@field isp string|nil
+---@field limit_ts? number
+---@field locale? string
+---@field messages_count? number
+---@field msg_edit_window_mins? number
+---@field name string
+---@field ok boolean
+---@field over_integrations_limit? boolean
+---@field over_storage_limit? boolean
+---@field pay_prod_cur? string
+---@field plan? string
+---@field primary_owner table
+---@field region string|nil
+---@field scope string
+---@field service_id? string
+---@field service_type? string
+---@field sso_provider? table
+---@field user_agent string
+---@field user_id string
+---@field user_name string
+---@field username string
+
+---@class TeamLoadMatch
+---@field team? any
+---@field token string
+---@field user? any
+
+---@class TeamListMatch
+---@field app_id? string
+---@field change_type? any
+---@field count? any
+---@field page? number
+---@field service_id? string
+---@field token string
+---@field user? any
+---@field before? any
+
+---@class Teamprofile
+---@field fields table
+
+---@class TeamprofileLoadMatch
+---@field token string
+---@field visibility? any
+
+---@class User
+---@field auto_away? boolean
+---@field avatar_hash string
+---@field cache_ts number
+---@field channels table
+---@field connection_count? number
+---@field image_1024 string
+---@field image_192 string
+---@field image_24 string
+---@field image_32 string
+---@field image_48 string
+---@field image_512 string
+---@field image_72 string
+---@field image_original string
+---@field last_activity? number
+---@field manual_away? boolean
+---@field members table
+---@field ok boolean
+---@field online? boolean
+---@field presence string
+---@field response_metadata table
+---@field team? table
+---@field user any
+
+---@class UserLoadMatch
+---@field include_locale? any
+---@field token string
+---@field user? any
+
+---@class UserListMatch
+---@field cursor? any
+---@field exclude_archived? any
+---@field limit? number
+---@field token? string
+---@field type? any
+---@field user? any
+
+---@class UserCreateData
+---@field crop_w? any
+---@field crop_x? any
+---@field crop_y? any
+---@field image? any
+---@field token string
+---@field auto_away? boolean
+---@field avatar_hash string
+---@field cache_ts number
+---@field channels table
+---@field connection_count? number
+---@field image_1024 string
+---@field image_192 string
+---@field image_24 string
+---@field image_32 string
+---@field image_48 string
+---@field image_512 string
+---@field image_72 string
+---@field image_original string
+---@field last_activity? number
+---@field manual_away? boolean
+---@field members table
+---@field ok boolean
+---@field online? boolean
+---@field presence string
+---@field response_metadata table
+---@field team? table
+---@field user any
+
+---@class Usergroup
+---@field auto_provision boolean
+---@field auto_type any
+---@field channel_count? number
+---@field created_by string
+---@field date_create number
+---@field date_delete number
+---@field date_update number
+---@field deleted_by any
+---@field description string
+---@field enterprise_subteam_id string
+---@field handle string
+---@field id string
+---@field is_external boolean
+---@field is_subteam boolean
+---@field is_usergroup boolean
+---@field name string
+---@field prefs table
+---@field team_id string
+---@field updated_by string
+---@field user_count? number
+---@field users? table
+
+---@class UsergroupListMatch
+---@field include_count? number
+---@field include_disabled? any
+---@field include_user? any
+---@field token string
+
+---@class UsergroupCreateData
+---@field channel? any
+---@field description? string
+---@field handle? any
+---@field include_count? number
+---@field name? string
+---@field usergroup any
+---@field auto_provision boolean
+---@field auto_type any
+---@field channel_count? number
+---@field created_by string
+---@field date_create number
+---@field date_delete number
+---@field date_update number
+---@field deleted_by any
+---@field enterprise_subteam_id string
+---@field id string
+---@field is_external boolean
+---@field is_subteam boolean
+---@field is_usergroup boolean
+---@field prefs table
+---@field team_id string
+---@field updated_by string
+---@field user_count? number
+---@field users? table
+
+---@class Usergroupsuser
+---@field auto_provision boolean
+---@field auto_type any
+---@field channel_count? number
+---@field created_by string
+---@field date_create number
+---@field date_delete number
+---@field date_update number
+---@field deleted_by any
+---@field description string
+---@field enterprise_subteam_id string
+---@field handle string
+---@field id string
+---@field is_external boolean
+---@field is_subteam boolean
+---@field is_usergroup boolean
+---@field name string
+---@field ok boolean
+---@field prefs table
+---@field team_id string
+---@field updated_by string
+---@field user_count? number
+---@field users? table
+
+---@class UsergroupsuserListMatch
+---@field include_disabled? any
+---@field token string
+---@field usergroup any
+
+---@class UsergroupsuserCreateData
+---@field include_count? number
+---@field user any
+---@field usergroup any
+---@field auto_provision boolean
+---@field auto_type any
+---@field channel_count? number
+---@field created_by string
+---@field date_create number
+---@field date_delete number
+---@field date_update number
+---@field deleted_by any
+---@field description string
+---@field enterprise_subteam_id string
+---@field handle string
+---@field id string
+---@field is_external boolean
+---@field is_subteam boolean
+---@field is_usergroup boolean
+---@field name string
+---@field ok boolean
+---@field prefs table
+---@field team_id string
+---@field updated_by string
+---@field user_count? number
+---@field users? table
+
+---@class Usersprofile
+---@field always_active? boolean
+---@field api_app_id? string
+---@field avatar_hash string
+---@field bot_id? string
+---@field display_name string
+---@field display_name_normalized string
+---@field email? nil|string
+---@field fields table|nil
+---@field first_name? nil|string
+---@field guest_expiration_ts? nil|number
+---@field guest_invited_by? nil|string
+---@field image_1024? nil|string
+---@field image_192? nil|string
+---@field image_24? nil|string
+---@field image_32? nil|string
+---@field image_48? nil|string
+---@field image_512? nil|string
+---@field image_72? nil|string
+---@field image_original? nil|string
+---@field is_app_user? boolean
+---@field is_custom_image? boolean
+---@field is_restricted? nil|boolean
+---@field is_ultra_restricted? nil|boolean
+---@field last_avatar_image_hash? string
+---@field last_name? nil|string
+---@field memberships_count? number
+---@field name? nil|string
+---@field phone string
+---@field pronouns? string
+---@field real_name string
+---@field real_name_normalized string
+---@field skype string
+---@field status_default_emoji? string
+---@field status_default_text? string
+---@field status_default_text_canonical? nil|string
+---@field status_emoji string
+---@field status_expiration? number
+---@field status_text string
+---@field status_text_canonical? nil|string
+---@field team? string
+---@field title string
+---@field updated? number
+---@field user_id? string
+---@field username? nil|string
+
+---@class UsersprofileLoadMatch
+---@field include_label? any
+---@field token string
+---@field user? any
+
+---@class UsersprofileCreateData
+---@field name? string
+---@field profile? any
+---@field user? any
+---@field value? any
+---@field always_active? boolean
+---@field api_app_id? string
+---@field avatar_hash string
+---@field bot_id? string
+---@field display_name string
+---@field display_name_normalized string
+---@field email? nil|string
+---@field fields table|nil
+---@field first_name? nil|string
+---@field guest_expiration_ts? nil|number
+---@field guest_invited_by? nil|string
+---@field image_1024? nil|string
+---@field image_192? nil|string
+---@field image_24? nil|string
+---@field image_32? nil|string
+---@field image_48? nil|string
+---@field image_512? nil|string
+---@field image_72? nil|string
+---@field image_original? nil|string
+---@field is_app_user? boolean
+---@field is_custom_image? boolean
+---@field is_restricted? nil|boolean
+---@field is_ultra_restricted? nil|boolean
+---@field last_avatar_image_hash? string
+---@field last_name? nil|string
+---@field memberships_count? number
+---@field phone string
+---@field pronouns? string
+---@field real_name string
+---@field real_name_normalized string
+---@field skype string
+---@field status_default_emoji? string
+---@field status_default_text? string
+---@field status_default_text_canonical? nil|string
+---@field status_emoji string
+---@field status_expiration? number
+---@field status_text string
+---@field status_text_canonical? nil|string
+---@field team? string
+---@field title string
+---@field updated? number
+---@field user_id? string
+---@field username? nil|string
+
+---@class View
+---@field ok boolean
+
+---@class ViewLoadMatch
+---@field external_id? string
+---@field hash? any
+---@field view? any
+---@field view_id? string
+
+---@class Workflow
+---@field ok boolean
+
+---@class WorkflowLoadMatch
+---@field input? any
+---@field output? any
+---@field step_image_url? any
+---@field step_name? any
+---@field workflow_step_edit_id string
 
 local M = {}
 

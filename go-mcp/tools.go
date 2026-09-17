@@ -16,7 +16,7 @@ import (
 // reqdata map passed through to the SDK. For load, `query` should be
 // `{"id": <value>}`. For list, omit `query` or pass an empty map.
 type Args struct {
-	Entity string         `json:"entity" jsonschema:"conversationsinfo | conversationslist"`
+	Entity string         `json:"entity" jsonschema:"adminapp | adminappsapproved | adminappsrequest | adminappsrestricted | adminconversation | adminconversationsekm | adminconversationsrestrict_access | adminemoji | admininvite_request | admininvite_requestsapproved | admininvite_requestsdenied | adminteam | adminteamsadmin | adminteamsowner | adminteamssetting | adminuser | adminusergroup | adminuserssession | api | app | appseventauthorization | appspermission | appspermissionsresource | appspermissionsscope | appspermissionsuser | auth | bot | call | callsparticipant | chat | chatscheduled_message | conversation | dialog | dnd | emoji | file | filescomment | filesremote | migration | oauth | oauthv2 | pin | reaction | reminder | rtm | search | star | team | teamprofile | user | usergroup | usergroupsuser | usersprofile | view | workflow"`
 	Query  map[string]any `json:"query,omitempty" jsonschema:"optional match map e.g. {\"id\":1} for load, omit for list"`
 }
 
@@ -77,10 +77,116 @@ func runOp(client *sdk.SlackSDK, op string, args Args) (*mcp.CallToolResult, any
 // emits one `case "<name>":` per entity defined in the SDK model.
 func entityFor(client *sdk.SlackSDK, name string) (sdk.SlackEntity, error) {
 	switch strings.ToLower(name) {
-	case "conversationsinfo":
-		return client.Conversationsinfo(nil), nil
-	case "conversationslist":
-		return client.Conversationslist(nil), nil
+	case "adminapp":
+		return client.Adminapp(nil), nil
+	case "adminappsapproved":
+		return client.Adminappsapproved(nil), nil
+	case "adminappsrequest":
+		return client.Adminappsrequest(nil), nil
+	case "adminappsrestricted":
+		return client.Adminappsrestricted(nil), nil
+	case "adminconversation":
+		return client.Adminconversation(nil), nil
+	case "adminconversationsekm":
+		return client.Adminconversationsekm(nil), nil
+	case "adminconversationsrestrict_access":
+		return client.AdminconversationsrestrictAccess(nil), nil
+	case "adminemoji":
+		return client.Adminemoji(nil), nil
+	case "admininvite_request":
+		return client.AdmininviteRequest(nil), nil
+	case "admininvite_requestsapproved":
+		return client.AdmininviteRequestsapproved(nil), nil
+	case "admininvite_requestsdenied":
+		return client.AdmininviteRequestsdenied(nil), nil
+	case "adminteam":
+		return client.Adminteam(nil), nil
+	case "adminteamsadmin":
+		return client.Adminteamsadmin(nil), nil
+	case "adminteamsowner":
+		return client.Adminteamsowner(nil), nil
+	case "adminteamssetting":
+		return client.Adminteamssetting(nil), nil
+	case "adminuser":
+		return client.Adminuser(nil), nil
+	case "adminusergroup":
+		return client.Adminusergroup(nil), nil
+	case "adminuserssession":
+		return client.Adminuserssession(nil), nil
+	case "api":
+		return client.Api(nil), nil
+	case "app":
+		return client.App(nil), nil
+	case "appseventauthorization":
+		return client.Appseventauthorization(nil), nil
+	case "appspermission":
+		return client.Appspermission(nil), nil
+	case "appspermissionsresource":
+		return client.Appspermissionsresource(nil), nil
+	case "appspermissionsscope":
+		return client.Appspermissionsscope(nil), nil
+	case "appspermissionsuser":
+		return client.Appspermissionsuser(nil), nil
+	case "auth":
+		return client.Auth(nil), nil
+	case "bot":
+		return client.Bot(nil), nil
+	case "call":
+		return client.Call(nil), nil
+	case "callsparticipant":
+		return client.Callsparticipant(nil), nil
+	case "chat":
+		return client.Chat(nil), nil
+	case "chatscheduled_message":
+		return client.ChatscheduledMessage(nil), nil
+	case "conversation":
+		return client.Conversation(nil), nil
+	case "dialog":
+		return client.Dialog(nil), nil
+	case "dnd":
+		return client.Dnd(nil), nil
+	case "emoji":
+		return client.Emoji(nil), nil
+	case "file":
+		return client.File(nil), nil
+	case "filescomment":
+		return client.Filescomment(nil), nil
+	case "filesremote":
+		return client.Filesremote(nil), nil
+	case "migration":
+		return client.Migration(nil), nil
+	case "oauth":
+		return client.Oauth(nil), nil
+	case "oauthv2":
+		return client.Oauthv2(nil), nil
+	case "pin":
+		return client.Pin(nil), nil
+	case "reaction":
+		return client.Reaction(nil), nil
+	case "reminder":
+		return client.Reminder(nil), nil
+	case "rtm":
+		return client.Rtm(nil), nil
+	case "search":
+		return client.Search(nil), nil
+	case "star":
+		return client.Star(nil), nil
+	case "team":
+		return client.Team(nil), nil
+	case "teamprofile":
+		return client.Teamprofile(nil), nil
+	case "user":
+		return client.User(nil), nil
+	case "usergroup":
+		return client.Usergroup(nil), nil
+	case "usergroupsuser":
+		return client.Usergroupsuser(nil), nil
+	case "usersprofile":
+		return client.Usersprofile(nil), nil
+	case "view":
+		return client.View(nil), nil
+	case "workflow":
+		return client.Workflow(nil), nil
 
 	}
 	return nil, fmt.Errorf("unknown entity %q", name)

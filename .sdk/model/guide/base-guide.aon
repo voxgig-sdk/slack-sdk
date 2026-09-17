@@ -1,21 +1,724 @@
 # Guide
 
 guide: {
-  metrics: count: entity: 2
-  metrics: count: path: 2
-  metrics: count: method: 2
+  metrics: count: entity: 55
+  metrics: count: path: 174
+  metrics: count: method: 174
 
-  entity: conversationsinfo: {
-    path: "/conversations.info": {
-      op: load: method: *GET
-      op: load: transform: res: *("`body.channel`")|top
+  entity: adminapp: {
+    path: "/admin.apps.approve": {
+      op: create: method: *POST
+    }
+    path: "/admin.apps.restrict": {
+      op: create: method: *POST
     }
   }
 
-  entity: conversationslist: {
-    path: "/conversations.list": {
+  entity: adminappsapproved: {
+    path: "/admin.apps.approved.list": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: adminappsrequest: {
+    path: "/admin.apps.requests.list": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: adminappsrestricted: {
+    path: "/admin.apps.restricted.list": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: adminconversation: {
+    path: "/admin.conversations.archive": {
+      op: create: method: *POST
+    }
+    path: "/admin.conversations.convertToPrivate": {
+      op: create: method: *POST
+    }
+    path: "/admin.conversations.create": {
+      op: create: method: *POST
+    }
+    path: "/admin.conversations.delete": {
+      op: create: method: *POST
+    }
+    path: "/admin.conversations.disconnectShared": {
+      op: create: method: *POST
+    }
+    path: "/admin.conversations.getConversationPrefs": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.prefs`")|top
+    }
+    path: "/admin.conversations.getTeams": {
+      op: list: method: *GET
+    }
+    path: "/admin.conversations.invite": {
+      op: create: method: *POST
+    }
+    path: "/admin.conversations.rename": {
+      op: create: method: *POST
+    }
+    path: "/admin.conversations.search": {
       op: list: method: *GET
       op: list: transform: res: *("`body.channels`")|top
+    }
+    path: "/admin.conversations.setConversationPrefs": {
+      op: create: method: *POST
+    }
+    path: "/admin.conversations.setTeams": {
+      op: create: method: *POST
+    }
+    path: "/admin.conversations.unarchive": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: adminconversationsekm: {
+    path: "/admin.conversations.ekm.listOriginalConnectedChannelInfo": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: adminconversationsrestrict_access: {
+    path: "/admin.conversations.restrictAccess.addGroup": {
+      op: create: method: *POST
+    }
+    path: "/admin.conversations.restrictAccess.listGroups": {
+      op: load: method: *GET
+    }
+    path: "/admin.conversations.restrictAccess.removeGroup": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: adminemoji: {
+    path: "/admin.emoji.add": {
+      op: create: method: *POST
+    }
+    path: "/admin.emoji.addAlias": {
+      op: create: method: *POST
+    }
+    path: "/admin.emoji.list": {
+      op: load: method: *GET
+    }
+    path: "/admin.emoji.remove": {
+      op: create: method: *POST
+    }
+    path: "/admin.emoji.rename": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: admininvite_request: {
+    path: "/admin.inviteRequests.approve": {
+      op: create: method: *POST
+    }
+    path: "/admin.inviteRequests.deny": {
+      op: create: method: *POST
+    }
+    path: "/admin.inviteRequests.list": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: admininvite_requestsapproved: {
+    path: "/admin.inviteRequests.approved.list": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: admininvite_requestsdenied: {
+    path: "/admin.inviteRequests.denied.list": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: adminteam: {
+    path: "/admin.teams.create": {
+      op: create: method: *POST
+    }
+    path: "/admin.teams.list": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: adminteamsadmin: {
+    path: "/admin.teams.admins.list": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: adminteamsowner: {
+    path: "/admin.teams.owners.list": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: adminteamssetting: {
+    path: "/admin.teams.settings.info": {
+      op: load: method: *GET
+    }
+    path: "/admin.teams.settings.setDefaultChannels": {
+      op: create: method: *POST
+    }
+    path: "/admin.teams.settings.setDescription": {
+      op: create: method: *POST
+    }
+    path: "/admin.teams.settings.setDiscoverability": {
+      op: create: method: *POST
+    }
+    path: "/admin.teams.settings.setIcon": {
+      op: create: method: *POST
+    }
+    path: "/admin.teams.settings.setName": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: adminuser: {
+    path: "/admin.users.assign": {
+      op: create: method: *POST
+    }
+    path: "/admin.users.invite": {
+      op: create: method: *POST
+    }
+    path: "/admin.users.list": {
+      op: load: method: *GET
+    }
+    path: "/admin.users.remove": {
+      op: create: method: *POST
+    }
+    path: "/admin.users.setAdmin": {
+      op: create: method: *POST
+    }
+    path: "/admin.users.setExpiration": {
+      op: create: method: *POST
+    }
+    path: "/admin.users.setOwner": {
+      op: create: method: *POST
+    }
+    path: "/admin.users.setRegular": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: adminusergroup: {
+    path: "/admin.usergroups.addChannels": {
+      op: create: method: *POST
+    }
+    path: "/admin.usergroups.addTeams": {
+      op: create: method: *POST
+    }
+    path: "/admin.usergroups.listChannels": {
+      op: load: method: *GET
+    }
+    path: "/admin.usergroups.removeChannels": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: adminuserssession: {
+    path: "/admin.users.session.invalidate": {
+      op: create: method: *POST
+    }
+    path: "/admin.users.session.reset": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: api: {
+    path: "/api.test": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: app: {
+    path: "/apps.uninstall": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: appseventauthorization: {
+    path: "/apps.event.authorizations.list": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: appspermission: {
+    path: "/apps.permissions.info": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.info`")|top
+    }
+    path: "/apps.permissions.request": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: appspermissionsresource: {
+    path: "/apps.permissions.resources.list": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: appspermissionsscope: {
+    path: "/apps.permissions.scopes.list": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.scopes`")|top
+    }
+  }
+
+  entity: appspermissionsuser: {
+    path: "/apps.permissions.users.list": {
+      op: load: method: *GET
+    }
+    path: "/apps.permissions.users.request": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: auth: {
+    path: "/auth.revoke": {
+      op: load: method: *GET
+    }
+    path: "/auth.test": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: bot: {
+    path: "/bots.info": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.bot`")|top
+    }
+  }
+
+  entity: call: {
+    path: "/calls.add": {
+      op: create: method: *POST
+    }
+    path: "/calls.end": {
+      op: create: method: *POST
+    }
+    path: "/calls.info": {
+      op: load: method: *GET
+    }
+    path: "/calls.update": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: callsparticipant: {
+    path: "/calls.participants.add": {
+      op: create: method: *POST
+    }
+    path: "/calls.participants.remove": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: chat: {
+    path: "/chat.delete": {
+      op: create: method: *POST
+    }
+    path: "/chat.deleteScheduledMessage": {
+      op: create: method: *POST
+    }
+    path: "/chat.getPermalink": {
+      op: load: method: *GET
+    }
+    path: "/chat.meMessage": {
+      op: create: method: *POST
+    }
+    path: "/chat.postEphemeral": {
+      op: create: method: *POST
+    }
+    path: "/chat.postMessage": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.message`")|top
+    }
+    path: "/chat.scheduleMessage": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.message`")|top
+    }
+    path: "/chat.unfurl": {
+      op: create: method: *POST
+    }
+    path: "/chat.update": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.message`")|top
+    }
+  }
+
+  entity: chatscheduled_message: {
+    path: "/chat.scheduledMessages.list": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: conversation: {
+    path: "/conversations.archive": {
+      op: create: method: *POST
+    }
+    path: "/conversations.close": {
+      op: create: method: *POST
+    }
+    path: "/conversations.create": {
+      op: create: method: *POST
+    }
+    path: "/conversations.history": {
+      op: list: method: *GET
+    }
+    path: "/conversations.info": {
+      op: load: method: *GET
+    }
+    path: "/conversations.invite": {
+      op: create: method: *POST
+    }
+    path: "/conversations.join": {
+      op: create: method: *POST
+    }
+    path: "/conversations.kick": {
+      op: create: method: *POST
+    }
+    path: "/conversations.leave": {
+      op: create: method: *POST
+    }
+    path: "/conversations.list": {
+      op: list: method: *GET
+    }
+    path: "/conversations.mark": {
+      op: create: method: *POST
+    }
+    path: "/conversations.members": {
+      op: list: method: *GET
+    }
+    path: "/conversations.open": {
+      op: create: method: *POST
+    }
+    path: "/conversations.rename": {
+      op: create: method: *POST
+    }
+    path: "/conversations.replies": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.messages`")|top
+    }
+    path: "/conversations.setPurpose": {
+      op: create: method: *POST
+    }
+    path: "/conversations.setTopic": {
+      op: create: method: *POST
+    }
+    path: "/conversations.unarchive": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: dialog: {
+    path: "/dialog.open": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: dnd: {
+    path: "/dnd.endDnd": {
+      op: create: method: *POST
+    }
+    path: "/dnd.endSnooze": {
+      op: create: method: *POST
+    }
+    path: "/dnd.info": {
+      op: load: method: *GET
+    }
+    path: "/dnd.setSnooze": {
+      op: create: method: *POST
+    }
+    path: "/dnd.teamInfo": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: emoji: {
+    path: "/emoji.list": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: file: {
+    path: "/files.delete": {
+      op: create: method: *POST
+    }
+    path: "/files.info": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.file`")|top
+    }
+    path: "/files.list": {
+      op: list: method: *GET
+    }
+    path: "/files.revokePublicURL": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.file`")|top
+    }
+    path: "/files.sharedPublicURL": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.file`")|top
+    }
+    path: "/files.upload": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.file`")|top
+    }
+  }
+
+  entity: filescomment: {
+    path: "/files.comments.delete": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: filesremote: {
+    path: "/files.remote.add": {
+      op: create: method: *POST
+    }
+    path: "/files.remote.info": {
+      op: load: method: *GET
+    }
+    path: "/files.remote.list": {
+      op: load: method: *GET
+    }
+    path: "/files.remote.remove": {
+      op: create: method: *POST
+    }
+    path: "/files.remote.share": {
+      op: load: method: *GET
+    }
+    path: "/files.remote.update": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: migration: {
+    path: "/migration.exchange": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: oauth: {
+    path: "/oauth.access": {
+      op: load: method: *GET
+    }
+    path: "/oauth.token": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: oauthv2: {
+    path: "/oauth.v2.access": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: pin: {
+    path: "/pins.add": {
+      op: create: method: *POST
+    }
+    path: "/pins.list": {
+      op: load: method: *GET
+    }
+    path: "/pins.remove": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: reaction: {
+    path: "/reactions.add": {
+      op: create: method: *POST
+    }
+    path: "/reactions.get": {
+      op: load: method: *GET
+    }
+    path: "/reactions.list": {
+      op: list: method: *GET
+    }
+    path: "/reactions.remove": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: reminder: {
+    path: "/reminders.add": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.reminder`")|top
+    }
+    path: "/reminders.complete": {
+      op: create: method: *POST
+    }
+    path: "/reminders.delete": {
+      op: create: method: *POST
+    }
+    path: "/reminders.info": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.reminder`")|top
+    }
+    path: "/reminders.list": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.reminders`")|top
+    }
+  }
+
+  entity: rtm: {
+    path: "/rtm.connect": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: search: {
+    path: "/search.messages": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: star: {
+    path: "/stars.add": {
+      op: create: method: *POST
+    }
+    path: "/stars.list": {
+      op: list: method: *GET
+    }
+    path: "/stars.remove": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: team: {
+    path: "/team.accessLogs": {
+      op: list: method: *GET
+    }
+    path: "/team.billableInfo": {
+      op: load: method: *GET
+    }
+    path: "/team.info": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.team`")|top
+    }
+    path: "/team.integrationLogs": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: teamprofile: {
+    path: "/team.profile.get": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.profile`")|top
+    }
+  }
+
+  entity: user: {
+    path: "/users.conversations": {
+      op: list: method: *GET
+    }
+    path: "/users.deletePhoto": {
+      op: create: method: *POST
+    }
+    path: "/users.getPresence": {
+      op: load: method: *GET
+    }
+    path: "/users.identity": {
+      op: load: method: *GET
+    }
+    path: "/users.info": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.user`")|top
+    }
+    path: "/users.list": {
+      op: list: method: *GET
+    }
+    path: "/users.lookupByEmail": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.user`")|top
+    }
+    path: "/users.setActive": {
+      op: create: method: *POST
+    }
+    path: "/users.setPhoto": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.profile`")|top
+    }
+    path: "/users.setPresence": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: usergroup: {
+    path: "/usergroups.create": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.usergroup`")|top
+    }
+    path: "/usergroups.disable": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.usergroup`")|top
+    }
+    path: "/usergroups.enable": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.usergroup`")|top
+    }
+    path: "/usergroups.list": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.usergroups`")|top
+    }
+    path: "/usergroups.update": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.usergroup`")|top
+    }
+  }
+
+  entity: usergroupsuser: {
+    path: "/usergroups.users.list": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.users`")|top
+    }
+    path: "/usergroups.users.update": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.usergroup`")|top
+    }
+  }
+
+  entity: usersprofile: {
+    path: "/users.profile.get": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.profile`")|top
+    }
+    path: "/users.profile.set": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.profile`")|top
+    }
+  }
+
+  entity: view: {
+    path: "/views.open": {
+      op: load: method: *GET
+    }
+    path: "/views.publish": {
+      op: load: method: *GET
+    }
+    path: "/views.push": {
+      op: load: method: *GET
+    }
+    path: "/views.update": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: workflow: {
+    path: "/workflows.stepCompleted": {
+      op: load: method: *GET
+    }
+    path: "/workflows.stepFailed": {
+      op: load: method: *GET
+    }
+    path: "/workflows.updateStep": {
+      op: load: method: *GET
     }
   }
 

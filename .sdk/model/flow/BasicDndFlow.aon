@@ -1,0 +1,36 @@
+# BasicDndFlow
+
+main: kit: flow: BasicDndFlow:
+{
+  entity: "dnd",
+  kind: "basic",
+  name: "BasicDndFlow",
+  step: [
+    {
+      input: {
+        ref: "dnd_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "dnd_ref01",
+        srcdatavar: "dnd_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-dnd_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDndFlow"
+}

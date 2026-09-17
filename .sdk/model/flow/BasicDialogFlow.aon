@@ -1,0 +1,28 @@
+# BasicDialogFlow
+
+main: kit: flow: BasicDialogFlow:
+{
+  entity: "dialog",
+  kind: "basic",
+  name: "BasicDialogFlow",
+  step: [
+    {
+      input: {
+        ref: "dialog_ref01",
+        srcdatavar: "dialog_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-dialog_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDialogFlow"
+}

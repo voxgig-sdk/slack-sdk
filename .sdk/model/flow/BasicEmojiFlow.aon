@@ -1,0 +1,28 @@
+# BasicEmojiFlow
+
+main: kit: flow: BasicEmojiFlow:
+{
+  entity: "emoji",
+  kind: "basic",
+  name: "BasicEmojiFlow",
+  step: [
+    {
+      input: {
+        ref: "emoji_ref01",
+        srcdatavar: "emoji_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-emoji_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEmojiFlow"
+}

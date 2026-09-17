@@ -1,0 +1,30 @@
+# BasicStarFlow
+
+main: kit: flow: BasicStarFlow:
+{
+  entity: "star",
+  kind: "basic",
+  name: "BasicStarFlow",
+  step: [
+    {
+      input: {
+        ref: "star_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "star_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicStarFlow"
+}

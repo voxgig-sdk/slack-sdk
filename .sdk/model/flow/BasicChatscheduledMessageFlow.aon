@@ -1,0 +1,22 @@
+# BasicChatscheduledMessageFlow
+
+main: kit: flow: BasicChatscheduledMessageFlow:
+{
+  entity: "chatscheduled_message",
+  kind: "basic",
+  name: "BasicChatscheduledMessageFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "chatscheduled_message_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicChatscheduledMessageFlow"
+}

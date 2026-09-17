@@ -5,7 +5,7 @@
 The JavaScript SDK for the Slack API — an entity-oriented client with full async/await support.
 
 The API is exposed as capitalised, semantic **Entities** — e.g.
-`client.Conversationsinfo()` — each with a small set of operations (`list`, `load`)
+`client.Adminapp()` — each with a small set of operations (`list`, `load`, `create`)
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
@@ -33,11 +33,13 @@ const client = new SlackSDK({
 })
 ```
 
-### Load a Conversationsinfo
+### Create a Adminapp
 
 ```js
-const conversationsinfo = await client.Conversationsinfo().load({ channel: 'example_channel' })
-console.log(conversationsinfo)
+const created = await client.Adminapp().create({
+  ok: true,
+})
+console.log(created)
 ```
 
 ### Direct API Access
@@ -63,8 +65,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const conversationsinfo = await client.Conversationsinfo().load({ channel: "example" })
-  console.log(conversationsinfo)
+  const adminteam = await client.Adminteam().load()
+  console.log(adminteam)
 } catch (err) {
   console.error('load failed:', err)
 }
@@ -130,10 +132,10 @@ Create a mock client for unit testing — no server required:
 ```js
 const client = SlackSDK.test()
 
-const conversationsinfo = await client.Conversationsinfo().load({ channel: 'example_channel' })
-// conversationsinfo is the entity, populated with mock response data
-// — call conversationsinfo.data() for the record itself
-console.log(conversationsinfo)
+const adminteam = await client.Adminteam().load()
+// adminteam is the entity, populated with mock response data
+// — call adminteam.data() for the record itself
+console.log(adminteam)
 ```
 
 You can also use the instance method:
@@ -148,14 +150,14 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```js
-const entity = client.Conversationsinfo()
+const entity = client.Adminteam()
 
 // First call runs the operation and stores its result
-await entity.load({ channel: 'example_channel' })
+await entity.load()
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data.id)
+console.log(data)
 ```
 
 ### Add custom middleware
@@ -223,8 +225,61 @@ new SlackSDK(options?)
 | `utility()` | `Utility` | Deep copy of the SDK utility object. |
 | `prepare(fetchargs?)` | `Promise<FetchDef>` | Build an HTTP request definition without sending it. |
 | `direct(fetchargs?)` | `Promise<DirectResult>` | Build and send an HTTP request. |
-| `Conversationsinfo(data?)` | `ConversationsinfoEntity` | Create a Conversationsinfo entity instance. |
-| `Conversationslist(data?)` | `ConversationslistEntity` | Create a Conversationslist entity instance. |
+| `Adminapp(data?)` | `AdminappEntity` | Create an Adminapp entity instance. |
+| `Adminappsapproved(data?)` | `AdminappsapprovedEntity` | Create an Adminappsapproved entity instance. |
+| `Adminappsrequest(data?)` | `AdminappsrequestEntity` | Create an Adminappsrequest entity instance. |
+| `Adminappsrestricted(data?)` | `AdminappsrestrictedEntity` | Create an Adminappsrestricted entity instance. |
+| `Adminconversation(data?)` | `AdminconversationEntity` | Create an Adminconversation entity instance. |
+| `Adminconversationsekm(data?)` | `AdminconversationsekmEntity` | Create an Adminconversationsekm entity instance. |
+| `AdminconversationsrestrictAccess(data?)` | `AdminconversationsrestrictAccessEntity` | Create an AdminconversationsrestrictAccess entity instance. |
+| `Adminemoji(data?)` | `AdminemojiEntity` | Create an Adminemoji entity instance. |
+| `AdmininviteRequest(data?)` | `AdmininviteRequestEntity` | Create an AdmininviteRequest entity instance. |
+| `AdmininviteRequestsapproved(data?)` | `AdmininviteRequestsapprovedEntity` | Create an AdmininviteRequestsapproved entity instance. |
+| `AdmininviteRequestsdenied(data?)` | `AdmininviteRequestsdeniedEntity` | Create an AdmininviteRequestsdenied entity instance. |
+| `Adminteam(data?)` | `AdminteamEntity` | Create an Adminteam entity instance. |
+| `Adminteamsadmin(data?)` | `AdminteamsadminEntity` | Create an Adminteamsadmin entity instance. |
+| `Adminteamsowner(data?)` | `AdminteamsownerEntity` | Create an Adminteamsowner entity instance. |
+| `Adminteamssetting(data?)` | `AdminteamssettingEntity` | Create an Adminteamssetting entity instance. |
+| `Adminuser(data?)` | `AdminuserEntity` | Create an Adminuser entity instance. |
+| `Adminusergroup(data?)` | `AdminusergroupEntity` | Create an Adminusergroup entity instance. |
+| `Adminuserssession(data?)` | `AdminuserssessionEntity` | Create an Adminuserssession entity instance. |
+| `Api(data?)` | `ApiEntity` | Create an Api entity instance. |
+| `App(data?)` | `AppEntity` | Create an App entity instance. |
+| `Appseventauthorization(data?)` | `AppseventauthorizationEntity` | Create an Appseventauthorization entity instance. |
+| `Appspermission(data?)` | `AppspermissionEntity` | Create an Appspermission entity instance. |
+| `Appspermissionsresource(data?)` | `AppspermissionsresourceEntity` | Create an Appspermissionsresource entity instance. |
+| `Appspermissionsscope(data?)` | `AppspermissionsscopeEntity` | Create an Appspermissionsscope entity instance. |
+| `Appspermissionsuser(data?)` | `AppspermissionsuserEntity` | Create an Appspermissionsuser entity instance. |
+| `Auth(data?)` | `AuthEntity` | Create an Auth entity instance. |
+| `Bot(data?)` | `BotEntity` | Create a Bot entity instance. |
+| `Call(data?)` | `CallEntity` | Create a Call entity instance. |
+| `Callsparticipant(data?)` | `CallsparticipantEntity` | Create a Callsparticipant entity instance. |
+| `Chat(data?)` | `ChatEntity` | Create a Chat entity instance. |
+| `ChatscheduledMessage(data?)` | `ChatscheduledMessageEntity` | Create a ChatscheduledMessage entity instance. |
+| `Conversation(data?)` | `ConversationEntity` | Create a Conversation entity instance. |
+| `Dialog(data?)` | `DialogEntity` | Create a Dialog entity instance. |
+| `Dnd(data?)` | `DndEntity` | Create a Dnd entity instance. |
+| `Emoji(data?)` | `EmojiEntity` | Create an Emoji entity instance. |
+| `File(data?)` | `FileEntity` | Create a File entity instance. |
+| `Filescomment(data?)` | `FilescommentEntity` | Create a Filescomment entity instance. |
+| `Filesremote(data?)` | `FilesremoteEntity` | Create a Filesremote entity instance. |
+| `Migration(data?)` | `MigrationEntity` | Create a Migration entity instance. |
+| `Oauth(data?)` | `OauthEntity` | Create an Oauth entity instance. |
+| `Oauthv2(data?)` | `Oauthv2Entity` | Create an Oauthv2 entity instance. |
+| `Pin(data?)` | `PinEntity` | Create a Pin entity instance. |
+| `Reaction(data?)` | `ReactionEntity` | Create a Reaction entity instance. |
+| `Reminder(data?)` | `ReminderEntity` | Create a Reminder entity instance. |
+| `Rtm(data?)` | `RtmEntity` | Create a Rtm entity instance. |
+| `Search(data?)` | `SearchEntity` | Create a Search entity instance. |
+| `Star(data?)` | `StarEntity` | Create a Star entity instance. |
+| `Team(data?)` | `TeamEntity` | Create a Team entity instance. |
+| `Teamprofile(data?)` | `TeamprofileEntity` | Create a Teamprofile entity instance. |
+| `User(data?)` | `UserEntity` | Create an User entity instance. |
+| `Usergroup(data?)` | `UsergroupEntity` | Create an Usergroup entity instance. |
+| `Usergroupsuser(data?)` | `UsergroupsuserEntity` | Create an Usergroupsuser entity instance. |
+| `Usersprofile(data?)` | `UsersprofileEntity` | Create an Usersprofile entity instance. |
+| `View(data?)` | `ViewEntity` | Create a View entity instance. |
+| `Workflow(data?)` | `WorkflowEntity` | Create a Workflow entity instance. |
 | `tester(testopts?, sdkopts?)` | `SlackSDK` | Create a test-mode client instance. |
 
 #### Static methods
@@ -243,6 +298,7 @@ All entities share the same interface.
 | --- | --- | --- |
 | `load` | `load(reqmatch?, ctrl?): Promise<Entity>` | Load a single entity by match criteria. |
 | `list` | `list(reqmatch?, ctrl?): Promise<Entity[]>` | List entities matching the criteria. |
+| `create` | `create(reqdata?, ctrl?): Promise<Entity>` | Create a new entity. |
 | `data` | `data(data?: Partial<Entity>): Entity` | Get or set entity data. |
 | `match` | `match(match?: Partial<Entity>): Partial<Entity>` | Get or set entity match criteria. |
 | `make` | `make(): Entity` | Create a new instance with the same options. |
@@ -254,7 +310,7 @@ All entities share the same interface.
 Entity operations resolve to the entity data directly — there is no
 result envelope:
 
-- `load` resolves to a single entity object.
+- `load` and `create` resolve to a single entity object.
 - `list` resolves to an **array** of entity objects (iterate it directly;
   there is no `.data` and no `.ok`).
 
@@ -292,50 +348,1009 @@ The `prepare()` method returns:
 
 ### Entities
 
-#### Conversationsinfo
+#### Adminapp
 
 | Field | Description |
 | --- | --- |
-| `created` |  |
-| `id` |  |
-| `is_archived` |  |
-| `is_channel` |  |
-| `is_private` |  |
-| `name` |  |
-| `num_members` |  |
-| `purpose` |  |
-| `topic` |  |
+| `ok` |  |
+
+Operations: create.
+
+API path: `/admin.apps.approve`
+
+#### Adminappsapproved
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
 
 Operations: load.
 
-API path: `/conversations.info`
+API path: `/admin.apps.approved.list`
 
-#### Conversationslist
+#### Adminappsrequest
 
 | Field | Description |
 | --- | --- |
+| `ok` |  |
+
+Operations: load.
+
+API path: `/admin.apps.requests.list`
+
+#### Adminappsrestricted
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: load.
+
+API path: `/admin.apps.restricted.list`
+
+#### Adminconversation
+
+| Field | Description |
+| --- | --- |
+| `accepted_user` |  |
+| `can_thread` |  |
+| `channel_id` |  |
 | `created` |  |
+| `creator` |  |
 | `id` |  |
 | `is_archived` |  |
 | `is_channel` |  |
+| `is_frozen` |  |
+| `is_general` |  |
+| `is_member` |  |
+| `is_moved` |  |
+| `is_mpim` |  |
+| `is_non_threadable` |  |
+| `is_org_shared` |  |
+| `is_pending_ext_shared` |  |
 | `is_private` |  |
+| `is_read_only` |  |
+| `is_shared` |  |
+| `is_thread_only` |  |
+| `last_read` |  |
+| `latest` |  |
+| `members` |  |
 | `name` |  |
+| `name_normalized` |  |
 | `num_members` |  |
+| `ok` |  |
+| `pending_shared` |  |
+| `previous_names` |  |
+| `priority` |  |
 | `purpose` |  |
+| `response_metadata` |  |
+| `team_ids` |  |
 | `topic` |  |
+| `unlinked` |  |
+| `unread_count` |  |
+| `unread_count_display` |  |
+| `who_can_post` |  |
+
+Operations: create, list, load.
+
+API path: `/admin.conversations.create`
+
+#### Adminconversationsekm
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: load.
+
+API path: `/admin.conversations.ekm.listOriginalConnectedChannelInfo`
+
+#### AdminconversationsrestrictAccess
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: create, load.
+
+API path: `/admin.conversations.restrictAccess.addGroup`
+
+#### Adminemoji
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: create, load.
+
+API path: `/admin.emoji.addAlias`
+
+#### AdmininviteRequest
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: create, load.
+
+API path: `/admin.inviteRequests.approve`
+
+#### AdmininviteRequestsapproved
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: load.
+
+API path: `/admin.inviteRequests.approved.list`
+
+#### AdmininviteRequestsdenied
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: load.
+
+API path: `/admin.inviteRequests.denied.list`
+
+#### Adminteam
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: create, load.
+
+API path: `/admin.teams.create`
+
+#### Adminteamsadmin
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: load.
+
+API path: `/admin.teams.admins.list`
+
+#### Adminteamsowner
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: load.
+
+API path: `/admin.teams.owners.list`
+
+#### Adminteamssetting
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: create, load.
+
+API path: `/admin.teams.settings.setDefaultChannels`
+
+#### Adminuser
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: create, load.
+
+API path: `/admin.users.invite`
+
+#### Adminusergroup
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: create, load.
+
+API path: `/admin.usergroups.addTeams`
+
+#### Adminuserssession
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: create.
+
+API path: `/admin.users.session.reset`
+
+#### Api
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: load.
+
+API path: `/api.test`
+
+#### App
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: load.
+
+API path: `/apps.uninstall`
+
+#### Appseventauthorization
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: load.
+
+API path: `/apps.event.authorizations.list`
+
+#### Appspermission
+
+| Field | Description |
+| --- | --- |
+| `app_home` |  |
+| `channel` |  |
+| `group` |  |
+| `im` |  |
+| `mpim` |  |
+| `ok` |  |
+| `team` |  |
+
+Operations: load.
+
+API path: `/apps.permissions.request`
+
+#### Appspermissionsresource
+
+| Field | Description |
+| --- | --- |
+| `id` |  |
+| `type` |  |
 
 Operations: list.
 
-API path: `/conversations.list`
+API path: `/apps.permissions.resources.list`
+
+#### Appspermissionsscope
+
+| Field | Description |
+| --- | --- |
+| `app_home` |  |
+| `channel` |  |
+| `group` |  |
+| `im` |  |
+| `mpim` |  |
+| `team` |  |
+| `user` |  |
+
+Operations: load.
+
+API path: `/apps.permissions.scopes.list`
+
+#### Appspermissionsuser
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: load.
+
+API path: `/apps.permissions.users.request`
+
+#### Auth
+
+| Field | Description |
+| --- | --- |
+| `bot_id` |  |
+| `is_enterprise_install` |  |
+| `ok` |  |
+| `revoked` |  |
+| `team` |  |
+| `team_id` |  |
+| `url` |  |
+| `user` |  |
+| `user_id` |  |
+
+Operations: load.
+
+API path: `/auth.revoke`
+
+#### Bot
+
+| Field | Description |
+| --- | --- |
+| `app_id` |  |
+| `deleted` |  |
+| `icons` |  |
+| `id` |  |
+| `name` |  |
+| `updated` |  |
+| `user_id` |  |
+
+Operations: load.
+
+API path: `/bots.info`
+
+#### Call
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: create, load.
+
+API path: `/calls.add`
+
+#### Callsparticipant
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: create.
+
+API path: `/calls.participants.add`
+
+#### Chat
+
+| Field | Description |
+| --- | --- |
+| `attachments` |  |
+| `blocks` | This is a very loose definition, in the future, we'll populate this with deeper schema in this definition namespace. |
+| `bot_id` |  |
+| `bot_profile` |  |
+| `channel` |  |
+| `client_msg_id` |  |
+| `comment` |  |
+| `display_as_bot` |  |
+| `file` |  |
+| `files` |  |
+| `icons` |  |
+| `inviter` |  |
+| `is_delayed_message` |  |
+| `is_intro` |  |
+| `is_starred` |  |
+| `last_read` |  |
+| `latest_reply` |  |
+| `message_ts` |  |
+| `name` |  |
+| `ok` |  |
+| `old_name` |  |
+| `parent_user_id` |  |
+| `permalink` |  |
+| `pinned_to` |  |
+| `purpose` |  |
+| `reactions` |  |
+| `reply_count` |  |
+| `reply_users` |  |
+| `reply_users_count` |  |
+| `source_team` |  |
+| `subscribed` |  |
+| `subtype` |  |
+| `team` |  |
+| `text` |  |
+| `thread_ts` |  |
+| `topic` |  |
+| `ts` |  |
+| `type` |  |
+| `unread_count` |  |
+| `upload` |  |
+| `user` |  |
+| `user_profile` |  |
+| `user_team` |  |
+| `username` |  |
+
+Operations: create, load.
+
+API path: `/chat.postMessage`
+
+#### ChatscheduledMessage
+
+| Field | Description |
+| --- | --- |
+| `channel_id` |  |
+| `date_created` |  |
+| `id` |  |
+| `post_at` |  |
+| `text` |  |
+
+Operations: list.
+
+API path: `/chat.scheduledMessages.list`
+
+#### Conversation
+
+| Field | Description |
+| --- | --- |
+| `already_closed` |  |
+| `already_open` |  |
+| `attachments` |  |
+| `blocks` | This is a very loose definition, in the future, we'll populate this with deeper schema in this definition namespace. |
+| `bot_id` |  |
+| `bot_profile` |  |
+| `channel` |  |
+| `channels` |  |
+| `client_msg_id` |  |
+| `comment` |  |
+| `display_as_bot` |  |
+| `file` |  |
+| `files` |  |
+| `has_more` |  |
+| `icons` |  |
+| `inviter` |  |
+| `is_delayed_message` |  |
+| `is_intro` |  |
+| `is_starred` |  |
+| `last_read` |  |
+| `latest_reply` |  |
+| `members` |  |
+| `messages` |  |
+| `name` |  |
+| `no_op` |  |
+| `not_in_channel` |  |
+| `ok` |  |
+| `old_name` |  |
+| `parent_user_id` |  |
+| `permalink` |  |
+| `pinned_to` |  |
+| `purpose` |  |
+| `reactions` |  |
+| `reply_count` |  |
+| `reply_users` |  |
+| `reply_users_count` |  |
+| `response_metadata` |  |
+| `source_team` |  |
+| `subscribed` |  |
+| `subtype` |  |
+| `team` |  |
+| `text` |  |
+| `thread_ts` |  |
+| `topic` |  |
+| `ts` |  |
+| `type` |  |
+| `unread_count` |  |
+| `upload` |  |
+| `user` |  |
+| `user_profile` |  |
+| `user_team` |  |
+| `username` |  |
+| `warning` |  |
+
+Operations: create, list, load.
+
+API path: `/conversations.open`
+
+#### Dialog
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: load.
+
+API path: `/dialog.open`
+
+#### Dnd
+
+| Field | Description |
+| --- | --- |
+| `dnd_enabled` |  |
+| `next_dnd_end_ts` |  |
+| `next_dnd_start_ts` |  |
+| `ok` |  |
+| `snooze_enabled` |  |
+| `snooze_endtime` |  |
+| `snooze_remaining` |  |
+
+Operations: create, load.
+
+API path: `/dnd.setSnooze`
+
+#### Emoji
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: load.
+
+API path: `/emoji.list`
+
+#### File
+
+| Field | Description |
+| --- | --- |
+| `channels` |  |
+| `comments` |  |
+| `comments_count` |  |
+| `content_html` |  |
+| `created` |  |
+| `date_delete` |  |
+| `display_as_bot` |  |
+| `editable` |  |
+| `editor` |  |
+| `external_id` |  |
+| `external_type` |  |
+| `external_url` |  |
+| `file` |  |
+| `filetype` |  |
+| `groups` |  |
+| `has_rich_preview` |  |
+| `id` |  |
+| `image_exif_rotation` |  |
+| `ims` |  |
+| `is_external` |  |
+| `is_public` |  |
+| `is_starred` |  |
+| `is_tombstoned` |  |
+| `last_editor` |  |
+| `mimetype` |  |
+| `mode` |  |
+| `name` |  |
+| `non_owner_editable` |  |
+| `num_stars` |  |
+| `ok` |  |
+| `original_h` |  |
+| `original_w` |  |
+| `paging` |  |
+| `permalink` |  |
+| `permalink_public` |  |
+| `pinned_info` |  |
+| `pinned_to` |  |
+| `pretty_type` |  |
+| `preview` |  |
+| `public_url_shared` |  |
+| `reactions` |  |
+| `response_metadata` |  |
+| `shares` |  |
+| `size` |  |
+| `source_team` |  |
+| `state` |  |
+| `thumb_1024` |  |
+| `thumb_1024_h` |  |
+| `thumb_1024_w` |  |
+| `thumb_160` |  |
+| `thumb_360` |  |
+| `thumb_360_h` |  |
+| `thumb_360_w` |  |
+| `thumb_480` |  |
+| `thumb_480_h` |  |
+| `thumb_480_w` |  |
+| `thumb_64` |  |
+| `thumb_720` |  |
+| `thumb_720_h` |  |
+| `thumb_720_w` |  |
+| `thumb_80` |  |
+| `thumb_800` |  |
+| `thumb_800_h` |  |
+| `thumb_800_w` |  |
+| `thumb_960` |  |
+| `thumb_960_h` |  |
+| `thumb_960_w` |  |
+| `thumb_tiny` |  |
+| `timestamp` |  |
+| `title` |  |
+| `updated` |  |
+| `url_private` |  |
+| `url_private_download` |  |
+| `user` |  |
+| `user_team` |  |
+| `username` |  |
+
+Operations: create, list.
+
+API path: `/files.upload`
+
+#### Filescomment
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: create.
+
+API path: `/files.comments.delete`
+
+#### Filesremote
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: create, load.
+
+API path: `/files.remote.update`
+
+#### Migration
+
+| Field | Description |
+| --- | --- |
+| `enterprise_id` |  |
+| `invalid_user_ids` |  |
+| `ok` |  |
+| `team_id` |  |
+| `user_id_map` |  |
+
+Operations: list.
+
+API path: `/migration.exchange`
+
+#### Oauth
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: load.
+
+API path: `/oauth.access`
+
+#### Oauthv2
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: load.
+
+API path: `/oauth.v2.access`
+
+#### Pin
+
+| Field | Description |
+| --- | --- |
+| `items` |  |
+| `ok` |  |
+
+Operations: create, load.
+
+API path: `/pins.add`
+
+#### Reaction
+
+| Field | Description |
+| --- | --- |
+| `file` |  |
+| `items` |  |
+| `ok` |  |
+| `paging` |  |
+| `response_metadata` |  |
+| `type` |  |
+
+Operations: create, list, load.
+
+API path: `/reactions.remove`
+
+#### Reminder
+
+| Field | Description |
+| --- | --- |
+| `complete_ts` |  |
+| `creator` |  |
+| `id` |  |
+| `ok` |  |
+| `recurring` |  |
+| `text` |  |
+| `time` |  |
+| `user` |  |
+
+Operations: create, list, load.
+
+API path: `/reminders.add`
+
+#### Rtm
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+| `self` |  |
+| `team` |  |
+| `url` |  |
+
+Operations: load.
+
+API path: `/rtm.connect`
+
+#### Search
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: load.
+
+API path: `/search.messages`
+
+#### Star
+
+| Field | Description |
+| --- | --- |
+| `items` |  |
+| `ok` |  |
+| `paging` |  |
+
+Operations: create, list.
+
+API path: `/stars.add`
+
+#### Team
+
+| Field | Description |
+| --- | --- |
+| `admin_app_id` |  |
+| `app_id` |  |
+| `app_type` |  |
+| `archived` |  |
+| `avatar_base_url` |  |
+| `change_type` |  |
+| `channel` |  |
+| `count` |  |
+| `country` |  |
+| `created` |  |
+| `date` |  |
+| `date_create` |  |
+| `date_first` |  |
+| `date_last` |  |
+| `deleted` |  |
+| `description` |  |
+| `discoverable` |  |
+| `domain` |  |
+| `email_domain` |  |
+| `enterprise_id` |  |
+| `enterprise_name` |  |
+| `external_org_migrations` |  |
+| `has_compliance_export` |  |
+| `icon` |  |
+| `id` |  |
+| `ip` |  |
+| `is_assigned` |  |
+| `is_enterprise` |  |
+| `is_over_storage_limit` |  |
+| `isp` |  |
+| `limit_ts` |  |
+| `locale` |  |
+| `messages_count` |  |
+| `msg_edit_window_mins` |  |
+| `name` |  |
+| `ok` |  |
+| `over_integrations_limit` |  |
+| `over_storage_limit` |  |
+| `pay_prod_cur` |  |
+| `plan` |  |
+| `primary_owner` |  |
+| `region` |  |
+| `scope` |  |
+| `service_id` |  |
+| `service_type` |  |
+| `sso_provider` |  |
+| `user_agent` |  |
+| `user_id` |  |
+| `user_name` |  |
+| `username` |  |
+
+Operations: list, load.
+
+API path: `/team.integrationLogs`
+
+#### Teamprofile
+
+| Field | Description |
+| --- | --- |
+| `fields` |  |
+
+Operations: load.
+
+API path: `/team.profile.get`
+
+#### User
+
+| Field | Description |
+| --- | --- |
+| `auto_away` |  |
+| `avatar_hash` |  |
+| `cache_ts` |  |
+| `channels` |  |
+| `connection_count` |  |
+| `image_1024` |  |
+| `image_192` |  |
+| `image_24` |  |
+| `image_32` |  |
+| `image_48` |  |
+| `image_512` |  |
+| `image_72` |  |
+| `image_original` |  |
+| `last_activity` |  |
+| `manual_away` |  |
+| `members` |  |
+| `ok` |  |
+| `online` |  |
+| `presence` |  |
+| `response_metadata` |  |
+| `team` |  |
+| `user` |  |
+
+Operations: create, list, load.
+
+API path: `/users.setPhoto`
+
+#### Usergroup
+
+| Field | Description |
+| --- | --- |
+| `auto_provision` |  |
+| `auto_type` |  |
+| `channel_count` |  |
+| `created_by` |  |
+| `date_create` |  |
+| `date_delete` |  |
+| `date_update` |  |
+| `deleted_by` |  |
+| `description` |  |
+| `enterprise_subteam_id` |  |
+| `handle` |  |
+| `id` |  |
+| `is_external` |  |
+| `is_subteam` |  |
+| `is_usergroup` |  |
+| `name` |  |
+| `prefs` |  |
+| `team_id` |  |
+| `updated_by` |  |
+| `user_count` |  |
+| `users` |  |
+
+Operations: create, list.
+
+API path: `/usergroups.update`
+
+#### Usergroupsuser
+
+| Field | Description |
+| --- | --- |
+| `auto_provision` |  |
+| `auto_type` |  |
+| `channel_count` |  |
+| `created_by` |  |
+| `date_create` |  |
+| `date_delete` |  |
+| `date_update` |  |
+| `deleted_by` |  |
+| `description` |  |
+| `enterprise_subteam_id` |  |
+| `handle` |  |
+| `id` |  |
+| `is_external` |  |
+| `is_subteam` |  |
+| `is_usergroup` |  |
+| `name` |  |
+| `ok` |  |
+| `prefs` |  |
+| `team_id` |  |
+| `updated_by` |  |
+| `user_count` |  |
+| `users` |  |
+
+Operations: create, list.
+
+API path: `/usergroups.users.update`
+
+#### Usersprofile
+
+| Field | Description |
+| --- | --- |
+| `always_active` |  |
+| `api_app_id` |  |
+| `avatar_hash` |  |
+| `bot_id` |  |
+| `display_name` |  |
+| `display_name_normalized` |  |
+| `email` |  |
+| `fields` |  |
+| `first_name` |  |
+| `guest_expiration_ts` |  |
+| `guest_invited_by` |  |
+| `image_1024` |  |
+| `image_192` |  |
+| `image_24` |  |
+| `image_32` |  |
+| `image_48` |  |
+| `image_512` |  |
+| `image_72` |  |
+| `image_original` |  |
+| `is_app_user` |  |
+| `is_custom_image` |  |
+| `is_restricted` |  |
+| `is_ultra_restricted` |  |
+| `last_avatar_image_hash` |  |
+| `last_name` |  |
+| `memberships_count` |  |
+| `name` |  |
+| `phone` |  |
+| `pronouns` |  |
+| `real_name` |  |
+| `real_name_normalized` |  |
+| `skype` |  |
+| `status_default_emoji` |  |
+| `status_default_text` |  |
+| `status_default_text_canonical` |  |
+| `status_emoji` |  |
+| `status_expiration` |  |
+| `status_text` |  |
+| `status_text_canonical` |  |
+| `team` |  |
+| `title` |  |
+| `updated` |  |
+| `user_id` |  |
+| `username` |  |
+
+Operations: create, load.
+
+API path: `/users.profile.set`
+
+#### View
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: load.
+
+API path: `/views.update`
+
+#### Workflow
+
+| Field | Description |
+| --- | --- |
+| `ok` |  |
+
+Operations: load.
+
+API path: `/workflows.updateStep`
 
 
 
 ## Entities
 
 
-### Conversationsinfo
+### Adminapp
 
-Create an instance: `const conversationsinfo = client.Conversationsinfo()`
+Create an instance: `const adminapp = client.Adminapp()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Create
+
+```ts
+const adminapp = await client.Adminapp().create({
+  ok: true,
+})
+```
+
+
+### Adminappsapproved
+
+Create an instance: `const adminappsapproved = client.Adminappsapproved()`
 
 #### Operations
 
@@ -347,26 +1362,629 @@ Create an instance: `const conversationsinfo = client.Conversationsinfo()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `created` | `number` |  |
-| `id` | `string` |  |
-| `is_archived` | `boolean` |  |
-| `is_channel` | `boolean` |  |
-| `is_private` | `boolean` |  |
-| `name` | `string` |  |
-| `num_members` | `number` |  |
-| `purpose` | `Object` |  |
-| `topic` | `Object` |  |
+| `ok` | `boolean` |  |
 
 #### Example: Load
 
 ```ts
-const conversationsinfo = await client.Conversationsinfo().load({ channel: 'channel' })
+const adminappsapproved = await client.Adminappsapproved().load({ token: 'token' })
 ```
 
 
-### Conversationslist
+### Adminappsrequest
 
-Create an instance: `const conversationslist = client.Conversationslist()`
+Create an instance: `const adminappsrequest = client.Adminappsrequest()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const adminappsrequest = await client.Adminappsrequest().load({ token: 'token' })
+```
+
+
+### Adminappsrestricted
+
+Create an instance: `const adminappsrestricted = client.Adminappsrestricted()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const adminappsrestricted = await client.Adminappsrestricted().load({ token: 'token' })
+```
+
+
+### Adminconversation
+
+Create an instance: `const adminconversation = client.Adminconversation()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `accepted_user` | `string` |  |
+| `can_thread` | `Object` |  |
+| `channel_id` | `string` |  |
+| `created` | `number` |  |
+| `creator` | `string` |  |
+| `id` | `string` |  |
+| `is_archived` | `boolean` |  |
+| `is_channel` | `boolean` |  |
+| `is_frozen` | `boolean` |  |
+| `is_general` | `boolean` |  |
+| `is_member` | `boolean` |  |
+| `is_moved` | `number` |  |
+| `is_mpim` | `boolean` |  |
+| `is_non_threadable` | `boolean` |  |
+| `is_org_shared` | `boolean` |  |
+| `is_pending_ext_shared` | `boolean` |  |
+| `is_private` | `boolean` |  |
+| `is_read_only` | `boolean` |  |
+| `is_shared` | `boolean` |  |
+| `is_thread_only` | `boolean` |  |
+| `last_read` | `string` |  |
+| `latest` | `*` |  |
+| `members` | `Array` |  |
+| `name` | `string` |  |
+| `name_normalized` | `string` |  |
+| `num_members` | `number` |  |
+| `ok` | `boolean` |  |
+| `pending_shared` | `Array` |  |
+| `previous_names` | `Array` |  |
+| `priority` | `number` |  |
+| `purpose` | `Object` |  |
+| `response_metadata` | `Object` |  |
+| `team_ids` | `Array` |  |
+| `topic` | `Object` |  |
+| `unlinked` | `number` |  |
+| `unread_count` | `number` |  |
+| `unread_count_display` | `number` |  |
+| `who_can_post` | `Object` |  |
+
+#### Example: Load
+
+```ts
+const adminconversation = await client.Adminconversation().load({ channel_id: 'channel_id' })
+```
+
+#### Example: List
+
+```ts
+const adminconversations = await client.Adminconversation().list()
+```
+
+#### Example: Create
+
+```ts
+const adminconversation = await client.Adminconversation().create({
+  is_private: true,
+  name: 'example_name',
+  created: 1,
+  creator: 'example_creator',
+  id: 'example_id',
+  is_channel: true,
+  is_mpim: true,
+  is_org_shared: true,
+  is_shared: true,
+  members: [],
+  name_normalized: 'example_name_normalized',
+  ok: true,
+  purpose: {},
+  response_metadata: {},
+  team_ids: [],
+  topic: {},
+})
+```
+
+
+### Adminconversationsekm
+
+Create an instance: `const adminconversationsekm = client.Adminconversationsekm()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const adminconversationsekm = await client.Adminconversationsekm().load({ token: 'token' })
+```
+
+
+### AdminconversationsrestrictAccess
+
+Create an instance: `const adminconversationsrestrict_access = client.AdminconversationsrestrictAccess()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const adminconversationsrestrict_access = await client.AdminconversationsrestrictAccess().load({ channel_id: 'channel_id', token: 'token' })
+```
+
+#### Example: Create
+
+```ts
+const adminconversationsrestrict_access = await client.AdminconversationsrestrictAccess().create({
+  channel_id: 'example_channel_id',
+  group_id: 'example_group_id',
+  token: 'example_token',
+  ok: true,
+})
+```
+
+
+### Adminemoji
+
+Create an instance: `const adminemoji = client.Adminemoji()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const adminemoji = await client.Adminemoji().load({ token: 'token' })
+```
+
+#### Example: Create
+
+```ts
+const adminemoji = await client.Adminemoji().create({
+  name: 'example_name',
+  token: 'example_token',
+  ok: true,
+})
+```
+
+
+### AdmininviteRequest
+
+Create an instance: `const admininvite_request = client.AdmininviteRequest()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const admininvite_request = await client.AdmininviteRequest().load()
+```
+
+#### Example: Create
+
+```ts
+const admininvite_request = await client.AdmininviteRequest().create({
+  invite_request_id: 'example_invite_request_id',
+  ok: true,
+})
+```
+
+
+### AdmininviteRequestsapproved
+
+Create an instance: `const admininvite_requestsapproved = client.AdmininviteRequestsapproved()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const admininvite_requestsapproved = await client.AdmininviteRequestsapproved().load()
+```
+
+
+### AdmininviteRequestsdenied
+
+Create an instance: `const admininvite_requestsdenied = client.AdmininviteRequestsdenied()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const admininvite_requestsdenied = await client.AdmininviteRequestsdenied().load()
+```
+
+
+### Adminteam
+
+Create an instance: `const adminteam = client.Adminteam()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const adminteam = await client.Adminteam().load()
+```
+
+#### Example: Create
+
+```ts
+const adminteam = await client.Adminteam().create({
+  team_domain: 'example_team_domain',
+  team_name: 'example_team_name',
+  ok: true,
+})
+```
+
+
+### Adminteamsadmin
+
+Create an instance: `const adminteamsadmin = client.Adminteamsadmin()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const adminteamsadmin = await client.Adminteamsadmin().load({ team_id: 'team_id', token: 'token' })
+```
+
+
+### Adminteamsowner
+
+Create an instance: `const adminteamsowner = client.Adminteamsowner()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const adminteamsowner = await client.Adminteamsowner().load({ team_id: 'team_id', token: 'token' })
+```
+
+
+### Adminteamssetting
+
+Create an instance: `const adminteamssetting = client.Adminteamssetting()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const adminteamssetting = await client.Adminteamssetting().load({ team_id: 'team_id' })
+```
+
+#### Example: Create
+
+```ts
+const adminteamssetting = await client.Adminteamssetting().create({
+  team_id: 'example_team_id',
+  ok: true,
+})
+```
+
+
+### Adminuser
+
+Create an instance: `const adminuser = client.Adminuser()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const adminuser = await client.Adminuser().load({ team_id: 'team_id' })
+```
+
+#### Example: Create
+
+```ts
+const adminuser = await client.Adminuser().create({
+  team_id: 'example_team_id',
+  ok: true,
+})
+```
+
+
+### Adminusergroup
+
+Create an instance: `const adminusergroup = client.Adminusergroup()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const adminusergroup = await client.Adminusergroup().load({ usergroup_id: 'usergroup_id' })
+```
+
+#### Example: Create
+
+```ts
+const adminusergroup = await client.Adminusergroup().create({
+  usergroup_id: 'example_usergroup_id',
+  ok: true,
+})
+```
+
+
+### Adminuserssession
+
+Create an instance: `const adminuserssession = client.Adminuserssession()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Create
+
+```ts
+const adminuserssession = await client.Adminuserssession().create({
+  user_id: 'example_user_id',
+  ok: true,
+})
+```
+
+
+### Api
+
+Create an instance: `const api = client.Api()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const api = await client.Api().load()
+```
+
+
+### App
+
+Create an instance: `const app = client.App()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const app = await client.App().load()
+```
+
+
+### Appseventauthorization
+
+Create an instance: `const appseventauthorization = client.Appseventauthorization()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const appseventauthorization = await client.Appseventauthorization().load({ event_context: 'event_context' })
+```
+
+
+### Appspermission
+
+Create an instance: `const appspermission = client.Appspermission()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `app_home` | `Object` |  |
+| `channel` | `Object` |  |
+| `group` | `Object` |  |
+| `im` | `Object` |  |
+| `mpim` | `Object` |  |
+| `ok` | `boolean` |  |
+| `team` | `Object` |  |
+
+#### Example: Load
+
+```ts
+const appspermission = await client.Appspermission().load({ scope: 'scope', token: 'token', trigger_id: 'trigger_id' })
+```
+
+
+### Appspermissionsresource
+
+Create an instance: `const appspermissionsresource = client.Appspermissionsresource()`
 
 #### Operations
 
@@ -378,20 +1996,1388 @@ Create an instance: `const conversationslist = client.Conversationslist()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `created` | `number` |  |
 | `id` | `string` |  |
-| `is_archived` | `boolean` |  |
-| `is_channel` | `boolean` |  |
-| `is_private` | `boolean` |  |
-| `name` | `string` |  |
-| `num_members` | `number` |  |
-| `purpose` | `Object` |  |
-| `topic` | `Object` |  |
+| `type` | `string` |  |
 
 #### Example: List
 
 ```ts
-const conversationslists = await client.Conversationslist().list()
+const appspermissionsresources = await client.Appspermissionsresource().list({ token: "example" })
+```
+
+
+### Appspermissionsscope
+
+Create an instance: `const appspermissionsscope = client.Appspermissionsscope()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `app_home` | `Array` |  |
+| `channel` | `Array` |  |
+| `group` | `Array` |  |
+| `im` | `Array` |  |
+| `mpim` | `Array` |  |
+| `team` | `Array` |  |
+| `user` | `Array` |  |
+
+#### Example: Load
+
+```ts
+const appspermissionsscope = await client.Appspermissionsscope().load({ token: 'token' })
+```
+
+
+### Appspermissionsuser
+
+Create an instance: `const appspermissionsuser = client.Appspermissionsuser()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const appspermissionsuser = await client.Appspermissionsuser().load({ token: 'token' })
+```
+
+
+### Auth
+
+Create an instance: `const auth = client.Auth()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `bot_id` | `string` |  |
+| `is_enterprise_install` | `boolean` |  |
+| `ok` | `boolean` |  |
+| `revoked` | `boolean` |  |
+| `team` | `string` |  |
+| `team_id` | `string` |  |
+| `url` | `string` |  |
+| `user` | `string` |  |
+| `user_id` | `string` |  |
+
+#### Example: Load
+
+```ts
+const auth = await client.Auth().load({ token: 'token' })
+```
+
+
+### Bot
+
+Create an instance: `const bot = client.Bot()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `app_id` | `string` |  |
+| `deleted` | `boolean` |  |
+| `icons` | `Object` |  |
+| `id` | `string` |  |
+| `name` | `string` |  |
+| `updated` | `number` |  |
+| `user_id` | `string` |  |
+
+#### Example: Load
+
+```ts
+const bot = await client.Bot().load({ token: 'token' })
+```
+
+
+### Call
+
+Create an instance: `const call = client.Call()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const call = await client.Call().load({ id: 'call_id' })
+```
+
+#### Example: Create
+
+```ts
+const call = await client.Call().create({
+  external_unique_id: 'example_external_unique_id',
+  join_url: 'example_join_url',
+  ok: true,
+})
+```
+
+
+### Callsparticipant
+
+Create an instance: `const callsparticipant = client.Callsparticipant()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Create
+
+```ts
+const callsparticipant = await client.Callsparticipant().create({
+  id: 'example_id',
+  user: 'example_user',
+  ok: true,
+})
+```
+
+
+### Chat
+
+Create an instance: `const chat = client.Chat()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `attachments` | `Array` |  |
+| `blocks` | `Array` | This is a very loose definition, in the future, we'll populate this with deeper schema in this definition namespace. |
+| `bot_id` | `string` |  |
+| `bot_profile` | `Object` |  |
+| `channel` | `string` |  |
+| `client_msg_id` | `string` |  |
+| `comment` | `Object` |  |
+| `display_as_bot` | `boolean` |  |
+| `file` | `Object` |  |
+| `files` | `Array` |  |
+| `icons` | `Object` |  |
+| `inviter` | `string` |  |
+| `is_delayed_message` | `boolean` |  |
+| `is_intro` | `boolean` |  |
+| `is_starred` | `boolean` |  |
+| `last_read` | `string` |  |
+| `latest_reply` | `string` |  |
+| `message_ts` | `string` |  |
+| `name` | `string` |  |
+| `ok` | `boolean` |  |
+| `old_name` | `string` |  |
+| `parent_user_id` | `string` |  |
+| `permalink` | `string` |  |
+| `pinned_to` | `Array` |  |
+| `purpose` | `string` |  |
+| `reactions` | `Array` |  |
+| `reply_count` | `number` |  |
+| `reply_users` | `Array` |  |
+| `reply_users_count` | `number` |  |
+| `source_team` | `string` |  |
+| `subscribed` | `boolean` |  |
+| `subtype` | `string` |  |
+| `team` | `string` |  |
+| `text` | `string` |  |
+| `thread_ts` | `string` |  |
+| `topic` | `string` |  |
+| `ts` | `string` |  |
+| `type` | `string` |  |
+| `unread_count` | `number` |  |
+| `upload` | `boolean` |  |
+| `user` | `string` |  |
+| `user_profile` | `Object` |  |
+| `user_team` | `string` |  |
+| `username` | `string` |  |
+
+#### Example: Load
+
+```ts
+const chat = await client.Chat().load({ channel: 'channel', message_t: 'message_t', token: 'token' })
+```
+
+#### Example: Create
+
+```ts
+const chat = await client.Chat().create({
+  channel: 'example_channel',
+  bot_profile: {},
+  comment: {},
+  message_ts: 'example_message_ts',
+  ok: true,
+  permalink: 'example_permalink',
+  ts: 'example_ts',
+  type: 'example_type',
+  user_profile: {},
+})
+```
+
+
+### ChatscheduledMessage
+
+Create an instance: `const chatscheduled_message = client.ChatscheduledMessage()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `list(match)` | List entities matching the criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `channel_id` | `string` |  |
+| `date_created` | `number` |  |
+| `id` | `string` |  |
+| `post_at` | `number` |  |
+| `text` | `string` |  |
+
+#### Example: List
+
+```ts
+const chatscheduled_messages = await client.ChatscheduledMessage().list()
+```
+
+
+### Conversation
+
+Create an instance: `const conversation = client.Conversation()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `already_closed` | `boolean` |  |
+| `already_open` | `boolean` |  |
+| `attachments` | `Array` |  |
+| `blocks` | `Array` | This is a very loose definition, in the future, we'll populate this with deeper schema in this definition namespace. |
+| `bot_id` | `string` |  |
+| `bot_profile` | `Object` |  |
+| `channel` | `*` |  |
+| `channels` | `Array` |  |
+| `client_msg_id` | `string` |  |
+| `comment` | `Object` |  |
+| `display_as_bot` | `boolean` |  |
+| `file` | `Object` |  |
+| `files` | `Array` |  |
+| `has_more` | `boolean` |  |
+| `icons` | `Object` |  |
+| `inviter` | `string` |  |
+| `is_delayed_message` | `boolean` |  |
+| `is_intro` | `boolean` |  |
+| `is_starred` | `boolean` |  |
+| `last_read` | `string` |  |
+| `latest_reply` | `string` |  |
+| `members` | `Array` |  |
+| `messages` | `Array` |  |
+| `name` | `string` |  |
+| `no_op` | `boolean` |  |
+| `not_in_channel` | `boolean` |  |
+| `ok` | `boolean` |  |
+| `old_name` | `string` |  |
+| `parent_user_id` | `string` |  |
+| `permalink` | `string` |  |
+| `pinned_to` | `Array` |  |
+| `purpose` | `string` |  |
+| `reactions` | `Array` |  |
+| `reply_count` | `number` |  |
+| `reply_users` | `Array` |  |
+| `reply_users_count` | `number` |  |
+| `response_metadata` | `Object` |  |
+| `source_team` | `string` |  |
+| `subscribed` | `boolean` |  |
+| `subtype` | `string` |  |
+| `team` | `string` |  |
+| `text` | `string` |  |
+| `thread_ts` | `string` |  |
+| `topic` | `string` |  |
+| `ts` | `string` |  |
+| `type` | `string` |  |
+| `unread_count` | `number` |  |
+| `upload` | `boolean` |  |
+| `user` | `string` |  |
+| `user_profile` | `Object` |  |
+| `user_team` | `string` |  |
+| `username` | `string` |  |
+| `warning` | `string` |  |
+
+#### Example: Load
+
+```ts
+const conversation = await client.Conversation().load()
+```
+
+#### Example: List
+
+```ts
+const conversations = await client.Conversation().list()
+```
+
+#### Example: Create
+
+```ts
+const conversation = await client.Conversation().create({
+  bot_profile: {},
+  channels: [],
+  comment: {},
+  members: [],
+  messages: [],
+  ok: true,
+  text: 'example_text',
+  ts: 'example_ts',
+  type: 'example_type',
+  user_profile: {},
+})
+```
+
+
+### Dialog
+
+Create an instance: `const dialog = client.Dialog()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const dialog = await client.Dialog().load({ dialog: 'dialog', trigger_id: 'trigger_id' })
+```
+
+
+### Dnd
+
+Create an instance: `const dnd = client.Dnd()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `dnd_enabled` | `boolean` |  |
+| `next_dnd_end_ts` | `number` |  |
+| `next_dnd_start_ts` | `number` |  |
+| `ok` | `boolean` |  |
+| `snooze_enabled` | `boolean` |  |
+| `snooze_endtime` | `number` |  |
+| `snooze_remaining` | `number` |  |
+
+#### Example: Load
+
+```ts
+const dnd = await client.Dnd().load()
+```
+
+#### Example: Create
+
+```ts
+const dnd = await client.Dnd().create({
+  num_minute: 1,
+  token: 'example_token',
+  dnd_enabled: true,
+  next_dnd_end_ts: 1,
+  next_dnd_start_ts: 1,
+  ok: true,
+})
+```
+
+
+### Emoji
+
+Create an instance: `const emoji = client.Emoji()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const emoji = await client.Emoji().load({ token: 'token' })
+```
+
+
+### File
+
+Create an instance: `const file = client.File()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `channels` | `Array` |  |
+| `comments` | `Array` |  |
+| `comments_count` | `number` |  |
+| `content_html` | `null` |  |
+| `created` | `number` |  |
+| `date_delete` | `number` |  |
+| `display_as_bot` | `boolean` |  |
+| `editable` | `boolean` |  |
+| `editor` | `string` |  |
+| `external_id` | `string` |  |
+| `external_type` | `string` |  |
+| `external_url` | `string` |  |
+| `file` | `Object` |  |
+| `filetype` | `string` |  |
+| `groups` | `Array` |  |
+| `has_rich_preview` | `boolean` |  |
+| `id` | `string` |  |
+| `image_exif_rotation` | `number` |  |
+| `ims` | `Array` |  |
+| `is_external` | `boolean` |  |
+| `is_public` | `boolean` |  |
+| `is_starred` | `boolean` |  |
+| `is_tombstoned` | `boolean` |  |
+| `last_editor` | `string` |  |
+| `mimetype` | `string` |  |
+| `mode` | `string` |  |
+| `name` | `string` |  |
+| `non_owner_editable` | `boolean` |  |
+| `num_stars` | `number` |  |
+| `ok` | `boolean` |  |
+| `original_h` | `number` |  |
+| `original_w` | `number` |  |
+| `paging` | `Object` |  |
+| `permalink` | `string` |  |
+| `permalink_public` | `string` |  |
+| `pinned_info` | `Object` |  |
+| `pinned_to` | `Array` |  |
+| `pretty_type` | `string` |  |
+| `preview` | `string` |  |
+| `public_url_shared` | `boolean` |  |
+| `reactions` | `Array` |  |
+| `response_metadata` | `*` |  |
+| `shares` | `Object` |  |
+| `size` | `number` |  |
+| `source_team` | `string` |  |
+| `state` | `string` |  |
+| `thumb_1024` | `string` |  |
+| `thumb_1024_h` | `number` |  |
+| `thumb_1024_w` | `number` |  |
+| `thumb_160` | `string` |  |
+| `thumb_360` | `string` |  |
+| `thumb_360_h` | `number` |  |
+| `thumb_360_w` | `number` |  |
+| `thumb_480` | `string` |  |
+| `thumb_480_h` | `number` |  |
+| `thumb_480_w` | `number` |  |
+| `thumb_64` | `string` |  |
+| `thumb_720` | `string` |  |
+| `thumb_720_h` | `number` |  |
+| `thumb_720_w` | `number` |  |
+| `thumb_80` | `string` |  |
+| `thumb_800` | `string` |  |
+| `thumb_800_h` | `number` |  |
+| `thumb_800_w` | `number` |  |
+| `thumb_960` | `string` |  |
+| `thumb_960_h` | `number` |  |
+| `thumb_960_w` | `number` |  |
+| `thumb_tiny` | `string` |  |
+| `timestamp` | `number` |  |
+| `title` | `string` |  |
+| `updated` | `number` |  |
+| `url_private` | `string` |  |
+| `url_private_download` | `string` |  |
+| `user` | `string` |  |
+| `user_team` | `string` |  |
+| `username` | `string` |  |
+
+#### Example: List
+
+```ts
+const files = await client.File().list()
+```
+
+#### Example: Create
+
+```ts
+const file = await client.File().create({
+  comments: [],
+  ok: true,
+  paging: {},
+})
+```
+
+
+### Filescomment
+
+Create an instance: `const filescomment = client.Filescomment()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Create
+
+```ts
+const filescomment = await client.Filescomment().create({
+  ok: true,
+})
+```
+
+
+### Filesremote
+
+Create an instance: `const filesremote = client.Filesremote()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const filesremote = await client.Filesremote().load()
+```
+
+#### Example: Create
+
+```ts
+const filesremote = await client.Filesremote().create({
+  ok: true,
+})
+```
+
+
+### Migration
+
+Create an instance: `const migration = client.Migration()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `list(match)` | List entities matching the criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `enterprise_id` | `string` |  |
+| `invalid_user_ids` | `Array` |  |
+| `ok` | `boolean` |  |
+| `team_id` | `string` |  |
+| `user_id_map` | `Object` |  |
+
+#### Example: List
+
+```ts
+const migrations = await client.Migration().list({ token: "example", user: "example" })
+```
+
+
+### Oauth
+
+Create an instance: `const oauth = client.Oauth()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const oauth = await client.Oauth().load()
+```
+
+
+### Oauthv2
+
+Create an instance: `const oauthv2 = client.Oauthv2()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const oauthv2 = await client.Oauthv2().load({ code: 'code' })
+```
+
+
+### Pin
+
+Create an instance: `const pin = client.Pin()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `items` | `Array` |  |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const pin = await client.Pin().load({ channel: 'channel', token: 'token' })
+```
+
+#### Example: Create
+
+```ts
+const pin = await client.Pin().create({
+  channel: 'example_channel',
+})
+```
+
+
+### Reaction
+
+Create an instance: `const reaction = client.Reaction()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `file` | `Object` |  |
+| `items` | `Array` |  |
+| `ok` | `boolean` |  |
+| `paging` | `Object` |  |
+| `response_metadata` | `*` |  |
+| `type` | `string` |  |
+
+#### Example: Load
+
+```ts
+const reaction = await client.Reaction().load({ token: 'token' })
+```
+
+#### Example: List
+
+```ts
+const reactions = await client.Reaction().list({ token: "example" })
+```
+
+#### Example: Create
+
+```ts
+const reaction = await client.Reaction().create({
+  name: 'example_name',
+  items: [],
+  paging: {},
+})
+```
+
+
+### Reminder
+
+Create an instance: `const reminder = client.Reminder()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `complete_ts` | `number` |  |
+| `creator` | `string` |  |
+| `id` | `string` |  |
+| `ok` | `boolean` |  |
+| `recurring` | `boolean` |  |
+| `text` | `string` |  |
+| `time` | `number` |  |
+| `user` | `string` |  |
+
+#### Example: Load
+
+```ts
+const reminder = await client.Reminder().load()
+```
+
+#### Example: List
+
+```ts
+const reminders = await client.Reminder().list()
+```
+
+#### Example: Create
+
+```ts
+const reminder = await client.Reminder().create({
+  text: 'example_text',
+  time: 'example_time',
+  creator: 'example_creator',
+  id: 'example_id',
+  ok: true,
+  recurring: true,
+})
+```
+
+
+### Rtm
+
+Create an instance: `const rtm = client.Rtm()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+| `self` | `Object` |  |
+| `team` | `Object` |  |
+| `url` | `string` |  |
+
+#### Example: Load
+
+```ts
+const rtm = await client.Rtm().load({ token: 'token' })
+```
+
+
+### Search
+
+Create an instance: `const search = client.Search()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const search = await client.Search().load({ query: 'query', token: 'token' })
+```
+
+
+### Star
+
+Create an instance: `const star = client.Star()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `items` | `Array` |  |
+| `ok` | `boolean` |  |
+| `paging` | `Object` |  |
+
+#### Example: List
+
+```ts
+const stars = await client.Star().list()
+```
+
+#### Example: Create
+
+```ts
+const star = await client.Star().create({
+  items: [],
+  ok: true,
+  paging: {},
+})
+```
+
+
+### Team
+
+Create an instance: `const team = client.Team()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `admin_app_id` | `string` |  |
+| `app_id` | `string` |  |
+| `app_type` | `string` |  |
+| `archived` | `boolean` |  |
+| `avatar_base_url` | `string` |  |
+| `change_type` | `string` |  |
+| `channel` | `string` |  |
+| `count` | `number` |  |
+| `country` | `string|null` |  |
+| `created` | `number` |  |
+| `date` | `string` |  |
+| `date_create` | `number` |  |
+| `date_first` | `number` |  |
+| `date_last` | `number` |  |
+| `deleted` | `boolean` |  |
+| `description` | `null|string` |  |
+| `discoverable` | `*` |  |
+| `domain` | `string` |  |
+| `email_domain` | `string` |  |
+| `enterprise_id` | `string` |  |
+| `enterprise_name` | `string` |  |
+| `external_org_migrations` | `Object` |  |
+| `has_compliance_export` | `boolean` |  |
+| `icon` | `Object` |  |
+| `id` | `string` |  |
+| `ip` | `string|null` |  |
+| `is_assigned` | `boolean` |  |
+| `is_enterprise` | `number` |  |
+| `is_over_storage_limit` | `boolean` |  |
+| `isp` | `string|null` |  |
+| `limit_ts` | `number` |  |
+| `locale` | `string` |  |
+| `messages_count` | `number` |  |
+| `msg_edit_window_mins` | `number` |  |
+| `name` | `string` |  |
+| `ok` | `boolean` |  |
+| `over_integrations_limit` | `boolean` |  |
+| `over_storage_limit` | `boolean` |  |
+| `pay_prod_cur` | `string` |  |
+| `plan` | `string` |  |
+| `primary_owner` | `Object` |  |
+| `region` | `string|null` |  |
+| `scope` | `string` |  |
+| `service_id` | `string` |  |
+| `service_type` | `string` |  |
+| `sso_provider` | `Object` |  |
+| `user_agent` | `string` |  |
+| `user_id` | `string` |  |
+| `user_name` | `string` |  |
+| `username` | `string` |  |
+
+#### Example: Load
+
+```ts
+const team = await client.Team().load({ token: 'token' })
+```
+
+#### Example: List
+
+```ts
+const teams = await client.Team().list({ token: "example" })
+```
+
+
+### Teamprofile
+
+Create an instance: `const teamprofile = client.Teamprofile()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `fields` | `Array` |  |
+
+#### Example: Load
+
+```ts
+const teamprofile = await client.Teamprofile().load({ token: 'token' })
+```
+
+
+### User
+
+Create an instance: `const user = client.User()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `auto_away` | `boolean` |  |
+| `avatar_hash` | `string` |  |
+| `cache_ts` | `number` |  |
+| `channels` | `Array` |  |
+| `connection_count` | `number` |  |
+| `image_1024` | `string` |  |
+| `image_192` | `string` |  |
+| `image_24` | `string` |  |
+| `image_32` | `string` |  |
+| `image_48` | `string` |  |
+| `image_512` | `string` |  |
+| `image_72` | `string` |  |
+| `image_original` | `string` |  |
+| `last_activity` | `number` |  |
+| `manual_away` | `boolean` |  |
+| `members` | `Array` |  |
+| `ok` | `boolean` |  |
+| `online` | `boolean` |  |
+| `presence` | `string` |  |
+| `response_metadata` | `Object` |  |
+| `team` | `Object` |  |
+| `user` | `*` |  |
+
+#### Example: Load
+
+```ts
+const user = await client.User().load({ token: 'token' })
+```
+
+#### Example: List
+
+```ts
+const users = await client.User().list()
+```
+
+#### Example: Create
+
+```ts
+const user = await client.User().create({
+  token: 'example_token',
+  avatar_hash: 'example_avatar_hash',
+  cache_ts: 1,
+  channels: [],
+  image_1024: 'example_image_1024',
+  image_192: 'example_image_192',
+  image_24: 'example_image_24',
+  image_32: 'example_image_32',
+  image_48: 'example_image_48',
+  image_512: 'example_image_512',
+  image_72: 'example_image_72',
+  image_original: 'example_image_original',
+  members: [],
+  ok: true,
+  presence: 'example_presence',
+  response_metadata: {},
+  user: 'example_user',
+})
+```
+
+
+### Usergroup
+
+Create an instance: `const usergroup = client.Usergroup()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `auto_provision` | `boolean` |  |
+| `auto_type` | `*` |  |
+| `channel_count` | `number` |  |
+| `created_by` | `string` |  |
+| `date_create` | `number` |  |
+| `date_delete` | `number` |  |
+| `date_update` | `number` |  |
+| `deleted_by` | `*` |  |
+| `description` | `string` |  |
+| `enterprise_subteam_id` | `string` |  |
+| `handle` | `string` |  |
+| `id` | `string` |  |
+| `is_external` | `boolean` |  |
+| `is_subteam` | `boolean` |  |
+| `is_usergroup` | `boolean` |  |
+| `name` | `string` |  |
+| `prefs` | `Object` |  |
+| `team_id` | `string` |  |
+| `updated_by` | `string` |  |
+| `user_count` | `number` |  |
+| `users` | `Array` |  |
+
+#### Example: List
+
+```ts
+const usergroups = await client.Usergroup().list({ token: "example" })
+```
+
+#### Example: Create
+
+```ts
+const usergroup = await client.Usergroup().create({
+  usergroup: 'example_usergroup',
+  auto_provision: true,
+  auto_type: 'example_auto_type',
+  created_by: 'example_created_by',
+  date_create: 1,
+  date_delete: 1,
+  date_update: 1,
+  deleted_by: 'example_deleted_by',
+  enterprise_subteam_id: 'example_enterprise_subteam_id',
+  id: 'example_id',
+  is_external: true,
+  is_subteam: true,
+  is_usergroup: true,
+  prefs: {},
+  team_id: 'example_team_id',
+  updated_by: 'example_updated_by',
+})
+```
+
+
+### Usergroupsuser
+
+Create an instance: `const usergroupsuser = client.Usergroupsuser()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `list(match)` | List entities matching the criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `auto_provision` | `boolean` |  |
+| `auto_type` | `*` |  |
+| `channel_count` | `number` |  |
+| `created_by` | `string` |  |
+| `date_create` | `number` |  |
+| `date_delete` | `number` |  |
+| `date_update` | `number` |  |
+| `deleted_by` | `*` |  |
+| `description` | `string` |  |
+| `enterprise_subteam_id` | `string` |  |
+| `handle` | `string` |  |
+| `id` | `string` |  |
+| `is_external` | `boolean` |  |
+| `is_subteam` | `boolean` |  |
+| `is_usergroup` | `boolean` |  |
+| `name` | `string` |  |
+| `ok` | `boolean` |  |
+| `prefs` | `Object` |  |
+| `team_id` | `string` |  |
+| `updated_by` | `string` |  |
+| `user_count` | `number` |  |
+| `users` | `Array` |  |
+
+#### Example: List
+
+```ts
+const usergroupsusers = await client.Usergroupsuser().list({ token: "example", usergroup: "example" })
+```
+
+#### Example: Create
+
+```ts
+const usergroupsuser = await client.Usergroupsuser().create({
+  user: 'example_user',
+  usergroup: 'example_usergroup',
+  auto_provision: true,
+  auto_type: 'example_auto_type',
+  created_by: 'example_created_by',
+  date_create: 1,
+  date_delete: 1,
+  date_update: 1,
+  deleted_by: 'example_deleted_by',
+  description: 'example_description',
+  enterprise_subteam_id: 'example_enterprise_subteam_id',
+  handle: 'example_handle',
+  id: 'example_id',
+  is_external: true,
+  is_subteam: true,
+  is_usergroup: true,
+  name: 'example_name',
+  ok: true,
+  prefs: {},
+  team_id: 'example_team_id',
+  updated_by: 'example_updated_by',
+})
+```
+
+
+### Usersprofile
+
+Create an instance: `const usersprofile = client.Usersprofile()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `create(data)` | Create a new entity with the given data. |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `always_active` | `boolean` |  |
+| `api_app_id` | `string` |  |
+| `avatar_hash` | `string` |  |
+| `bot_id` | `string` |  |
+| `display_name` | `string` |  |
+| `display_name_normalized` | `string` |  |
+| `email` | `null|string` |  |
+| `fields` | `Object|null|Array` |  |
+| `first_name` | `null|string` |  |
+| `guest_expiration_ts` | `null|number` |  |
+| `guest_invited_by` | `null|string` |  |
+| `image_1024` | `null|string` |  |
+| `image_192` | `null|string` |  |
+| `image_24` | `null|string` |  |
+| `image_32` | `null|string` |  |
+| `image_48` | `null|string` |  |
+| `image_512` | `null|string` |  |
+| `image_72` | `null|string` |  |
+| `image_original` | `null|string` |  |
+| `is_app_user` | `boolean` |  |
+| `is_custom_image` | `boolean` |  |
+| `is_restricted` | `null|boolean` |  |
+| `is_ultra_restricted` | `null|boolean` |  |
+| `last_avatar_image_hash` | `string` |  |
+| `last_name` | `null|string` |  |
+| `memberships_count` | `number` |  |
+| `name` | `null|string` |  |
+| `phone` | `string` |  |
+| `pronouns` | `string` |  |
+| `real_name` | `string` |  |
+| `real_name_normalized` | `string` |  |
+| `skype` | `string` |  |
+| `status_default_emoji` | `string` |  |
+| `status_default_text` | `string` |  |
+| `status_default_text_canonical` | `null|string` |  |
+| `status_emoji` | `string` |  |
+| `status_expiration` | `number` |  |
+| `status_text` | `string` |  |
+| `status_text_canonical` | `null|string` |  |
+| `team` | `string` |  |
+| `title` | `string` |  |
+| `updated` | `number` |  |
+| `user_id` | `string` |  |
+| `username` | `null|string` |  |
+
+#### Example: Load
+
+```ts
+const usersprofile = await client.Usersprofile().load({ token: 'token' })
+```
+
+#### Example: Create
+
+```ts
+const usersprofile = await client.Usersprofile().create({
+  avatar_hash: 'example_avatar_hash',
+  display_name: 'example_display_name',
+  display_name_normalized: 'example_display_name_normalized',
+  fields: {},
+  phone: 'example_phone',
+  real_name: 'example_real_name',
+  real_name_normalized: 'example_real_name_normalized',
+  skype: 'example_skype',
+  status_emoji: 'example_status_emoji',
+  status_text: 'example_status_text',
+  title: 'example_title',
+})
+```
+
+
+### View
+
+Create an instance: `const view = client.View()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const view = await client.View().load()
+```
+
+
+### Workflow
+
+Create an instance: `const workflow = client.Workflow()`
+
+#### Operations
+
+| Method | Description |
+| --- | --- |
+| `load(match)` | Load a single entity by match criteria. |
+
+#### Fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `ok` | `boolean` |  |
+
+#### Example: Load
+
+```ts
+const workflow = await client.Workflow().load({ workflow_step_edit_id: 'workflow_step_edit_id' })
 ```
 
 ## Features
@@ -606,11 +3592,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const conversationsinfo = client.Conversationsinfo()
-await conversationsinfo.load({ channel: "example" })
+const adminteam = client.Adminteam()
+await adminteam.load()
 
-// conversationsinfo.data() now returns the conversationsinfo data from the last `load`
-// conversationsinfo.match() returns the last match criteria
+// adminteam.data() now returns the adminteam data from the last `load`
+// adminteam.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

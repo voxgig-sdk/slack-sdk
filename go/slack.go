@@ -53,11 +53,170 @@ func init() {
 	core.NewTimeoutFeatureFunc = func() core.Feature {
 		return feature.NewTimeoutFeature()
 	}
-	core.NewConversationsinfoEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
-		return entity.NewConversationsinfoEntity(client, entopts)
+	core.NewAdminappEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAdminappEntity(client, entopts)
 	}
-	core.NewConversationslistEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
-		return entity.NewConversationslistEntity(client, entopts)
+	core.NewAdminappsapprovedEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAdminappsapprovedEntity(client, entopts)
+	}
+	core.NewAdminappsrequestEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAdminappsrequestEntity(client, entopts)
+	}
+	core.NewAdminappsrestrictedEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAdminappsrestrictedEntity(client, entopts)
+	}
+	core.NewAdminconversationEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAdminconversationEntity(client, entopts)
+	}
+	core.NewAdminconversationsekmEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAdminconversationsekmEntity(client, entopts)
+	}
+	core.NewAdminconversationsrestrictAccessEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAdminconversationsrestrictAccessEntity(client, entopts)
+	}
+	core.NewAdminemojiEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAdminemojiEntity(client, entopts)
+	}
+	core.NewAdmininviteRequestEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAdmininviteRequestEntity(client, entopts)
+	}
+	core.NewAdmininviteRequestsapprovedEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAdmininviteRequestsapprovedEntity(client, entopts)
+	}
+	core.NewAdmininviteRequestsdeniedEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAdmininviteRequestsdeniedEntity(client, entopts)
+	}
+	core.NewAdminteamEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAdminteamEntity(client, entopts)
+	}
+	core.NewAdminteamsadminEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAdminteamsadminEntity(client, entopts)
+	}
+	core.NewAdminteamsownerEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAdminteamsownerEntity(client, entopts)
+	}
+	core.NewAdminteamssettingEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAdminteamssettingEntity(client, entopts)
+	}
+	core.NewAdminuserEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAdminuserEntity(client, entopts)
+	}
+	core.NewAdminusergroupEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAdminusergroupEntity(client, entopts)
+	}
+	core.NewAdminuserssessionEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAdminuserssessionEntity(client, entopts)
+	}
+	core.NewApiEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewApiEntity(client, entopts)
+	}
+	core.NewAppEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAppEntity(client, entopts)
+	}
+	core.NewAppseventauthorizationEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAppseventauthorizationEntity(client, entopts)
+	}
+	core.NewAppspermissionEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAppspermissionEntity(client, entopts)
+	}
+	core.NewAppspermissionsresourceEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAppspermissionsresourceEntity(client, entopts)
+	}
+	core.NewAppspermissionsscopeEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAppspermissionsscopeEntity(client, entopts)
+	}
+	core.NewAppspermissionsuserEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAppspermissionsuserEntity(client, entopts)
+	}
+	core.NewAuthEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewAuthEntity(client, entopts)
+	}
+	core.NewBotEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewBotEntity(client, entopts)
+	}
+	core.NewCallEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewCallEntity(client, entopts)
+	}
+	core.NewCallsparticipantEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewCallsparticipantEntity(client, entopts)
+	}
+	core.NewChatEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewChatEntity(client, entopts)
+	}
+	core.NewChatscheduledMessageEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewChatscheduledMessageEntity(client, entopts)
+	}
+	core.NewConversationEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewConversationEntity(client, entopts)
+	}
+	core.NewDialogEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewDialogEntity(client, entopts)
+	}
+	core.NewDndEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewDndEntity(client, entopts)
+	}
+	core.NewEmojiEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewEmojiEntity(client, entopts)
+	}
+	core.NewFileEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewFileEntity(client, entopts)
+	}
+	core.NewFilescommentEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewFilescommentEntity(client, entopts)
+	}
+	core.NewFilesremoteEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewFilesremoteEntity(client, entopts)
+	}
+	core.NewMigrationEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewMigrationEntity(client, entopts)
+	}
+	core.NewOauthEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewOauthEntity(client, entopts)
+	}
+	core.NewOauthv2EntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewOauthv2Entity(client, entopts)
+	}
+	core.NewPinEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewPinEntity(client, entopts)
+	}
+	core.NewReactionEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewReactionEntity(client, entopts)
+	}
+	core.NewReminderEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewReminderEntity(client, entopts)
+	}
+	core.NewRtmEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewRtmEntity(client, entopts)
+	}
+	core.NewSearchEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewSearchEntity(client, entopts)
+	}
+	core.NewStarEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewStarEntity(client, entopts)
+	}
+	core.NewTeamEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewTeamEntity(client, entopts)
+	}
+	core.NewTeamprofileEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewTeamprofileEntity(client, entopts)
+	}
+	core.NewUserEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewUserEntity(client, entopts)
+	}
+	core.NewUsergroupEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewUsergroupEntity(client, entopts)
+	}
+	core.NewUsergroupsuserEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewUsergroupsuserEntity(client, entopts)
+	}
+	core.NewUsersprofileEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewUsersprofileEntity(client, entopts)
+	}
+	core.NewViewEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewViewEntity(client, entopts)
+	}
+	core.NewWorkflowEntityFunc = func(client *core.SlackSDK, entopts map[string]any) core.SlackEntity {
+		return entity.NewWorkflowEntity(client, entopts)
 	}
 }
 

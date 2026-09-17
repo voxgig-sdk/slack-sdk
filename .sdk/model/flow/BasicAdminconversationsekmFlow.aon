@@ -1,0 +1,28 @@
+# BasicAdminconversationsekmFlow
+
+main: kit: flow: BasicAdminconversationsekmFlow:
+{
+  entity: "adminconversationsekm",
+  kind: "basic",
+  name: "BasicAdminconversationsekmFlow",
+  step: [
+    {
+      input: {
+        ref: "adminconversationsekm_ref01",
+        srcdatavar: "adminconversationsekm_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-adminconversationsekm_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAdminconversationsekmFlow"
+}

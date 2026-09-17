@@ -1,0 +1,36 @@
+# BasicCallFlow
+
+main: kit: flow: BasicCallFlow:
+{
+  entity: "call",
+  kind: "basic",
+  name: "BasicCallFlow",
+  step: [
+    {
+      input: {
+        ref: "call_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "call_ref01",
+        srcdatavar: "call_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-call_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCallFlow"
+}

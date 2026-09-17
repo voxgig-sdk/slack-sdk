@@ -1,0 +1,28 @@
+# BasicAdmininviteRequestsapprovedFlow
+
+main: kit: flow: BasicAdmininviteRequestsapprovedFlow:
+{
+  entity: "admininvite_requestsapproved",
+  kind: "basic",
+  name: "BasicAdmininviteRequestsapprovedFlow",
+  step: [
+    {
+      input: {
+        ref: "admininvite_requestsapproved_ref01",
+        srcdatavar: "admininvite_requestsapproved_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-admininvite_requestsapproved_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAdmininviteRequestsapprovedFlow"
+}

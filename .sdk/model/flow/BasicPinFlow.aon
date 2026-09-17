@@ -1,0 +1,36 @@
+# BasicPinFlow
+
+main: kit: flow: BasicPinFlow:
+{
+  entity: "pin",
+  kind: "basic",
+  name: "BasicPinFlow",
+  step: [
+    {
+      input: {
+        ref: "pin_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "pin_ref01",
+        srcdatavar: "pin_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-pin_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPinFlow"
+}

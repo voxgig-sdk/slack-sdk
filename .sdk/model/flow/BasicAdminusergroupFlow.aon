@@ -1,0 +1,36 @@
+# BasicAdminusergroupFlow
+
+main: kit: flow: BasicAdminusergroupFlow:
+{
+  entity: "adminusergroup",
+  kind: "basic",
+  name: "BasicAdminusergroupFlow",
+  step: [
+    {
+      input: {
+        ref: "adminusergroup_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "adminusergroup_ref01",
+        srcdatavar: "adminusergroup_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-adminusergroup_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAdminusergroupFlow"
+}

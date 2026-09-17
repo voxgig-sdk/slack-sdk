@@ -1,0 +1,833 @@
+# Entity: file
+
+main: kit: entity: file: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "channels"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "comments"
+      req: true
+      type: "`$ARRAY`"
+    }
+    {
+      name: "comments_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "content_html"
+      req: false
+      type: "`$NULL`"
+    }
+    {
+      name: "created"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "date_delete"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "display_as_bot"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "editable"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "editor"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "external_id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "external_type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "external_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "file"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "filetype"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "groups"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "has_rich_preview"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "image_exif_rotation"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ims"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "is_external"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_public"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_starred"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_tombstoned"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "last_editor"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "mimetype"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "mode"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "non_owner_editable"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "num_stars"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "ok"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "original_h"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "original_w"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "paging"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      format: "uri"
+      name: "permalink"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "permalink_public"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "pinned_info"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "pinned_to"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "pretty_type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "preview"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "public_url_shared"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "reactions"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "response_metadata"
+      req: false
+      type: "`$ANY`"
+    }
+    {
+      name: "shares"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "size"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "source_team"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "state"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "thumb_1024"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "thumb_1024_h"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "thumb_1024_w"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "thumb_160"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "thumb_360"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "thumb_360_h"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "thumb_360_w"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "thumb_480"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "thumb_480_h"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "thumb_480_w"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "thumb_64"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "thumb_720"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "thumb_720_h"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "thumb_720_w"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "thumb_80"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "thumb_800"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "thumb_800_h"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "thumb_800_w"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "thumb_960"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "thumb_960_h"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "thumb_960_w"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "thumb_tiny"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "timestamp"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "title"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "updated"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      format: "uri"
+      name: "url_private"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      format: "uri"
+      name: "url_private_download"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "user"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "user_team"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "username"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "file"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "channel"
+                orig: "channel"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "content"
+                orig: "content"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "file"
+                orig: "file"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "filename"
+                orig: "filename"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "filetype"
+                orig: "filetype"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "initial_comment"
+                orig: "initial_comment"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "thread_t"
+                orig: "thread_t"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "title"
+                orig: "title"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          contract: {
+            id: "POST /files.upload"
+            json: "{\"consumes\":[\"application/x-www-form-urlencoded\"],\"operationId\":\"files_upload\",\"parameters\":[{\"description\":\"Authentication token. Requires scope: `files:write:user`\",\"in\":\"formData\",\"name\":\"token\",\"type\":\"string\"},{\"description\":\"File contents via `multipart/form-data`. If omitting this parameter, you must submit `content`.\",\"in\":\"formData\",\"name\":\"file\",\"type\":\"string\"},{\"description\":\"File contents via a POST variable. If omitting this parameter, you must provide a `file`.\",\"in\":\"formData\",\"name\":\"content\",\"type\":\"string\"},{\"description\":\"A [file type](/types/file#file_types) identifier.\",\"in\":\"formData\",\"name\":\"filetype\",\"type\":\"string\"},{\"description\":\"Filename of file.\",\"in\":\"formData\",\"name\":\"filename\",\"type\":\"string\"},{\"description\":\"Title of file.\",\"in\":\"formData\",\"name\":\"title\",\"type\":\"string\"},{\"description\":\"The message text introducing the file in specified `channels`.\",\"in\":\"formData\",\"name\":\"initial_comment\",\"type\":\"string\"},{\"description\":\"Comma-separated list of channel names or IDs where the file will be shared.\",\"in\":\"formData\",\"name\":\"channels\",\"type\":\"string\"},{\"description\":\"Provide another message's `ts` value to upload this file as a reply. Never use a reply's `ts` value; use its parent instead.\",\"in\":\"formData\",\"name\":\"thread_ts\",\"type\":\"number\"}],\"produces\":[\"application/json\"],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"Success response after uploading a file to a channel with an initial message\",\"examples\":{\"application/json\":{\"file\":{\"channels\":[],\"comments_count\":0,\"created\":1532293501,\"display_as_bot\":false,\"editable\":false,\"external_type\":\"\",\"filetype\":\"gif\",\"groups\":[],\"has_rich_preview\":false,\"id\":\"F0TD00400\",\"image_exif_rotation\":1,\"ims\":[\"D0L4B9P0Q\"],\"is_external\":false,\"is_public\":false,\"is_starred\":false,\"mimetype\":\"image/jpeg\",\"mode\":\"hosted\",\"name\":\"dramacat.gif\",\"original_h\":366,\"original_w\":526,\"permalink\":\"https://.../dramacat.gif\",\"permalink_public\":\"https://.../More-Path-Components\",\"pretty_type\":\"JPEG\",\"public_url_shared\":false,\"shares\":{\"private\":{\"D0L4B9P0Q\":[{\"reply_count\":0,\"reply_users\":[],\"reply_users_count\":0,\"ts\":\"1532293503.000001\"}]}},\"size\":43518,\"thumb_160\":\"https://.../dramacat_160.gif\",\"thumb_360\":\"https://.../dramacat_360.gif\",\"thumb_360_h\":250,\"thumb_360_w\":360,\"thumb_480\":\"https://.../dramacat_480.gif\",\"thumb_480_h\":334,\"thumb_480_w\":480,\"thumb_64\":\"https://.../dramacat_64.gif\",\"thumb_80\":\"https://.../dramacat_80.gif\",\"timestamp\":1532293501,\"title\":\"dramacat\",\"url_private\":\"https://.../dramacat.gif\",\"url_private_download\":\"https://.../dramacat.gif\",\"user\":\"U0L4B9NSU\",\"username\":\"\"},\"ok\":true}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for successful response files.upload method\",\"properties\":{\"file\":{\"additionalProperties\":false,\"properties\":{\"channels\":{\"items\":{\"pattern\":\"^[C][A-Z0-9]{2,}$\",\"title\":\"Channel ID\",\"type\":\"string\"},\"type\":\"array\",\"uniqueItems\":true},\"comments_count\":{\"type\":\"integer\"},\"created\":{\"type\":\"integer\"},\"date_delete\":{\"type\":\"integer\"},\"display_as_bot\":{\"type\":\"boolean\"},\"editable\":{\"type\":\"boolean\"},\"editor\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"external_id\":{\"type\":\"string\"},\"external_type\":{\"type\":\"string\"},\"external_url\":{\"format\":\"uri\",\"type\":\"string\"},\"filetype\":{\"type\":\"string\"},\"groups\":{\"items\":{\"pattern\":\"^[G][A-Z0-9]{8,}$\",\"title\":\"Private Channel ID\",\"type\":\"string\"},\"type\":\"array\",\"uniqueItems\":true},\"has_rich_preview\":{\"type\":\"boolean\"},\"id\":{\"pattern\":\"^[F][A-Z0-9]{8,}$\",\"title\":\"File ID\",\"type\":\"string\"},\"image_exif_rotation\":{\"type\":\"integer\"},\"ims\":{\"items\":{\"pattern\":\"^[D][A-Z0-9]{8,}$\",\"title\":\"Direct Message Channel ID\",\"type\":\"string\"},\"type\":\"array\",\"uniqueItems\":true},\"is_external\":{\"type\":\"boolean\"},\"is_public\":{\"type\":\"boolean\"},\"is_starred\":{\"type\":\"boolean\"},\"is_tombstoned\":{\"type\":\"boolean\"},\"last_editor\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"mimetype\":{\"type\":\"string\"},\"mode\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"non_owner_editable\":{\"type\":\"boolean\"},\"num_stars\":{\"type\":\"integer\"},\"original_h\":{\"type\":\"integer\"},\"original_w\":{\"type\":\"integer\"},\"permalink\":{\"format\":\"uri\",\"type\":\"string\"},\"permalink_public\":{\"format\":\"uri\",\"type\":\"string\"},\"pinned_info\":{\"additionalProperties\":false,\"title\":\"Info for a pinned item\",\"type\":\"object\"},\"pinned_to\":{\"items\":{\"pattern\":\"^[CGD][A-Z0-9]{8,}$\",\"title\":\"Channel-like conversation ID\",\"type\":\"string\"},\"type\":\"array\"},\"pretty_type\":{\"type\":\"string\"},\"preview\":{\"type\":\"string\"},\"public_url_shared\":{\"type\":\"boolean\"},\"reactions\":{\"items\":{\"additionalProperties\":true,\"properties\":{\"count\":{\"type\":\"integer\"},\"name\":{\"type\":\"string\"},\"users\":{\"items\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"name\",\"users\",\"count\"],\"title\":\"Reaction object\",\"type\":\"object\"},\"type\":\"array\"},\"shares\":{\"additionalProperties\":false,\"properties\":{\"private\":{\"additionalProperties\":false},\"public\":{\"additionalProperties\":false}},\"type\":\"object\"},\"size\":{\"type\":\"integer\"},\"source_team\":{\"pattern\":\"^[T][A-Z0-9]{2,}$\",\"title\":\"Team ID\",\"type\":\"string\"},\"state\":{\"type\":\"string\"},\"thumb_1024\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_1024_h\":{\"type\":\"integer\"},\"thumb_1024_w\":{\"type\":\"integer\"},\"thumb_160\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_360\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_360_h\":{\"type\":\"integer\"},\"thumb_360_w\":{\"type\":\"integer\"},\"thumb_480\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_480_h\":{\"type\":\"integer\"},\"thumb_480_w\":{\"type\":\"integer\"},\"thumb_64\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_720\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_720_h\":{\"type\":\"integer\"},\"thumb_720_w\":{\"type\":\"integer\"},\"thumb_80\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_800\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_800_h\":{\"type\":\"integer\"},\"thumb_800_w\":{\"type\":\"integer\"},\"thumb_960\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_960_h\":{\"type\":\"integer\"},\"thumb_960_w\":{\"type\":\"integer\"},\"thumb_tiny\":{\"type\":\"string\"},\"timestamp\":{\"type\":\"integer\"},\"title\":{\"type\":\"string\"},\"updated\":{\"type\":\"integer\"},\"url_private\":{\"format\":\"uri\",\"type\":\"string\"},\"url_private_download\":{\"format\":\"uri\",\"type\":\"string\"},\"user\":{\"type\":\"string\"},\"user_team\":{\"pattern\":\"^[T][A-Z0-9]{2,}$\",\"title\":\"Team ID\",\"type\":\"string\"},\"username\":{\"type\":\"string\"}},\"title\":\"file object\",\"type\":\"object\"},\"ok\":{\"enum\":[true],\"title\":\"default success response\",\"type\":\"boolean\"}},\"required\":[\"ok\",\"file\"],\"title\":\"files.upload schema\",\"type\":\"object\"}},\"default\":{\"description\":\"Typical error response\",\"examples\":{\"application/json\":{\"error\":\"invalid_auth\",\"ok\":false}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for error response files.upload method\",\"properties\":{\"callstack\":{\"description\":\"Note: PHP callstack is only visible in dev/qa\",\"type\":\"string\"},\"error\":{\"enum\":[\"posting_to_general_channel_denied\",\"invalid_channel\",\"file_uploads_disabled\",\"file_uploads_except_images_disabled\",\"storage_limit_reached\",\"not_authed\",\"invalid_auth\",\"account_inactive\",\"no_permission\",\"invalid_arg_name\",\"invalid_array_arg\",\"invalid_charset\",\"invalid_form_data\",\"invalid_post_type\",\"missing_post_type\",\"team_added_to_org\",\"invalid_json\",\"json_not_object\",\"request_timeout\",\"upgrade_required\"],\"type\":\"string\"},\"ok\":{\"enum\":[false],\"title\":\"default failure response\",\"type\":\"boolean\"}},\"required\":[\"ok\",\"error\"],\"title\":\"files.upload error schema\",\"type\":\"object\"}}},\"security\":[{\"slackAuth\":[\"files:write:user\"]}],\"securitySchemes\":{\"slackAuth\":{\"authorizationUrl\":\"https://slack.com/oauth/authorize\",\"flow\":\"accessCode\",\"scopes\":{\"admin\":\"admin\",\"admin.apps:read\":\"admin.apps:read\",\"admin.apps:write\":\"admin.apps:write\",\"admin.conversations:read\":\"admin.conversations:read\",\"admin.conversations:write\":\"admin.conversations:write\",\"admin.invites:read\":\"admin.invites:read\",\"admin.invites:write\":\"admin.invites:write\",\"admin.teams:read\":\"admin.teams:read\",\"admin.teams:write\":\"admin.teams:write\",\"admin.usergroups:read\":\"admin.usergroups:read\",\"admin.usergroups:write\":\"admin.usergroups:write\",\"admin.users:read\":\"admin.users:read\",\"admin.users:write\":\"admin.users:write\",\"authorizations:read\":\"authorizations:read\",\"bot\":\"Bot user scope\",\"calls:read\":\"calls:read\",\"calls:write\":\"calls:write\",\"channels:history\":\"channels:history\",\"channels:manage\":\"channels:manage\",\"channels:read\":\"channels:read\",\"channels:write\":\"channels:write\",\"chat:write\":\"chat:write\",\"chat:write:bot\":\"Author messages as a bot\",\"chat:write:user\":\"Author messages as a user\",\"conversations:history\":\"conversations:history\",\"conversations:read\":\"conversations:read\",\"conversations:write\":\"conversations:write\",\"dnd:read\":\"dnd:read\",\"dnd:write\":\"dnd:write\",\"emoji:read\":\"emoji:read\",\"files:read\":\"files:read\",\"files:write:user\":\"files:write:user\",\"groups:history\":\"groups:history\",\"groups:read\":\"groups:read\",\"groups:write\":\"groups:write\",\"identity.basic\":\"identity.basic\",\"im:history\":\"im:history\",\"im:read\":\"im:read\",\"im:write\":\"im:write\",\"links:write\":\"links:write\",\"mpim:history\":\"mpim:history\",\"mpim:read\":\"mpim:read\",\"mpim:write\":\"mpim:write\",\"none\":\"No scope required\",\"pins:read\":\"pins:read\",\"pins:write\":\"pins:write\",\"reactions:read\":\"reactions:read\",\"reactions:write\":\"reactions:write\",\"reminders:read\":\"reminders:read\",\"reminders:write\":\"reminders:write\",\"remote_files:read\":\"remote_files:read\",\"remote_files:share\":\"remote_files:share\",\"remote_files:write\":\"remote_files:write\",\"rtm:stream\":\"rtm:stream\",\"search:read\":\"search:read\",\"stars:read\":\"stars:read\",\"stars:write\":\"stars:write\",\"team:read\":\"team:read\",\"tokens.basic\":\"tokens.basic\",\"usergroups:read\":\"usergroups:read\",\"usergroups:write\":\"usergroups:write\",\"users.profile:read\":\"users.profile:read\",\"users.profile:write\":\"users.profile:write\",\"users:read\":\"users:read\",\"users:read.email\":\"users:read.email\",\"users:write\":\"users:write\",\"workflow.steps:execute\":\"workflow.steps:execute\"},\"tokenUrl\":\"https://slack.com/api/oauth.access\",\"type\":\"oauth2\"}},\"securitySource\":\"operation\"}"
+            source: "swagger2"
+            version: 1
+          }
+          method: "POST"
+          orig: "/files.upload"
+          segments: [
+            {
+              lit: "files.upload"
+            }
+          ]
+          select: {
+            exist: [
+              "channel"
+              "content"
+              "file"
+              "filename"
+              "filetype"
+              "initial_comment"
+              "thread_t"
+              "title"
+              "token"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.file`"
+          }
+        }
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "file"
+                orig: "file"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+          }
+          contract: {
+            id: "POST /files.delete"
+            json: "{\"consumes\":[\"application/x-www-form-urlencoded\",\"application/json\"],\"operationId\":\"files_delete\",\"parameters\":[{\"description\":\"Authentication token. Requires scope: `files:write:user`\",\"in\":\"header\",\"name\":\"token\",\"type\":\"string\"},{\"description\":\"ID of file to delete.\",\"in\":\"formData\",\"name\":\"file\",\"type\":\"string\"}],\"produces\":[\"application/json\"],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"Typical success response\",\"examples\":{\"application/json\":{\"ok\":true}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for successful response files.delete method\",\"properties\":{\"ok\":{\"enum\":[true],\"title\":\"default success response\",\"type\":\"boolean\"}},\"required\":[\"ok\"],\"title\":\"files.delete schema\",\"type\":\"object\"}},\"default\":{\"description\":\"Typical error response\",\"examples\":{\"application/json\":{\"error\":\"invalid_auth\",\"ok\":false}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for error response files.delete method\",\"properties\":{\"callstack\":{\"description\":\"Note: PHP callstack is only visible in dev/qa\",\"type\":\"string\"},\"error\":{\"enum\":[\"file_not_found\",\"file_deleted\",\"cant_delete_file\",\"not_authed\",\"invalid_auth\",\"account_inactive\",\"no_permission\",\"invalid_arg_name\",\"invalid_array_arg\",\"invalid_charset\",\"invalid_form_data\",\"invalid_post_type\",\"missing_post_type\",\"team_added_to_org\",\"invalid_json\",\"json_not_object\",\"request_timeout\",\"upgrade_required\"],\"type\":\"string\"},\"ok\":{\"enum\":[false],\"title\":\"default failure response\",\"type\":\"boolean\"}},\"required\":[\"ok\",\"error\"],\"title\":\"files.delete error schema\",\"type\":\"object\"}}},\"security\":[{\"slackAuth\":[\"files:write:user\"]}],\"securitySchemes\":{\"slackAuth\":{\"authorizationUrl\":\"https://slack.com/oauth/authorize\",\"flow\":\"accessCode\",\"scopes\":{\"admin\":\"admin\",\"admin.apps:read\":\"admin.apps:read\",\"admin.apps:write\":\"admin.apps:write\",\"admin.conversations:read\":\"admin.conversations:read\",\"admin.conversations:write\":\"admin.conversations:write\",\"admin.invites:read\":\"admin.invites:read\",\"admin.invites:write\":\"admin.invites:write\",\"admin.teams:read\":\"admin.teams:read\",\"admin.teams:write\":\"admin.teams:write\",\"admin.usergroups:read\":\"admin.usergroups:read\",\"admin.usergroups:write\":\"admin.usergroups:write\",\"admin.users:read\":\"admin.users:read\",\"admin.users:write\":\"admin.users:write\",\"authorizations:read\":\"authorizations:read\",\"bot\":\"Bot user scope\",\"calls:read\":\"calls:read\",\"calls:write\":\"calls:write\",\"channels:history\":\"channels:history\",\"channels:manage\":\"channels:manage\",\"channels:read\":\"channels:read\",\"channels:write\":\"channels:write\",\"chat:write\":\"chat:write\",\"chat:write:bot\":\"Author messages as a bot\",\"chat:write:user\":\"Author messages as a user\",\"conversations:history\":\"conversations:history\",\"conversations:read\":\"conversations:read\",\"conversations:write\":\"conversations:write\",\"dnd:read\":\"dnd:read\",\"dnd:write\":\"dnd:write\",\"emoji:read\":\"emoji:read\",\"files:read\":\"files:read\",\"files:write:user\":\"files:write:user\",\"groups:history\":\"groups:history\",\"groups:read\":\"groups:read\",\"groups:write\":\"groups:write\",\"identity.basic\":\"identity.basic\",\"im:history\":\"im:history\",\"im:read\":\"im:read\",\"im:write\":\"im:write\",\"links:write\":\"links:write\",\"mpim:history\":\"mpim:history\",\"mpim:read\":\"mpim:read\",\"mpim:write\":\"mpim:write\",\"none\":\"No scope required\",\"pins:read\":\"pins:read\",\"pins:write\":\"pins:write\",\"reactions:read\":\"reactions:read\",\"reactions:write\":\"reactions:write\",\"reminders:read\":\"reminders:read\",\"reminders:write\":\"reminders:write\",\"remote_files:read\":\"remote_files:read\",\"remote_files:share\":\"remote_files:share\",\"remote_files:write\":\"remote_files:write\",\"rtm:stream\":\"rtm:stream\",\"search:read\":\"search:read\",\"stars:read\":\"stars:read\",\"stars:write\":\"stars:write\",\"team:read\":\"team:read\",\"tokens.basic\":\"tokens.basic\",\"usergroups:read\":\"usergroups:read\",\"usergroups:write\":\"usergroups:write\",\"users.profile:read\":\"users.profile:read\",\"users.profile:write\":\"users.profile:write\",\"users:read\":\"users:read\",\"users:read.email\":\"users:read.email\",\"users:write\":\"users:write\",\"workflow.steps:execute\":\"workflow.steps:execute\"},\"tokenUrl\":\"https://slack.com/api/oauth.access\",\"type\":\"oauth2\"}},\"securitySource\":\"operation\"}"
+            source: "swagger2"
+            version: 1
+          }
+          method: "POST"
+          orig: "/files.delete"
+          segments: [
+            {
+              lit: "files.delete"
+            }
+          ]
+          select: {
+            exist: [
+              "file"
+              "token"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "file"
+                orig: "file"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+          }
+          contract: {
+            id: "POST /files.revokePublicURL"
+            json: "{\"consumes\":[\"application/x-www-form-urlencoded\",\"application/json\"],\"operationId\":\"files_revokePublicURL\",\"parameters\":[{\"description\":\"Authentication token. Requires scope: `files:write:user`\",\"in\":\"header\",\"name\":\"token\",\"type\":\"string\"},{\"description\":\"File to revoke\",\"in\":\"formData\",\"name\":\"file\",\"type\":\"string\"}],\"produces\":[\"application/json\"],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"Typical success response\",\"examples\":{\"application/json\":{\"ok\":true}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for successful response from files.revokePublicURL method\",\"properties\":{\"file\":{\"additionalProperties\":false,\"properties\":{\"channels\":{\"items\":{\"pattern\":\"^[C][A-Z0-9]{2,}$\",\"title\":\"Channel ID\",\"type\":\"string\"},\"type\":\"array\",\"uniqueItems\":true},\"comments_count\":{\"type\":\"integer\"},\"created\":{\"type\":\"integer\"},\"date_delete\":{\"type\":\"integer\"},\"display_as_bot\":{\"type\":\"boolean\"},\"editable\":{\"type\":\"boolean\"},\"editor\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"external_id\":{\"type\":\"string\"},\"external_type\":{\"type\":\"string\"},\"external_url\":{\"format\":\"uri\",\"type\":\"string\"},\"filetype\":{\"type\":\"string\"},\"groups\":{\"items\":{\"pattern\":\"^[G][A-Z0-9]{8,}$\",\"title\":\"Private Channel ID\",\"type\":\"string\"},\"type\":\"array\",\"uniqueItems\":true},\"has_rich_preview\":{\"type\":\"boolean\"},\"id\":{\"pattern\":\"^[F][A-Z0-9]{8,}$\",\"title\":\"File ID\",\"type\":\"string\"},\"image_exif_rotation\":{\"type\":\"integer\"},\"ims\":{\"items\":{\"pattern\":\"^[D][A-Z0-9]{8,}$\",\"title\":\"Direct Message Channel ID\",\"type\":\"string\"},\"type\":\"array\",\"uniqueItems\":true},\"is_external\":{\"type\":\"boolean\"},\"is_public\":{\"type\":\"boolean\"},\"is_starred\":{\"type\":\"boolean\"},\"is_tombstoned\":{\"type\":\"boolean\"},\"last_editor\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"mimetype\":{\"type\":\"string\"},\"mode\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"non_owner_editable\":{\"type\":\"boolean\"},\"num_stars\":{\"type\":\"integer\"},\"original_h\":{\"type\":\"integer\"},\"original_w\":{\"type\":\"integer\"},\"permalink\":{\"format\":\"uri\",\"type\":\"string\"},\"permalink_public\":{\"format\":\"uri\",\"type\":\"string\"},\"pinned_info\":{\"additionalProperties\":false,\"title\":\"Info for a pinned item\",\"type\":\"object\"},\"pinned_to\":{\"items\":{\"pattern\":\"^[CGD][A-Z0-9]{8,}$\",\"title\":\"Channel-like conversation ID\",\"type\":\"string\"},\"type\":\"array\"},\"pretty_type\":{\"type\":\"string\"},\"preview\":{\"type\":\"string\"},\"public_url_shared\":{\"type\":\"boolean\"},\"reactions\":{\"items\":{\"additionalProperties\":true,\"properties\":{\"count\":{\"type\":\"integer\"},\"name\":{\"type\":\"string\"},\"users\":{\"items\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"name\",\"users\",\"count\"],\"title\":\"Reaction object\",\"type\":\"object\"},\"type\":\"array\"},\"shares\":{\"additionalProperties\":false,\"properties\":{\"private\":{\"additionalProperties\":false},\"public\":{\"additionalProperties\":false}},\"type\":\"object\"},\"size\":{\"type\":\"integer\"},\"source_team\":{\"pattern\":\"^[T][A-Z0-9]{2,}$\",\"title\":\"Team ID\",\"type\":\"string\"},\"state\":{\"type\":\"string\"},\"thumb_1024\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_1024_h\":{\"type\":\"integer\"},\"thumb_1024_w\":{\"type\":\"integer\"},\"thumb_160\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_360\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_360_h\":{\"type\":\"integer\"},\"thumb_360_w\":{\"type\":\"integer\"},\"thumb_480\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_480_h\":{\"type\":\"integer\"},\"thumb_480_w\":{\"type\":\"integer\"},\"thumb_64\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_720\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_720_h\":{\"type\":\"integer\"},\"thumb_720_w\":{\"type\":\"integer\"},\"thumb_80\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_800\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_800_h\":{\"type\":\"integer\"},\"thumb_800_w\":{\"type\":\"integer\"},\"thumb_960\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_960_h\":{\"type\":\"integer\"},\"thumb_960_w\":{\"type\":\"integer\"},\"thumb_tiny\":{\"type\":\"string\"},\"timestamp\":{\"type\":\"integer\"},\"title\":{\"type\":\"string\"},\"updated\":{\"type\":\"integer\"},\"url_private\":{\"format\":\"uri\",\"type\":\"string\"},\"url_private_download\":{\"format\":\"uri\",\"type\":\"string\"},\"user\":{\"type\":\"string\"},\"user_team\":{\"pattern\":\"^[T][A-Z0-9]{2,}$\",\"title\":\"Team ID\",\"type\":\"string\"},\"username\":{\"type\":\"string\"}},\"title\":\"file object\",\"type\":\"object\"},\"ok\":{\"enum\":[true],\"title\":\"default success response\",\"type\":\"boolean\"}},\"required\":[\"ok\",\"file\"],\"title\":\"files.revokePublicURL schema\",\"type\":\"object\"}},\"default\":{\"description\":\"Typical error response\",\"examples\":{\"application/json\":{\"error\":\"invalid_auth\",\"ok\":false}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for error response from files.revokePublicURL method\",\"properties\":{\"callstack\":{\"description\":\"Note: PHP callstack is only visible in dev/qa\",\"type\":\"string\"},\"error\":{\"enum\":[\"file_not_found\",\"not_authed\",\"invalid_auth\",\"account_inactive\",\"token_revoked\",\"no_permission\",\"org_login_required\",\"user_is_bot\",\"user_is_restricted\",\"invalid_arg_name\",\"invalid_array_arg\",\"invalid_charset\",\"invalid_form_data\",\"invalid_post_type\",\"missing_post_type\",\"team_added_to_org\",\"invalid_json\",\"json_not_object\",\"request_timeout\",\"upgrade_required\",\"fatal_error\"],\"type\":\"string\"},\"ok\":{\"enum\":[false],\"title\":\"default failure response\",\"type\":\"boolean\"}},\"required\":[\"ok\",\"error\"],\"title\":\"files.revokePublicURL error schema\",\"type\":\"object\"}}},\"security\":[{\"slackAuth\":[\"files:write:user\"]}],\"securitySchemes\":{\"slackAuth\":{\"authorizationUrl\":\"https://slack.com/oauth/authorize\",\"flow\":\"accessCode\",\"scopes\":{\"admin\":\"admin\",\"admin.apps:read\":\"admin.apps:read\",\"admin.apps:write\":\"admin.apps:write\",\"admin.conversations:read\":\"admin.conversations:read\",\"admin.conversations:write\":\"admin.conversations:write\",\"admin.invites:read\":\"admin.invites:read\",\"admin.invites:write\":\"admin.invites:write\",\"admin.teams:read\":\"admin.teams:read\",\"admin.teams:write\":\"admin.teams:write\",\"admin.usergroups:read\":\"admin.usergroups:read\",\"admin.usergroups:write\":\"admin.usergroups:write\",\"admin.users:read\":\"admin.users:read\",\"admin.users:write\":\"admin.users:write\",\"authorizations:read\":\"authorizations:read\",\"bot\":\"Bot user scope\",\"calls:read\":\"calls:read\",\"calls:write\":\"calls:write\",\"channels:history\":\"channels:history\",\"channels:manage\":\"channels:manage\",\"channels:read\":\"channels:read\",\"channels:write\":\"channels:write\",\"chat:write\":\"chat:write\",\"chat:write:bot\":\"Author messages as a bot\",\"chat:write:user\":\"Author messages as a user\",\"conversations:history\":\"conversations:history\",\"conversations:read\":\"conversations:read\",\"conversations:write\":\"conversations:write\",\"dnd:read\":\"dnd:read\",\"dnd:write\":\"dnd:write\",\"emoji:read\":\"emoji:read\",\"files:read\":\"files:read\",\"files:write:user\":\"files:write:user\",\"groups:history\":\"groups:history\",\"groups:read\":\"groups:read\",\"groups:write\":\"groups:write\",\"identity.basic\":\"identity.basic\",\"im:history\":\"im:history\",\"im:read\":\"im:read\",\"im:write\":\"im:write\",\"links:write\":\"links:write\",\"mpim:history\":\"mpim:history\",\"mpim:read\":\"mpim:read\",\"mpim:write\":\"mpim:write\",\"none\":\"No scope required\",\"pins:read\":\"pins:read\",\"pins:write\":\"pins:write\",\"reactions:read\":\"reactions:read\",\"reactions:write\":\"reactions:write\",\"reminders:read\":\"reminders:read\",\"reminders:write\":\"reminders:write\",\"remote_files:read\":\"remote_files:read\",\"remote_files:share\":\"remote_files:share\",\"remote_files:write\":\"remote_files:write\",\"rtm:stream\":\"rtm:stream\",\"search:read\":\"search:read\",\"stars:read\":\"stars:read\",\"stars:write\":\"stars:write\",\"team:read\":\"team:read\",\"tokens.basic\":\"tokens.basic\",\"usergroups:read\":\"usergroups:read\",\"usergroups:write\":\"usergroups:write\",\"users.profile:read\":\"users.profile:read\",\"users.profile:write\":\"users.profile:write\",\"users:read\":\"users:read\",\"users:read.email\":\"users:read.email\",\"users:write\":\"users:write\",\"workflow.steps:execute\":\"workflow.steps:execute\"},\"tokenUrl\":\"https://slack.com/api/oauth.access\",\"type\":\"oauth2\"}},\"securitySource\":\"operation\"}"
+            source: "swagger2"
+            version: 1
+          }
+          method: "POST"
+          orig: "/files.revokePublicURL"
+          segments: [
+            {
+              lit: "files.revokePublicURL"
+            }
+          ]
+          select: {
+            exist: [
+              "file"
+              "token"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.file`"
+          }
+        }
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "file"
+                orig: "file"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+          }
+          contract: {
+            id: "POST /files.sharedPublicURL"
+            json: "{\"consumes\":[\"application/x-www-form-urlencoded\",\"application/json\"],\"operationId\":\"files_sharedPublicURL\",\"parameters\":[{\"description\":\"Authentication token. Requires scope: `files:write:user`\",\"in\":\"header\",\"name\":\"token\",\"type\":\"string\"},{\"description\":\"File to share\",\"in\":\"formData\",\"name\":\"file\",\"type\":\"string\"}],\"produces\":[\"application/json\"],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"Typical success response\",\"examples\":{\"application/json\":{\"ok\":true}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for successful response from files.sharedPublicURL method\",\"properties\":{\"file\":{\"additionalProperties\":false,\"properties\":{\"channels\":{\"items\":{\"pattern\":\"^[C][A-Z0-9]{2,}$\",\"title\":\"Channel ID\",\"type\":\"string\"},\"type\":\"array\",\"uniqueItems\":true},\"comments_count\":{\"type\":\"integer\"},\"created\":{\"type\":\"integer\"},\"date_delete\":{\"type\":\"integer\"},\"display_as_bot\":{\"type\":\"boolean\"},\"editable\":{\"type\":\"boolean\"},\"editor\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"external_id\":{\"type\":\"string\"},\"external_type\":{\"type\":\"string\"},\"external_url\":{\"format\":\"uri\",\"type\":\"string\"},\"filetype\":{\"type\":\"string\"},\"groups\":{\"items\":{\"pattern\":\"^[G][A-Z0-9]{8,}$\",\"title\":\"Private Channel ID\",\"type\":\"string\"},\"type\":\"array\",\"uniqueItems\":true},\"has_rich_preview\":{\"type\":\"boolean\"},\"id\":{\"pattern\":\"^[F][A-Z0-9]{8,}$\",\"title\":\"File ID\",\"type\":\"string\"},\"image_exif_rotation\":{\"type\":\"integer\"},\"ims\":{\"items\":{\"pattern\":\"^[D][A-Z0-9]{8,}$\",\"title\":\"Direct Message Channel ID\",\"type\":\"string\"},\"type\":\"array\",\"uniqueItems\":true},\"is_external\":{\"type\":\"boolean\"},\"is_public\":{\"type\":\"boolean\"},\"is_starred\":{\"type\":\"boolean\"},\"is_tombstoned\":{\"type\":\"boolean\"},\"last_editor\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"mimetype\":{\"type\":\"string\"},\"mode\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"non_owner_editable\":{\"type\":\"boolean\"},\"num_stars\":{\"type\":\"integer\"},\"original_h\":{\"type\":\"integer\"},\"original_w\":{\"type\":\"integer\"},\"permalink\":{\"format\":\"uri\",\"type\":\"string\"},\"permalink_public\":{\"format\":\"uri\",\"type\":\"string\"},\"pinned_info\":{\"additionalProperties\":false,\"title\":\"Info for a pinned item\",\"type\":\"object\"},\"pinned_to\":{\"items\":{\"pattern\":\"^[CGD][A-Z0-9]{8,}$\",\"title\":\"Channel-like conversation ID\",\"type\":\"string\"},\"type\":\"array\"},\"pretty_type\":{\"type\":\"string\"},\"preview\":{\"type\":\"string\"},\"public_url_shared\":{\"type\":\"boolean\"},\"reactions\":{\"items\":{\"additionalProperties\":true,\"properties\":{\"count\":{\"type\":\"integer\"},\"name\":{\"type\":\"string\"},\"users\":{\"items\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"name\",\"users\",\"count\"],\"title\":\"Reaction object\",\"type\":\"object\"},\"type\":\"array\"},\"shares\":{\"additionalProperties\":false,\"properties\":{\"private\":{\"additionalProperties\":false},\"public\":{\"additionalProperties\":false}},\"type\":\"object\"},\"size\":{\"type\":\"integer\"},\"source_team\":{\"pattern\":\"^[T][A-Z0-9]{2,}$\",\"title\":\"Team ID\",\"type\":\"string\"},\"state\":{\"type\":\"string\"},\"thumb_1024\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_1024_h\":{\"type\":\"integer\"},\"thumb_1024_w\":{\"type\":\"integer\"},\"thumb_160\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_360\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_360_h\":{\"type\":\"integer\"},\"thumb_360_w\":{\"type\":\"integer\"},\"thumb_480\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_480_h\":{\"type\":\"integer\"},\"thumb_480_w\":{\"type\":\"integer\"},\"thumb_64\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_720\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_720_h\":{\"type\":\"integer\"},\"thumb_720_w\":{\"type\":\"integer\"},\"thumb_80\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_800\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_800_h\":{\"type\":\"integer\"},\"thumb_800_w\":{\"type\":\"integer\"},\"thumb_960\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_960_h\":{\"type\":\"integer\"},\"thumb_960_w\":{\"type\":\"integer\"},\"thumb_tiny\":{\"type\":\"string\"},\"timestamp\":{\"type\":\"integer\"},\"title\":{\"type\":\"string\"},\"updated\":{\"type\":\"integer\"},\"url_private\":{\"format\":\"uri\",\"type\":\"string\"},\"url_private_download\":{\"format\":\"uri\",\"type\":\"string\"},\"user\":{\"type\":\"string\"},\"user_team\":{\"pattern\":\"^[T][A-Z0-9]{2,}$\",\"title\":\"Team ID\",\"type\":\"string\"},\"username\":{\"type\":\"string\"}},\"title\":\"file object\",\"type\":\"object\"},\"ok\":{\"enum\":[true],\"title\":\"default success response\",\"type\":\"boolean\"}},\"required\":[\"ok\",\"file\"],\"title\":\"files.sharedPublicURL schema\",\"type\":\"object\"}},\"default\":{\"description\":\"Typical error response\",\"examples\":{\"application/json\":{\"error\":\"invalid_auth\",\"ok\":false}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for error response from files.sharedPublicURL method\",\"properties\":{\"callstack\":{\"description\":\"Note: PHP callstack is only visible in dev/qa\",\"type\":\"string\"},\"error\":{\"enum\":[\"file_not_found\",\"not_allowed\",\"not_authed\",\"invalid_auth\",\"account_inactive\",\"token_revoked\",\"no_permission\",\"org_login_required\",\"user_is_bot\",\"user_is_restricted\",\"invalid_arg_name\",\"invalid_array_arg\",\"invalid_charset\",\"invalid_form_data\",\"invalid_post_type\",\"missing_post_type\",\"team_added_to_org\",\"invalid_json\",\"json_not_object\",\"request_timeout\",\"upgrade_required\",\"fatal_error\"],\"type\":\"string\"},\"ok\":{\"enum\":[false],\"title\":\"default failure response\",\"type\":\"boolean\"}},\"required\":[\"ok\",\"error\"],\"title\":\"files.sharedPublicURL error schema\",\"type\":\"object\"}}},\"security\":[{\"slackAuth\":[\"files:write:user\"]}],\"securitySchemes\":{\"slackAuth\":{\"authorizationUrl\":\"https://slack.com/oauth/authorize\",\"flow\":\"accessCode\",\"scopes\":{\"admin\":\"admin\",\"admin.apps:read\":\"admin.apps:read\",\"admin.apps:write\":\"admin.apps:write\",\"admin.conversations:read\":\"admin.conversations:read\",\"admin.conversations:write\":\"admin.conversations:write\",\"admin.invites:read\":\"admin.invites:read\",\"admin.invites:write\":\"admin.invites:write\",\"admin.teams:read\":\"admin.teams:read\",\"admin.teams:write\":\"admin.teams:write\",\"admin.usergroups:read\":\"admin.usergroups:read\",\"admin.usergroups:write\":\"admin.usergroups:write\",\"admin.users:read\":\"admin.users:read\",\"admin.users:write\":\"admin.users:write\",\"authorizations:read\":\"authorizations:read\",\"bot\":\"Bot user scope\",\"calls:read\":\"calls:read\",\"calls:write\":\"calls:write\",\"channels:history\":\"channels:history\",\"channels:manage\":\"channels:manage\",\"channels:read\":\"channels:read\",\"channels:write\":\"channels:write\",\"chat:write\":\"chat:write\",\"chat:write:bot\":\"Author messages as a bot\",\"chat:write:user\":\"Author messages as a user\",\"conversations:history\":\"conversations:history\",\"conversations:read\":\"conversations:read\",\"conversations:write\":\"conversations:write\",\"dnd:read\":\"dnd:read\",\"dnd:write\":\"dnd:write\",\"emoji:read\":\"emoji:read\",\"files:read\":\"files:read\",\"files:write:user\":\"files:write:user\",\"groups:history\":\"groups:history\",\"groups:read\":\"groups:read\",\"groups:write\":\"groups:write\",\"identity.basic\":\"identity.basic\",\"im:history\":\"im:history\",\"im:read\":\"im:read\",\"im:write\":\"im:write\",\"links:write\":\"links:write\",\"mpim:history\":\"mpim:history\",\"mpim:read\":\"mpim:read\",\"mpim:write\":\"mpim:write\",\"none\":\"No scope required\",\"pins:read\":\"pins:read\",\"pins:write\":\"pins:write\",\"reactions:read\":\"reactions:read\",\"reactions:write\":\"reactions:write\",\"reminders:read\":\"reminders:read\",\"reminders:write\":\"reminders:write\",\"remote_files:read\":\"remote_files:read\",\"remote_files:share\":\"remote_files:share\",\"remote_files:write\":\"remote_files:write\",\"rtm:stream\":\"rtm:stream\",\"search:read\":\"search:read\",\"stars:read\":\"stars:read\",\"stars:write\":\"stars:write\",\"team:read\":\"team:read\",\"tokens.basic\":\"tokens.basic\",\"usergroups:read\":\"usergroups:read\",\"usergroups:write\":\"usergroups:write\",\"users.profile:read\":\"users.profile:read\",\"users.profile:write\":\"users.profile:write\",\"users:read\":\"users:read\",\"users:read.email\":\"users:read.email\",\"users:write\":\"users:write\",\"workflow.steps:execute\":\"workflow.steps:execute\"},\"tokenUrl\":\"https://slack.com/api/oauth.access\",\"type\":\"oauth2\"}},\"securitySource\":\"operation\"}"
+            source: "swagger2"
+            version: 1
+          }
+          method: "POST"
+          orig: "/files.sharedPublicURL"
+          segments: [
+            {
+              lit: "files.sharedPublicURL"
+            }
+          ]
+          select: {
+            exist: [
+              "file"
+              "token"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.file`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "channel"
+                orig: "channel"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "count"
+                orig: "count"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "show_files_hidden_by_limit"
+                orig: "show_files_hidden_by_limit"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "ts_from"
+                orig: "ts_from"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "ts_to"
+                orig: "ts_to"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "type"
+                orig: "type"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "user"
+                orig: "user"
+                reqd: false
+                type: "`$ANY`"
+              }
+            ]
+          }
+          contract: {
+            id: "GET /files.list"
+            json: "{\"consumes\":[\"application/x-www-form-urlencoded\"],\"operationId\":\"files_list\",\"parameters\":[{\"description\":\"Authentication token. Requires scope: `files:read`\",\"in\":\"query\",\"name\":\"token\",\"type\":\"string\"},{\"description\":\"Filter files created by a single user.\",\"in\":\"query\",\"name\":\"user\",\"type\":\"string\"},{\"description\":\"Filter files appearing in a specific channel, indicated by its ID.\",\"in\":\"query\",\"name\":\"channel\",\"type\":\"string\"},{\"description\":\"Filter files created after this timestamp (inclusive).\",\"in\":\"query\",\"name\":\"ts_from\",\"type\":\"number\"},{\"description\":\"Filter files created before this timestamp (inclusive).\",\"in\":\"query\",\"name\":\"ts_to\",\"type\":\"number\"},{\"description\":\"Filter files by type ([see below](#file_types)). You can pass multiple values in the types argument, like `types=spaces,snippets`.The default value is `all`, which does not filter the list.\",\"in\":\"query\",\"name\":\"types\",\"type\":\"string\"},{\"in\":\"query\",\"name\":\"count\",\"type\":\"string\"},{\"in\":\"query\",\"name\":\"page\",\"type\":\"string\"},{\"description\":\"Show truncated file info for files hidden due to being too old, and the team who owns the file being over the file limit.\",\"in\":\"query\",\"name\":\"show_files_hidden_by_limit\",\"type\":\"boolean\"}],\"produces\":[\"application/json\"],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"Typical success response\",\"examples\":{\"application/json\":{\"files\":[{\"channels\":[\"C0T8SE4AU\"],\"comments_count\":0,\"created\":1531763254,\"deanimate_gif\":\"https://.../billair_deanimate_gif.png\",\"display_as_bot\":false,\"editable\":false,\"external_type\":\"\",\"filetype\":\"gif\",\"groups\":[],\"id\":\"F0S43P1CZ\",\"image_exif_rotation\":1,\"ims\":[],\"is_external\":false,\"is_public\":true,\"mimetype\":\"image/gif\",\"mode\":\"hosted\",\"name\":\"billair.gif\",\"original_h\":226,\"original_w\":176,\"permalink\":\"https://.../billair.gif\",\"permalink_public\":\"https://.../...\",\"pjpeg\":\"https://.../billair_pjpeg.jpg\",\"pretty_type\":\"GIF\",\"public_url_shared\":false,\"size\":144538,\"thumb_160\":\"https://.../billair_=_160.png\",\"thumb_360\":\"https://.../billair_360.png\",\"thumb_360_gif\":\"https://.../billair_360.gif\",\"thumb_360_h\":226,\"thumb_360_w\":176,\"thumb_64\":\"https://.../billair_64.png\",\"thumb_80\":\"https://.../billair_80.png\",\"timestamp\":1531763254,\"title\":\"billair.gif\",\"url_private\":\"https://.../billair.gif\",\"url_private_download\":\"https://.../billair.gif\",\"user\":\"U061F7AUR\",\"username\":\"\"},{\"channels\":[\"C0T8SE4AU\"],\"comments_count\":0,\"created\":1531763342,\"deanimate_gif\":\"https://.../tedair_deanimate_gif.png\",\"display_as_bot\":false,\"editable\":false,\"external_type\":\"\",\"filetype\":\"gif\",\"groups\":[],\"id\":\"F0S43PZDF\",\"image_exif_rotation\":1,\"ims\":[],\"is_external\":false,\"is_public\":true,\"mimetype\":\"image/gif\",\"mode\":\"hosted\",\"name\":\"tedair.gif\",\"original_h\":226,\"original_w\":176,\"permalink\":\"https://.../tedair.gif\",\"permalink_public\":\"https://.../...\",\"pjpeg\":\"https://.../tedair_pjpeg.jpg\",\"pretty_type\":\"GIF\",\"public_url_shared\":false,\"size\":137531,\"thumb_160\":\"https://.../tedair_=_160.png\",\"thumb_360\":\"https://.../tedair_360.png\",\"thumb_360_gif\":\"https://.../tedair_360.gif\",\"thumb_360_h\":226,\"thumb_360_w\":176,\"thumb_64\":\"https://.../tedair_64.png\",\"thumb_80\":\"https://.../tedair_80.png\",\"timestamp\":1531763342,\"title\":\"tedair.gif\",\"url_private\":\"https://.../tedair.gif\",\"url_private_download\":\"https://.../tedair.gif\",\"user\":\"U061F7AUR\",\"username\":\"\"}],\"ok\":true,\"paging\":{\"count\":100,\"page\":1,\"pages\":1,\"total\":2}}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for successful response from files.list method\",\"properties\":{\"files\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"channels\":{\"items\":{\"pattern\":\"^[C][A-Z0-9]{2,}$\",\"title\":\"Channel ID\",\"type\":\"string\"},\"type\":\"array\",\"uniqueItems\":true},\"comments_count\":{\"type\":\"integer\"},\"created\":{\"type\":\"integer\"},\"date_delete\":{\"type\":\"integer\"},\"display_as_bot\":{\"type\":\"boolean\"},\"editable\":{\"type\":\"boolean\"},\"editor\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"external_id\":{\"type\":\"string\"},\"external_type\":{\"type\":\"string\"},\"external_url\":{\"format\":\"uri\",\"type\":\"string\"},\"filetype\":{\"type\":\"string\"},\"groups\":{\"items\":{\"pattern\":\"^[G][A-Z0-9]{8,}$\",\"title\":\"Private Channel ID\",\"type\":\"string\"},\"type\":\"array\",\"uniqueItems\":true},\"has_rich_preview\":{\"type\":\"boolean\"},\"id\":{\"pattern\":\"^[F][A-Z0-9]{8,}$\",\"title\":\"File ID\",\"type\":\"string\"},\"image_exif_rotation\":{\"type\":\"integer\"},\"ims\":{\"items\":{\"pattern\":\"^[D][A-Z0-9]{8,}$\",\"title\":\"Direct Message Channel ID\",\"type\":\"string\"},\"type\":\"array\",\"uniqueItems\":true},\"is_external\":{\"type\":\"boolean\"},\"is_public\":{\"type\":\"boolean\"},\"is_starred\":{\"type\":\"boolean\"},\"is_tombstoned\":{\"type\":\"boolean\"},\"last_editor\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"mimetype\":{\"type\":\"string\"},\"mode\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"non_owner_editable\":{\"type\":\"boolean\"},\"num_stars\":{\"type\":\"integer\"},\"original_h\":{\"type\":\"integer\"},\"original_w\":{\"type\":\"integer\"},\"permalink\":{\"format\":\"uri\",\"type\":\"string\"},\"permalink_public\":{\"format\":\"uri\",\"type\":\"string\"},\"pinned_info\":{\"additionalProperties\":false,\"title\":\"Info for a pinned item\",\"type\":\"object\"},\"pinned_to\":{\"items\":{\"pattern\":\"^[CGD][A-Z0-9]{8,}$\",\"title\":\"Channel-like conversation ID\",\"type\":\"string\"},\"type\":\"array\"},\"pretty_type\":{\"type\":\"string\"},\"preview\":{\"type\":\"string\"},\"public_url_shared\":{\"type\":\"boolean\"},\"reactions\":{\"items\":{\"additionalProperties\":true,\"properties\":{\"count\":{\"type\":\"integer\"},\"name\":{\"type\":\"string\"},\"users\":{\"items\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"name\",\"users\",\"count\"],\"title\":\"Reaction object\",\"type\":\"object\"},\"type\":\"array\"},\"shares\":{\"additionalProperties\":false,\"properties\":{\"private\":{\"additionalProperties\":false},\"public\":{\"additionalProperties\":false}},\"type\":\"object\"},\"size\":{\"type\":\"integer\"},\"source_team\":{\"pattern\":\"^[T][A-Z0-9]{2,}$\",\"title\":\"Team ID\",\"type\":\"string\"},\"state\":{\"type\":\"string\"},\"thumb_1024\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_1024_h\":{\"type\":\"integer\"},\"thumb_1024_w\":{\"type\":\"integer\"},\"thumb_160\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_360\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_360_h\":{\"type\":\"integer\"},\"thumb_360_w\":{\"type\":\"integer\"},\"thumb_480\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_480_h\":{\"type\":\"integer\"},\"thumb_480_w\":{\"type\":\"integer\"},\"thumb_64\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_720\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_720_h\":{\"type\":\"integer\"},\"thumb_720_w\":{\"type\":\"integer\"},\"thumb_80\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_800\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_800_h\":{\"type\":\"integer\"},\"thumb_800_w\":{\"type\":\"integer\"},\"thumb_960\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_960_h\":{\"type\":\"integer\"},\"thumb_960_w\":{\"type\":\"integer\"},\"thumb_tiny\":{\"type\":\"string\"},\"timestamp\":{\"type\":\"integer\"},\"title\":{\"type\":\"string\"},\"updated\":{\"type\":\"integer\"},\"url_private\":{\"format\":\"uri\",\"type\":\"string\"},\"url_private_download\":{\"format\":\"uri\",\"type\":\"string\"},\"user\":{\"type\":\"string\"},\"user_team\":{\"pattern\":\"^[T][A-Z0-9]{2,}$\",\"title\":\"Team ID\",\"type\":\"string\"},\"username\":{\"type\":\"string\"}},\"title\":\"file object\",\"type\":\"object\"},\"minItems\":0,\"type\":\"array\",\"uniqueItems\":true},\"ok\":{\"enum\":[true],\"title\":\"default success response\",\"type\":\"boolean\"},\"paging\":{\"additionalProperties\":false,\"properties\":{\"count\":{\"type\":\"integer\"},\"page\":{\"type\":\"integer\"},\"pages\":{\"type\":\"integer\"},\"per_page\":{\"type\":\"integer\"},\"spill\":{\"type\":\"integer\"},\"total\":{\"type\":\"integer\"}},\"required\":[\"page\",\"total\"],\"title\":\"paging object\",\"type\":\"object\"}},\"required\":[\"ok\",\"files\",\"paging\"],\"title\":\"files.list schema\",\"type\":\"object\"}},\"default\":{\"description\":\"Typical error response\",\"examples\":{\"application/json\":{\"error\":\"invalid_auth\",\"ok\":false}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for error response from files.list method\",\"properties\":{\"callstack\":{\"description\":\"Note: PHP callstack is only visible in dev/qa\",\"type\":\"string\"},\"error\":{\"enum\":[\"user_not_found\",\"unknown_type\",\"not_authed\",\"invalid_auth\",\"account_inactive\",\"no_permission\",\"user_is_bot\",\"invalid_arg_name\",\"invalid_array_arg\",\"invalid_charset\",\"invalid_form_data\",\"invalid_post_type\",\"missing_post_type\",\"team_added_to_org\",\"invalid_json\",\"json_not_object\",\"request_timeout\",\"upgrade_required\"],\"type\":\"string\"},\"ok\":{\"enum\":[false],\"title\":\"default failure response\",\"type\":\"boolean\"}},\"required\":[\"ok\",\"error\"],\"title\":\"files.list error schema\",\"type\":\"object\"}}},\"security\":[{\"slackAuth\":[\"files:read\"]}],\"securitySchemes\":{\"slackAuth\":{\"authorizationUrl\":\"https://slack.com/oauth/authorize\",\"flow\":\"accessCode\",\"scopes\":{\"admin\":\"admin\",\"admin.apps:read\":\"admin.apps:read\",\"admin.apps:write\":\"admin.apps:write\",\"admin.conversations:read\":\"admin.conversations:read\",\"admin.conversations:write\":\"admin.conversations:write\",\"admin.invites:read\":\"admin.invites:read\",\"admin.invites:write\":\"admin.invites:write\",\"admin.teams:read\":\"admin.teams:read\",\"admin.teams:write\":\"admin.teams:write\",\"admin.usergroups:read\":\"admin.usergroups:read\",\"admin.usergroups:write\":\"admin.usergroups:write\",\"admin.users:read\":\"admin.users:read\",\"admin.users:write\":\"admin.users:write\",\"authorizations:read\":\"authorizations:read\",\"bot\":\"Bot user scope\",\"calls:read\":\"calls:read\",\"calls:write\":\"calls:write\",\"channels:history\":\"channels:history\",\"channels:manage\":\"channels:manage\",\"channels:read\":\"channels:read\",\"channels:write\":\"channels:write\",\"chat:write\":\"chat:write\",\"chat:write:bot\":\"Author messages as a bot\",\"chat:write:user\":\"Author messages as a user\",\"conversations:history\":\"conversations:history\",\"conversations:read\":\"conversations:read\",\"conversations:write\":\"conversations:write\",\"dnd:read\":\"dnd:read\",\"dnd:write\":\"dnd:write\",\"emoji:read\":\"emoji:read\",\"files:read\":\"files:read\",\"files:write:user\":\"files:write:user\",\"groups:history\":\"groups:history\",\"groups:read\":\"groups:read\",\"groups:write\":\"groups:write\",\"identity.basic\":\"identity.basic\",\"im:history\":\"im:history\",\"im:read\":\"im:read\",\"im:write\":\"im:write\",\"links:write\":\"links:write\",\"mpim:history\":\"mpim:history\",\"mpim:read\":\"mpim:read\",\"mpim:write\":\"mpim:write\",\"none\":\"No scope required\",\"pins:read\":\"pins:read\",\"pins:write\":\"pins:write\",\"reactions:read\":\"reactions:read\",\"reactions:write\":\"reactions:write\",\"reminders:read\":\"reminders:read\",\"reminders:write\":\"reminders:write\",\"remote_files:read\":\"remote_files:read\",\"remote_files:share\":\"remote_files:share\",\"remote_files:write\":\"remote_files:write\",\"rtm:stream\":\"rtm:stream\",\"search:read\":\"search:read\",\"stars:read\":\"stars:read\",\"stars:write\":\"stars:write\",\"team:read\":\"team:read\",\"tokens.basic\":\"tokens.basic\",\"usergroups:read\":\"usergroups:read\",\"usergroups:write\":\"usergroups:write\",\"users.profile:read\":\"users.profile:read\",\"users.profile:write\":\"users.profile:write\",\"users:read\":\"users:read\",\"users:read.email\":\"users:read.email\",\"users:write\":\"users:write\",\"workflow.steps:execute\":\"workflow.steps:execute\"},\"tokenUrl\":\"https://slack.com/api/oauth.access\",\"type\":\"oauth2\"}},\"securitySource\":\"operation\"}"
+            source: "swagger2"
+            version: 1
+          }
+          method: "GET"
+          orig: "/files.list"
+          segments: [
+            {
+              lit: "files.list"
+            }
+          ]
+          select: {
+            exist: [
+              "channel"
+              "count"
+              "page"
+              "show_files_hidden_by_limit"
+              "token"
+              "ts_from"
+              "ts_to"
+              "type"
+              "user"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "count"
+                orig: "count"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "cursor"
+                orig: "cursor"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "file"
+                orig: "file"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "limit"
+                orig: "limit"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          contract: {
+            id: "GET /files.info"
+            json: "{\"consumes\":[\"application/x-www-form-urlencoded\"],\"operationId\":\"files_info\",\"parameters\":[{\"description\":\"Authentication token. Requires scope: `files:read`\",\"in\":\"query\",\"name\":\"token\",\"type\":\"string\"},{\"description\":\"Specify a file by providing its ID.\",\"in\":\"query\",\"name\":\"file\",\"type\":\"string\"},{\"in\":\"query\",\"name\":\"count\",\"type\":\"string\"},{\"in\":\"query\",\"name\":\"page\",\"type\":\"string\"},{\"description\":\"The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached.\",\"in\":\"query\",\"name\":\"limit\",\"type\":\"integer\"},{\"description\":\"Parameter for pagination. File comments are paginated for a single file. Set `cursor` equal to the `next_cursor` attribute returned by the previous request's `response_metadata`. This parameter is optional, but pagination is mandatory: the default value simply fetches the first \\\"page\\\" of the collection of comments. See [pagination](/docs/pagination) for more details.\",\"in\":\"query\",\"name\":\"cursor\",\"type\":\"string\"}],\"produces\":[\"application/json\"],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"Typical success response\",\"examples\":{\"application/json\":{\"comments\":[],\"file\":{\"channels\":[\"C0T8SE4AU\"],\"comments_count\":0,\"created\":1531763342,\"deanimate_gif\":\"https://.../tedair_deanimate_gif.png\",\"display_as_bot\":false,\"editable\":false,\"external_type\":\"\",\"filetype\":\"gif\",\"groups\":[],\"has_rich_preview\":false,\"id\":\"F0S43PZDF\",\"image_exif_rotation\":1,\"ims\":[],\"is_external\":false,\"is_public\":true,\"is_starred\":false,\"mimetype\":\"image/gif\",\"mode\":\"hosted\",\"name\":\"tedair.gif\",\"original_h\":226,\"original_w\":176,\"permalink\":\"https://.../tedair.gif\",\"permalink_public\":\"https://.../...\",\"pjpeg\":\"https://.../tedair_pjpeg.jpg\",\"pretty_type\":\"GIF\",\"public_url_shared\":false,\"shares\":{\"public\":{\"C0T8SE4AU\":[{\"channel_name\":\"file-under\",\"latest_reply\":\"1531763348.000001\",\"reply_count\":1,\"reply_users\":[\"U061F7AUR\"],\"reply_users_count\":1,\"team_id\":\"T061EG9R6\",\"thread_ts\":\"1531763273.000015\",\"ts\":\"1531763348.000001\"}]}},\"size\":137531,\"thumb_160\":\"https://.../tedair_=_160.png\",\"thumb_360\":\"https://.../tedair_360.png\",\"thumb_360_gif\":\"https://.../tedair_360.gif\",\"thumb_360_h\":226,\"thumb_360_w\":176,\"thumb_64\":\"https://.../tedair_64.png\",\"thumb_80\":\"https://.../tedair_80.png\",\"timestamp\":1531763342,\"title\":\"tedair.gif\",\"url_private\":\"https://.../tedair.gif\",\"url_private_download\":\"https://.../tedair.gif\",\"user\":\"U061F7AUR\",\"username\":\"\"},\"ok\":true,\"response_metadata\":{\"next_cursor\":\"dGVhbTpDMUg5UkVTR0w=\"}}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for successful response from files.info method\",\"properties\":{\"comments\":{\"items\":{},\"title\":\"file comments object\",\"type\":\"array\"},\"content_html\":{\"type\":\"null\"},\"editor\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"file\":{\"additionalProperties\":false,\"properties\":{\"channels\":{\"items\":{\"pattern\":\"^[C][A-Z0-9]{2,}$\",\"title\":\"Channel ID\",\"type\":\"string\"},\"type\":\"array\",\"uniqueItems\":true},\"comments_count\":{\"type\":\"integer\"},\"created\":{\"type\":\"integer\"},\"date_delete\":{\"type\":\"integer\"},\"display_as_bot\":{\"type\":\"boolean\"},\"editable\":{\"type\":\"boolean\"},\"editor\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"external_id\":{\"type\":\"string\"},\"external_type\":{\"type\":\"string\"},\"external_url\":{\"format\":\"uri\",\"type\":\"string\"},\"filetype\":{\"type\":\"string\"},\"groups\":{\"items\":{\"pattern\":\"^[G][A-Z0-9]{8,}$\",\"title\":\"Private Channel ID\",\"type\":\"string\"},\"type\":\"array\",\"uniqueItems\":true},\"has_rich_preview\":{\"type\":\"boolean\"},\"id\":{\"pattern\":\"^[F][A-Z0-9]{8,}$\",\"title\":\"File ID\",\"type\":\"string\"},\"image_exif_rotation\":{\"type\":\"integer\"},\"ims\":{\"items\":{\"pattern\":\"^[D][A-Z0-9]{8,}$\",\"title\":\"Direct Message Channel ID\",\"type\":\"string\"},\"type\":\"array\",\"uniqueItems\":true},\"is_external\":{\"type\":\"boolean\"},\"is_public\":{\"type\":\"boolean\"},\"is_starred\":{\"type\":\"boolean\"},\"is_tombstoned\":{\"type\":\"boolean\"},\"last_editor\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"mimetype\":{\"type\":\"string\"},\"mode\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"non_owner_editable\":{\"type\":\"boolean\"},\"num_stars\":{\"type\":\"integer\"},\"original_h\":{\"type\":\"integer\"},\"original_w\":{\"type\":\"integer\"},\"permalink\":{\"format\":\"uri\",\"type\":\"string\"},\"permalink_public\":{\"format\":\"uri\",\"type\":\"string\"},\"pinned_info\":{\"additionalProperties\":false,\"title\":\"Info for a pinned item\",\"type\":\"object\"},\"pinned_to\":{\"items\":{\"pattern\":\"^[CGD][A-Z0-9]{8,}$\",\"title\":\"Channel-like conversation ID\",\"type\":\"string\"},\"type\":\"array\"},\"pretty_type\":{\"type\":\"string\"},\"preview\":{\"type\":\"string\"},\"public_url_shared\":{\"type\":\"boolean\"},\"reactions\":{\"items\":{\"additionalProperties\":true,\"properties\":{\"count\":{\"type\":\"integer\"},\"name\":{\"type\":\"string\"},\"users\":{\"items\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"name\",\"users\",\"count\"],\"title\":\"Reaction object\",\"type\":\"object\"},\"type\":\"array\"},\"shares\":{\"additionalProperties\":false,\"properties\":{\"private\":{\"additionalProperties\":false},\"public\":{\"additionalProperties\":false}},\"type\":\"object\"},\"size\":{\"type\":\"integer\"},\"source_team\":{\"pattern\":\"^[T][A-Z0-9]{2,}$\",\"title\":\"Team ID\",\"type\":\"string\"},\"state\":{\"type\":\"string\"},\"thumb_1024\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_1024_h\":{\"type\":\"integer\"},\"thumb_1024_w\":{\"type\":\"integer\"},\"thumb_160\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_360\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_360_h\":{\"type\":\"integer\"},\"thumb_360_w\":{\"type\":\"integer\"},\"thumb_480\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_480_h\":{\"type\":\"integer\"},\"thumb_480_w\":{\"type\":\"integer\"},\"thumb_64\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_720\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_720_h\":{\"type\":\"integer\"},\"thumb_720_w\":{\"type\":\"integer\"},\"thumb_80\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_800\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_800_h\":{\"type\":\"integer\"},\"thumb_800_w\":{\"type\":\"integer\"},\"thumb_960\":{\"format\":\"uri\",\"type\":\"string\"},\"thumb_960_h\":{\"type\":\"integer\"},\"thumb_960_w\":{\"type\":\"integer\"},\"thumb_tiny\":{\"type\":\"string\"},\"timestamp\":{\"type\":\"integer\"},\"title\":{\"type\":\"string\"},\"updated\":{\"type\":\"integer\"},\"url_private\":{\"format\":\"uri\",\"type\":\"string\"},\"url_private_download\":{\"format\":\"uri\",\"type\":\"string\"},\"user\":{\"type\":\"string\"},\"user_team\":{\"pattern\":\"^[T][A-Z0-9]{2,}$\",\"title\":\"Team ID\",\"type\":\"string\"},\"username\":{\"type\":\"string\"}},\"title\":\"file object\",\"type\":\"object\"},\"ok\":{\"enum\":[true],\"title\":\"default success response\",\"type\":\"boolean\"},\"paging\":{\"additionalProperties\":false,\"properties\":{\"count\":{\"type\":\"integer\"},\"page\":{\"type\":\"integer\"},\"pages\":{\"type\":\"integer\"},\"per_page\":{\"type\":\"integer\"},\"spill\":{\"type\":\"integer\"},\"total\":{\"type\":\"integer\"}},\"required\":[\"page\",\"total\"],\"title\":\"paging object\",\"type\":\"object\"},\"response_metadata\":{\"items\":[{\"additionalProperties\":false,\"properties\":{\"next_cursor\":{\"type\":\"string\"}},\"required\":[\"next_cursor\"],\"title\":\"new paging style\",\"type\":\"object\"},{\"additionalProperties\":false,\"properties\":{\"messages\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"warnings\":{\"items\":{\"enum\":[\"method_deprecated\"],\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"messages\",\"warnings\"],\"title\":\"deprecation_warning\",\"type\":\"object\"},{\"additionalProperties\":false,\"properties\":{\"messages\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"next_cursor\":{\"type\":\"string\"},\"warnings\":{\"items\":{\"enum\":[\"method_deprecated\"],\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"messages\",\"warnings\",\"next_cursor\"],\"title\":\"deprecation_warning and paging style together\",\"type\":\"object\"}]}},\"required\":[\"ok\",\"file\",\"comments\"],\"title\":\"files.info schema\",\"type\":\"object\"}},\"default\":{\"description\":\"Typical error response\",\"examples\":{\"application/json\":{\"error\":\"invalid_auth\",\"ok\":false}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for error response from files.info method\",\"properties\":{\"callstack\":{\"description\":\"Note: PHP callstack is only visible in dev/qa\",\"type\":\"string\"},\"error\":{\"enum\":[\"file_not_found\",\"file_deleted\",\"timezone_count_failed\",\"not_authed\",\"invalid_auth\",\"account_inactive\",\"no_permission\",\"invalid_arg_name\",\"invalid_array_arg\",\"invalid_charset\",\"invalid_form_data\",\"invalid_post_type\",\"missing_post_type\",\"team_added_to_org\",\"invalid_json\",\"json_not_object\",\"request_timeout\",\"upgrade_required\"],\"type\":\"string\"},\"ok\":{\"enum\":[false],\"title\":\"default failure response\",\"type\":\"boolean\"}},\"required\":[\"ok\",\"error\"],\"title\":\"files.info error schema\",\"type\":\"object\"}}},\"security\":[{\"slackAuth\":[\"files:read\"]}],\"securitySchemes\":{\"slackAuth\":{\"authorizationUrl\":\"https://slack.com/oauth/authorize\",\"flow\":\"accessCode\",\"scopes\":{\"admin\":\"admin\",\"admin.apps:read\":\"admin.apps:read\",\"admin.apps:write\":\"admin.apps:write\",\"admin.conversations:read\":\"admin.conversations:read\",\"admin.conversations:write\":\"admin.conversations:write\",\"admin.invites:read\":\"admin.invites:read\",\"admin.invites:write\":\"admin.invites:write\",\"admin.teams:read\":\"admin.teams:read\",\"admin.teams:write\":\"admin.teams:write\",\"admin.usergroups:read\":\"admin.usergroups:read\",\"admin.usergroups:write\":\"admin.usergroups:write\",\"admin.users:read\":\"admin.users:read\",\"admin.users:write\":\"admin.users:write\",\"authorizations:read\":\"authorizations:read\",\"bot\":\"Bot user scope\",\"calls:read\":\"calls:read\",\"calls:write\":\"calls:write\",\"channels:history\":\"channels:history\",\"channels:manage\":\"channels:manage\",\"channels:read\":\"channels:read\",\"channels:write\":\"channels:write\",\"chat:write\":\"chat:write\",\"chat:write:bot\":\"Author messages as a bot\",\"chat:write:user\":\"Author messages as a user\",\"conversations:history\":\"conversations:history\",\"conversations:read\":\"conversations:read\",\"conversations:write\":\"conversations:write\",\"dnd:read\":\"dnd:read\",\"dnd:write\":\"dnd:write\",\"emoji:read\":\"emoji:read\",\"files:read\":\"files:read\",\"files:write:user\":\"files:write:user\",\"groups:history\":\"groups:history\",\"groups:read\":\"groups:read\",\"groups:write\":\"groups:write\",\"identity.basic\":\"identity.basic\",\"im:history\":\"im:history\",\"im:read\":\"im:read\",\"im:write\":\"im:write\",\"links:write\":\"links:write\",\"mpim:history\":\"mpim:history\",\"mpim:read\":\"mpim:read\",\"mpim:write\":\"mpim:write\",\"none\":\"No scope required\",\"pins:read\":\"pins:read\",\"pins:write\":\"pins:write\",\"reactions:read\":\"reactions:read\",\"reactions:write\":\"reactions:write\",\"reminders:read\":\"reminders:read\",\"reminders:write\":\"reminders:write\",\"remote_files:read\":\"remote_files:read\",\"remote_files:share\":\"remote_files:share\",\"remote_files:write\":\"remote_files:write\",\"rtm:stream\":\"rtm:stream\",\"search:read\":\"search:read\",\"stars:read\":\"stars:read\",\"stars:write\":\"stars:write\",\"team:read\":\"team:read\",\"tokens.basic\":\"tokens.basic\",\"usergroups:read\":\"usergroups:read\",\"usergroups:write\":\"usergroups:write\",\"users.profile:read\":\"users.profile:read\",\"users.profile:write\":\"users.profile:write\",\"users:read\":\"users:read\",\"users:read.email\":\"users:read.email\",\"users:write\":\"users:write\",\"workflow.steps:execute\":\"workflow.steps:execute\"},\"tokenUrl\":\"https://slack.com/api/oauth.access\",\"type\":\"oauth2\"}},\"securitySource\":\"operation\"}"
+            source: "swagger2"
+            version: 1
+          }
+          method: "GET"
+          orig: "/files.info"
+          segments: [
+            {
+              lit: "files.info"
+            }
+          ]
+          select: {
+            exist: [
+              "count"
+              "cursor"
+              "file"
+              "limit"
+              "page"
+              "token"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.file`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

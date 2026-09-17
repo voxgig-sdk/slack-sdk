@@ -1,0 +1,28 @@
+# BasicAdminappsapprovedFlow
+
+main: kit: flow: BasicAdminappsapprovedFlow:
+{
+  entity: "adminappsapproved",
+  kind: "basic",
+  name: "BasicAdminappsapprovedFlow",
+  step: [
+    {
+      input: {
+        ref: "adminappsapproved_ref01",
+        srcdatavar: "adminappsapproved_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-adminappsapproved_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAdminappsapprovedFlow"
+}

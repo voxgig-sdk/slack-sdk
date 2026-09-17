@@ -1,0 +1,18 @@
+# BasicAdminuserssessionFlow
+
+main: kit: flow: BasicAdminuserssessionFlow:
+{
+  entity: "adminuserssession",
+  kind: "basic",
+  name: "BasicAdminuserssessionFlow",
+  step: [
+    {
+      input: {
+        ref: "adminuserssession_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicAdminuserssessionFlow"
+}

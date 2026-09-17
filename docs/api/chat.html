@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Chat | Slack Web API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Slack Web API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/slack-sdk">voxgig-sdk/slack-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Slack Web API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/adminapp.html">Adminapp</a>
+<a href="../api/adminappsapproved.html">Adminappsapproved</a>
+<a href="../api/adminappsrequest.html">Adminappsrequest</a>
+<a href="../api/adminappsrestricted.html">Adminappsrestricted</a>
+<a href="../api/adminconversation.html">Adminconversation</a>
+<a href="../api/adminconversationsekm.html">Adminconversationsekm</a>
+<a href="../api/adminconversationsrestrict_access.html">AdminconversationsrestrictAccess</a>
+<a href="../api/adminemoji.html">Adminemoji</a>
+<a href="../api/admininvite_request.html">AdmininviteRequest</a>
+<a href="../api/admininvite_requestsapproved.html">AdmininviteRequestsapproved</a>
+<a href="../api/admininvite_requestsdenied.html">AdmininviteRequestsdenied</a>
+<a href="../api/adminteam.html">Adminteam</a>
+<a href="../api/adminteamsadmin.html">Adminteamsadmin</a>
+<a href="../api/adminteamsowner.html">Adminteamsowner</a>
+<a href="../api/adminteamssetting.html">Adminteamssetting</a>
+<a href="../api/adminuser.html">Adminuser</a>
+<a href="../api/adminusergroup.html">Adminusergroup</a>
+<a href="../api/adminuserssession.html">Adminuserssession</a>
+<a href="../api/api.html">Api</a>
+<a href="../api/app.html">App</a>
+<a href="../api/appseventauthorization.html">Appseventauthorization</a>
+<a href="../api/appspermission.html">Appspermission</a>
+<a href="../api/appspermissionsresource.html">Appspermissionsresource</a>
+<a href="../api/appspermissionsscope.html">Appspermissionsscope</a>
+<a href="../api/appspermissionsuser.html">Appspermissionsuser</a>
+<a href="../api/auth.html">Auth</a>
+<a href="../api/bot.html">Bot</a>
+<a href="../api/call.html">Call</a>
+<a href="../api/callsparticipant.html">Callsparticipant</a>
+<a aria-current="page" href="../api/chat.html">Chat</a><div class="nav-sections"><a class="nav-section" href="#post-chatpostmessage">POST /chat.postMessage</a>
+<a class="nav-section" href="#post-chatpostephemeral">POST /chat.postEphemeral</a>
+<a class="nav-section" href="#post-chatschedulemessage">POST /chat.scheduleMessage</a>
+<a class="nav-section" href="#post-chatupdate">POST /chat.update</a>
+<a class="nav-section" href="#post-chatunfurl">POST /chat.unfurl</a>
+<a class="nav-section" href="#post-chatdeletescheduledmessage">POST /chat.deleteScheduledMessage</a>
+<a class="nav-section" href="#post-chatdelete">POST /chat.delete</a>
+<a class="nav-section" href="#post-chatmemessage">POST /chat.meMessage</a>
+<a class="nav-section" href="#get-chatgetpermalink">GET /chat.getPermalink</a></div>
+<a href="../api/chatscheduled_message.html">ChatscheduledMessage</a>
+<a href="../api/conversation.html">Conversation</a>
+<a href="../api/dialog.html">Dialog</a>
+<a href="../api/dnd.html">Dnd</a>
+<a href="../api/emoji.html">Emoji</a>
+<a href="../api/file.html">File</a>
+<a href="../api/filescomment.html">Filescomment</a>
+<a href="../api/filesremote.html">Filesremote</a>
+<a href="../api/migration.html">Migration</a>
+<a href="../api/oauth.html">Oauth</a>
+<a href="../api/oauthv2.html">Oauthv2</a>
+<a href="../api/pin.html">Pin</a>
+<a href="../api/reaction.html">Reaction</a>
+<a href="../api/reminder.html">Reminder</a>
+<a href="../api/rtm.html">Rtm</a>
+<a href="../api/search.html">Search</a>
+<a href="../api/star.html">Star</a>
+<a href="../api/team.html">Team</a>
+<a href="../api/teamprofile.html">Teamprofile</a>
+<a href="../api/user.html">User</a>
+<a href="../api/usergroup.html">Usergroup</a>
+<a href="../api/usergroupsuser.html">Usergroupsuser</a>
+<a href="../api/usersprofile.html">Usersprofile</a>
+<a href="../api/view.html">View</a>
+<a href="../api/workflow.html">Workflow</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/js.html">JavaScript</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Request/response capture ring buffer for debugging</a>
+<a href="../features/idempotency.html">Idempotency keys for safe retries of mutating operations</a>
+<a href="../features/metrics.html">Statistics capture: per-operation counters and latency</a>
+<a href="../features/paging.html">Pagination signals for list operations</a>
+<a href="../features/ratelimit.html">Client-side rate limiting via a token bucket</a>
+<a href="../features/retry.html">Automatic retry of transient failures with exponential backoff</a>
+<a href="../features/test.html">In-memory mock transport for testing without a live server</a>
+<a href="../features/timeout.html">Per-request timeout with transport abort</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="chat">Chat</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-chatpostmessage"><code>/chat.postMessage</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-chatpostephemeral"><code>/chat.postEphemeral</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-chatschedulemessage"><code>/chat.scheduleMessage</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-chatupdate"><code>/chat.update</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-chatunfurl"><code>/chat.unfurl</code></a></td>
+<td><code>create</code></td>
+<td>Typical, minimal success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-chatdeletescheduledmessage"><code>/chat.deleteScheduledMessage</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-chatdelete"><code>/chat.delete</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-chatmemessage"><code>/chat.meMessage</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-chatgetpermalink"><code>/chat.getPermalink</code></a></td>
+<td><code>load</code></td>
+<td>Standard success response</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>attachments</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>blocks</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td>This is a very loose definition, in the future, we'll populate this with deeper schema in this definition namespace.</td>
+</tr>
+<tr>
+<td><code>bot_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>bot_profile</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>channel</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>client_msg_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>comment</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>display_as_bot</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>file</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>files</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>icons</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>inviter</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_delayed_message</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_intro</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>is_starred</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>last_read</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>latest_reply</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>message_ts</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ok</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>old_name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>parent_user_id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>permalink</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>pinned_to</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>purpose</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>reactions</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>reply_count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>reply_users</code></td>
+<td><code>array</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>reply_users_count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>source_team</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>subscribed</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>subtype</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>team</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>text</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>thread_ts</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>topic</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ts</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>unread_count</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>upload</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user_profile</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>user_team</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>username</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-chatpostmessage" class="operation" data-method="post"><code>POST</code> /chat.postMessage</h3>
+<p>Operation ID: <code>chat_postMessage</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>chat:write</code> |
+| <code>as_user</code> | <code>formData</code> | <code>any</code> | No | Pass true to post the message as the authed user, instead of as a bot. Defaults to false. See <a href="#authorship">authorship</a> below. |
+| <code>attachments</code> | <code>formData</code> | <code>any</code> | No | A JSON-based array of structured attachments, presented as a URL-encoded string. |
+| <code>blocks</code> | <code>formData</code> | <code>any</code> | No | A JSON-based array of structured blocks, presented as a URL-encoded string. |
+| <code>channel</code> | <code>formData</code> | <code>any</code> | Yes | Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name. See <a href="#channels">below</a> for more details. |
+| <code>icon_emoji</code> | <code>formData</code> | <code>any</code> | No | Emoji to use as the icon for this message. Overrides <code>icon_url</code>. Must be used in conjunction with <code>as_user</code> set to <code>false</code>, otherwise ignored. See <a href="#authorship">authorship</a> below. |
+| <code>icon_url</code> | <code>formData</code> | <code>any</code> | No | URL to an image to use as the icon for this message. Must be used in conjunction with <code>as_user</code> set to false, otherwise ignored. See <a href="#authorship">authorship</a> below. |
+| <code>link_names</code> | <code>formData</code> | <code>any</code> | No | Find and link channel names and usernames. |
+| <code>mrkdwn</code> | <code>formData</code> | <code>any</code> | No | Disable Slack markup parsing by setting to <code>false</code>. Enabled by default. |
+| <code>parse</code> | <code>formData</code> | <code>any</code> | No | Change how messages are treated. Defaults to <code>none</code>. See <a href="#formatting">below</a>. |
+| <code>reply_broadcast</code> | <code>formData</code> | <code>any</code> | No | Used in conjunction with <code>thread_ts</code> and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to <code>false</code>. |
+| <code>text</code> | <code>formData</code> | <code>any</code> | No | How this field works and whether it is required depends on other fields you use in your API call. <a href="#text_usage">See below</a> for more detail. |
+| <code>thread_ts</code> | <code>formData</code> | <code>any</code> | No | Provide another message's <code>ts</code> value to make this message a reply. Avoid using a reply's <code>ts</code> value; use its parent instead. |
+| <code>unfurl_links</code> | <code>formData</code> | <code>any</code> | No | Pass true to enable unfurling of primarily text-based content. |
+| <code>unfurl_media</code> | <code>formData</code> | <code>any</code> | No | Pass false to disable unfurling of media content. |
+| <code>username</code> | <code>formData</code> | <code>any</code> | No | Set your bot's user name. Must be used in conjunction with <code>as_user</code> set to false, otherwise ignored. See <a href="#authorship">authorship</a> below. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-typical-success-response" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-if-too-many-attachments-are-included">default: Typical error response if too many attachments are included</h5>
+<h3 id="post-chatpostephemeral" class="operation" data-method="post"><code>POST</code> /chat.postEphemeral</h3>
+<p>Operation ID: <code>chat_postEphemeral</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>chat:write</code> |
+| <code>as_user</code> | <code>formData</code> | <code>any</code> | No | Pass true to post the message as the authed user. Defaults to true if the chat:write:bot scope is not included. Otherwise, defaults to false. |
+| <code>attachments</code> | <code>formData</code> | <code>any</code> | No | A JSON-based array of structured attachments, presented as a URL-encoded string. |
+| <code>blocks</code> | <code>formData</code> | <code>any</code> | No | A JSON-based array of structured blocks, presented as a URL-encoded string. |
+| <code>channel</code> | <code>formData</code> | <code>any</code> | Yes | Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name. |
+| <code>icon_emoji</code> | <code>formData</code> | <code>any</code> | No | Emoji to use as the icon for this message. Overrides <code>icon_url</code>. Must be used in conjunction with <code>as_user</code> set to <code>false</code>, otherwise ignored. See <a href="#authorship">authorship</a> below. |
+| <code>icon_url</code> | <code>formData</code> | <code>any</code> | No | URL to an image to use as the icon for this message. Must be used in conjunction with <code>as_user</code> set to false, otherwise ignored. See <a href="#authorship">authorship</a> below. |
+| <code>link_names</code> | <code>formData</code> | <code>any</code> | No | Find and link channel names and usernames. |
+| <code>parse</code> | <code>formData</code> | <code>any</code> | No | Change how messages are treated. Defaults to <code>none</code>. See <a href="#formatting">below</a>. |
+| <code>text</code> | <code>formData</code> | <code>any</code> | No | How this field works and whether it is required depends on other fields you use in your API call. <a href="#text_usage">See below</a> for more detail. |
+| <code>thread_ts</code> | <code>formData</code> | <code>any</code> | No | Provide another message's <code>ts</code> value to post this message in a thread. Avoid using a reply's <code>ts</code> value; use its parent's value instead. Ephemeral messages in threads are only shown if there is already an active thread. |
+| <code>user</code> | <code>formData</code> | <code>any</code> | Yes | <code>id</code> of the user who will receive the ephemeral message. The user should be in the channel specified by the <code>channel</code> argument. |
+| <code>username</code> | <code>formData</code> | <code>any</code> | No | Set your bot's user name. Must be used in conjunction with <code>as_user</code> set to false, otherwise ignored. See <a href="#authorship">authorship</a> below. |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-typical-success-response-1" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response">default: Typical error response</h5>
+<h3 id="post-chatschedulemessage" class="operation" data-method="post"><code>POST</code> /chat.scheduleMessage</h3>
+<p>Operation ID: <code>chat_scheduleMessage</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | No | Authentication token. Requires scope: <code>chat:write</code> |
+| <code>channel</code> | <code>formData</code> | <code>any</code> | No | Channel, private group, or DM channel to send message to. Can be an encoded ID, or a name. See <a href="#channels">below</a> for more details. |
+| <code>text</code> | <code>formData</code> | <code>any</code> | No | How this field works and whether it is required depends on other fields you use in your API call. <a href="#text_usage">See below</a> for more detail. |
+| <code>post_at</code> | <code>formData</code> | <code>any</code> | No | Unix EPOCH timestamp of time in future to send the message. |
+| <code>parse</code> | <code>formData</code> | <code>any</code> | No | Change how messages are treated. Defaults to <code>none</code>. See <a href="chat.postMessage#formatting">chat.postMessage</a>. |
+| <code>as_user</code> | <code>formData</code> | <code>any</code> | No | Pass true to post the message as the authed user, instead of as a bot. Defaults to false. See <a href="chat.postMessage#authorship">chat.postMessage</a>. |
+| <code>link_names</code> | <code>formData</code> | <code>any</code> | No | Find and link channel names and usernames. |
+| <code>attachments</code> | <code>formData</code> | <code>any</code> | No | A JSON-based array of structured attachments, presented as a URL-encoded string. |
+| <code>blocks</code> | <code>formData</code> | <code>any</code> | No | A JSON-based array of structured blocks, presented as a URL-encoded string. |
+| <code>unfurl_links</code> | <code>formData</code> | <code>any</code> | No | Pass true to enable unfurling of primarily text-based content. |
+| <code>unfurl_media</code> | <code>formData</code> | <code>any</code> | No | Pass false to disable unfurling of media content. |
+| <code>thread_ts</code> | <code>formData</code> | <code>any</code> | No | Provide another message's <code>ts</code> value to make this message a reply. Avoid using a reply's <code>ts</code> value; use its parent instead. |
+| <code>reply_broadcast</code> | <code>formData</code> | <code>any</code> | No | Used in conjunction with <code>thread_ts</code> and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to <code>false</code>. |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-typical-success-response-2" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-if-the-post_at-is-invalid-ex-in-the-past-or-too-far-into-the-future">default: Typical error response if the <code>post_at</code> is invalid (ex. in the past or too far into the future)</h5>
+<h3 id="post-chatupdate" class="operation" data-method="post"><code>POST</code> /chat.update</h3>
+<p>Operation ID: <code>chat_update</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>chat:write</code> |
+| <code>as_user</code> | <code>formData</code> | <code>any</code> | No | Pass true to update the message as the authed user. <a href="/bot-users">Bot users</a> in this context are considered authed users. |
+| <code>attachments</code> | <code>formData</code> | <code>any</code> | No | A JSON-based array of structured attachments, presented as a URL-encoded string. This field is required when not presenting <code>text</code>. If you don't include this field, the message's previous <code>attachments</code> will be retained. To remove previous <code>attachments</code>, include an empty array for this field. |
+| <code>blocks</code> | <code>formData</code> | <code>any</code> | No | A JSON-based array of <a href="/block-kit/building">structured blocks</a>, presented as a URL-encoded string. If you don't include this field, the message's previous <code>blocks</code> will be retained. To remove previous <code>blocks</code>, include an empty array for this field. |
+| <code>channel</code> | <code>formData</code> | <code>any</code> | Yes | Channel containing the message to be updated. |
+| <code>link_names</code> | <code>formData</code> | <code>any</code> | No | Find and link channel names and usernames. Defaults to <code>none</code>. If you do not specify a value for this field, the original value set for the message will be overwritten with the default, <code>none</code>. |
+| <code>parse</code> | <code>formData</code> | <code>any</code> | No | Change how messages are treated. Defaults to <code>client</code>, unlike <code>chat.postMessage</code>. Accepts either <code>none</code> or <code>full</code>. If you do not specify a value for this field, the original value set for the message will be overwritten with the default, <code>client</code>. |
+| <code>text</code> | <code>formData</code> | <code>any</code> | No | New text for the message, using the <a href="/reference/surfaces/formatting">default formatting rules</a>. It's not required when presenting <code>blocks</code> or <code>attachments</code>. |
+| <code>ts</code> | <code>formData</code> | <code>any</code> | Yes | Timestamp of the message to be updated. |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-typical-success-response-3" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-1">default: Typical error response</h5>
+<h3 id="post-chatunfurl" class="operation" data-method="post"><code>POST</code> /chat.unfurl</h3>
+<p>Operation ID: <code>chat_unfurl</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>links:write</code> |
+| <code>channel</code> | <code>formData</code> | <code>any</code> | Yes | Channel ID of the message |
+| <code>ts</code> | <code>formData</code> | <code>any</code> | Yes | Timestamp of the message to add unfurl behavior to. |
+| <code>unfurls</code> | <code>formData</code> | <code>any</code> | No | URL-encoded JSON map with keys set to URLs featured in the message, pointing to their unfurl blocks or message attachments. |
+| <code>user_auth_message</code> | <code>formData</code> | <code>any</code> | No | Provide a simply-formatted string to send as an ephemeral message to the user as invitation to authenticate further and enable full unfurling behavior |
+| <code>user_auth_required</code> | <code>formData</code> | <code>any</code> | No | Set to <code>true</code> or <code>1</code> to indicate the user must install your Slack app to trigger unfurls for this domain |
+| <code>user_auth_url</code> | <code>formData</code> | <code>any</code> | No | Send users to this custom URL where they will complete authentication in your app to fully trigger unfurling. Value should be properly URL-encoded. |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-typical-minimal-success-response" class="status" data-status="2xx">200: Typical, minimal success response</h5>
+<h5 id="default-typical-error-response-2">default: Typical error response</h5>
+<h3 id="post-chatdeletescheduledmessage" class="operation" data-method="post"><code>POST</code> /chat.deleteScheduledMessage</h3>
+<p>Operation ID: <code>chat_deleteScheduledMessage</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>chat:write</code> |
+| <code>as_user</code> | <code>formData</code> | <code>any</code> | No | Pass true to delete the message as the authed user with <code>chat:write:user</code> scope. <a href="/bot-users">Bot users</a> in this context are considered authed users. If unused or false, the message will be deleted with <code>chat:write:bot</code> scope. |
+| <code>channel</code> | <code>formData</code> | <code>any</code> | Yes | The channel the scheduled_message is posting to |
+| <code>scheduled_message_id</code> | <code>formData</code> | <code>any</code> | Yes | <code>scheduled_message_id</code> returned from call to chat.scheduleMessage |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-typical-success-response-4" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-if-no-message-is-found">default: Typical error response if no message is found</h5>
+<h3 id="post-chatdelete" class="operation" data-method="post"><code>POST</code> /chat.delete</h3>
+<p>Operation ID: <code>chat_delete</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | No | Authentication token. Requires scope: <code>chat:write</code> |
+| <code>ts</code> | <code>formData</code> | <code>any</code> | No | Timestamp of the message to be deleted. |
+| <code>channel</code> | <code>formData</code> | <code>any</code> | No | Channel containing the message to be deleted. |
+| <code>as_user</code> | <code>formData</code> | <code>any</code> | No | Pass true to delete the message as the authed user with <code>chat:write:user</code> scope. <a href="/bot-users">Bot users</a> in this context are considered authed users. If unused or false, the message will be deleted with <code>chat:write:bot</code> scope. |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-typical-success-response-5" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-3">default: Typical error response</h5>
+<h3 id="post-chatmemessage" class="operation" data-method="post"><code>POST</code> /chat.meMessage</h3>
+<p>Operation ID: <code>chat_meMessage</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | No | Authentication token. Requires scope: <code>chat:write</code> |
+| <code>channel</code> | <code>formData</code> | <code>any</code> | No | Channel to send message to. Can be a public channel, private group or IM channel. Can be an encoded ID, or a name. |
+| <code>text</code> | <code>formData</code> | <code>any</code> | No | Text of the message to send. |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-typical-success-response-6" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-4">default: Typical error response</h5>
+<h2 id="load">load</h2>
+<h3 id="get-chatgetpermalink" class="operation" data-method="get"><code>GET</code> /chat.getPermalink</h3>
+<p>Operation ID: <code>chat_getPermalink</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>query</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>none</code> |
+| <code>channel</code> | <code>query</code> | <code>any</code> | Yes | The ID of the conversation or channel containing the message |
+| <code>message_ts</code> | <code>query</code> | <code>any</code> | Yes | A message's <code>ts</code> value, uniquely identifying it within a channel |</p>
+<h4 id="responses-8">Responses</h4>
+<h5 id="200-standard-success-response" class="status" data-status="2xx">200: Standard success response</h5>
+<h5 id="default-error-response-when-channel-cannot-be-found">default: Error response when channel cannot be found</h5>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

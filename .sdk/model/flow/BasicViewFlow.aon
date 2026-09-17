@@ -1,0 +1,28 @@
+# BasicViewFlow
+
+main: kit: flow: BasicViewFlow:
+{
+  entity: "view",
+  kind: "basic",
+  name: "BasicViewFlow",
+  step: [
+    {
+      input: {
+        ref: "view_ref01",
+        srcdatavar: "view_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-view_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicViewFlow"
+}

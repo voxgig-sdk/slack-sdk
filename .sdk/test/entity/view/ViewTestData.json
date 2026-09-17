@@ -1,0 +1,933 @@
+{
+  "existing": {
+    "view": {
+      "VIEW00": {
+        "ok": true,
+        "id": "VIEW00"
+      },
+      "VIEW01": {
+        "ok": true,
+        "id": "VIEW01"
+      },
+      "VIEW02": {
+        "ok": true,
+        "id": "VIEW02"
+      }
+    }
+  },
+  "new": {
+    "view": {
+      "view_ref01": {
+        "ok": true
+      }
+    }
+  },
+  "requests": {
+    "GET /views.update": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/x-www-form-urlencoded",
+          "application/json"
+        ],
+        "operationId": "views_update",
+        "parameters": [
+          {
+            "description": "Authentication token. Requires scope: `none`",
+            "in": "header",
+            "name": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A unique identifier of the view to be updated. Either `view_id` or `external_id` is required.",
+            "in": "query",
+            "name": "view_id",
+            "type": "string"
+          },
+          {
+            "description": "A unique identifier of the view set by the developer. Must be unique for all views on a team. Max length of 255 characters. Either `view_id` or `external_id` is required.",
+            "in": "query",
+            "name": "external_id",
+            "type": "string"
+          },
+          {
+            "description": "A [view object](/reference/surfaces/views). This must be a JSON-encoded string.",
+            "in": "query",
+            "name": "view",
+            "type": "string"
+          },
+          {
+            "description": "A string that represents view state to protect against possible race conditions.",
+            "in": "query",
+            "name": "hash",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Typical success response includes the updated view payload.",
+            "examples": {
+              "application/json": {
+                "ok": true,
+                "view": {
+                  "app_id": "AAD3351BQ",
+                  "blocks": [
+                    {
+                      "accessory": {
+                        "action_id": "button_4",
+                        "text": {
+                          "text": "Click me",
+                          "type": "plain_text"
+                        },
+                        "type": "button"
+                      },
+                      "block_id": "s_block",
+                      "text": {
+                        "emoji": true,
+                        "text": "I am but an updated modal",
+                        "type": "plain_text"
+                      },
+                      "type": "section"
+                    }
+                  ],
+                  "bot_id": "BADF7A34H",
+                  "callback_id": "view_2",
+                  "clear_on_close": true,
+                  "close": {
+                    "emoji": true,
+                    "text": "Close",
+                    "type": "plain_text"
+                  },
+                  "external_id": "",
+                  "hash": "1569262015.55b5e41b",
+                  "id": "VNM522E2U",
+                  "notify_on_close": false,
+                  "previous_view_id": null,
+                  "private_metadata": "",
+                  "root_view_id": "VNN729E3U",
+                  "state": {
+                    "values": {}
+                  },
+                  "submit": null,
+                  "team_id": "T9M4RL1JM",
+                  "title": {
+                    "emoji": true,
+                    "text": "Updated Modal",
+                    "type": "plain_text"
+                  },
+                  "type": "modal"
+                }
+              }
+            },
+            "schema": {
+              "additionalProperties": true,
+              "description": "This method either only returns a brief _OK_ response or a verbose schema is not available for this method.",
+              "properties": {
+                "ok": {
+                  "enum": [
+                    true
+                  ],
+                  "title": "default success response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok"
+              ],
+              "title": "Default success template",
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "Typical error response.",
+            "examples": {
+              "application/json": {
+                "error": "not_found",
+                "ok": false
+              }
+            },
+            "schema": {
+              "additionalProperties": true,
+              "description": "This method either only returns a brief _not OK_ response or a verbose schema is not available for this method.",
+              "properties": {
+                "ok": {
+                  "enum": [
+                    false
+                  ],
+                  "title": "default failure response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok"
+              ],
+              "title": "Default error template",
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "slackAuth": [
+              "none"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "slackAuth": {
+            "authorizationUrl": "https://slack.com/oauth/authorize",
+            "flow": "accessCode",
+            "scopes": {
+              "admin": "admin",
+              "admin.apps:read": "admin.apps:read",
+              "admin.apps:write": "admin.apps:write",
+              "admin.conversations:read": "admin.conversations:read",
+              "admin.conversations:write": "admin.conversations:write",
+              "admin.invites:read": "admin.invites:read",
+              "admin.invites:write": "admin.invites:write",
+              "admin.teams:read": "admin.teams:read",
+              "admin.teams:write": "admin.teams:write",
+              "admin.usergroups:read": "admin.usergroups:read",
+              "admin.usergroups:write": "admin.usergroups:write",
+              "admin.users:read": "admin.users:read",
+              "admin.users:write": "admin.users:write",
+              "authorizations:read": "authorizations:read",
+              "bot": "Bot user scope",
+              "calls:read": "calls:read",
+              "calls:write": "calls:write",
+              "channels:history": "channels:history",
+              "channels:manage": "channels:manage",
+              "channels:read": "channels:read",
+              "channels:write": "channels:write",
+              "chat:write": "chat:write",
+              "chat:write:bot": "Author messages as a bot",
+              "chat:write:user": "Author messages as a user",
+              "conversations:history": "conversations:history",
+              "conversations:read": "conversations:read",
+              "conversations:write": "conversations:write",
+              "dnd:read": "dnd:read",
+              "dnd:write": "dnd:write",
+              "emoji:read": "emoji:read",
+              "files:read": "files:read",
+              "files:write:user": "files:write:user",
+              "groups:history": "groups:history",
+              "groups:read": "groups:read",
+              "groups:write": "groups:write",
+              "identity.basic": "identity.basic",
+              "im:history": "im:history",
+              "im:read": "im:read",
+              "im:write": "im:write",
+              "links:write": "links:write",
+              "mpim:history": "mpim:history",
+              "mpim:read": "mpim:read",
+              "mpim:write": "mpim:write",
+              "none": "No scope required",
+              "pins:read": "pins:read",
+              "pins:write": "pins:write",
+              "reactions:read": "reactions:read",
+              "reactions:write": "reactions:write",
+              "reminders:read": "reminders:read",
+              "reminders:write": "reminders:write",
+              "remote_files:read": "remote_files:read",
+              "remote_files:share": "remote_files:share",
+              "remote_files:write": "remote_files:write",
+              "rtm:stream": "rtm:stream",
+              "search:read": "search:read",
+              "stars:read": "stars:read",
+              "stars:write": "stars:write",
+              "team:read": "team:read",
+              "tokens.basic": "tokens.basic",
+              "usergroups:read": "usergroups:read",
+              "usergroups:write": "usergroups:write",
+              "users.profile:read": "users.profile:read",
+              "users.profile:write": "users.profile:write",
+              "users:read": "users:read",
+              "users:read.email": "users:read.email",
+              "users:write": "users:write",
+              "workflow.steps:execute": "workflow.steps:execute"
+            },
+            "tokenUrl": "https://slack.com/api/oauth.access",
+            "type": "oauth2"
+          }
+        },
+        "securitySource": "operation"
+      }
+    },
+    "GET /views.publish": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/x-www-form-urlencoded",
+          "application/json"
+        ],
+        "operationId": "views_publish",
+        "parameters": [
+          {
+            "description": "Authentication token. Requires scope: `none`",
+            "in": "header",
+            "name": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "`id` of the user you want publish a view to.",
+            "in": "query",
+            "name": "user_id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A [view payload](/reference/surfaces/views). This must be a JSON-encoded string.",
+            "in": "query",
+            "name": "view",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A string that represents view state to protect against possible race conditions.",
+            "in": "query",
+            "name": "hash",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Typical success response includes the published view payload.",
+            "examples": {
+              "application/json": {
+                "ok": true,
+                "view": {
+                  "app_id": "AA4928AQ",
+                  "blocks": [
+                    {
+                      "block_id": "2WGp9",
+                      "text": {
+                        "text": "A simple section with some sample sentence.",
+                        "type": "mrkdwn",
+                        "verbatim": false
+                      },
+                      "type": "section"
+                    }
+                  ],
+                  "bot_id": "BA13894H",
+                  "callback_id": "identify_your_home_tab",
+                  "clear_on_close": false,
+                  "close": null,
+                  "external_id": "",
+                  "hash": "156772938.1827394",
+                  "id": "VMHU10V25",
+                  "notify_on_close": false,
+                  "previous_view_id": null,
+                  "private_metadata": "Shh it is a secret",
+                  "root_view_id": "VMHU10V25",
+                  "state": {
+                    "values": {}
+                  },
+                  "submit": null,
+                  "team_id": "T8N4K1JN",
+                  "type": "home"
+                }
+              }
+            },
+            "schema": {
+              "additionalProperties": true,
+              "description": "This method either only returns a brief _OK_ response or a verbose schema is not available for this method.",
+              "properties": {
+                "ok": {
+                  "enum": [
+                    true
+                  ],
+                  "title": "default success response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok"
+              ],
+              "title": "Default success template",
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "Typical error response, before getting to any possible validation errors.",
+            "examples": {
+              "application/json": {
+                "error": "invalid_arguments",
+                "ok": false,
+                "response_metadata": {
+                  "messages": [
+                    "invalid `user_id`"
+                  ]
+                }
+              }
+            },
+            "schema": {
+              "additionalProperties": true,
+              "description": "This method either only returns a brief _not OK_ response or a verbose schema is not available for this method.",
+              "properties": {
+                "ok": {
+                  "enum": [
+                    false
+                  ],
+                  "title": "default failure response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok"
+              ],
+              "title": "Default error template",
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "slackAuth": [
+              "none"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "slackAuth": {
+            "authorizationUrl": "https://slack.com/oauth/authorize",
+            "flow": "accessCode",
+            "scopes": {
+              "admin": "admin",
+              "admin.apps:read": "admin.apps:read",
+              "admin.apps:write": "admin.apps:write",
+              "admin.conversations:read": "admin.conversations:read",
+              "admin.conversations:write": "admin.conversations:write",
+              "admin.invites:read": "admin.invites:read",
+              "admin.invites:write": "admin.invites:write",
+              "admin.teams:read": "admin.teams:read",
+              "admin.teams:write": "admin.teams:write",
+              "admin.usergroups:read": "admin.usergroups:read",
+              "admin.usergroups:write": "admin.usergroups:write",
+              "admin.users:read": "admin.users:read",
+              "admin.users:write": "admin.users:write",
+              "authorizations:read": "authorizations:read",
+              "bot": "Bot user scope",
+              "calls:read": "calls:read",
+              "calls:write": "calls:write",
+              "channels:history": "channels:history",
+              "channels:manage": "channels:manage",
+              "channels:read": "channels:read",
+              "channels:write": "channels:write",
+              "chat:write": "chat:write",
+              "chat:write:bot": "Author messages as a bot",
+              "chat:write:user": "Author messages as a user",
+              "conversations:history": "conversations:history",
+              "conversations:read": "conversations:read",
+              "conversations:write": "conversations:write",
+              "dnd:read": "dnd:read",
+              "dnd:write": "dnd:write",
+              "emoji:read": "emoji:read",
+              "files:read": "files:read",
+              "files:write:user": "files:write:user",
+              "groups:history": "groups:history",
+              "groups:read": "groups:read",
+              "groups:write": "groups:write",
+              "identity.basic": "identity.basic",
+              "im:history": "im:history",
+              "im:read": "im:read",
+              "im:write": "im:write",
+              "links:write": "links:write",
+              "mpim:history": "mpim:history",
+              "mpim:read": "mpim:read",
+              "mpim:write": "mpim:write",
+              "none": "No scope required",
+              "pins:read": "pins:read",
+              "pins:write": "pins:write",
+              "reactions:read": "reactions:read",
+              "reactions:write": "reactions:write",
+              "reminders:read": "reminders:read",
+              "reminders:write": "reminders:write",
+              "remote_files:read": "remote_files:read",
+              "remote_files:share": "remote_files:share",
+              "remote_files:write": "remote_files:write",
+              "rtm:stream": "rtm:stream",
+              "search:read": "search:read",
+              "stars:read": "stars:read",
+              "stars:write": "stars:write",
+              "team:read": "team:read",
+              "tokens.basic": "tokens.basic",
+              "usergroups:read": "usergroups:read",
+              "usergroups:write": "usergroups:write",
+              "users.profile:read": "users.profile:read",
+              "users.profile:write": "users.profile:write",
+              "users:read": "users:read",
+              "users:read.email": "users:read.email",
+              "users:write": "users:write",
+              "workflow.steps:execute": "workflow.steps:execute"
+            },
+            "tokenUrl": "https://slack.com/api/oauth.access",
+            "type": "oauth2"
+          }
+        },
+        "securitySource": "operation"
+      }
+    },
+    "GET /views.open": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/x-www-form-urlencoded",
+          "application/json"
+        ],
+        "operationId": "views_open",
+        "parameters": [
+          {
+            "description": "Authentication token. Requires scope: `none`",
+            "in": "header",
+            "name": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Exchange a trigger to post to the user.",
+            "in": "query",
+            "name": "trigger_id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A [view payload](/reference/surfaces/views). This must be a JSON-encoded string.",
+            "in": "query",
+            "name": "view",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Typical success response includes the opened view payload.",
+            "examples": {
+              "application/json": {
+                "ok": true,
+                "view": {
+                  "app_id": "AA4928AQ",
+                  "blocks": [
+                    {
+                      "block_id": "a_block_id",
+                      "element": {
+                        "action_id": "an_action_id",
+                        "type": "plain_text_input"
+                      },
+                      "label": {
+                        "emoji": true,
+                        "text": "A simple label",
+                        "type": "plain_text"
+                      },
+                      "optional": false,
+                      "type": "input"
+                    }
+                  ],
+                  "bot_id": "BA13894H",
+                  "callback_id": "identify_your_modals",
+                  "clear_on_close": false,
+                  "external_id": "",
+                  "hash": "156772938.1827394",
+                  "id": "VMHU10V25",
+                  "notify_on_close": false,
+                  "private_metadata": "Shh it is a secret",
+                  "root_view_id": "VMHU10V25",
+                  "state": {
+                    "values": {}
+                  },
+                  "submit": {
+                    "text": "Create",
+                    "type": "plain_text"
+                  },
+                  "team_id": "T8N4K1JN",
+                  "title": {
+                    "text": "Quite a plain modal",
+                    "type": "plain_text"
+                  },
+                  "type": "modal"
+                }
+              }
+            },
+            "schema": {
+              "additionalProperties": true,
+              "description": "This method either only returns a brief _OK_ response or a verbose schema is not available for this method.",
+              "properties": {
+                "ok": {
+                  "enum": [
+                    true
+                  ],
+                  "title": "default success response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok"
+              ],
+              "title": "Default success template",
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "Typical error response, before getting to any possible validation errors.",
+            "examples": {
+              "application/json": {
+                "error": "invalid_arguments",
+                "ok": false,
+                "response_metadata": {
+                  "messages": [
+                    "invalid `trigger_id`"
+                  ]
+                }
+              }
+            },
+            "schema": {
+              "additionalProperties": true,
+              "description": "This method either only returns a brief _not OK_ response or a verbose schema is not available for this method.",
+              "properties": {
+                "ok": {
+                  "enum": [
+                    false
+                  ],
+                  "title": "default failure response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok"
+              ],
+              "title": "Default error template",
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "slackAuth": [
+              "none"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "slackAuth": {
+            "authorizationUrl": "https://slack.com/oauth/authorize",
+            "flow": "accessCode",
+            "scopes": {
+              "admin": "admin",
+              "admin.apps:read": "admin.apps:read",
+              "admin.apps:write": "admin.apps:write",
+              "admin.conversations:read": "admin.conversations:read",
+              "admin.conversations:write": "admin.conversations:write",
+              "admin.invites:read": "admin.invites:read",
+              "admin.invites:write": "admin.invites:write",
+              "admin.teams:read": "admin.teams:read",
+              "admin.teams:write": "admin.teams:write",
+              "admin.usergroups:read": "admin.usergroups:read",
+              "admin.usergroups:write": "admin.usergroups:write",
+              "admin.users:read": "admin.users:read",
+              "admin.users:write": "admin.users:write",
+              "authorizations:read": "authorizations:read",
+              "bot": "Bot user scope",
+              "calls:read": "calls:read",
+              "calls:write": "calls:write",
+              "channels:history": "channels:history",
+              "channels:manage": "channels:manage",
+              "channels:read": "channels:read",
+              "channels:write": "channels:write",
+              "chat:write": "chat:write",
+              "chat:write:bot": "Author messages as a bot",
+              "chat:write:user": "Author messages as a user",
+              "conversations:history": "conversations:history",
+              "conversations:read": "conversations:read",
+              "conversations:write": "conversations:write",
+              "dnd:read": "dnd:read",
+              "dnd:write": "dnd:write",
+              "emoji:read": "emoji:read",
+              "files:read": "files:read",
+              "files:write:user": "files:write:user",
+              "groups:history": "groups:history",
+              "groups:read": "groups:read",
+              "groups:write": "groups:write",
+              "identity.basic": "identity.basic",
+              "im:history": "im:history",
+              "im:read": "im:read",
+              "im:write": "im:write",
+              "links:write": "links:write",
+              "mpim:history": "mpim:history",
+              "mpim:read": "mpim:read",
+              "mpim:write": "mpim:write",
+              "none": "No scope required",
+              "pins:read": "pins:read",
+              "pins:write": "pins:write",
+              "reactions:read": "reactions:read",
+              "reactions:write": "reactions:write",
+              "reminders:read": "reminders:read",
+              "reminders:write": "reminders:write",
+              "remote_files:read": "remote_files:read",
+              "remote_files:share": "remote_files:share",
+              "remote_files:write": "remote_files:write",
+              "rtm:stream": "rtm:stream",
+              "search:read": "search:read",
+              "stars:read": "stars:read",
+              "stars:write": "stars:write",
+              "team:read": "team:read",
+              "tokens.basic": "tokens.basic",
+              "usergroups:read": "usergroups:read",
+              "usergroups:write": "usergroups:write",
+              "users.profile:read": "users.profile:read",
+              "users.profile:write": "users.profile:write",
+              "users:read": "users:read",
+              "users:read.email": "users:read.email",
+              "users:write": "users:write",
+              "workflow.steps:execute": "workflow.steps:execute"
+            },
+            "tokenUrl": "https://slack.com/api/oauth.access",
+            "type": "oauth2"
+          }
+        },
+        "securitySource": "operation"
+      }
+    },
+    "GET /views.push": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/x-www-form-urlencoded",
+          "application/json"
+        ],
+        "operationId": "views_push",
+        "parameters": [
+          {
+            "description": "Authentication token. Requires scope: `none`",
+            "in": "header",
+            "name": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Exchange a trigger to post to the user.",
+            "in": "query",
+            "name": "trigger_id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "A [view payload](/reference/surfaces/views). This must be a JSON-encoded string.",
+            "in": "query",
+            "name": "view",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Typical success response includes the pushed view payload.",
+            "examples": {
+              "application/json": {
+                "ok": true,
+                "view": {
+                  "app_id": "AAD3351BQ",
+                  "blocks": [
+                    {
+                      "block_id": "edit_details",
+                      "element": {
+                        "action_id": "detail_input",
+                        "type": "plain_text_input"
+                      },
+                      "label": {
+                        "text": "Edit details",
+                        "type": "plain_text"
+                      },
+                      "type": "input"
+                    }
+                  ],
+                  "bot_id": "BADF7A34H",
+                  "callback_id": "view_4",
+                  "clear_on_close": true,
+                  "close": {
+                    "emoji": true,
+                    "text": "Back",
+                    "type": "plain_text"
+                  },
+                  "external_id": "",
+                  "hash": "1569362015.55b5e41b",
+                  "id": "VNM522E2U",
+                  "notify_on_close": false,
+                  "previous_view_id": null,
+                  "private_metadata": "",
+                  "root_view_id": "VNN729E3U",
+                  "state": {
+                    "values": {}
+                  },
+                  "submit": {
+                    "emoji": true,
+                    "text": "Save",
+                    "type": "plain_text"
+                  },
+                  "team_id": "T9M4RL1JM",
+                  "title": {
+                    "emoji": true,
+                    "text": "Pushed Modal",
+                    "type": "plain_text"
+                  },
+                  "type": "modal"
+                }
+              }
+            },
+            "schema": {
+              "additionalProperties": true,
+              "description": "This method either only returns a brief _OK_ response or a verbose schema is not available for this method.",
+              "properties": {
+                "ok": {
+                  "enum": [
+                    true
+                  ],
+                  "title": "default success response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok"
+              ],
+              "title": "Default success template",
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "Typical error response.",
+            "examples": {
+              "application/json": {
+                "error": "invalid_arguments",
+                "ok": false,
+                "response_metadata": {
+                  "messages": [
+                    "missing required field: title"
+                  ]
+                }
+              }
+            },
+            "schema": {
+              "additionalProperties": true,
+              "description": "This method either only returns a brief _not OK_ response or a verbose schema is not available for this method.",
+              "properties": {
+                "ok": {
+                  "enum": [
+                    false
+                  ],
+                  "title": "default failure response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok"
+              ],
+              "title": "Default error template",
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "slackAuth": [
+              "none"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "slackAuth": {
+            "authorizationUrl": "https://slack.com/oauth/authorize",
+            "flow": "accessCode",
+            "scopes": {
+              "admin": "admin",
+              "admin.apps:read": "admin.apps:read",
+              "admin.apps:write": "admin.apps:write",
+              "admin.conversations:read": "admin.conversations:read",
+              "admin.conversations:write": "admin.conversations:write",
+              "admin.invites:read": "admin.invites:read",
+              "admin.invites:write": "admin.invites:write",
+              "admin.teams:read": "admin.teams:read",
+              "admin.teams:write": "admin.teams:write",
+              "admin.usergroups:read": "admin.usergroups:read",
+              "admin.usergroups:write": "admin.usergroups:write",
+              "admin.users:read": "admin.users:read",
+              "admin.users:write": "admin.users:write",
+              "authorizations:read": "authorizations:read",
+              "bot": "Bot user scope",
+              "calls:read": "calls:read",
+              "calls:write": "calls:write",
+              "channels:history": "channels:history",
+              "channels:manage": "channels:manage",
+              "channels:read": "channels:read",
+              "channels:write": "channels:write",
+              "chat:write": "chat:write",
+              "chat:write:bot": "Author messages as a bot",
+              "chat:write:user": "Author messages as a user",
+              "conversations:history": "conversations:history",
+              "conversations:read": "conversations:read",
+              "conversations:write": "conversations:write",
+              "dnd:read": "dnd:read",
+              "dnd:write": "dnd:write",
+              "emoji:read": "emoji:read",
+              "files:read": "files:read",
+              "files:write:user": "files:write:user",
+              "groups:history": "groups:history",
+              "groups:read": "groups:read",
+              "groups:write": "groups:write",
+              "identity.basic": "identity.basic",
+              "im:history": "im:history",
+              "im:read": "im:read",
+              "im:write": "im:write",
+              "links:write": "links:write",
+              "mpim:history": "mpim:history",
+              "mpim:read": "mpim:read",
+              "mpim:write": "mpim:write",
+              "none": "No scope required",
+              "pins:read": "pins:read",
+              "pins:write": "pins:write",
+              "reactions:read": "reactions:read",
+              "reactions:write": "reactions:write",
+              "reminders:read": "reminders:read",
+              "reminders:write": "reminders:write",
+              "remote_files:read": "remote_files:read",
+              "remote_files:share": "remote_files:share",
+              "remote_files:write": "remote_files:write",
+              "rtm:stream": "rtm:stream",
+              "search:read": "search:read",
+              "stars:read": "stars:read",
+              "stars:write": "stars:write",
+              "team:read": "team:read",
+              "tokens.basic": "tokens.basic",
+              "usergroups:read": "usergroups:read",
+              "usergroups:write": "usergroups:write",
+              "users.profile:read": "users.profile:read",
+              "users.profile:write": "users.profile:write",
+              "users:read": "users:read",
+              "users:read.email": "users:read.email",
+              "users:write": "users:write",
+              "workflow.steps:execute": "workflow.steps:execute"
+            },
+            "tokenUrl": "https://slack.com/api/oauth.access",
+            "type": "oauth2"
+          }
+        },
+        "securitySource": "operation"
+      }
+    }
+  }
+}

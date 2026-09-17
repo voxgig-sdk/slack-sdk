@@ -1,0 +1,28 @@
+# BasicAdmininviteRequestsdeniedFlow
+
+main: kit: flow: BasicAdmininviteRequestsdeniedFlow:
+{
+  entity: "admininvite_requestsdenied",
+  kind: "basic",
+  name: "BasicAdmininviteRequestsdeniedFlow",
+  step: [
+    {
+      input: {
+        ref: "admininvite_requestsdenied_ref01",
+        srcdatavar: "admininvite_requestsdenied_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-admininvite_requestsdenied_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAdmininviteRequestsdeniedFlow"
+}

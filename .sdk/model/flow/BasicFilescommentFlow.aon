@@ -1,0 +1,18 @@
+# BasicFilescommentFlow
+
+main: kit: flow: BasicFilescommentFlow:
+{
+  entity: "filescomment",
+  kind: "basic",
+  name: "BasicFilescommentFlow",
+  step: [
+    {
+      input: {
+        ref: "filescomment_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicFilescommentFlow"
+}

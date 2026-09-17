@@ -1,0 +1,36 @@
+# BasicUsersprofileFlow
+
+main: kit: flow: BasicUsersprofileFlow:
+{
+  entity: "usersprofile",
+  kind: "basic",
+  name: "BasicUsersprofileFlow",
+  step: [
+    {
+      input: {
+        ref: "usersprofile_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "usersprofile_ref01",
+        srcdatavar: "usersprofile_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-usersprofile_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicUsersprofileFlow"
+}

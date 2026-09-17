@@ -1,0 +1,28 @@
+# BasicAdminappsrestrictedFlow
+
+main: kit: flow: BasicAdminappsrestrictedFlow:
+{
+  entity: "adminappsrestricted",
+  kind: "basic",
+  name: "BasicAdminappsrestrictedFlow",
+  step: [
+    {
+      input: {
+        ref: "adminappsrestricted_ref01",
+        srcdatavar: "adminappsrestricted_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-adminappsrestricted_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAdminappsrestrictedFlow"
+}

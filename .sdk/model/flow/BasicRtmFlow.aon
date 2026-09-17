@@ -1,0 +1,28 @@
+# BasicRtmFlow
+
+main: kit: flow: BasicRtmFlow:
+{
+  entity: "rtm",
+  kind: "basic",
+  name: "BasicRtmFlow",
+  step: [
+    {
+      input: {
+        ref: "rtm_ref01",
+        srcdatavar: "rtm_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-rtm_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRtmFlow"
+}

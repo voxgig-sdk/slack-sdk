@@ -1,0 +1,48 @@
+# BasicReminderFlow
+
+main: kit: flow: BasicReminderFlow:
+{
+  entity: "reminder",
+  kind: "basic",
+  name: "BasicReminderFlow",
+  step: [
+    {
+      input: {
+        ref: "reminder_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "reminder_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "reminder_ref01",
+        srcdatavar: "reminder_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-reminder_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicReminderFlow"
+}

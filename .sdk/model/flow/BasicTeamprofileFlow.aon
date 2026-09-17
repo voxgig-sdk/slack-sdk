@@ -1,0 +1,28 @@
+# BasicTeamprofileFlow
+
+main: kit: flow: BasicTeamprofileFlow:
+{
+  entity: "teamprofile",
+  kind: "basic",
+  name: "BasicTeamprofileFlow",
+  step: [
+    {
+      input: {
+        ref: "teamprofile_ref01",
+        srcdatavar: "teamprofile_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-teamprofile_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTeamprofileFlow"
+}

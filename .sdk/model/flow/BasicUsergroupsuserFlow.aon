@@ -1,0 +1,30 @@
+# BasicUsergroupsuserFlow
+
+main: kit: flow: BasicUsergroupsuserFlow:
+{
+  entity: "usergroupsuser",
+  kind: "basic",
+  name: "BasicUsergroupsuserFlow",
+  step: [
+    {
+      input: {
+        ref: "usergroupsuser_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "usergroupsuser_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicUsergroupsuserFlow"
+}

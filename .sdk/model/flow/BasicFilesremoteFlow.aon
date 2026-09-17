@@ -1,0 +1,36 @@
+# BasicFilesremoteFlow
+
+main: kit: flow: BasicFilesremoteFlow:
+{
+  entity: "filesremote",
+  kind: "basic",
+  name: "BasicFilesremoteFlow",
+  step: [
+    {
+      input: {
+        ref: "filesremote_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "filesremote_ref01",
+        srcdatavar: "filesremote_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-filesremote_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFilesremoteFlow"
+}

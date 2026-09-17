@@ -1,0 +1,256 @@
+{
+  "existing": {
+    "adminappsrestricted": {
+      "ADMINAPPSRESTRICTED00": {
+        "ok": true,
+        "id": "ADMINAPPSRESTRICTED00"
+      },
+      "ADMINAPPSRESTRICTED01": {
+        "ok": true,
+        "id": "ADMINAPPSRESTRICTED01"
+      },
+      "ADMINAPPSRESTRICTED02": {
+        "ok": true,
+        "id": "ADMINAPPSRESTRICTED02"
+      }
+    }
+  },
+  "new": {
+    "adminappsrestricted": {
+      "adminappsrestricted_ref01": {
+        "ok": true
+      }
+    }
+  },
+  "requests": {
+    "GET /admin.apps.restricted.list": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "operationId": "admin_apps_restricted_list",
+        "parameters": [
+          {
+            "description": "Authentication token. Requires scope: `admin.apps:read`",
+            "in": "query",
+            "name": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "The maximum number of items to return. Must be between 1 - 1000 both inclusive.",
+            "in": "query",
+            "name": "limit",
+            "type": "integer"
+          },
+          {
+            "description": "Set `cursor` to `next_cursor` returned by the previous call to list items in the next page",
+            "in": "query",
+            "name": "cursor",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "team_id",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "enterprise_id",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Typical success response",
+            "examples": {
+              "application/json": {
+                "ok": true,
+                "response_metadata": {
+                  "next_cursor": ""
+                },
+                "restricted_apps": [
+                  {
+                    "app": {
+                      "additional_info": "",
+                      "app_directory_url": "https://myteam.enterprise.slack.com/apps/A0FDLP8M2L-my-test-app",
+                      "app_homepage_url": "https://example.com",
+                      "description": "A fun test app for Slack",
+                      "help_url": "https://example.com",
+                      "icons": {
+                        "image_1024": "https://1433265338rl878408_eb57dbc818daa4ba15d6_1024.png",
+                        "image_128": "https://4332653438rl87808_eb57dbc818daa4ba15d6_128.png",
+                        "image_192": "https://4332653438rl87808_eb57dbc818daa4ba15d6_192.png",
+                        "image_32": "https://143326534038rl8788_eb57dbc818daa4ba15d6_32.png",
+                        "image_36": "https://143326534038rl8788_eb57dbc818daa4ba15d6_36.png",
+                        "image_48": "https://143326534038rl8788_eb57dbc818daa4ba15d6_48.png",
+                        "image_512": "https://4332653438rl87808_eb57dbc818daa4ba15d6_512.png",
+                        "image_64": "https://143326534038rl8788_eb57dbc818daa4ba15d6_64.png",
+                        "image_72": "https://143326534038rl8788_eb57dbc818daa4ba15d6_72.png",
+                        "image_96": "https://143326534038rl8788_eb57dbc818daa4ba15d6_96.png",
+                        "image_original": "https://143338rl8782653408_eb57dbc818daa4ba15d6_original.png"
+                      },
+                      "id": "A0FDLP8M2L",
+                      "is_app_directory_approved": true,
+                      "is_internal": false,
+                      "name": "My Test App",
+                      "privacy_policy_url": "https://example.com"
+                    },
+                    "date_updated": 1574296721,
+                    "last_resolved_by": {
+                      "actor_id": "W0G82LMFD",
+                      "actor_type": "user"
+                    },
+                    "scopes": [
+                      {
+                        "description": "Upload, edit, and delete files on the user‟s behalf",
+                        "is_sensitive": true,
+                        "name": "files:write:user",
+                        "token_type": "user"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "additionalProperties": true,
+              "description": "This method either only returns a brief _OK_ response or a verbose schema is not available for this method.",
+              "properties": {
+                "ok": {
+                  "enum": [
+                    true
+                  ],
+                  "title": "default success response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok"
+              ],
+              "title": "Default success template",
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "Typical error response",
+            "examples": {
+              "application/json": {
+                "error": "invalid_auth",
+                "ok": false
+              }
+            },
+            "schema": {
+              "additionalProperties": true,
+              "description": "This method either only returns a brief _not OK_ response or a verbose schema is not available for this method.",
+              "properties": {
+                "ok": {
+                  "enum": [
+                    false
+                  ],
+                  "title": "default failure response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok"
+              ],
+              "title": "Default error template",
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "slackAuth": [
+              "admin.apps:read"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "slackAuth": {
+            "authorizationUrl": "https://slack.com/oauth/authorize",
+            "flow": "accessCode",
+            "scopes": {
+              "admin": "admin",
+              "admin.apps:read": "admin.apps:read",
+              "admin.apps:write": "admin.apps:write",
+              "admin.conversations:read": "admin.conversations:read",
+              "admin.conversations:write": "admin.conversations:write",
+              "admin.invites:read": "admin.invites:read",
+              "admin.invites:write": "admin.invites:write",
+              "admin.teams:read": "admin.teams:read",
+              "admin.teams:write": "admin.teams:write",
+              "admin.usergroups:read": "admin.usergroups:read",
+              "admin.usergroups:write": "admin.usergroups:write",
+              "admin.users:read": "admin.users:read",
+              "admin.users:write": "admin.users:write",
+              "authorizations:read": "authorizations:read",
+              "bot": "Bot user scope",
+              "calls:read": "calls:read",
+              "calls:write": "calls:write",
+              "channels:history": "channels:history",
+              "channels:manage": "channels:manage",
+              "channels:read": "channels:read",
+              "channels:write": "channels:write",
+              "chat:write": "chat:write",
+              "chat:write:bot": "Author messages as a bot",
+              "chat:write:user": "Author messages as a user",
+              "conversations:history": "conversations:history",
+              "conversations:read": "conversations:read",
+              "conversations:write": "conversations:write",
+              "dnd:read": "dnd:read",
+              "dnd:write": "dnd:write",
+              "emoji:read": "emoji:read",
+              "files:read": "files:read",
+              "files:write:user": "files:write:user",
+              "groups:history": "groups:history",
+              "groups:read": "groups:read",
+              "groups:write": "groups:write",
+              "identity.basic": "identity.basic",
+              "im:history": "im:history",
+              "im:read": "im:read",
+              "im:write": "im:write",
+              "links:write": "links:write",
+              "mpim:history": "mpim:history",
+              "mpim:read": "mpim:read",
+              "mpim:write": "mpim:write",
+              "none": "No scope required",
+              "pins:read": "pins:read",
+              "pins:write": "pins:write",
+              "reactions:read": "reactions:read",
+              "reactions:write": "reactions:write",
+              "reminders:read": "reminders:read",
+              "reminders:write": "reminders:write",
+              "remote_files:read": "remote_files:read",
+              "remote_files:share": "remote_files:share",
+              "remote_files:write": "remote_files:write",
+              "rtm:stream": "rtm:stream",
+              "search:read": "search:read",
+              "stars:read": "stars:read",
+              "stars:write": "stars:write",
+              "team:read": "team:read",
+              "tokens.basic": "tokens.basic",
+              "usergroups:read": "usergroups:read",
+              "usergroups:write": "usergroups:write",
+              "users.profile:read": "users.profile:read",
+              "users.profile:write": "users.profile:write",
+              "users:read": "users:read",
+              "users:read.email": "users:read.email",
+              "users:write": "users:write",
+              "workflow.steps:execute": "workflow.steps:execute"
+            },
+            "tokenUrl": "https://slack.com/api/oauth.access",
+            "type": "oauth2"
+          }
+        },
+        "securitySource": "operation"
+      }
+    }
+  }
+}

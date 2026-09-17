@@ -1,0 +1,463 @@
+# Entity: usergroup
+
+main: kit: entity: usergroup: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "auto_provision"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "auto_type"
+      req: true
+      type: "`$ANY`"
+    }
+    {
+      name: "channel_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "created_by"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "date_create"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "date_delete"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "date_update"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "deleted_by"
+      req: true
+      type: "`$ANY`"
+    }
+    {
+      name: "description"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "enterprise_subteam_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "handle"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "is_external"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_subteam"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "is_usergroup"
+      req: true
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "name"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "prefs"
+      req: true
+      type: "`$OBJECT`"
+    }
+    {
+      name: "team_id"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "updated_by"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "user_count"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "users"
+      req: false
+      type: "`$ARRAY`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "usergroup"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "token"
+                orig: "token"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "channel"
+                orig: "channel"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "description"
+                orig: "description"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "handle"
+                orig: "handle"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "include_count"
+                orig: "include_count"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "usergroup"
+                orig: "usergroup"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          contract: {
+            id: "POST /usergroups.update"
+            json: "{\"consumes\":[\"application/x-www-form-urlencoded\",\"application/json\"],\"operationId\":\"usergroups_update\",\"parameters\":[{\"description\":\"A mention handle. Must be unique among channels, users and User Groups.\",\"in\":\"formData\",\"name\":\"handle\",\"type\":\"string\"},{\"description\":\"A short description of the User Group.\",\"in\":\"formData\",\"name\":\"description\",\"type\":\"string\"},{\"description\":\"A comma separated string of encoded channel IDs for which the User Group uses as a default.\",\"in\":\"formData\",\"name\":\"channels\",\"type\":\"string\"},{\"description\":\"Authentication token. Requires scope: `usergroups:write`\",\"in\":\"header\",\"name\":\"token\",\"required\":true,\"type\":\"string\"},{\"description\":\"Include the number of users in the User Group.\",\"in\":\"formData\",\"name\":\"include_count\",\"type\":\"boolean\"},{\"description\":\"The encoded ID of the User Group to update.\",\"in\":\"formData\",\"name\":\"usergroup\",\"required\":true,\"type\":\"string\"},{\"description\":\"A name for the User Group. Must be unique among User Groups.\",\"in\":\"formData\",\"name\":\"name\",\"type\":\"string\"}],\"produces\":[\"application/json\"],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"Typical success response\",\"examples\":{\"application/json\":{\"ok\":true,\"usergroup\":{\"auto_type\":null,\"created_by\":\"U060R4BJ4\",\"date_create\":1447096577,\"date_delete\":0,\"date_update\":1447102109,\"deleted_by\":null,\"description\":\"Marketing gurus, PR experts and product advocates.\",\"handle\":\"marketing-team\",\"id\":\"S0616NG6M\",\"is_external\":false,\"is_usergroup\":true,\"name\":\"Marketing Team\",\"prefs\":{\"channels\":[],\"groups\":[]},\"team_id\":\"T060R4BHN\",\"updated_by\":\"U060R4BJ4\",\"user_count\":1,\"users\":[\"U060R4BJ4\",\"U060RNRCZ\"]}}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for successful response from usergroups.update method\",\"properties\":{\"ok\":{\"enum\":[true],\"title\":\"default success response\",\"type\":\"boolean\"},\"usergroup\":{\"additionalProperties\":false,\"properties\":{\"auto_provision\":{\"type\":\"boolean\"},\"auto_type\":{\"items\":[{\"type\":\"null\"},{\"enum\":[\"owner\",\"admin\"],\"type\":\"string\"}]},\"channel_count\":{\"type\":\"integer\"},\"created_by\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"date_create\":{\"type\":\"integer\"},\"date_delete\":{\"type\":\"integer\"},\"date_update\":{\"type\":\"integer\"},\"deleted_by\":{\"items\":[{\"type\":\"null\"},{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"}]},\"description\":{\"type\":\"string\"},\"enterprise_subteam_id\":{\"type\":\"string\"},\"handle\":{\"type\":\"string\"},\"id\":{\"pattern\":\"^S[A-Z0-9]{2,}$\",\"title\":\"Subteam ID\",\"type\":\"string\"},\"is_external\":{\"type\":\"boolean\"},\"is_subteam\":{\"type\":\"boolean\"},\"is_usergroup\":{\"type\":\"boolean\"},\"name\":{\"type\":\"string\"},\"prefs\":{\"additionalProperties\":false,\"properties\":{\"channels\":{\"items\":{\"pattern\":\"^[C][A-Z0-9]{2,}$\",\"title\":\"Channel ID\",\"type\":\"string\"},\"type\":\"array\"},\"groups\":{\"items\":{\"pattern\":\"^[G][A-Z0-9]{8,}$\",\"title\":\"Private Channel ID\",\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"channels\",\"groups\"],\"type\":\"object\"},\"team_id\":{\"pattern\":\"^[T][A-Z0-9]{2,}$\",\"title\":\"Team ID\",\"type\":\"string\"},\"updated_by\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"user_count\":{\"type\":\"integer\"},\"users\":{\"items\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"id\",\"team_id\",\"is_usergroup\",\"is_subteam\",\"name\",\"description\",\"handle\",\"is_external\",\"date_create\",\"date_update\",\"date_delete\",\"auto_type\",\"auto_provision\",\"enterprise_subteam_id\",\"created_by\",\"updated_by\",\"deleted_by\",\"prefs\"],\"title\":\"Subteam/Usergroup Object\",\"type\":\"object\"}},\"required\":[\"ok\",\"usergroup\"],\"title\":\"usergroups.update schema\",\"type\":\"object\"}},\"default\":{\"description\":\"Typical error response\",\"examples\":{\"application/json\":{\"error\":\"invalid_auth\",\"ok\":false}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for error response from usergroups.update method\",\"properties\":{\"callstack\":{\"description\":\"Note: PHP callstack is only visible in dev/qa\",\"type\":\"string\"},\"error\":{\"enum\":[\"permission_denied\",\"not_authed\",\"invalid_auth\",\"account_inactive\",\"token_revoked\",\"no_permission\",\"org_login_required\",\"user_is_bot\",\"user_is_restricted\",\"invalid_arg_name\",\"invalid_array_arg\",\"invalid_charset\",\"invalid_form_data\",\"invalid_post_type\",\"missing_post_type\",\"team_added_to_org\",\"invalid_json\",\"json_not_object\",\"request_timeout\",\"upgrade_require\",\"fatal_error\",\"missing_charset\",\"superfluous_charset\"],\"type\":\"string\"},\"ok\":{\"enum\":[false],\"title\":\"default failure response\",\"type\":\"boolean\"}},\"required\":[\"ok\",\"error\"],\"title\":\"usergroups.update error schema\",\"type\":\"object\"}}},\"security\":[{\"slackAuth\":[\"usergroups:write\"]}],\"securitySchemes\":{\"slackAuth\":{\"authorizationUrl\":\"https://slack.com/oauth/authorize\",\"flow\":\"accessCode\",\"scopes\":{\"admin\":\"admin\",\"admin.apps:read\":\"admin.apps:read\",\"admin.apps:write\":\"admin.apps:write\",\"admin.conversations:read\":\"admin.conversations:read\",\"admin.conversations:write\":\"admin.conversations:write\",\"admin.invites:read\":\"admin.invites:read\",\"admin.invites:write\":\"admin.invites:write\",\"admin.teams:read\":\"admin.teams:read\",\"admin.teams:write\":\"admin.teams:write\",\"admin.usergroups:read\":\"admin.usergroups:read\",\"admin.usergroups:write\":\"admin.usergroups:write\",\"admin.users:read\":\"admin.users:read\",\"admin.users:write\":\"admin.users:write\",\"authorizations:read\":\"authorizations:read\",\"bot\":\"Bot user scope\",\"calls:read\":\"calls:read\",\"calls:write\":\"calls:write\",\"channels:history\":\"channels:history\",\"channels:manage\":\"channels:manage\",\"channels:read\":\"channels:read\",\"channels:write\":\"channels:write\",\"chat:write\":\"chat:write\",\"chat:write:bot\":\"Author messages as a bot\",\"chat:write:user\":\"Author messages as a user\",\"conversations:history\":\"conversations:history\",\"conversations:read\":\"conversations:read\",\"conversations:write\":\"conversations:write\",\"dnd:read\":\"dnd:read\",\"dnd:write\":\"dnd:write\",\"emoji:read\":\"emoji:read\",\"files:read\":\"files:read\",\"files:write:user\":\"files:write:user\",\"groups:history\":\"groups:history\",\"groups:read\":\"groups:read\",\"groups:write\":\"groups:write\",\"identity.basic\":\"identity.basic\",\"im:history\":\"im:history\",\"im:read\":\"im:read\",\"im:write\":\"im:write\",\"links:write\":\"links:write\",\"mpim:history\":\"mpim:history\",\"mpim:read\":\"mpim:read\",\"mpim:write\":\"mpim:write\",\"none\":\"No scope required\",\"pins:read\":\"pins:read\",\"pins:write\":\"pins:write\",\"reactions:read\":\"reactions:read\",\"reactions:write\":\"reactions:write\",\"reminders:read\":\"reminders:read\",\"reminders:write\":\"reminders:write\",\"remote_files:read\":\"remote_files:read\",\"remote_files:share\":\"remote_files:share\",\"remote_files:write\":\"remote_files:write\",\"rtm:stream\":\"rtm:stream\",\"search:read\":\"search:read\",\"stars:read\":\"stars:read\",\"stars:write\":\"stars:write\",\"team:read\":\"team:read\",\"tokens.basic\":\"tokens.basic\",\"usergroups:read\":\"usergroups:read\",\"usergroups:write\":\"usergroups:write\",\"users.profile:read\":\"users.profile:read\",\"users.profile:write\":\"users.profile:write\",\"users:read\":\"users:read\",\"users:read.email\":\"users:read.email\",\"users:write\":\"users:write\",\"workflow.steps:execute\":\"workflow.steps:execute\"},\"tokenUrl\":\"https://slack.com/api/oauth.access\",\"type\":\"oauth2\"}},\"securitySource\":\"operation\"}"
+            source: "swagger2"
+            version: 1
+          }
+          method: "POST"
+          orig: "/usergroups.update"
+          segments: [
+            {
+              lit: "usergroups.update"
+            }
+          ]
+          select: {
+            exist: [
+              "channel"
+              "description"
+              "handle"
+              "include_count"
+              "name"
+              "token"
+              "usergroup"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.usergroup`"
+          }
+        }
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "token"
+                orig: "token"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "channel"
+                orig: "channel"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "description"
+                orig: "description"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "handle"
+                orig: "handle"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "include_count"
+                orig: "include_count"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          contract: {
+            id: "POST /usergroups.create"
+            json: "{\"consumes\":[\"application/x-www-form-urlencoded\",\"application/json\"],\"operationId\":\"usergroups_create\",\"parameters\":[{\"description\":\"Authentication token. Requires scope: `usergroups:write`\",\"in\":\"header\",\"name\":\"token\",\"required\":true,\"type\":\"string\"},{\"description\":\"A comma separated string of encoded channel IDs for which the User Group uses as a default.\",\"in\":\"formData\",\"name\":\"channels\",\"type\":\"string\"},{\"description\":\"A short description of the User Group.\",\"in\":\"formData\",\"name\":\"description\",\"type\":\"string\"},{\"description\":\"A mention handle. Must be unique among channels, users and User Groups.\",\"in\":\"formData\",\"name\":\"handle\",\"type\":\"string\"},{\"description\":\"Include the number of users in each User Group.\",\"in\":\"formData\",\"name\":\"include_count\",\"type\":\"boolean\"},{\"description\":\"A name for the User Group. Must be unique among User Groups.\",\"in\":\"formData\",\"name\":\"name\",\"required\":true,\"type\":\"string\"}],\"produces\":[\"application/json\"],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"Typical success response\",\"examples\":{\"application/json\":{\"ok\":true}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for successful response from usergroups.create method\",\"properties\":{\"ok\":{\"enum\":[true],\"title\":\"default success response\",\"type\":\"boolean\"},\"usergroup\":{\"additionalProperties\":false,\"properties\":{\"auto_provision\":{\"type\":\"boolean\"},\"auto_type\":{\"items\":[{\"type\":\"null\"},{\"enum\":[\"owner\",\"admin\"],\"type\":\"string\"}]},\"channel_count\":{\"type\":\"integer\"},\"created_by\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"date_create\":{\"type\":\"integer\"},\"date_delete\":{\"type\":\"integer\"},\"date_update\":{\"type\":\"integer\"},\"deleted_by\":{\"items\":[{\"type\":\"null\"},{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"}]},\"description\":{\"type\":\"string\"},\"enterprise_subteam_id\":{\"type\":\"string\"},\"handle\":{\"type\":\"string\"},\"id\":{\"pattern\":\"^S[A-Z0-9]{2,}$\",\"title\":\"Subteam ID\",\"type\":\"string\"},\"is_external\":{\"type\":\"boolean\"},\"is_subteam\":{\"type\":\"boolean\"},\"is_usergroup\":{\"type\":\"boolean\"},\"name\":{\"type\":\"string\"},\"prefs\":{\"additionalProperties\":false,\"properties\":{\"channels\":{\"items\":{\"pattern\":\"^[C][A-Z0-9]{2,}$\",\"title\":\"Channel ID\",\"type\":\"string\"},\"type\":\"array\"},\"groups\":{\"items\":{\"pattern\":\"^[G][A-Z0-9]{8,}$\",\"title\":\"Private Channel ID\",\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"channels\",\"groups\"],\"type\":\"object\"},\"team_id\":{\"pattern\":\"^[T][A-Z0-9]{2,}$\",\"title\":\"Team ID\",\"type\":\"string\"},\"updated_by\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"user_count\":{\"type\":\"integer\"},\"users\":{\"items\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"id\",\"team_id\",\"is_usergroup\",\"is_subteam\",\"name\",\"description\",\"handle\",\"is_external\",\"date_create\",\"date_update\",\"date_delete\",\"auto_type\",\"auto_provision\",\"enterprise_subteam_id\",\"created_by\",\"updated_by\",\"deleted_by\",\"prefs\"],\"title\":\"Subteam/Usergroup Object\",\"type\":\"object\"}},\"required\":[\"ok\",\"usergroup\"],\"title\":\"usergroups.create schema\",\"type\":\"object\"}},\"default\":{\"description\":\"Typical error response\",\"examples\":{\"application/json\":{\"error\":\"invalid_auth\",\"ok\":false}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for error response from usergroups.create method\",\"properties\":{\"callstack\":{\"description\":\"Note: PHP callstack is only visible in dev/qa\",\"type\":\"string\"},\"error\":{\"enum\":[\"permission_denied\",\"not_authed\",\"invalid_auth\",\"account_inactive\",\"token_revoked\",\"no_permission\",\"org_login_required\",\"user_is_bot\",\"user_is_restricted\",\"invalid_arg_name\",\"invalid_array_arg\",\"invalid_charset\",\"invalid_form_data\",\"invalid_post_type\",\"missing_post_type\",\"team_added_to_org\",\"invalid_json\",\"json_not_object\",\"request_timeout\",\"upgrade_required\",\"fatal_error\"],\"type\":\"string\"},\"ok\":{\"enum\":[false],\"title\":\"default failure response\",\"type\":\"boolean\"}},\"required\":[\"ok\",\"error\"],\"title\":\"usergroups.create error schema\",\"type\":\"object\"}}},\"security\":[{\"slackAuth\":[\"usergroups:write\"]}],\"securitySchemes\":{\"slackAuth\":{\"authorizationUrl\":\"https://slack.com/oauth/authorize\",\"flow\":\"accessCode\",\"scopes\":{\"admin\":\"admin\",\"admin.apps:read\":\"admin.apps:read\",\"admin.apps:write\":\"admin.apps:write\",\"admin.conversations:read\":\"admin.conversations:read\",\"admin.conversations:write\":\"admin.conversations:write\",\"admin.invites:read\":\"admin.invites:read\",\"admin.invites:write\":\"admin.invites:write\",\"admin.teams:read\":\"admin.teams:read\",\"admin.teams:write\":\"admin.teams:write\",\"admin.usergroups:read\":\"admin.usergroups:read\",\"admin.usergroups:write\":\"admin.usergroups:write\",\"admin.users:read\":\"admin.users:read\",\"admin.users:write\":\"admin.users:write\",\"authorizations:read\":\"authorizations:read\",\"bot\":\"Bot user scope\",\"calls:read\":\"calls:read\",\"calls:write\":\"calls:write\",\"channels:history\":\"channels:history\",\"channels:manage\":\"channels:manage\",\"channels:read\":\"channels:read\",\"channels:write\":\"channels:write\",\"chat:write\":\"chat:write\",\"chat:write:bot\":\"Author messages as a bot\",\"chat:write:user\":\"Author messages as a user\",\"conversations:history\":\"conversations:history\",\"conversations:read\":\"conversations:read\",\"conversations:write\":\"conversations:write\",\"dnd:read\":\"dnd:read\",\"dnd:write\":\"dnd:write\",\"emoji:read\":\"emoji:read\",\"files:read\":\"files:read\",\"files:write:user\":\"files:write:user\",\"groups:history\":\"groups:history\",\"groups:read\":\"groups:read\",\"groups:write\":\"groups:write\",\"identity.basic\":\"identity.basic\",\"im:history\":\"im:history\",\"im:read\":\"im:read\",\"im:write\":\"im:write\",\"links:write\":\"links:write\",\"mpim:history\":\"mpim:history\",\"mpim:read\":\"mpim:read\",\"mpim:write\":\"mpim:write\",\"none\":\"No scope required\",\"pins:read\":\"pins:read\",\"pins:write\":\"pins:write\",\"reactions:read\":\"reactions:read\",\"reactions:write\":\"reactions:write\",\"reminders:read\":\"reminders:read\",\"reminders:write\":\"reminders:write\",\"remote_files:read\":\"remote_files:read\",\"remote_files:share\":\"remote_files:share\",\"remote_files:write\":\"remote_files:write\",\"rtm:stream\":\"rtm:stream\",\"search:read\":\"search:read\",\"stars:read\":\"stars:read\",\"stars:write\":\"stars:write\",\"team:read\":\"team:read\",\"tokens.basic\":\"tokens.basic\",\"usergroups:read\":\"usergroups:read\",\"usergroups:write\":\"usergroups:write\",\"users.profile:read\":\"users.profile:read\",\"users.profile:write\":\"users.profile:write\",\"users:read\":\"users:read\",\"users:read.email\":\"users:read.email\",\"users:write\":\"users:write\",\"workflow.steps:execute\":\"workflow.steps:execute\"},\"tokenUrl\":\"https://slack.com/api/oauth.access\",\"type\":\"oauth2\"}},\"securitySource\":\"operation\"}"
+            source: "swagger2"
+            version: 1
+          }
+          method: "POST"
+          orig: "/usergroups.create"
+          segments: [
+            {
+              lit: "usergroups.create"
+            }
+          ]
+          select: {
+            exist: [
+              "channel"
+              "description"
+              "handle"
+              "include_count"
+              "name"
+              "token"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.usergroup`"
+          }
+        }
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "token"
+                orig: "token"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "include_count"
+                orig: "include_count"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "usergroup"
+                orig: "usergroup"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          contract: {
+            id: "POST /usergroups.disable"
+            json: "{\"consumes\":[\"application/x-www-form-urlencoded\",\"application/json\"],\"operationId\":\"usergroups_disable\",\"parameters\":[{\"description\":\"Authentication token. Requires scope: `usergroups:write`\",\"in\":\"header\",\"name\":\"token\",\"required\":true,\"type\":\"string\"},{\"description\":\"Include the number of users in the User Group.\",\"in\":\"formData\",\"name\":\"include_count\",\"type\":\"boolean\"},{\"description\":\"The encoded ID of the User Group to disable.\",\"in\":\"formData\",\"name\":\"usergroup\",\"required\":true,\"type\":\"string\"}],\"produces\":[\"application/json\"],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"Typical success response\",\"examples\":{\"application/json\":{\"ok\":true}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for successful response from usergroups.disable method\",\"properties\":{\"ok\":{\"enum\":[true],\"title\":\"default success response\",\"type\":\"boolean\"},\"usergroup\":{\"additionalProperties\":false,\"properties\":{\"auto_provision\":{\"type\":\"boolean\"},\"auto_type\":{\"items\":[{\"type\":\"null\"},{\"enum\":[\"owner\",\"admin\"],\"type\":\"string\"}]},\"channel_count\":{\"type\":\"integer\"},\"created_by\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"date_create\":{\"type\":\"integer\"},\"date_delete\":{\"type\":\"integer\"},\"date_update\":{\"type\":\"integer\"},\"deleted_by\":{\"items\":[{\"type\":\"null\"},{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"}]},\"description\":{\"type\":\"string\"},\"enterprise_subteam_id\":{\"type\":\"string\"},\"handle\":{\"type\":\"string\"},\"id\":{\"pattern\":\"^S[A-Z0-9]{2,}$\",\"title\":\"Subteam ID\",\"type\":\"string\"},\"is_external\":{\"type\":\"boolean\"},\"is_subteam\":{\"type\":\"boolean\"},\"is_usergroup\":{\"type\":\"boolean\"},\"name\":{\"type\":\"string\"},\"prefs\":{\"additionalProperties\":false,\"properties\":{\"channels\":{\"items\":{\"pattern\":\"^[C][A-Z0-9]{2,}$\",\"title\":\"Channel ID\",\"type\":\"string\"},\"type\":\"array\"},\"groups\":{\"items\":{\"pattern\":\"^[G][A-Z0-9]{8,}$\",\"title\":\"Private Channel ID\",\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"channels\",\"groups\"],\"type\":\"object\"},\"team_id\":{\"pattern\":\"^[T][A-Z0-9]{2,}$\",\"title\":\"Team ID\",\"type\":\"string\"},\"updated_by\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"user_count\":{\"type\":\"integer\"},\"users\":{\"items\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"id\",\"team_id\",\"is_usergroup\",\"is_subteam\",\"name\",\"description\",\"handle\",\"is_external\",\"date_create\",\"date_update\",\"date_delete\",\"auto_type\",\"auto_provision\",\"enterprise_subteam_id\",\"created_by\",\"updated_by\",\"deleted_by\",\"prefs\"],\"title\":\"Subteam/Usergroup Object\",\"type\":\"object\"}},\"required\":[\"ok\",\"usergroup\"],\"title\":\"usergroups.disable schema\",\"type\":\"object\"}},\"default\":{\"description\":\"Typical error response\",\"examples\":{\"application/json\":{\"error\":\"invalid_auth\",\"ok\":false}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for error response from usergroups.disable method\",\"properties\":{\"callstack\":{\"description\":\"Note: PHP callstack is only visible in dev/qa\",\"type\":\"string\"},\"error\":{\"enum\":[\"permission_denied\",\"not_authed\",\"invalid_auth\",\"account_inactive\",\"token_revoked\",\"no_permission\",\"org_login_required\",\"user_is_bot\",\"user_is_restricted\",\"invalid_arg_name\",\"invalid_array_arg\",\"invalid_charset\",\"invalid_form_data\",\"invalid_post_type\",\"missing_post_type\",\"team_added_to_org\",\"invalid_json\",\"json_not_object\",\"request_timeout\",\"upgrade_required\",\"fatal_error\"],\"type\":\"string\"},\"ok\":{\"enum\":[false],\"title\":\"default failure response\",\"type\":\"boolean\"}},\"required\":[\"ok\",\"error\"],\"title\":\"usergroups.disable error schema\",\"type\":\"object\"}}},\"security\":[{\"slackAuth\":[\"usergroups:write\"]}],\"securitySchemes\":{\"slackAuth\":{\"authorizationUrl\":\"https://slack.com/oauth/authorize\",\"flow\":\"accessCode\",\"scopes\":{\"admin\":\"admin\",\"admin.apps:read\":\"admin.apps:read\",\"admin.apps:write\":\"admin.apps:write\",\"admin.conversations:read\":\"admin.conversations:read\",\"admin.conversations:write\":\"admin.conversations:write\",\"admin.invites:read\":\"admin.invites:read\",\"admin.invites:write\":\"admin.invites:write\",\"admin.teams:read\":\"admin.teams:read\",\"admin.teams:write\":\"admin.teams:write\",\"admin.usergroups:read\":\"admin.usergroups:read\",\"admin.usergroups:write\":\"admin.usergroups:write\",\"admin.users:read\":\"admin.users:read\",\"admin.users:write\":\"admin.users:write\",\"authorizations:read\":\"authorizations:read\",\"bot\":\"Bot user scope\",\"calls:read\":\"calls:read\",\"calls:write\":\"calls:write\",\"channels:history\":\"channels:history\",\"channels:manage\":\"channels:manage\",\"channels:read\":\"channels:read\",\"channels:write\":\"channels:write\",\"chat:write\":\"chat:write\",\"chat:write:bot\":\"Author messages as a bot\",\"chat:write:user\":\"Author messages as a user\",\"conversations:history\":\"conversations:history\",\"conversations:read\":\"conversations:read\",\"conversations:write\":\"conversations:write\",\"dnd:read\":\"dnd:read\",\"dnd:write\":\"dnd:write\",\"emoji:read\":\"emoji:read\",\"files:read\":\"files:read\",\"files:write:user\":\"files:write:user\",\"groups:history\":\"groups:history\",\"groups:read\":\"groups:read\",\"groups:write\":\"groups:write\",\"identity.basic\":\"identity.basic\",\"im:history\":\"im:history\",\"im:read\":\"im:read\",\"im:write\":\"im:write\",\"links:write\":\"links:write\",\"mpim:history\":\"mpim:history\",\"mpim:read\":\"mpim:read\",\"mpim:write\":\"mpim:write\",\"none\":\"No scope required\",\"pins:read\":\"pins:read\",\"pins:write\":\"pins:write\",\"reactions:read\":\"reactions:read\",\"reactions:write\":\"reactions:write\",\"reminders:read\":\"reminders:read\",\"reminders:write\":\"reminders:write\",\"remote_files:read\":\"remote_files:read\",\"remote_files:share\":\"remote_files:share\",\"remote_files:write\":\"remote_files:write\",\"rtm:stream\":\"rtm:stream\",\"search:read\":\"search:read\",\"stars:read\":\"stars:read\",\"stars:write\":\"stars:write\",\"team:read\":\"team:read\",\"tokens.basic\":\"tokens.basic\",\"usergroups:read\":\"usergroups:read\",\"usergroups:write\":\"usergroups:write\",\"users.profile:read\":\"users.profile:read\",\"users.profile:write\":\"users.profile:write\",\"users:read\":\"users:read\",\"users:read.email\":\"users:read.email\",\"users:write\":\"users:write\",\"workflow.steps:execute\":\"workflow.steps:execute\"},\"tokenUrl\":\"https://slack.com/api/oauth.access\",\"type\":\"oauth2\"}},\"securitySource\":\"operation\"}"
+            source: "swagger2"
+            version: 1
+          }
+          method: "POST"
+          orig: "/usergroups.disable"
+          segments: [
+            {
+              lit: "usergroups.disable"
+            }
+          ]
+          select: {
+            exist: [
+              "include_count"
+              "token"
+              "usergroup"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.usergroup`"
+          }
+        }
+        {
+          args: {
+            header: [
+              {
+                kind: "header"
+                name: "token"
+                orig: "token"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                kind: "query"
+                name: "include_count"
+                orig: "include_count"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "usergroup"
+                orig: "usergroup"
+                reqd: true
+                type: "`$ANY`"
+              }
+            ]
+          }
+          contract: {
+            id: "POST /usergroups.enable"
+            json: "{\"consumes\":[\"application/x-www-form-urlencoded\",\"application/json\"],\"operationId\":\"usergroups_enable\",\"parameters\":[{\"description\":\"Authentication token. Requires scope: `usergroups:write`\",\"in\":\"header\",\"name\":\"token\",\"required\":true,\"type\":\"string\"},{\"description\":\"Include the number of users in the User Group.\",\"in\":\"formData\",\"name\":\"include_count\",\"type\":\"boolean\"},{\"description\":\"The encoded ID of the User Group to enable.\",\"in\":\"formData\",\"name\":\"usergroup\",\"required\":true,\"type\":\"string\"}],\"produces\":[\"application/json\"],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"Typical success response\",\"examples\":{\"application/json\":{\"ok\":true}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for successful response from usergroups.enable method\",\"properties\":{\"ok\":{\"enum\":[true],\"title\":\"default success response\",\"type\":\"boolean\"},\"usergroup\":{\"additionalProperties\":false,\"properties\":{\"auto_provision\":{\"type\":\"boolean\"},\"auto_type\":{\"items\":[{\"type\":\"null\"},{\"enum\":[\"owner\",\"admin\"],\"type\":\"string\"}]},\"channel_count\":{\"type\":\"integer\"},\"created_by\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"date_create\":{\"type\":\"integer\"},\"date_delete\":{\"type\":\"integer\"},\"date_update\":{\"type\":\"integer\"},\"deleted_by\":{\"items\":[{\"type\":\"null\"},{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"}]},\"description\":{\"type\":\"string\"},\"enterprise_subteam_id\":{\"type\":\"string\"},\"handle\":{\"type\":\"string\"},\"id\":{\"pattern\":\"^S[A-Z0-9]{2,}$\",\"title\":\"Subteam ID\",\"type\":\"string\"},\"is_external\":{\"type\":\"boolean\"},\"is_subteam\":{\"type\":\"boolean\"},\"is_usergroup\":{\"type\":\"boolean\"},\"name\":{\"type\":\"string\"},\"prefs\":{\"additionalProperties\":false,\"properties\":{\"channels\":{\"items\":{\"pattern\":\"^[C][A-Z0-9]{2,}$\",\"title\":\"Channel ID\",\"type\":\"string\"},\"type\":\"array\"},\"groups\":{\"items\":{\"pattern\":\"^[G][A-Z0-9]{8,}$\",\"title\":\"Private Channel ID\",\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"channels\",\"groups\"],\"type\":\"object\"},\"team_id\":{\"pattern\":\"^[T][A-Z0-9]{2,}$\",\"title\":\"Team ID\",\"type\":\"string\"},\"updated_by\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"user_count\":{\"type\":\"integer\"},\"users\":{\"items\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"id\",\"team_id\",\"is_usergroup\",\"is_subteam\",\"name\",\"description\",\"handle\",\"is_external\",\"date_create\",\"date_update\",\"date_delete\",\"auto_type\",\"auto_provision\",\"enterprise_subteam_id\",\"created_by\",\"updated_by\",\"deleted_by\",\"prefs\"],\"title\":\"Subteam/Usergroup Object\",\"type\":\"object\"}},\"required\":[\"ok\",\"usergroup\"],\"title\":\"usergroups.enable schema\",\"type\":\"object\"}},\"default\":{\"description\":\"Typical error response\",\"examples\":{\"application/json\":{\"error\":\"invalid_auth\",\"ok\":false}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for error response from usergroups.enable method\",\"properties\":{\"callstack\":{\"description\":\"Note: PHP callstack is only visible in dev/qa\",\"type\":\"string\"},\"error\":{\"enum\":[\"not_authed\",\"invalid_auth\",\"account_inactive\",\"token_revoked\",\"no_permission\",\"org_login_required\",\"user_is_bot\",\"user_is_restricted\",\"invalid_arg_name\",\"invalid_array_arg\",\"invalid_charset\",\"invalid_form_data\",\"invalid_post_type\",\"missing_post_type\",\"team_added_to_org\",\"invalid_json\",\"json_not_object\",\"request_timeout\",\"upgrade_require\",\"fatal_error\",\"missing_charset\",\"superfluous_charset\"],\"type\":\"string\"},\"ok\":{\"enum\":[false],\"title\":\"default failure response\",\"type\":\"boolean\"}},\"required\":[\"ok\",\"error\"],\"title\":\"usergroups.enable error schema\",\"type\":\"object\"}}},\"security\":[{\"slackAuth\":[\"usergroups:write\"]}],\"securitySchemes\":{\"slackAuth\":{\"authorizationUrl\":\"https://slack.com/oauth/authorize\",\"flow\":\"accessCode\",\"scopes\":{\"admin\":\"admin\",\"admin.apps:read\":\"admin.apps:read\",\"admin.apps:write\":\"admin.apps:write\",\"admin.conversations:read\":\"admin.conversations:read\",\"admin.conversations:write\":\"admin.conversations:write\",\"admin.invites:read\":\"admin.invites:read\",\"admin.invites:write\":\"admin.invites:write\",\"admin.teams:read\":\"admin.teams:read\",\"admin.teams:write\":\"admin.teams:write\",\"admin.usergroups:read\":\"admin.usergroups:read\",\"admin.usergroups:write\":\"admin.usergroups:write\",\"admin.users:read\":\"admin.users:read\",\"admin.users:write\":\"admin.users:write\",\"authorizations:read\":\"authorizations:read\",\"bot\":\"Bot user scope\",\"calls:read\":\"calls:read\",\"calls:write\":\"calls:write\",\"channels:history\":\"channels:history\",\"channels:manage\":\"channels:manage\",\"channels:read\":\"channels:read\",\"channels:write\":\"channels:write\",\"chat:write\":\"chat:write\",\"chat:write:bot\":\"Author messages as a bot\",\"chat:write:user\":\"Author messages as a user\",\"conversations:history\":\"conversations:history\",\"conversations:read\":\"conversations:read\",\"conversations:write\":\"conversations:write\",\"dnd:read\":\"dnd:read\",\"dnd:write\":\"dnd:write\",\"emoji:read\":\"emoji:read\",\"files:read\":\"files:read\",\"files:write:user\":\"files:write:user\",\"groups:history\":\"groups:history\",\"groups:read\":\"groups:read\",\"groups:write\":\"groups:write\",\"identity.basic\":\"identity.basic\",\"im:history\":\"im:history\",\"im:read\":\"im:read\",\"im:write\":\"im:write\",\"links:write\":\"links:write\",\"mpim:history\":\"mpim:history\",\"mpim:read\":\"mpim:read\",\"mpim:write\":\"mpim:write\",\"none\":\"No scope required\",\"pins:read\":\"pins:read\",\"pins:write\":\"pins:write\",\"reactions:read\":\"reactions:read\",\"reactions:write\":\"reactions:write\",\"reminders:read\":\"reminders:read\",\"reminders:write\":\"reminders:write\",\"remote_files:read\":\"remote_files:read\",\"remote_files:share\":\"remote_files:share\",\"remote_files:write\":\"remote_files:write\",\"rtm:stream\":\"rtm:stream\",\"search:read\":\"search:read\",\"stars:read\":\"stars:read\",\"stars:write\":\"stars:write\",\"team:read\":\"team:read\",\"tokens.basic\":\"tokens.basic\",\"usergroups:read\":\"usergroups:read\",\"usergroups:write\":\"usergroups:write\",\"users.profile:read\":\"users.profile:read\",\"users.profile:write\":\"users.profile:write\",\"users:read\":\"users:read\",\"users:read.email\":\"users:read.email\",\"users:write\":\"users:write\",\"workflow.steps:execute\":\"workflow.steps:execute\"},\"tokenUrl\":\"https://slack.com/api/oauth.access\",\"type\":\"oauth2\"}},\"securitySource\":\"operation\"}"
+            source: "swagger2"
+            version: 1
+          }
+          method: "POST"
+          orig: "/usergroups.enable"
+          segments: [
+            {
+              lit: "usergroups.enable"
+            }
+          ]
+          select: {
+            exist: [
+              "include_count"
+              "token"
+              "usergroup"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.usergroup`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "include_count"
+                orig: "include_count"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "include_disabled"
+                orig: "include_disabled"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "include_user"
+                orig: "include_user"
+                reqd: false
+                type: "`$ANY`"
+              }
+              {
+                kind: "query"
+                name: "token"
+                orig: "token"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          contract: {
+            id: "GET /usergroups.list"
+            json: "{\"consumes\":[\"application/x-www-form-urlencoded\"],\"operationId\":\"usergroups_list\",\"parameters\":[{\"description\":\"Include the list of users for each User Group.\",\"in\":\"query\",\"name\":\"include_users\",\"type\":\"boolean\"},{\"description\":\"Authentication token. Requires scope: `usergroups:read`\",\"in\":\"query\",\"name\":\"token\",\"required\":true,\"type\":\"string\"},{\"description\":\"Include the number of users in each User Group.\",\"in\":\"query\",\"name\":\"include_count\",\"type\":\"boolean\"},{\"description\":\"Include disabled User Groups.\",\"in\":\"query\",\"name\":\"include_disabled\",\"type\":\"boolean\"}],\"produces\":[\"application/json\"],\"protocol\":\"http\",\"responses\":{\"200\":{\"description\":\"Typical success response\",\"examples\":{\"application/json\":{\"ok\":true,\"usergroups\":[{\"auto_type\":\"admin\",\"created_by\":\"USLACKBOT\",\"date_create\":1446598059,\"date_delete\":0,\"date_update\":1446670362,\"deleted_by\":null,\"description\":\"A group of all Administrators on your team.\",\"handle\":\"admins\",\"id\":\"S0614TZR7\",\"is_external\":false,\"is_usergroup\":true,\"name\":\"Team Admins\",\"prefs\":{\"channels\":[],\"groups\":[]},\"team_id\":\"T060RNRCH\",\"updated_by\":\"U060RNRCZ\",\"user_count\":\"2\"},{\"auto_type\":\"owner\",\"created_by\":\"USLACKBOT\",\"date_create\":1446678371,\"date_delete\":0,\"date_update\":1446678371,\"deleted_by\":null,\"description\":\"A group of all Owners on your team.\",\"handle\":\"owners\",\"id\":\"S06158AV7\",\"is_external\":false,\"is_usergroup\":true,\"name\":\"Team Owners\",\"prefs\":{\"channels\":[],\"groups\":[]},\"team_id\":\"T060RNRCH\",\"updated_by\":\"USLACKBOT\",\"user_count\":\"1\"},{\"auto_type\":null,\"created_by\":\"U060RNRCZ\",\"date_create\":1446746793,\"date_delete\":1446748865,\"date_update\":1446747767,\"deleted_by\":null,\"description\":\"Marketing gurus, PR experts and product advocates.\",\"handle\":\"marketing-team\",\"id\":\"S0615G0KT\",\"is_external\":false,\"is_usergroup\":true,\"name\":\"Marketing Team\",\"prefs\":{\"channels\":[],\"groups\":[]},\"team_id\":\"T060RNRCH\",\"updated_by\":\"U060RNRCZ\",\"user_count\":\"0\"}]}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for successful response from usergroups.list method\",\"properties\":{\"ok\":{\"enum\":[true],\"title\":\"default success response\",\"type\":\"boolean\"},\"usergroups\":{\"items\":{\"additionalProperties\":false,\"properties\":{\"auto_provision\":{\"type\":\"boolean\"},\"auto_type\":{\"items\":[{\"type\":\"null\"},{\"enum\":[\"owner\",\"admin\"],\"type\":\"string\"}]},\"channel_count\":{\"type\":\"integer\"},\"created_by\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"date_create\":{\"type\":\"integer\"},\"date_delete\":{\"type\":\"integer\"},\"date_update\":{\"type\":\"integer\"},\"deleted_by\":{\"items\":[{\"type\":\"null\"},{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"}]},\"description\":{\"type\":\"string\"},\"enterprise_subteam_id\":{\"type\":\"string\"},\"handle\":{\"type\":\"string\"},\"id\":{\"pattern\":\"^S[A-Z0-9]{2,}$\",\"title\":\"Subteam ID\",\"type\":\"string\"},\"is_external\":{\"type\":\"boolean\"},\"is_subteam\":{\"type\":\"boolean\"},\"is_usergroup\":{\"type\":\"boolean\"},\"name\":{\"type\":\"string\"},\"prefs\":{\"additionalProperties\":false,\"properties\":{\"channels\":{\"items\":{\"pattern\":\"^[C][A-Z0-9]{2,}$\",\"title\":\"Channel ID\",\"type\":\"string\"},\"type\":\"array\"},\"groups\":{\"items\":{\"pattern\":\"^[G][A-Z0-9]{8,}$\",\"title\":\"Private Channel ID\",\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"channels\",\"groups\"],\"type\":\"object\"},\"team_id\":{\"pattern\":\"^[T][A-Z0-9]{2,}$\",\"title\":\"Team ID\",\"type\":\"string\"},\"updated_by\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"user_count\":{\"type\":\"integer\"},\"users\":{\"items\":{\"pattern\":\"^[UW][A-Z0-9]{2,}$\",\"title\":\"User ID\",\"type\":\"string\"},\"type\":\"array\"}},\"required\":[\"id\",\"team_id\",\"is_usergroup\",\"is_subteam\",\"name\",\"description\",\"handle\",\"is_external\",\"date_create\",\"date_update\",\"date_delete\",\"auto_type\",\"auto_provision\",\"enterprise_subteam_id\",\"created_by\",\"updated_by\",\"deleted_by\",\"prefs\"],\"title\":\"Subteam/Usergroup Object\",\"type\":\"object\"},\"type\":\"array\"}},\"required\":[\"ok\",\"usergroups\"],\"title\":\"usergroups.list schema\",\"type\":\"object\"}},\"default\":{\"description\":\"Typical error response\",\"examples\":{\"application/json\":{\"error\":\"invalid_auth\",\"ok\":false}},\"schema\":{\"additionalProperties\":false,\"description\":\"Schema for error response from usergroups.list method\",\"properties\":{\"callstack\":{\"description\":\"Note: PHP callstack is only visible in dev/qa\",\"type\":\"string\"},\"error\":{\"enum\":[\"not_authed\",\"invalid_auth\",\"account_inactive\",\"token_revoked\",\"no_permission\",\"org_login_required\",\"user_is_bot\",\"user_is_restricted\",\"invalid_arg_name\",\"invalid_array_arg\",\"invalid_charset\",\"invalid_form_data\",\"invalid_post_type\",\"missing_post_type\",\"team_added_to_org\",\"invalid_json\",\"json_not_object\",\"request_timeout\",\"upgrade_require\",\"fatal_error\",\"missing_charset\",\"superfluous_charset\"],\"type\":\"string\"},\"ok\":{\"enum\":[false],\"title\":\"default failure response\",\"type\":\"boolean\"}},\"required\":[\"ok\",\"error\"],\"title\":\"usergroups.list error schema\",\"type\":\"object\"}}},\"security\":[{\"slackAuth\":[\"usergroups:read\"]}],\"securitySchemes\":{\"slackAuth\":{\"authorizationUrl\":\"https://slack.com/oauth/authorize\",\"flow\":\"accessCode\",\"scopes\":{\"admin\":\"admin\",\"admin.apps:read\":\"admin.apps:read\",\"admin.apps:write\":\"admin.apps:write\",\"admin.conversations:read\":\"admin.conversations:read\",\"admin.conversations:write\":\"admin.conversations:write\",\"admin.invites:read\":\"admin.invites:read\",\"admin.invites:write\":\"admin.invites:write\",\"admin.teams:read\":\"admin.teams:read\",\"admin.teams:write\":\"admin.teams:write\",\"admin.usergroups:read\":\"admin.usergroups:read\",\"admin.usergroups:write\":\"admin.usergroups:write\",\"admin.users:read\":\"admin.users:read\",\"admin.users:write\":\"admin.users:write\",\"authorizations:read\":\"authorizations:read\",\"bot\":\"Bot user scope\",\"calls:read\":\"calls:read\",\"calls:write\":\"calls:write\",\"channels:history\":\"channels:history\",\"channels:manage\":\"channels:manage\",\"channels:read\":\"channels:read\",\"channels:write\":\"channels:write\",\"chat:write\":\"chat:write\",\"chat:write:bot\":\"Author messages as a bot\",\"chat:write:user\":\"Author messages as a user\",\"conversations:history\":\"conversations:history\",\"conversations:read\":\"conversations:read\",\"conversations:write\":\"conversations:write\",\"dnd:read\":\"dnd:read\",\"dnd:write\":\"dnd:write\",\"emoji:read\":\"emoji:read\",\"files:read\":\"files:read\",\"files:write:user\":\"files:write:user\",\"groups:history\":\"groups:history\",\"groups:read\":\"groups:read\",\"groups:write\":\"groups:write\",\"identity.basic\":\"identity.basic\",\"im:history\":\"im:history\",\"im:read\":\"im:read\",\"im:write\":\"im:write\",\"links:write\":\"links:write\",\"mpim:history\":\"mpim:history\",\"mpim:read\":\"mpim:read\",\"mpim:write\":\"mpim:write\",\"none\":\"No scope required\",\"pins:read\":\"pins:read\",\"pins:write\":\"pins:write\",\"reactions:read\":\"reactions:read\",\"reactions:write\":\"reactions:write\",\"reminders:read\":\"reminders:read\",\"reminders:write\":\"reminders:write\",\"remote_files:read\":\"remote_files:read\",\"remote_files:share\":\"remote_files:share\",\"remote_files:write\":\"remote_files:write\",\"rtm:stream\":\"rtm:stream\",\"search:read\":\"search:read\",\"stars:read\":\"stars:read\",\"stars:write\":\"stars:write\",\"team:read\":\"team:read\",\"tokens.basic\":\"tokens.basic\",\"usergroups:read\":\"usergroups:read\",\"usergroups:write\":\"usergroups:write\",\"users.profile:read\":\"users.profile:read\",\"users.profile:write\":\"users.profile:write\",\"users:read\":\"users:read\",\"users:read.email\":\"users:read.email\",\"users:write\":\"users:write\",\"workflow.steps:execute\":\"workflow.steps:execute\"},\"tokenUrl\":\"https://slack.com/api/oauth.access\",\"type\":\"oauth2\"}},\"securitySource\":\"operation\"}"
+            source: "swagger2"
+            version: 1
+          }
+          method: "GET"
+          orig: "/usergroups.list"
+          segments: [
+            {
+              lit: "usergroups.list"
+            }
+          ]
+          select: {
+            exist: [
+              "include_count"
+              "include_disabled"
+              "include_user"
+              "token"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body.usergroups`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,1063 @@
+{
+  "existing": {
+    "dnd": {
+      "DND00": {
+        "dnd_enabled": true,
+        "next_dnd_end_ts": 71,
+        "next_dnd_start_ts": 72,
+        "ok": false,
+        "snooze_enabled": true,
+        "snooze_endtime": 75,
+        "snooze_remaining": 76,
+        "id": "DND00"
+      },
+      "DND01": {
+        "dnd_enabled": true,
+        "next_dnd_end_ts": 141,
+        "next_dnd_start_ts": 142,
+        "ok": false,
+        "snooze_enabled": true,
+        "snooze_endtime": 145,
+        "snooze_remaining": 146,
+        "id": "DND01"
+      },
+      "DND02": {
+        "dnd_enabled": true,
+        "next_dnd_end_ts": 211,
+        "next_dnd_start_ts": 212,
+        "ok": false,
+        "snooze_enabled": true,
+        "snooze_endtime": 215,
+        "snooze_remaining": 216,
+        "id": "DND02"
+      }
+    }
+  },
+  "new": {
+    "dnd": {
+      "dnd_ref01": {
+        "dnd_enabled": true,
+        "next_dnd_end_ts": 281,
+        "next_dnd_start_ts": 282,
+        "ok": false,
+        "snooze_enabled": true,
+        "snooze_endtime": 285,
+        "snooze_remaining": 286
+      }
+    }
+  },
+  "requests": {
+    "POST /dnd.setSnooze": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "operationId": "dnd_setSnooze",
+        "parameters": [
+          {
+            "description": "Authentication token. Requires scope: `dnd:write`",
+            "in": "formData",
+            "name": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Number of minutes, from now, to snooze until.",
+            "in": "formData",
+            "name": "num_minutes",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Typical success response",
+            "examples": {
+              "application/json": {
+                "ok": true
+              }
+            },
+            "schema": {
+              "additionalProperties": false,
+              "description": "Schema for successful response from dnd.setSnooze method",
+              "properties": {
+                "ok": {
+                  "enum": [
+                    true
+                  ],
+                  "title": "default success response",
+                  "type": "boolean"
+                },
+                "snooze_enabled": {
+                  "type": "boolean"
+                },
+                "snooze_endtime": {
+                  "type": "integer"
+                },
+                "snooze_remaining": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "ok",
+                "snooze_enabled",
+                "snooze_endtime",
+                "snooze_remaining"
+              ],
+              "title": "dnd.setSnooze schema",
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "Typical error response",
+            "examples": {
+              "application/json": {
+                "error": "invalid_auth",
+                "ok": false
+              }
+            },
+            "schema": {
+              "additionalProperties": false,
+              "description": "Schema for error response from dnd.setSnooze method",
+              "properties": {
+                "callstack": {
+                  "description": "Note: PHP callstack is only visible in dev/qa",
+                  "type": "string"
+                },
+                "error": {
+                  "enum": [
+                    "missing_duration",
+                    "snooze_failed",
+                    "not_authed",
+                    "invalid_auth",
+                    "account_inactive",
+                    "token_revoked",
+                    "no_permission",
+                    "org_login_required",
+                    "user_is_bot",
+                    "invalid_arg_name",
+                    "invalid_array_arg",
+                    "invalid_charset",
+                    "invalid_form_data",
+                    "invalid_post_type",
+                    "missing_post_type",
+                    "team_added_to_org",
+                    "invalid_json",
+                    "json_not_object",
+                    "request_timeout",
+                    "upgrade_required",
+                    "too_long",
+                    "fatal_error"
+                  ],
+                  "type": "string"
+                },
+                "ok": {
+                  "enum": [
+                    false
+                  ],
+                  "title": "default failure response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok",
+                "error"
+              ],
+              "title": "dnd.setSnooze error schema",
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "slackAuth": [
+              "dnd:write"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "slackAuth": {
+            "authorizationUrl": "https://slack.com/oauth/authorize",
+            "flow": "accessCode",
+            "scopes": {
+              "admin": "admin",
+              "admin.apps:read": "admin.apps:read",
+              "admin.apps:write": "admin.apps:write",
+              "admin.conversations:read": "admin.conversations:read",
+              "admin.conversations:write": "admin.conversations:write",
+              "admin.invites:read": "admin.invites:read",
+              "admin.invites:write": "admin.invites:write",
+              "admin.teams:read": "admin.teams:read",
+              "admin.teams:write": "admin.teams:write",
+              "admin.usergroups:read": "admin.usergroups:read",
+              "admin.usergroups:write": "admin.usergroups:write",
+              "admin.users:read": "admin.users:read",
+              "admin.users:write": "admin.users:write",
+              "authorizations:read": "authorizations:read",
+              "bot": "Bot user scope",
+              "calls:read": "calls:read",
+              "calls:write": "calls:write",
+              "channels:history": "channels:history",
+              "channels:manage": "channels:manage",
+              "channels:read": "channels:read",
+              "channels:write": "channels:write",
+              "chat:write": "chat:write",
+              "chat:write:bot": "Author messages as a bot",
+              "chat:write:user": "Author messages as a user",
+              "conversations:history": "conversations:history",
+              "conversations:read": "conversations:read",
+              "conversations:write": "conversations:write",
+              "dnd:read": "dnd:read",
+              "dnd:write": "dnd:write",
+              "emoji:read": "emoji:read",
+              "files:read": "files:read",
+              "files:write:user": "files:write:user",
+              "groups:history": "groups:history",
+              "groups:read": "groups:read",
+              "groups:write": "groups:write",
+              "identity.basic": "identity.basic",
+              "im:history": "im:history",
+              "im:read": "im:read",
+              "im:write": "im:write",
+              "links:write": "links:write",
+              "mpim:history": "mpim:history",
+              "mpim:read": "mpim:read",
+              "mpim:write": "mpim:write",
+              "none": "No scope required",
+              "pins:read": "pins:read",
+              "pins:write": "pins:write",
+              "reactions:read": "reactions:read",
+              "reactions:write": "reactions:write",
+              "reminders:read": "reminders:read",
+              "reminders:write": "reminders:write",
+              "remote_files:read": "remote_files:read",
+              "remote_files:share": "remote_files:share",
+              "remote_files:write": "remote_files:write",
+              "rtm:stream": "rtm:stream",
+              "search:read": "search:read",
+              "stars:read": "stars:read",
+              "stars:write": "stars:write",
+              "team:read": "team:read",
+              "tokens.basic": "tokens.basic",
+              "usergroups:read": "usergroups:read",
+              "usergroups:write": "usergroups:write",
+              "users.profile:read": "users.profile:read",
+              "users.profile:write": "users.profile:write",
+              "users:read": "users:read",
+              "users:read.email": "users:read.email",
+              "users:write": "users:write",
+              "workflow.steps:execute": "workflow.steps:execute"
+            },
+            "tokenUrl": "https://slack.com/api/oauth.access",
+            "type": "oauth2"
+          }
+        },
+        "securitySource": "operation"
+      }
+    },
+    "POST /dnd.endDnd": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/x-www-form-urlencoded",
+          "application/json"
+        ],
+        "operationId": "dnd_endDnd",
+        "parameters": [
+          {
+            "description": "Authentication token. Requires scope: `dnd:write`",
+            "in": "header",
+            "name": "token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Typical success response",
+            "examples": {
+              "application/json": {
+                "ok": true
+              }
+            },
+            "schema": {
+              "additionalProperties": false,
+              "description": "Schema for successful response from dnd.endDnd method",
+              "properties": {
+                "ok": {
+                  "enum": [
+                    true
+                  ],
+                  "title": "default success response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok"
+              ],
+              "title": "dnd.endDnd schema",
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "Typical error response",
+            "examples": {
+              "application/json": {
+                "error": "invalid_auth",
+                "ok": false
+              }
+            },
+            "schema": {
+              "additionalProperties": false,
+              "description": "Schema for error response from dnd.endDnd method",
+              "properties": {
+                "callstack": {
+                  "description": "Note: PHP callstack is only visible in dev/qa",
+                  "type": "string"
+                },
+                "error": {
+                  "enum": [
+                    "unknown_error",
+                    "not_authed",
+                    "invalid_auth",
+                    "account_inactive",
+                    "token_revoked",
+                    "no_permission",
+                    "org_login_required",
+                    "user_is_bot",
+                    "invalid_arg_name",
+                    "invalid_array_arg",
+                    "invalid_charset",
+                    "invalid_form_data",
+                    "invalid_post_type",
+                    "missing_post_type",
+                    "team_added_to_org",
+                    "invalid_json",
+                    "json_not_object",
+                    "request_timeout",
+                    "upgrade_required",
+                    "fatal_error"
+                  ],
+                  "type": "string"
+                },
+                "ok": {
+                  "enum": [
+                    false
+                  ],
+                  "title": "default failure response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok",
+                "error"
+              ],
+              "title": "dnd.endDnd error schema",
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "slackAuth": [
+              "dnd:write"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "slackAuth": {
+            "authorizationUrl": "https://slack.com/oauth/authorize",
+            "flow": "accessCode",
+            "scopes": {
+              "admin": "admin",
+              "admin.apps:read": "admin.apps:read",
+              "admin.apps:write": "admin.apps:write",
+              "admin.conversations:read": "admin.conversations:read",
+              "admin.conversations:write": "admin.conversations:write",
+              "admin.invites:read": "admin.invites:read",
+              "admin.invites:write": "admin.invites:write",
+              "admin.teams:read": "admin.teams:read",
+              "admin.teams:write": "admin.teams:write",
+              "admin.usergroups:read": "admin.usergroups:read",
+              "admin.usergroups:write": "admin.usergroups:write",
+              "admin.users:read": "admin.users:read",
+              "admin.users:write": "admin.users:write",
+              "authorizations:read": "authorizations:read",
+              "bot": "Bot user scope",
+              "calls:read": "calls:read",
+              "calls:write": "calls:write",
+              "channels:history": "channels:history",
+              "channels:manage": "channels:manage",
+              "channels:read": "channels:read",
+              "channels:write": "channels:write",
+              "chat:write": "chat:write",
+              "chat:write:bot": "Author messages as a bot",
+              "chat:write:user": "Author messages as a user",
+              "conversations:history": "conversations:history",
+              "conversations:read": "conversations:read",
+              "conversations:write": "conversations:write",
+              "dnd:read": "dnd:read",
+              "dnd:write": "dnd:write",
+              "emoji:read": "emoji:read",
+              "files:read": "files:read",
+              "files:write:user": "files:write:user",
+              "groups:history": "groups:history",
+              "groups:read": "groups:read",
+              "groups:write": "groups:write",
+              "identity.basic": "identity.basic",
+              "im:history": "im:history",
+              "im:read": "im:read",
+              "im:write": "im:write",
+              "links:write": "links:write",
+              "mpim:history": "mpim:history",
+              "mpim:read": "mpim:read",
+              "mpim:write": "mpim:write",
+              "none": "No scope required",
+              "pins:read": "pins:read",
+              "pins:write": "pins:write",
+              "reactions:read": "reactions:read",
+              "reactions:write": "reactions:write",
+              "reminders:read": "reminders:read",
+              "reminders:write": "reminders:write",
+              "remote_files:read": "remote_files:read",
+              "remote_files:share": "remote_files:share",
+              "remote_files:write": "remote_files:write",
+              "rtm:stream": "rtm:stream",
+              "search:read": "search:read",
+              "stars:read": "stars:read",
+              "stars:write": "stars:write",
+              "team:read": "team:read",
+              "tokens.basic": "tokens.basic",
+              "usergroups:read": "usergroups:read",
+              "usergroups:write": "usergroups:write",
+              "users.profile:read": "users.profile:read",
+              "users.profile:write": "users.profile:write",
+              "users:read": "users:read",
+              "users:read.email": "users:read.email",
+              "users:write": "users:write",
+              "workflow.steps:execute": "workflow.steps:execute"
+            },
+            "tokenUrl": "https://slack.com/api/oauth.access",
+            "type": "oauth2"
+          }
+        },
+        "securitySource": "operation"
+      }
+    },
+    "POST /dnd.endSnooze": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/x-www-form-urlencoded",
+          "application/json"
+        ],
+        "operationId": "dnd_endSnooze",
+        "parameters": [
+          {
+            "description": "Authentication token. Requires scope: `dnd:write`",
+            "in": "header",
+            "name": "token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Typical success response",
+            "examples": {
+              "application/json": {
+                "ok": true
+              }
+            },
+            "schema": {
+              "additionalProperties": false,
+              "description": "Schema for successful response from dnd.endSnooze method",
+              "properties": {
+                "dnd_enabled": {
+                  "type": "boolean"
+                },
+                "next_dnd_end_ts": {
+                  "type": "integer"
+                },
+                "next_dnd_start_ts": {
+                  "type": "integer"
+                },
+                "ok": {
+                  "enum": [
+                    true
+                  ],
+                  "title": "default success response",
+                  "type": "boolean"
+                },
+                "snooze_enabled": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok",
+                "dnd_enabled",
+                "next_dnd_start_ts",
+                "next_dnd_end_ts",
+                "snooze_enabled"
+              ],
+              "title": "dnd.endSnooze schema",
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "Typical error response",
+            "examples": {
+              "application/json": {
+                "error": "invalid_auth",
+                "ok": false
+              }
+            },
+            "schema": {
+              "additionalProperties": false,
+              "description": "Schema for error response from dnd.endSnooze method",
+              "properties": {
+                "callstack": {
+                  "description": "Note: PHP callstack is only visible in dev/qa",
+                  "type": "string"
+                },
+                "error": {
+                  "enum": [
+                    "snooze_not_active",
+                    "snooze_end_failed",
+                    "not_authed",
+                    "invalid_auth",
+                    "account_inactive",
+                    "token_revoked",
+                    "no_permission",
+                    "org_login_required",
+                    "user_is_bot",
+                    "invalid_arg_name",
+                    "invalid_array_arg",
+                    "invalid_charset",
+                    "invalid_form_data",
+                    "invalid_post_type",
+                    "missing_post_type",
+                    "team_added_to_org",
+                    "invalid_json",
+                    "json_not_object",
+                    "request_timeout",
+                    "upgrade_required",
+                    "fatal_error"
+                  ],
+                  "type": "string"
+                },
+                "ok": {
+                  "enum": [
+                    false
+                  ],
+                  "title": "default failure response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok",
+                "error"
+              ],
+              "title": "dnd.endSnooze error schema",
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "slackAuth": [
+              "dnd:write"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "slackAuth": {
+            "authorizationUrl": "https://slack.com/oauth/authorize",
+            "flow": "accessCode",
+            "scopes": {
+              "admin": "admin",
+              "admin.apps:read": "admin.apps:read",
+              "admin.apps:write": "admin.apps:write",
+              "admin.conversations:read": "admin.conversations:read",
+              "admin.conversations:write": "admin.conversations:write",
+              "admin.invites:read": "admin.invites:read",
+              "admin.invites:write": "admin.invites:write",
+              "admin.teams:read": "admin.teams:read",
+              "admin.teams:write": "admin.teams:write",
+              "admin.usergroups:read": "admin.usergroups:read",
+              "admin.usergroups:write": "admin.usergroups:write",
+              "admin.users:read": "admin.users:read",
+              "admin.users:write": "admin.users:write",
+              "authorizations:read": "authorizations:read",
+              "bot": "Bot user scope",
+              "calls:read": "calls:read",
+              "calls:write": "calls:write",
+              "channels:history": "channels:history",
+              "channels:manage": "channels:manage",
+              "channels:read": "channels:read",
+              "channels:write": "channels:write",
+              "chat:write": "chat:write",
+              "chat:write:bot": "Author messages as a bot",
+              "chat:write:user": "Author messages as a user",
+              "conversations:history": "conversations:history",
+              "conversations:read": "conversations:read",
+              "conversations:write": "conversations:write",
+              "dnd:read": "dnd:read",
+              "dnd:write": "dnd:write",
+              "emoji:read": "emoji:read",
+              "files:read": "files:read",
+              "files:write:user": "files:write:user",
+              "groups:history": "groups:history",
+              "groups:read": "groups:read",
+              "groups:write": "groups:write",
+              "identity.basic": "identity.basic",
+              "im:history": "im:history",
+              "im:read": "im:read",
+              "im:write": "im:write",
+              "links:write": "links:write",
+              "mpim:history": "mpim:history",
+              "mpim:read": "mpim:read",
+              "mpim:write": "mpim:write",
+              "none": "No scope required",
+              "pins:read": "pins:read",
+              "pins:write": "pins:write",
+              "reactions:read": "reactions:read",
+              "reactions:write": "reactions:write",
+              "reminders:read": "reminders:read",
+              "reminders:write": "reminders:write",
+              "remote_files:read": "remote_files:read",
+              "remote_files:share": "remote_files:share",
+              "remote_files:write": "remote_files:write",
+              "rtm:stream": "rtm:stream",
+              "search:read": "search:read",
+              "stars:read": "stars:read",
+              "stars:write": "stars:write",
+              "team:read": "team:read",
+              "tokens.basic": "tokens.basic",
+              "usergroups:read": "usergroups:read",
+              "usergroups:write": "usergroups:write",
+              "users.profile:read": "users.profile:read",
+              "users.profile:write": "users.profile:write",
+              "users:read": "users:read",
+              "users:read.email": "users:read.email",
+              "users:write": "users:write",
+              "workflow.steps:execute": "workflow.steps:execute"
+            },
+            "tokenUrl": "https://slack.com/api/oauth.access",
+            "type": "oauth2"
+          }
+        },
+        "securitySource": "operation"
+      }
+    },
+    "GET /dnd.info": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "operationId": "dnd_info",
+        "parameters": [
+          {
+            "description": "Authentication token. Requires scope: `dnd:read`",
+            "in": "query",
+            "name": "token",
+            "type": "string"
+          },
+          {
+            "description": "User to fetch status for (defaults to current user)",
+            "in": "query",
+            "name": "user",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Typical success response",
+            "examples": {
+              "application/json": {
+                "ok": true
+              }
+            },
+            "schema": {
+              "additionalProperties": false,
+              "description": "Schema for successful response from dnd.info method",
+              "properties": {
+                "dnd_enabled": {
+                  "type": "boolean"
+                },
+                "next_dnd_end_ts": {
+                  "type": "integer"
+                },
+                "next_dnd_start_ts": {
+                  "type": "integer"
+                },
+                "ok": {
+                  "enum": [
+                    true
+                  ],
+                  "title": "default success response",
+                  "type": "boolean"
+                },
+                "snooze_enabled": {
+                  "type": "boolean"
+                },
+                "snooze_endtime": {
+                  "type": "integer"
+                },
+                "snooze_remaining": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "ok",
+                "dnd_enabled",
+                "next_dnd_start_ts",
+                "next_dnd_end_ts"
+              ],
+              "title": "dnd.info schema",
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "Typical error response",
+            "examples": {
+              "application/json": {
+                "error": "invalid_auth",
+                "ok": false
+              }
+            },
+            "schema": {
+              "additionalProperties": false,
+              "description": "Schema for error response from dnd.info method",
+              "properties": {
+                "callstack": {
+                  "description": "Note: PHP callstack is only visible in dev/qa",
+                  "type": "string"
+                },
+                "error": {
+                  "enum": [
+                    "user_not_found",
+                    "not_authed",
+                    "invalid_auth",
+                    "account_inactive",
+                    "token_revoked",
+                    "no_permission",
+                    "org_login_required",
+                    "invalid_arg_name",
+                    "invalid_array_arg",
+                    "invalid_charset",
+                    "invalid_form_data",
+                    "invalid_post_type",
+                    "missing_post_type",
+                    "team_added_to_org",
+                    "invalid_json",
+                    "json_not_object",
+                    "request_timeout",
+                    "upgrade_required",
+                    "fatal_error"
+                  ],
+                  "type": "string"
+                },
+                "ok": {
+                  "enum": [
+                    false
+                  ],
+                  "title": "default failure response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok",
+                "error"
+              ],
+              "title": "dnd.info error schema",
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "slackAuth": [
+              "dnd:read"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "slackAuth": {
+            "authorizationUrl": "https://slack.com/oauth/authorize",
+            "flow": "accessCode",
+            "scopes": {
+              "admin": "admin",
+              "admin.apps:read": "admin.apps:read",
+              "admin.apps:write": "admin.apps:write",
+              "admin.conversations:read": "admin.conversations:read",
+              "admin.conversations:write": "admin.conversations:write",
+              "admin.invites:read": "admin.invites:read",
+              "admin.invites:write": "admin.invites:write",
+              "admin.teams:read": "admin.teams:read",
+              "admin.teams:write": "admin.teams:write",
+              "admin.usergroups:read": "admin.usergroups:read",
+              "admin.usergroups:write": "admin.usergroups:write",
+              "admin.users:read": "admin.users:read",
+              "admin.users:write": "admin.users:write",
+              "authorizations:read": "authorizations:read",
+              "bot": "Bot user scope",
+              "calls:read": "calls:read",
+              "calls:write": "calls:write",
+              "channels:history": "channels:history",
+              "channels:manage": "channels:manage",
+              "channels:read": "channels:read",
+              "channels:write": "channels:write",
+              "chat:write": "chat:write",
+              "chat:write:bot": "Author messages as a bot",
+              "chat:write:user": "Author messages as a user",
+              "conversations:history": "conversations:history",
+              "conversations:read": "conversations:read",
+              "conversations:write": "conversations:write",
+              "dnd:read": "dnd:read",
+              "dnd:write": "dnd:write",
+              "emoji:read": "emoji:read",
+              "files:read": "files:read",
+              "files:write:user": "files:write:user",
+              "groups:history": "groups:history",
+              "groups:read": "groups:read",
+              "groups:write": "groups:write",
+              "identity.basic": "identity.basic",
+              "im:history": "im:history",
+              "im:read": "im:read",
+              "im:write": "im:write",
+              "links:write": "links:write",
+              "mpim:history": "mpim:history",
+              "mpim:read": "mpim:read",
+              "mpim:write": "mpim:write",
+              "none": "No scope required",
+              "pins:read": "pins:read",
+              "pins:write": "pins:write",
+              "reactions:read": "reactions:read",
+              "reactions:write": "reactions:write",
+              "reminders:read": "reminders:read",
+              "reminders:write": "reminders:write",
+              "remote_files:read": "remote_files:read",
+              "remote_files:share": "remote_files:share",
+              "remote_files:write": "remote_files:write",
+              "rtm:stream": "rtm:stream",
+              "search:read": "search:read",
+              "stars:read": "stars:read",
+              "stars:write": "stars:write",
+              "team:read": "team:read",
+              "tokens.basic": "tokens.basic",
+              "usergroups:read": "usergroups:read",
+              "usergroups:write": "usergroups:write",
+              "users.profile:read": "users.profile:read",
+              "users.profile:write": "users.profile:write",
+              "users:read": "users:read",
+              "users:read.email": "users:read.email",
+              "users:write": "users:write",
+              "workflow.steps:execute": "workflow.steps:execute"
+            },
+            "tokenUrl": "https://slack.com/api/oauth.access",
+            "type": "oauth2"
+          }
+        },
+        "securitySource": "operation"
+      }
+    },
+    "GET /dnd.teamInfo": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "operationId": "dnd_teamInfo",
+        "parameters": [
+          {
+            "description": "Authentication token. Requires scope: `dnd:read`",
+            "in": "query",
+            "name": "token",
+            "type": "string"
+          },
+          {
+            "description": "Comma-separated list of users to fetch Do Not Disturb status for",
+            "in": "query",
+            "name": "users",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Typical success response",
+            "examples": {
+              "application/json": {
+                "ok": true,
+                "users": {
+                  "U023BECGF": {
+                    "dnd_enabled": true,
+                    "next_dnd_end_ts": 1450423800,
+                    "next_dnd_start_ts": 1450387800
+                  },
+                  "W058CJVAA": {
+                    "dnd_enabled": false,
+                    "next_dnd_end_ts": 1,
+                    "next_dnd_start_ts": 1
+                  }
+                }
+              }
+            },
+            "schema": {
+              "additionalProperties": true,
+              "description": "This method either only returns a brief _OK_ response or a verbose schema is not available for this method.",
+              "properties": {
+                "ok": {
+                  "enum": [
+                    true
+                  ],
+                  "title": "default success response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok"
+              ],
+              "title": "Default success template",
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "Typical error response",
+            "examples": {
+              "application/json": {
+                "error": "invalid_auth",
+                "ok": false
+              }
+            },
+            "schema": {
+              "additionalProperties": true,
+              "description": "This method either only returns a brief _not OK_ response or a verbose schema is not available for this method.",
+              "properties": {
+                "ok": {
+                  "enum": [
+                    false
+                  ],
+                  "title": "default failure response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok"
+              ],
+              "title": "Default error template",
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "slackAuth": [
+              "dnd:read"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "slackAuth": {
+            "authorizationUrl": "https://slack.com/oauth/authorize",
+            "flow": "accessCode",
+            "scopes": {
+              "admin": "admin",
+              "admin.apps:read": "admin.apps:read",
+              "admin.apps:write": "admin.apps:write",
+              "admin.conversations:read": "admin.conversations:read",
+              "admin.conversations:write": "admin.conversations:write",
+              "admin.invites:read": "admin.invites:read",
+              "admin.invites:write": "admin.invites:write",
+              "admin.teams:read": "admin.teams:read",
+              "admin.teams:write": "admin.teams:write",
+              "admin.usergroups:read": "admin.usergroups:read",
+              "admin.usergroups:write": "admin.usergroups:write",
+              "admin.users:read": "admin.users:read",
+              "admin.users:write": "admin.users:write",
+              "authorizations:read": "authorizations:read",
+              "bot": "Bot user scope",
+              "calls:read": "calls:read",
+              "calls:write": "calls:write",
+              "channels:history": "channels:history",
+              "channels:manage": "channels:manage",
+              "channels:read": "channels:read",
+              "channels:write": "channels:write",
+              "chat:write": "chat:write",
+              "chat:write:bot": "Author messages as a bot",
+              "chat:write:user": "Author messages as a user",
+              "conversations:history": "conversations:history",
+              "conversations:read": "conversations:read",
+              "conversations:write": "conversations:write",
+              "dnd:read": "dnd:read",
+              "dnd:write": "dnd:write",
+              "emoji:read": "emoji:read",
+              "files:read": "files:read",
+              "files:write:user": "files:write:user",
+              "groups:history": "groups:history",
+              "groups:read": "groups:read",
+              "groups:write": "groups:write",
+              "identity.basic": "identity.basic",
+              "im:history": "im:history",
+              "im:read": "im:read",
+              "im:write": "im:write",
+              "links:write": "links:write",
+              "mpim:history": "mpim:history",
+              "mpim:read": "mpim:read",
+              "mpim:write": "mpim:write",
+              "none": "No scope required",
+              "pins:read": "pins:read",
+              "pins:write": "pins:write",
+              "reactions:read": "reactions:read",
+              "reactions:write": "reactions:write",
+              "reminders:read": "reminders:read",
+              "reminders:write": "reminders:write",
+              "remote_files:read": "remote_files:read",
+              "remote_files:share": "remote_files:share",
+              "remote_files:write": "remote_files:write",
+              "rtm:stream": "rtm:stream",
+              "search:read": "search:read",
+              "stars:read": "stars:read",
+              "stars:write": "stars:write",
+              "team:read": "team:read",
+              "tokens.basic": "tokens.basic",
+              "usergroups:read": "usergroups:read",
+              "usergroups:write": "usergroups:write",
+              "users.profile:read": "users.profile:read",
+              "users.profile:write": "users.profile:write",
+              "users:read": "users:read",
+              "users:read.email": "users:read.email",
+              "users:write": "users:write",
+              "workflow.steps:execute": "workflow.steps:execute"
+            },
+            "tokenUrl": "https://slack.com/api/oauth.access",
+            "type": "oauth2"
+          }
+        },
+        "securitySource": "operation"
+      }
+    }
+  }
+}

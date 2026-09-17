@@ -27,11 +27,11 @@ Tool-call arguments (what an agent sends):
 
 ```jsonc
 // slack_list: first page of records
-{ "entity": "conversationslist" }
-{ "entity": "conversationslist", "query": { } }
+{ "entity": "adminconversation" }
+{ "entity": "adminconversation", "query": { } }
 
 // slack_load: one record by id
-{ "entity": "conversationsinfo", "query": { "id": 1 } }
+{ "entity": "adminappsapproved", "query": { "id": 1 } }
 ```
 
 > The rest of this guide follows the [Diátaxis](https://diataxis.fr) framework:
@@ -60,8 +60,8 @@ Tool-call arguments (what an agent sends):
    ```
 
 4. **Restart Claude Code.** The `slack_list` and `slack_load` tools now appear
-   in new sessions. Ask the agent to *"list conversationslist using slack"*
-   and it calls `slack_list` with `{"entity":"conversationslist"}`.
+   in new sessions. Ask the agent to *"list adminconversation using slack"*
+   and it calls `slack_list` with `{"entity":"adminconversation"}`.
 
 ## How-to guides
 
@@ -92,7 +92,7 @@ Args: `entity` (required), `query` (optional filter map). Returns the first
 page of records as JSON:
 
 ```jsonc
-{ "entity": "conversationslist" }
+{ "entity": "adminconversation" }
 ```
 
 ### Call the `slack_load` tool
@@ -101,7 +101,7 @@ Args: `entity` (required), `query` = `{"id":N}` (required). Returns the single
 record as JSON:
 
 ```jsonc
-{ "entity": "conversationsinfo", "query": { "id": 1 } }
+{ "entity": "adminappsapproved", "query": { "id": 1 } }
 ```
 
 ### Cross-compile release binaries
@@ -129,7 +129,7 @@ Both tools take the same argument object:
 
 | Field | Type | Notes |
 |-------|------|-------|
-| `entity` | string | One of the 2 supported entities (see below). |
+| `entity` | string | One of the 55 supported entities (see below). |
 | `query` | object | Optional match map. `{"id":N}` for load; omit or `{}` for list. |
 
 JSON schemas are emitted by the SDK from the `Args` struct's `json` /
@@ -151,9 +151,9 @@ JSON schemas are emitted by the SDK from the `Args` struct's `json` /
 
 ### Entities
 
-The 2 entities valid as the `entity` argument:
+The 55 entities valid as the `entity` argument:
 
-conversationsinfo | conversationslist
+adminapp | adminappsapproved | adminappsrequest | adminappsrestricted | adminconversation | adminconversationsekm | adminconversationsrestrict_access | adminemoji | admininvite_request | admininvite_requestsapproved | admininvite_requestsdenied | adminteam | adminteamsadmin | adminteamsowner | adminteamssetting | adminuser | adminusergroup | adminuserssession | api | app | appseventauthorization | appspermission | appspermissionsresource | appspermissionsscope | appspermissionsuser | auth | bot | call | callsparticipant | chat | chatscheduled_message | conversation | dialog | dnd | emoji | file | filescomment | filesremote | migration | oauth | oauthv2 | pin | reaction | reminder | rtm | search | star | team | teamprofile | user | usergroup | usergroupsuser | usersprofile | view | workflow
 
 ### Smoke test via HTTP (raw JSON-RPC)
 
@@ -173,7 +173,7 @@ curl -sN -X POST http://localhost:18080 \
   -H 'Content-Type: application/json' \
   -H 'Accept: application/json, text/event-stream' \
   -H "Mcp-Session-Id: $SESSION" \
-  -d '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"slack_load","arguments":{"entity":"conversationsinfo","query":{"id":1}}}}'
+  -d '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"slack_load","arguments":{"entity":"adminappsapproved","query":{"id":1}}}}'
 ```
 
 ## Explanation

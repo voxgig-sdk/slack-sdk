@@ -1,0 +1,28 @@
+# BasicAppspermissionFlow
+
+main: kit: flow: BasicAppspermissionFlow:
+{
+  entity: "appspermission",
+  kind: "basic",
+  name: "BasicAppspermissionFlow",
+  step: [
+    {
+      input: {
+        ref: "appspermission_ref01",
+        srcdatavar: "appspermission_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-appspermission_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAppspermissionFlow"
+}

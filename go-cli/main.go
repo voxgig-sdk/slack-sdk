@@ -20,7 +20,7 @@ import (
 const prompt = "slack"
 
 // entitiesHelp is the space-separated entity list shown by /help.
-const entitiesHelp = "conversationsinfo conversationslist"
+const entitiesHelp = "adminapp adminappsapproved adminappsrequest adminappsrestricted adminconversation adminconversationsekm adminconversationsrestrict_access adminemoji admininvite_request admininvite_requestsapproved admininvite_requestsdenied adminteam adminteamsadmin adminteamsowner adminteamssetting adminuser adminusergroup adminuserssession api app appseventauthorization appspermission appspermissionsresource appspermissionsscope appspermissionsuser auth bot call callsparticipant chat chatscheduled_message conversation dialog dnd emoji file filescomment filesremote migration oauth oauthv2 pin reaction reminder rtm search star team teamprofile user usergroup usergroupsuser usersprofile view workflow"
 
 func main() {
 	os.Exit(run(os.Args[1:], os.Stdin, os.Stdout, os.Stderr))

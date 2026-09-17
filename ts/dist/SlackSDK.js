@@ -2,8 +2,61 @@
 // Slack Ts SDK
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SDK = exports.SlackSDK = exports.SlackEntityBase = exports.BaseFeature = exports.config = exports.stdutil = void 0;
-const ConversationsinfoEntity_1 = require("./entity/ConversationsinfoEntity");
-const ConversationslistEntity_1 = require("./entity/ConversationslistEntity");
+const AdminappEntity_1 = require("./entity/AdminappEntity");
+const AdminappsapprovedEntity_1 = require("./entity/AdminappsapprovedEntity");
+const AdminappsrequestEntity_1 = require("./entity/AdminappsrequestEntity");
+const AdminappsrestrictedEntity_1 = require("./entity/AdminappsrestrictedEntity");
+const AdminconversationEntity_1 = require("./entity/AdminconversationEntity");
+const AdminconversationsekmEntity_1 = require("./entity/AdminconversationsekmEntity");
+const AdminconversationsrestrictAccessEntity_1 = require("./entity/AdminconversationsrestrictAccessEntity");
+const AdminemojiEntity_1 = require("./entity/AdminemojiEntity");
+const AdmininviteRequestEntity_1 = require("./entity/AdmininviteRequestEntity");
+const AdmininviteRequestsapprovedEntity_1 = require("./entity/AdmininviteRequestsapprovedEntity");
+const AdmininviteRequestsdeniedEntity_1 = require("./entity/AdmininviteRequestsdeniedEntity");
+const AdminteamEntity_1 = require("./entity/AdminteamEntity");
+const AdminteamsadminEntity_1 = require("./entity/AdminteamsadminEntity");
+const AdminteamsownerEntity_1 = require("./entity/AdminteamsownerEntity");
+const AdminteamssettingEntity_1 = require("./entity/AdminteamssettingEntity");
+const AdminuserEntity_1 = require("./entity/AdminuserEntity");
+const AdminusergroupEntity_1 = require("./entity/AdminusergroupEntity");
+const AdminuserssessionEntity_1 = require("./entity/AdminuserssessionEntity");
+const ApiEntity_1 = require("./entity/ApiEntity");
+const AppEntity_1 = require("./entity/AppEntity");
+const AppseventauthorizationEntity_1 = require("./entity/AppseventauthorizationEntity");
+const AppspermissionEntity_1 = require("./entity/AppspermissionEntity");
+const AppspermissionsresourceEntity_1 = require("./entity/AppspermissionsresourceEntity");
+const AppspermissionsscopeEntity_1 = require("./entity/AppspermissionsscopeEntity");
+const AppspermissionsuserEntity_1 = require("./entity/AppspermissionsuserEntity");
+const AuthEntity_1 = require("./entity/AuthEntity");
+const BotEntity_1 = require("./entity/BotEntity");
+const CallEntity_1 = require("./entity/CallEntity");
+const CallsparticipantEntity_1 = require("./entity/CallsparticipantEntity");
+const ChatEntity_1 = require("./entity/ChatEntity");
+const ChatscheduledMessageEntity_1 = require("./entity/ChatscheduledMessageEntity");
+const ConversationEntity_1 = require("./entity/ConversationEntity");
+const DialogEntity_1 = require("./entity/DialogEntity");
+const DndEntity_1 = require("./entity/DndEntity");
+const EmojiEntity_1 = require("./entity/EmojiEntity");
+const FileEntity_1 = require("./entity/FileEntity");
+const FilescommentEntity_1 = require("./entity/FilescommentEntity");
+const FilesremoteEntity_1 = require("./entity/FilesremoteEntity");
+const MigrationEntity_1 = require("./entity/MigrationEntity");
+const OauthEntity_1 = require("./entity/OauthEntity");
+const Oauthv2Entity_1 = require("./entity/Oauthv2Entity");
+const PinEntity_1 = require("./entity/PinEntity");
+const ReactionEntity_1 = require("./entity/ReactionEntity");
+const ReminderEntity_1 = require("./entity/ReminderEntity");
+const RtmEntity_1 = require("./entity/RtmEntity");
+const SearchEntity_1 = require("./entity/SearchEntity");
+const StarEntity_1 = require("./entity/StarEntity");
+const TeamEntity_1 = require("./entity/TeamEntity");
+const TeamprofileEntity_1 = require("./entity/TeamprofileEntity");
+const UserEntity_1 = require("./entity/UserEntity");
+const UsergroupEntity_1 = require("./entity/UsergroupEntity");
+const UsergroupsuserEntity_1 = require("./entity/UsergroupsuserEntity");
+const UsersprofileEntity_1 = require("./entity/UsersprofileEntity");
+const ViewEntity_1 = require("./entity/ViewEntity");
+const WorkflowEntity_1 = require("./entity/WorkflowEntity");
 const node_util_1 = require("node:util");
 const Config_1 = require("./Config");
 Object.defineProperty(exports, "config", { enumerable: true, get: function () { return Config_1.config; } });
@@ -226,19 +279,390 @@ class SlackSDK {
         }
         return res;
     }
-    // Entity access: `client.Conversationsinfo().list()` / `client.Conversationsinfo().load({ id })`.
+    // Entity access: `client.Adminapp().list()` / `client.Adminapp().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
-    Conversationsinfo(entopts) {
+    Adminapp(entopts) {
         const self = this;
-        return new ConversationsinfoEntity_1.ConversationsinfoEntity(self, entopts);
+        return new AdminappEntity_1.AdminappEntity(self, entopts);
     }
-    // Entity access: `client.Conversationslist().list()` / `client.Conversationslist().load({ id })`.
+    // Entity access: `client.Adminappsapproved().list()` / `client.Adminappsapproved().load({ id })`.
     // The argument is the entity OPTIONS object (passed to the entity
     // constructor as entopts), not initial entity data.
-    Conversationslist(entopts) {
+    Adminappsapproved(entopts) {
         const self = this;
-        return new ConversationslistEntity_1.ConversationslistEntity(self, entopts);
+        return new AdminappsapprovedEntity_1.AdminappsapprovedEntity(self, entopts);
+    }
+    // Entity access: `client.Adminappsrequest().list()` / `client.Adminappsrequest().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Adminappsrequest(entopts) {
+        const self = this;
+        return new AdminappsrequestEntity_1.AdminappsrequestEntity(self, entopts);
+    }
+    // Entity access: `client.Adminappsrestricted().list()` / `client.Adminappsrestricted().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Adminappsrestricted(entopts) {
+        const self = this;
+        return new AdminappsrestrictedEntity_1.AdminappsrestrictedEntity(self, entopts);
+    }
+    // Entity access: `client.Adminconversation().list()` / `client.Adminconversation().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Adminconversation(entopts) {
+        const self = this;
+        return new AdminconversationEntity_1.AdminconversationEntity(self, entopts);
+    }
+    // Entity access: `client.Adminconversationsekm().list()` / `client.Adminconversationsekm().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Adminconversationsekm(entopts) {
+        const self = this;
+        return new AdminconversationsekmEntity_1.AdminconversationsekmEntity(self, entopts);
+    }
+    // Entity access: `client.AdminconversationsrestrictAccess().list()` / `client.AdminconversationsrestrictAccess().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    AdminconversationsrestrictAccess(entopts) {
+        const self = this;
+        return new AdminconversationsrestrictAccessEntity_1.AdminconversationsrestrictAccessEntity(self, entopts);
+    }
+    // Entity access: `client.Adminemoji().list()` / `client.Adminemoji().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Adminemoji(entopts) {
+        const self = this;
+        return new AdminemojiEntity_1.AdminemojiEntity(self, entopts);
+    }
+    // Entity access: `client.AdmininviteRequest().list()` / `client.AdmininviteRequest().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    AdmininviteRequest(entopts) {
+        const self = this;
+        return new AdmininviteRequestEntity_1.AdmininviteRequestEntity(self, entopts);
+    }
+    // Entity access: `client.AdmininviteRequestsapproved().list()` / `client.AdmininviteRequestsapproved().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    AdmininviteRequestsapproved(entopts) {
+        const self = this;
+        return new AdmininviteRequestsapprovedEntity_1.AdmininviteRequestsapprovedEntity(self, entopts);
+    }
+    // Entity access: `client.AdmininviteRequestsdenied().list()` / `client.AdmininviteRequestsdenied().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    AdmininviteRequestsdenied(entopts) {
+        const self = this;
+        return new AdmininviteRequestsdeniedEntity_1.AdmininviteRequestsdeniedEntity(self, entopts);
+    }
+    // Entity access: `client.Adminteam().list()` / `client.Adminteam().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Adminteam(entopts) {
+        const self = this;
+        return new AdminteamEntity_1.AdminteamEntity(self, entopts);
+    }
+    // Entity access: `client.Adminteamsadmin().list()` / `client.Adminteamsadmin().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Adminteamsadmin(entopts) {
+        const self = this;
+        return new AdminteamsadminEntity_1.AdminteamsadminEntity(self, entopts);
+    }
+    // Entity access: `client.Adminteamsowner().list()` / `client.Adminteamsowner().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Adminteamsowner(entopts) {
+        const self = this;
+        return new AdminteamsownerEntity_1.AdminteamsownerEntity(self, entopts);
+    }
+    // Entity access: `client.Adminteamssetting().list()` / `client.Adminteamssetting().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Adminteamssetting(entopts) {
+        const self = this;
+        return new AdminteamssettingEntity_1.AdminteamssettingEntity(self, entopts);
+    }
+    // Entity access: `client.Adminuser().list()` / `client.Adminuser().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Adminuser(entopts) {
+        const self = this;
+        return new AdminuserEntity_1.AdminuserEntity(self, entopts);
+    }
+    // Entity access: `client.Adminusergroup().list()` / `client.Adminusergroup().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Adminusergroup(entopts) {
+        const self = this;
+        return new AdminusergroupEntity_1.AdminusergroupEntity(self, entopts);
+    }
+    // Entity access: `client.Adminuserssession().list()` / `client.Adminuserssession().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Adminuserssession(entopts) {
+        const self = this;
+        return new AdminuserssessionEntity_1.AdminuserssessionEntity(self, entopts);
+    }
+    // Entity access: `client.Api().list()` / `client.Api().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Api(entopts) {
+        const self = this;
+        return new ApiEntity_1.ApiEntity(self, entopts);
+    }
+    // Entity access: `client.App().list()` / `client.App().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    App(entopts) {
+        const self = this;
+        return new AppEntity_1.AppEntity(self, entopts);
+    }
+    // Entity access: `client.Appseventauthorization().list()` / `client.Appseventauthorization().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Appseventauthorization(entopts) {
+        const self = this;
+        return new AppseventauthorizationEntity_1.AppseventauthorizationEntity(self, entopts);
+    }
+    // Entity access: `client.Appspermission().list()` / `client.Appspermission().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Appspermission(entopts) {
+        const self = this;
+        return new AppspermissionEntity_1.AppspermissionEntity(self, entopts);
+    }
+    // Entity access: `client.Appspermissionsresource().list()` / `client.Appspermissionsresource().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Appspermissionsresource(entopts) {
+        const self = this;
+        return new AppspermissionsresourceEntity_1.AppspermissionsresourceEntity(self, entopts);
+    }
+    // Entity access: `client.Appspermissionsscope().list()` / `client.Appspermissionsscope().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Appspermissionsscope(entopts) {
+        const self = this;
+        return new AppspermissionsscopeEntity_1.AppspermissionsscopeEntity(self, entopts);
+    }
+    // Entity access: `client.Appspermissionsuser().list()` / `client.Appspermissionsuser().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Appspermissionsuser(entopts) {
+        const self = this;
+        return new AppspermissionsuserEntity_1.AppspermissionsuserEntity(self, entopts);
+    }
+    // Entity access: `client.Auth().list()` / `client.Auth().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Auth(entopts) {
+        const self = this;
+        return new AuthEntity_1.AuthEntity(self, entopts);
+    }
+    // Entity access: `client.Bot().list()` / `client.Bot().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Bot(entopts) {
+        const self = this;
+        return new BotEntity_1.BotEntity(self, entopts);
+    }
+    // Entity access: `client.Call().list()` / `client.Call().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Call(entopts) {
+        const self = this;
+        return new CallEntity_1.CallEntity(self, entopts);
+    }
+    // Entity access: `client.Callsparticipant().list()` / `client.Callsparticipant().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Callsparticipant(entopts) {
+        const self = this;
+        return new CallsparticipantEntity_1.CallsparticipantEntity(self, entopts);
+    }
+    // Entity access: `client.Chat().list()` / `client.Chat().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Chat(entopts) {
+        const self = this;
+        return new ChatEntity_1.ChatEntity(self, entopts);
+    }
+    // Entity access: `client.ChatscheduledMessage().list()` / `client.ChatscheduledMessage().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    ChatscheduledMessage(entopts) {
+        const self = this;
+        return new ChatscheduledMessageEntity_1.ChatscheduledMessageEntity(self, entopts);
+    }
+    // Entity access: `client.Conversation().list()` / `client.Conversation().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Conversation(entopts) {
+        const self = this;
+        return new ConversationEntity_1.ConversationEntity(self, entopts);
+    }
+    // Entity access: `client.Dialog().list()` / `client.Dialog().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Dialog(entopts) {
+        const self = this;
+        return new DialogEntity_1.DialogEntity(self, entopts);
+    }
+    // Entity access: `client.Dnd().list()` / `client.Dnd().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Dnd(entopts) {
+        const self = this;
+        return new DndEntity_1.DndEntity(self, entopts);
+    }
+    // Entity access: `client.Emoji().list()` / `client.Emoji().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Emoji(entopts) {
+        const self = this;
+        return new EmojiEntity_1.EmojiEntity(self, entopts);
+    }
+    // Entity access: `client.File().list()` / `client.File().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    File(entopts) {
+        const self = this;
+        return new FileEntity_1.FileEntity(self, entopts);
+    }
+    // Entity access: `client.Filescomment().list()` / `client.Filescomment().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Filescomment(entopts) {
+        const self = this;
+        return new FilescommentEntity_1.FilescommentEntity(self, entopts);
+    }
+    // Entity access: `client.Filesremote().list()` / `client.Filesremote().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Filesremote(entopts) {
+        const self = this;
+        return new FilesremoteEntity_1.FilesremoteEntity(self, entopts);
+    }
+    // Entity access: `client.Migration().list()` / `client.Migration().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Migration(entopts) {
+        const self = this;
+        return new MigrationEntity_1.MigrationEntity(self, entopts);
+    }
+    // Entity access: `client.Oauth().list()` / `client.Oauth().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Oauth(entopts) {
+        const self = this;
+        return new OauthEntity_1.OauthEntity(self, entopts);
+    }
+    // Entity access: `client.Oauthv2().list()` / `client.Oauthv2().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Oauthv2(entopts) {
+        const self = this;
+        return new Oauthv2Entity_1.Oauthv2Entity(self, entopts);
+    }
+    // Entity access: `client.Pin().list()` / `client.Pin().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Pin(entopts) {
+        const self = this;
+        return new PinEntity_1.PinEntity(self, entopts);
+    }
+    // Entity access: `client.Reaction().list()` / `client.Reaction().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Reaction(entopts) {
+        const self = this;
+        return new ReactionEntity_1.ReactionEntity(self, entopts);
+    }
+    // Entity access: `client.Reminder().list()` / `client.Reminder().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Reminder(entopts) {
+        const self = this;
+        return new ReminderEntity_1.ReminderEntity(self, entopts);
+    }
+    // Entity access: `client.Rtm().list()` / `client.Rtm().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Rtm(entopts) {
+        const self = this;
+        return new RtmEntity_1.RtmEntity(self, entopts);
+    }
+    // Entity access: `client.Search().list()` / `client.Search().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Search(entopts) {
+        const self = this;
+        return new SearchEntity_1.SearchEntity(self, entopts);
+    }
+    // Entity access: `client.Star().list()` / `client.Star().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Star(entopts) {
+        const self = this;
+        return new StarEntity_1.StarEntity(self, entopts);
+    }
+    // Entity access: `client.Team().list()` / `client.Team().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Team(entopts) {
+        const self = this;
+        return new TeamEntity_1.TeamEntity(self, entopts);
+    }
+    // Entity access: `client.Teamprofile().list()` / `client.Teamprofile().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Teamprofile(entopts) {
+        const self = this;
+        return new TeamprofileEntity_1.TeamprofileEntity(self, entopts);
+    }
+    // Entity access: `client.User().list()` / `client.User().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    User(entopts) {
+        const self = this;
+        return new UserEntity_1.UserEntity(self, entopts);
+    }
+    // Entity access: `client.Usergroup().list()` / `client.Usergroup().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Usergroup(entopts) {
+        const self = this;
+        return new UsergroupEntity_1.UsergroupEntity(self, entopts);
+    }
+    // Entity access: `client.Usergroupsuser().list()` / `client.Usergroupsuser().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Usergroupsuser(entopts) {
+        const self = this;
+        return new UsergroupsuserEntity_1.UsergroupsuserEntity(self, entopts);
+    }
+    // Entity access: `client.Usersprofile().list()` / `client.Usersprofile().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Usersprofile(entopts) {
+        const self = this;
+        return new UsersprofileEntity_1.UsersprofileEntity(self, entopts);
+    }
+    // Entity access: `client.View().list()` / `client.View().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    View(entopts) {
+        const self = this;
+        return new ViewEntity_1.ViewEntity(self, entopts);
+    }
+    // Entity access: `client.Workflow().list()` / `client.Workflow().load({ id })`.
+    // The argument is the entity OPTIONS object (passed to the entity
+    // constructor as entopts), not initial entity data.
+    Workflow(entopts) {
+        const self = this;
+        return new WorkflowEntity_1.WorkflowEntity(self, entopts);
     }
     static test(testoptsarg, sdkoptsarg) {
         const struct = stdutil.struct;

@@ -1,0 +1,22 @@
+# BasicAppspermissionsresourceFlow
+
+main: kit: flow: BasicAppspermissionsresourceFlow:
+{
+  entity: "appspermissionsresource",
+  kind: "basic",
+  name: "BasicAppspermissionsresourceFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "appspermissionsresource_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAppspermissionsresourceFlow"
+}

@@ -307,16 +307,334 @@ class SlackSDK:
         return res
 
 
-    def Conversationsinfo(self, data=None) -> "ConversationsinfoEntity":
-        """Entity factory: client.Conversationsinfo().list() / client.Conversationsinfo().load({"id": ...})."""
-        from slack_sdk.entity.conversationsinfo_entity import ConversationsinfoEntity
-        return ConversationsinfoEntity(self, data)
+    def Adminapp(self, data=None) -> "AdminappEntity":
+        """Entity factory: client.Adminapp().list() / client.Adminapp().load({"id": ...})."""
+        from slack_sdk.entity.adminapp_entity import AdminappEntity
+        return AdminappEntity(self, data)
 
 
-    def Conversationslist(self, data=None) -> "ConversationslistEntity":
-        """Entity factory: client.Conversationslist().list() / client.Conversationslist().load({"id": ...})."""
-        from slack_sdk.entity.conversationslist_entity import ConversationslistEntity
-        return ConversationslistEntity(self, data)
+    def Adminappsapproved(self, data=None) -> "AdminappsapprovedEntity":
+        """Entity factory: client.Adminappsapproved().list() / client.Adminappsapproved().load({"id": ...})."""
+        from slack_sdk.entity.adminappsapproved_entity import AdminappsapprovedEntity
+        return AdminappsapprovedEntity(self, data)
+
+
+    def Adminappsrequest(self, data=None) -> "AdminappsrequestEntity":
+        """Entity factory: client.Adminappsrequest().list() / client.Adminappsrequest().load({"id": ...})."""
+        from slack_sdk.entity.adminappsrequest_entity import AdminappsrequestEntity
+        return AdminappsrequestEntity(self, data)
+
+
+    def Adminappsrestricted(self, data=None) -> "AdminappsrestrictedEntity":
+        """Entity factory: client.Adminappsrestricted().list() / client.Adminappsrestricted().load({"id": ...})."""
+        from slack_sdk.entity.adminappsrestricted_entity import AdminappsrestrictedEntity
+        return AdminappsrestrictedEntity(self, data)
+
+
+    def Adminconversation(self, data=None) -> "AdminconversationEntity":
+        """Entity factory: client.Adminconversation().list() / client.Adminconversation().load({"id": ...})."""
+        from slack_sdk.entity.adminconversation_entity import AdminconversationEntity
+        return AdminconversationEntity(self, data)
+
+
+    def Adminconversationsekm(self, data=None) -> "AdminconversationsekmEntity":
+        """Entity factory: client.Adminconversationsekm().list() / client.Adminconversationsekm().load({"id": ...})."""
+        from slack_sdk.entity.adminconversationsekm_entity import AdminconversationsekmEntity
+        return AdminconversationsekmEntity(self, data)
+
+
+    def AdminconversationsrestrictAccess(self, data=None) -> "AdminconversationsrestrictAccessEntity":
+        """Entity factory: client.AdminconversationsrestrictAccess().list() / client.AdminconversationsrestrictAccess().load({"id": ...})."""
+        from slack_sdk.entity.adminconversationsrestrict_access_entity import AdminconversationsrestrictAccessEntity
+        return AdminconversationsrestrictAccessEntity(self, data)
+
+
+    def Adminemoji(self, data=None) -> "AdminemojiEntity":
+        """Entity factory: client.Adminemoji().list() / client.Adminemoji().load({"id": ...})."""
+        from slack_sdk.entity.adminemoji_entity import AdminemojiEntity
+        return AdminemojiEntity(self, data)
+
+
+    def AdmininviteRequest(self, data=None) -> "AdmininviteRequestEntity":
+        """Entity factory: client.AdmininviteRequest().list() / client.AdmininviteRequest().load({"id": ...})."""
+        from slack_sdk.entity.admininvite_request_entity import AdmininviteRequestEntity
+        return AdmininviteRequestEntity(self, data)
+
+
+    def AdmininviteRequestsapproved(self, data=None) -> "AdmininviteRequestsapprovedEntity":
+        """Entity factory: client.AdmininviteRequestsapproved().list() / client.AdmininviteRequestsapproved().load({"id": ...})."""
+        from slack_sdk.entity.admininvite_requestsapproved_entity import AdmininviteRequestsapprovedEntity
+        return AdmininviteRequestsapprovedEntity(self, data)
+
+
+    def AdmininviteRequestsdenied(self, data=None) -> "AdmininviteRequestsdeniedEntity":
+        """Entity factory: client.AdmininviteRequestsdenied().list() / client.AdmininviteRequestsdenied().load({"id": ...})."""
+        from slack_sdk.entity.admininvite_requestsdenied_entity import AdmininviteRequestsdeniedEntity
+        return AdmininviteRequestsdeniedEntity(self, data)
+
+
+    def Adminteam(self, data=None) -> "AdminteamEntity":
+        """Entity factory: client.Adminteam().list() / client.Adminteam().load({"id": ...})."""
+        from slack_sdk.entity.adminteam_entity import AdminteamEntity
+        return AdminteamEntity(self, data)
+
+
+    def Adminteamsadmin(self, data=None) -> "AdminteamsadminEntity":
+        """Entity factory: client.Adminteamsadmin().list() / client.Adminteamsadmin().load({"id": ...})."""
+        from slack_sdk.entity.adminteamsadmin_entity import AdminteamsadminEntity
+        return AdminteamsadminEntity(self, data)
+
+
+    def Adminteamsowner(self, data=None) -> "AdminteamsownerEntity":
+        """Entity factory: client.Adminteamsowner().list() / client.Adminteamsowner().load({"id": ...})."""
+        from slack_sdk.entity.adminteamsowner_entity import AdminteamsownerEntity
+        return AdminteamsownerEntity(self, data)
+
+
+    def Adminteamssetting(self, data=None) -> "AdminteamssettingEntity":
+        """Entity factory: client.Adminteamssetting().list() / client.Adminteamssetting().load({"id": ...})."""
+        from slack_sdk.entity.adminteamssetting_entity import AdminteamssettingEntity
+        return AdminteamssettingEntity(self, data)
+
+
+    def Adminuser(self, data=None) -> "AdminuserEntity":
+        """Entity factory: client.Adminuser().list() / client.Adminuser().load({"id": ...})."""
+        from slack_sdk.entity.adminuser_entity import AdminuserEntity
+        return AdminuserEntity(self, data)
+
+
+    def Adminusergroup(self, data=None) -> "AdminusergroupEntity":
+        """Entity factory: client.Adminusergroup().list() / client.Adminusergroup().load({"id": ...})."""
+        from slack_sdk.entity.adminusergroup_entity import AdminusergroupEntity
+        return AdminusergroupEntity(self, data)
+
+
+    def Adminuserssession(self, data=None) -> "AdminuserssessionEntity":
+        """Entity factory: client.Adminuserssession().list() / client.Adminuserssession().load({"id": ...})."""
+        from slack_sdk.entity.adminuserssession_entity import AdminuserssessionEntity
+        return AdminuserssessionEntity(self, data)
+
+
+    def Api(self, data=None) -> "ApiEntity":
+        """Entity factory: client.Api().list() / client.Api().load({"id": ...})."""
+        from slack_sdk.entity.api_entity import ApiEntity
+        return ApiEntity(self, data)
+
+
+    def App(self, data=None) -> "AppEntity":
+        """Entity factory: client.App().list() / client.App().load({"id": ...})."""
+        from slack_sdk.entity.app_entity import AppEntity
+        return AppEntity(self, data)
+
+
+    def Appseventauthorization(self, data=None) -> "AppseventauthorizationEntity":
+        """Entity factory: client.Appseventauthorization().list() / client.Appseventauthorization().load({"id": ...})."""
+        from slack_sdk.entity.appseventauthorization_entity import AppseventauthorizationEntity
+        return AppseventauthorizationEntity(self, data)
+
+
+    def Appspermission(self, data=None) -> "AppspermissionEntity":
+        """Entity factory: client.Appspermission().list() / client.Appspermission().load({"id": ...})."""
+        from slack_sdk.entity.appspermission_entity import AppspermissionEntity
+        return AppspermissionEntity(self, data)
+
+
+    def Appspermissionsresource(self, data=None) -> "AppspermissionsresourceEntity":
+        """Entity factory: client.Appspermissionsresource().list() / client.Appspermissionsresource().load({"id": ...})."""
+        from slack_sdk.entity.appspermissionsresource_entity import AppspermissionsresourceEntity
+        return AppspermissionsresourceEntity(self, data)
+
+
+    def Appspermissionsscope(self, data=None) -> "AppspermissionsscopeEntity":
+        """Entity factory: client.Appspermissionsscope().list() / client.Appspermissionsscope().load({"id": ...})."""
+        from slack_sdk.entity.appspermissionsscope_entity import AppspermissionsscopeEntity
+        return AppspermissionsscopeEntity(self, data)
+
+
+    def Appspermissionsuser(self, data=None) -> "AppspermissionsuserEntity":
+        """Entity factory: client.Appspermissionsuser().list() / client.Appspermissionsuser().load({"id": ...})."""
+        from slack_sdk.entity.appspermissionsuser_entity import AppspermissionsuserEntity
+        return AppspermissionsuserEntity(self, data)
+
+
+    def Auth(self, data=None) -> "AuthEntity":
+        """Entity factory: client.Auth().list() / client.Auth().load({"id": ...})."""
+        from slack_sdk.entity.auth_entity import AuthEntity
+        return AuthEntity(self, data)
+
+
+    def Bot(self, data=None) -> "BotEntity":
+        """Entity factory: client.Bot().list() / client.Bot().load({"id": ...})."""
+        from slack_sdk.entity.bot_entity import BotEntity
+        return BotEntity(self, data)
+
+
+    def Call(self, data=None) -> "CallEntity":
+        """Entity factory: client.Call().list() / client.Call().load({"id": ...})."""
+        from slack_sdk.entity.call_entity import CallEntity
+        return CallEntity(self, data)
+
+
+    def Callsparticipant(self, data=None) -> "CallsparticipantEntity":
+        """Entity factory: client.Callsparticipant().list() / client.Callsparticipant().load({"id": ...})."""
+        from slack_sdk.entity.callsparticipant_entity import CallsparticipantEntity
+        return CallsparticipantEntity(self, data)
+
+
+    def Chat(self, data=None) -> "ChatEntity":
+        """Entity factory: client.Chat().list() / client.Chat().load({"id": ...})."""
+        from slack_sdk.entity.chat_entity import ChatEntity
+        return ChatEntity(self, data)
+
+
+    def ChatscheduledMessage(self, data=None) -> "ChatscheduledMessageEntity":
+        """Entity factory: client.ChatscheduledMessage().list() / client.ChatscheduledMessage().load({"id": ...})."""
+        from slack_sdk.entity.chatscheduled_message_entity import ChatscheduledMessageEntity
+        return ChatscheduledMessageEntity(self, data)
+
+
+    def Conversation(self, data=None) -> "ConversationEntity":
+        """Entity factory: client.Conversation().list() / client.Conversation().load({"id": ...})."""
+        from slack_sdk.entity.conversation_entity import ConversationEntity
+        return ConversationEntity(self, data)
+
+
+    def Dialog(self, data=None) -> "DialogEntity":
+        """Entity factory: client.Dialog().list() / client.Dialog().load({"id": ...})."""
+        from slack_sdk.entity.dialog_entity import DialogEntity
+        return DialogEntity(self, data)
+
+
+    def Dnd(self, data=None) -> "DndEntity":
+        """Entity factory: client.Dnd().list() / client.Dnd().load({"id": ...})."""
+        from slack_sdk.entity.dnd_entity import DndEntity
+        return DndEntity(self, data)
+
+
+    def Emoji(self, data=None) -> "EmojiEntity":
+        """Entity factory: client.Emoji().list() / client.Emoji().load({"id": ...})."""
+        from slack_sdk.entity.emoji_entity import EmojiEntity
+        return EmojiEntity(self, data)
+
+
+    def File(self, data=None) -> "FileEntity":
+        """Entity factory: client.File().list() / client.File().load({"id": ...})."""
+        from slack_sdk.entity.file_entity import FileEntity
+        return FileEntity(self, data)
+
+
+    def Filescomment(self, data=None) -> "FilescommentEntity":
+        """Entity factory: client.Filescomment().list() / client.Filescomment().load({"id": ...})."""
+        from slack_sdk.entity.filescomment_entity import FilescommentEntity
+        return FilescommentEntity(self, data)
+
+
+    def Filesremote(self, data=None) -> "FilesremoteEntity":
+        """Entity factory: client.Filesremote().list() / client.Filesremote().load({"id": ...})."""
+        from slack_sdk.entity.filesremote_entity import FilesremoteEntity
+        return FilesremoteEntity(self, data)
+
+
+    def Migration(self, data=None) -> "MigrationEntity":
+        """Entity factory: client.Migration().list() / client.Migration().load({"id": ...})."""
+        from slack_sdk.entity.migration_entity import MigrationEntity
+        return MigrationEntity(self, data)
+
+
+    def Oauth(self, data=None) -> "OauthEntity":
+        """Entity factory: client.Oauth().list() / client.Oauth().load({"id": ...})."""
+        from slack_sdk.entity.oauth_entity import OauthEntity
+        return OauthEntity(self, data)
+
+
+    def Oauthv2(self, data=None) -> "Oauthv2Entity":
+        """Entity factory: client.Oauthv2().list() / client.Oauthv2().load({"id": ...})."""
+        from slack_sdk.entity.oauthv2_entity import Oauthv2Entity
+        return Oauthv2Entity(self, data)
+
+
+    def Pin(self, data=None) -> "PinEntity":
+        """Entity factory: client.Pin().list() / client.Pin().load({"id": ...})."""
+        from slack_sdk.entity.pin_entity import PinEntity
+        return PinEntity(self, data)
+
+
+    def Reaction(self, data=None) -> "ReactionEntity":
+        """Entity factory: client.Reaction().list() / client.Reaction().load({"id": ...})."""
+        from slack_sdk.entity.reaction_entity import ReactionEntity
+        return ReactionEntity(self, data)
+
+
+    def Reminder(self, data=None) -> "ReminderEntity":
+        """Entity factory: client.Reminder().list() / client.Reminder().load({"id": ...})."""
+        from slack_sdk.entity.reminder_entity import ReminderEntity
+        return ReminderEntity(self, data)
+
+
+    def Rtm(self, data=None) -> "RtmEntity":
+        """Entity factory: client.Rtm().list() / client.Rtm().load({"id": ...})."""
+        from slack_sdk.entity.rtm_entity import RtmEntity
+        return RtmEntity(self, data)
+
+
+    def Search(self, data=None) -> "SearchEntity":
+        """Entity factory: client.Search().list() / client.Search().load({"id": ...})."""
+        from slack_sdk.entity.search_entity import SearchEntity
+        return SearchEntity(self, data)
+
+
+    def Star(self, data=None) -> "StarEntity":
+        """Entity factory: client.Star().list() / client.Star().load({"id": ...})."""
+        from slack_sdk.entity.star_entity import StarEntity
+        return StarEntity(self, data)
+
+
+    def Team(self, data=None) -> "TeamEntity":
+        """Entity factory: client.Team().list() / client.Team().load({"id": ...})."""
+        from slack_sdk.entity.team_entity import TeamEntity
+        return TeamEntity(self, data)
+
+
+    def Teamprofile(self, data=None) -> "TeamprofileEntity":
+        """Entity factory: client.Teamprofile().list() / client.Teamprofile().load({"id": ...})."""
+        from slack_sdk.entity.teamprofile_entity import TeamprofileEntity
+        return TeamprofileEntity(self, data)
+
+
+    def User(self, data=None) -> "UserEntity":
+        """Entity factory: client.User().list() / client.User().load({"id": ...})."""
+        from slack_sdk.entity.user_entity import UserEntity
+        return UserEntity(self, data)
+
+
+    def Usergroup(self, data=None) -> "UsergroupEntity":
+        """Entity factory: client.Usergroup().list() / client.Usergroup().load({"id": ...})."""
+        from slack_sdk.entity.usergroup_entity import UsergroupEntity
+        return UsergroupEntity(self, data)
+
+
+    def Usergroupsuser(self, data=None) -> "UsergroupsuserEntity":
+        """Entity factory: client.Usergroupsuser().list() / client.Usergroupsuser().load({"id": ...})."""
+        from slack_sdk.entity.usergroupsuser_entity import UsergroupsuserEntity
+        return UsergroupsuserEntity(self, data)
+
+
+    def Usersprofile(self, data=None) -> "UsersprofileEntity":
+        """Entity factory: client.Usersprofile().list() / client.Usersprofile().load({"id": ...})."""
+        from slack_sdk.entity.usersprofile_entity import UsersprofileEntity
+        return UsersprofileEntity(self, data)
+
+
+    def View(self, data=None) -> "ViewEntity":
+        """Entity factory: client.View().list() / client.View().load({"id": ...})."""
+        from slack_sdk.entity.view_entity import ViewEntity
+        return ViewEntity(self, data)
+
+
+    def Workflow(self, data=None) -> "WorkflowEntity":
+        """Entity factory: client.Workflow().list() / client.Workflow().load({"id": ...})."""
+        from slack_sdk.entity.workflow_entity import WorkflowEntity
+        return WorkflowEntity(self, data)
 
 
 
@@ -346,5 +664,58 @@ class SlackSDK:
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from slack_sdk.entity.conversationsinfo_entity import ConversationsinfoEntity
-    from slack_sdk.entity.conversationslist_entity import ConversationslistEntity
+    from slack_sdk.entity.adminapp_entity import AdminappEntity
+    from slack_sdk.entity.adminappsapproved_entity import AdminappsapprovedEntity
+    from slack_sdk.entity.adminappsrequest_entity import AdminappsrequestEntity
+    from slack_sdk.entity.adminappsrestricted_entity import AdminappsrestrictedEntity
+    from slack_sdk.entity.adminconversation_entity import AdminconversationEntity
+    from slack_sdk.entity.adminconversationsekm_entity import AdminconversationsekmEntity
+    from slack_sdk.entity.adminconversationsrestrict_access_entity import AdminconversationsrestrictAccessEntity
+    from slack_sdk.entity.adminemoji_entity import AdminemojiEntity
+    from slack_sdk.entity.admininvite_request_entity import AdmininviteRequestEntity
+    from slack_sdk.entity.admininvite_requestsapproved_entity import AdmininviteRequestsapprovedEntity
+    from slack_sdk.entity.admininvite_requestsdenied_entity import AdmininviteRequestsdeniedEntity
+    from slack_sdk.entity.adminteam_entity import AdminteamEntity
+    from slack_sdk.entity.adminteamsadmin_entity import AdminteamsadminEntity
+    from slack_sdk.entity.adminteamsowner_entity import AdminteamsownerEntity
+    from slack_sdk.entity.adminteamssetting_entity import AdminteamssettingEntity
+    from slack_sdk.entity.adminuser_entity import AdminuserEntity
+    from slack_sdk.entity.adminusergroup_entity import AdminusergroupEntity
+    from slack_sdk.entity.adminuserssession_entity import AdminuserssessionEntity
+    from slack_sdk.entity.api_entity import ApiEntity
+    from slack_sdk.entity.app_entity import AppEntity
+    from slack_sdk.entity.appseventauthorization_entity import AppseventauthorizationEntity
+    from slack_sdk.entity.appspermission_entity import AppspermissionEntity
+    from slack_sdk.entity.appspermissionsresource_entity import AppspermissionsresourceEntity
+    from slack_sdk.entity.appspermissionsscope_entity import AppspermissionsscopeEntity
+    from slack_sdk.entity.appspermissionsuser_entity import AppspermissionsuserEntity
+    from slack_sdk.entity.auth_entity import AuthEntity
+    from slack_sdk.entity.bot_entity import BotEntity
+    from slack_sdk.entity.call_entity import CallEntity
+    from slack_sdk.entity.callsparticipant_entity import CallsparticipantEntity
+    from slack_sdk.entity.chat_entity import ChatEntity
+    from slack_sdk.entity.chatscheduled_message_entity import ChatscheduledMessageEntity
+    from slack_sdk.entity.conversation_entity import ConversationEntity
+    from slack_sdk.entity.dialog_entity import DialogEntity
+    from slack_sdk.entity.dnd_entity import DndEntity
+    from slack_sdk.entity.emoji_entity import EmojiEntity
+    from slack_sdk.entity.file_entity import FileEntity
+    from slack_sdk.entity.filescomment_entity import FilescommentEntity
+    from slack_sdk.entity.filesremote_entity import FilesremoteEntity
+    from slack_sdk.entity.migration_entity import MigrationEntity
+    from slack_sdk.entity.oauth_entity import OauthEntity
+    from slack_sdk.entity.oauthv2_entity import Oauthv2Entity
+    from slack_sdk.entity.pin_entity import PinEntity
+    from slack_sdk.entity.reaction_entity import ReactionEntity
+    from slack_sdk.entity.reminder_entity import ReminderEntity
+    from slack_sdk.entity.rtm_entity import RtmEntity
+    from slack_sdk.entity.search_entity import SearchEntity
+    from slack_sdk.entity.star_entity import StarEntity
+    from slack_sdk.entity.team_entity import TeamEntity
+    from slack_sdk.entity.teamprofile_entity import TeamprofileEntity
+    from slack_sdk.entity.user_entity import UserEntity
+    from slack_sdk.entity.usergroup_entity import UsergroupEntity
+    from slack_sdk.entity.usergroupsuser_entity import UsergroupsuserEntity
+    from slack_sdk.entity.usersprofile_entity import UsersprofileEntity
+    from slack_sdk.entity.view_entity import ViewEntity
+    from slack_sdk.entity.workflow_entity import WorkflowEntity

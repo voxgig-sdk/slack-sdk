@@ -1,0 +1,1134 @@
+{
+  "existing": {
+    "usersprofile": {
+      "USERSPROFILE00": {
+        "always_active": true,
+        "api_app_id": "API_APP01",
+        "avatar_hash": "s1ba",
+        "bot_id": "BOT01",
+        "display_name": "s1bc",
+        "display_name_normalized": "s1bd",
+        "email": "s1be",
+        "fields": "s1bf",
+        "first_name": "s1c0",
+        "guest_expiration_ts": "s1c1",
+        "guest_invited_by": "s1c2",
+        "image_1024": "s1c3",
+        "image_192": "s1c4",
+        "image_24": "s1c5",
+        "image_32": "s1c6",
+        "image_48": "s1c7",
+        "image_512": "s1c8",
+        "image_72": "s1c9",
+        "image_original": "s1ca",
+        "is_app_user": false,
+        "is_custom_image": true,
+        "is_restricted": "s1cd",
+        "is_ultra_restricted": "s1ce",
+        "last_avatar_image_hash": "s1cf",
+        "last_name": "s1d0",
+        "memberships_count": 465,
+        "name": "s1d2",
+        "phone": "s1d3",
+        "pronouns": "s1d4",
+        "real_name": "s1d5",
+        "real_name_normalized": "s1d6",
+        "skype": "s1d7",
+        "status_default_emoji": "s1d8",
+        "status_default_text": "s1d9",
+        "status_default_text_canonical": "s1da",
+        "status_emoji": "s1db",
+        "status_expiration": 476,
+        "status_text": "s1dd",
+        "status_text_canonical": "s1de",
+        "team": "s1df",
+        "title": "s1e0",
+        "updated": 481,
+        "user_id": "USER01",
+        "username": "s1e3",
+        "id": "USERSPROFILE00"
+      },
+      "USERSPROFILE01": {
+        "always_active": true,
+        "api_app_id": "API_APP01",
+        "avatar_hash": "s372",
+        "bot_id": "BOT01",
+        "display_name": "s374",
+        "display_name_normalized": "s375",
+        "email": "s376",
+        "fields": "s377",
+        "first_name": "s378",
+        "guest_expiration_ts": "s379",
+        "guest_invited_by": "s37a",
+        "image_1024": "s37b",
+        "image_192": "s37c",
+        "image_24": "s37d",
+        "image_32": "s37e",
+        "image_48": "s37f",
+        "image_512": "s380",
+        "image_72": "s381",
+        "image_original": "s382",
+        "is_app_user": false,
+        "is_custom_image": true,
+        "is_restricted": "s385",
+        "is_ultra_restricted": "s386",
+        "last_avatar_image_hash": "s387",
+        "last_name": "s388",
+        "memberships_count": 905,
+        "name": "s38a",
+        "phone": "s38b",
+        "pronouns": "s38c",
+        "real_name": "s38d",
+        "real_name_normalized": "s38e",
+        "skype": "s38f",
+        "status_default_emoji": "s390",
+        "status_default_text": "s391",
+        "status_default_text_canonical": "s392",
+        "status_emoji": "s393",
+        "status_expiration": 916,
+        "status_text": "s395",
+        "status_text_canonical": "s396",
+        "team": "s397",
+        "title": "s398",
+        "updated": 921,
+        "user_id": "USER01",
+        "username": "s39b",
+        "id": "USERSPROFILE01"
+      },
+      "USERSPROFILE02": {
+        "always_active": true,
+        "api_app_id": "API_APP01",
+        "avatar_hash": "s52a",
+        "bot_id": "BOT01",
+        "display_name": "s52c",
+        "display_name_normalized": "s52d",
+        "email": "s52e",
+        "fields": "s52f",
+        "first_name": "s530",
+        "guest_expiration_ts": "s531",
+        "guest_invited_by": "s532",
+        "image_1024": "s533",
+        "image_192": "s534",
+        "image_24": "s535",
+        "image_32": "s536",
+        "image_48": "s537",
+        "image_512": "s538",
+        "image_72": "s539",
+        "image_original": "s53a",
+        "is_app_user": false,
+        "is_custom_image": true,
+        "is_restricted": "s53d",
+        "is_ultra_restricted": "s53e",
+        "last_avatar_image_hash": "s53f",
+        "last_name": "s540",
+        "memberships_count": 1345,
+        "name": "s542",
+        "phone": "s543",
+        "pronouns": "s544",
+        "real_name": "s545",
+        "real_name_normalized": "s546",
+        "skype": "s547",
+        "status_default_emoji": "s548",
+        "status_default_text": "s549",
+        "status_default_text_canonical": "s54a",
+        "status_emoji": "s54b",
+        "status_expiration": 1356,
+        "status_text": "s54d",
+        "status_text_canonical": "s54e",
+        "team": "s54f",
+        "title": "s550",
+        "updated": 1361,
+        "user_id": "USER01",
+        "username": "s553",
+        "id": "USERSPROFILE02"
+      }
+    }
+  },
+  "new": {
+    "usersprofile": {
+      "usersprofile_ref01": {
+        "always_active": true,
+        "api_app_id": "API_APP01",
+        "avatar_hash": "s6e2",
+        "bot_id": "BOT01",
+        "display_name": "s6e4",
+        "display_name_normalized": "s6e5",
+        "email": "s6e6",
+        "fields": "s6e7",
+        "first_name": "s6e8",
+        "guest_expiration_ts": "s6e9",
+        "guest_invited_by": "s6ea",
+        "image_1024": "s6eb",
+        "image_192": "s6ec",
+        "image_24": "s6ed",
+        "image_32": "s6ee",
+        "image_48": "s6ef",
+        "image_512": "s6f0",
+        "image_72": "s6f1",
+        "image_original": "s6f2",
+        "is_app_user": false,
+        "is_custom_image": true,
+        "is_restricted": "s6f5",
+        "is_ultra_restricted": "s6f6",
+        "last_avatar_image_hash": "s6f7",
+        "last_name": "s6f8",
+        "memberships_count": 1785,
+        "name": "s6fa",
+        "phone": "s6fb",
+        "pronouns": "s6fc",
+        "real_name": "s6fd",
+        "real_name_normalized": "s6fe",
+        "skype": "s6ff",
+        "status_default_emoji": "s700",
+        "status_default_text": "s701",
+        "status_default_text_canonical": "s702",
+        "status_emoji": "s703",
+        "status_expiration": 1796,
+        "status_text": "s705",
+        "status_text_canonical": "s706",
+        "team": "s707",
+        "title": "s708",
+        "updated": 1801,
+        "user_id": "USER01",
+        "username": "s70b"
+      }
+    }
+  },
+  "requests": {
+    "POST /users.profile.set": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/x-www-form-urlencoded",
+          "application/json"
+        ],
+        "operationId": "users_profile_set",
+        "parameters": [
+          {
+            "description": "Authentication token. Requires scope: `users.profile:write`",
+            "in": "header",
+            "name": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Name of a single key to set. Usable only if `profile` is not passed.",
+            "in": "formData",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "description": "Collection of key:value pairs presented as a URL-encoded JSON hash. At most 50 fields may be set. Each field name is limited to 255 characters.",
+            "in": "formData",
+            "name": "profile",
+            "type": "string"
+          },
+          {
+            "description": "ID of user to change. This argument may only be specified by team admins on paid teams.",
+            "in": "formData",
+            "name": "user",
+            "type": "string"
+          },
+          {
+            "description": "Value to set a single key to. Usable only if `profile` is not passed.",
+            "in": "formData",
+            "name": "value",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Typical success response",
+            "examples": {
+              "application/json": {
+                "ok": true,
+                "profile": {
+                  "avatar_hash": "ge3b51ca72de",
+                  "display_name": "spengler",
+                  "display_name_normalized": "spengler",
+                  "email": "spengler@ghostbusters.example.com",
+                  "image_192": "https://.../avatar/e3b51ca72dee4ef87916ae2b9240df50.jpg",
+                  "image_24": "https://.../avatar/e3b51ca72dee4ef87916ae2b9240df50.jpg",
+                  "image_32": "https://.../avatar/e3b51ca72dee4ef87916ae2b9240df50.jpg",
+                  "image_48": "https://.../avatar/e3b51ca72dee4ef87916ae2b9240df50.jpg",
+                  "image_512": "https://.../avatar/e3b51ca72dee4ef87916ae2b9240df50.jpg",
+                  "image_72": "https://.../avatar/e3b51ca72dee4ef87916ae2b9240df50.jpg",
+                  "real_name": "Egon Spengler",
+                  "real_name_normalized": "Egon Spengler",
+                  "status_emoji": ":books:",
+                  "status_expiration": 0,
+                  "status_text": "Print is dead",
+                  "team": "T012AB3C4"
+                }
+              }
+            },
+            "schema": {
+              "additionalProperties": false,
+              "description": "Schema for successful response from users.profile.set method",
+              "properties": {
+                "email_pending": {
+                  "format": "email",
+                  "type": "string"
+                },
+                "ok": {
+                  "enum": [
+                    true
+                  ],
+                  "title": "default success response",
+                  "type": "boolean"
+                },
+                "profile": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "always_active": {
+                      "type": "boolean"
+                    },
+                    "api_app_id": {
+                      "pattern": "^(A[A-Z0-9]{1,})?$",
+                      "title": "App ID or empty string",
+                      "type": "string"
+                    },
+                    "avatar_hash": {
+                      "type": "string"
+                    },
+                    "bot_id": {
+                      "pattern": "^B[A-Z0-9]{8,}$",
+                      "title": "Bot User ID",
+                      "type": "string"
+                    },
+                    "display_name": {
+                      "type": "string"
+                    },
+                    "display_name_normalized": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "format": "email",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "fields": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": [
+                        "object",
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "first_name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "guest_expiration_ts": {
+                      "type": [
+                        "null",
+                        "integer"
+                      ]
+                    },
+                    "guest_invited_by": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "image_1024": {
+                      "format": "uri",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "image_192": {
+                      "format": "uri",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "image_24": {
+                      "format": "uri",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "image_32": {
+                      "format": "uri",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "image_48": {
+                      "format": "uri",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "image_512": {
+                      "format": "uri",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "image_72": {
+                      "format": "uri",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "image_original": {
+                      "format": "uri",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "is_app_user": {
+                      "type": "boolean"
+                    },
+                    "is_custom_image": {
+                      "type": "boolean"
+                    },
+                    "is_restricted": {
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    "is_ultra_restricted": {
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    "last_avatar_image_hash": {
+                      "type": "string"
+                    },
+                    "last_name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "memberships_count": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "phone": {
+                      "type": "string"
+                    },
+                    "pronouns": {
+                      "type": "string"
+                    },
+                    "real_name": {
+                      "type": "string"
+                    },
+                    "real_name_normalized": {
+                      "type": "string"
+                    },
+                    "skype": {
+                      "type": "string"
+                    },
+                    "status_default_emoji": {
+                      "type": "string"
+                    },
+                    "status_default_text": {
+                      "type": "string"
+                    },
+                    "status_default_text_canonical": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "status_emoji": {
+                      "type": "string"
+                    },
+                    "status_expiration": {
+                      "type": "integer"
+                    },
+                    "status_text": {
+                      "type": "string"
+                    },
+                    "status_text_canonical": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "team": {
+                      "pattern": "^[TE][A-Z0-9]{8,}$",
+                      "title": "Team or Enterprise ID",
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "updated": {
+                      "type": "integer"
+                    },
+                    "user_id": {
+                      "type": "string"
+                    },
+                    "username": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "real_name",
+                    "display_name",
+                    "avatar_hash",
+                    "real_name_normalized",
+                    "display_name_normalized",
+                    "title",
+                    "phone",
+                    "skype",
+                    "status_text",
+                    "status_emoji",
+                    "fields"
+                  ],
+                  "title": "User profile object",
+                  "type": "object"
+                },
+                "username": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ok",
+                "username",
+                "profile"
+              ],
+              "title": "users.profile.set schema",
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "Typical error response",
+            "examples": {
+              "application/json": {
+                "error": "invalid_profile",
+                "ok": false
+              }
+            },
+            "schema": {
+              "additionalProperties": false,
+              "description": "Schema for error response from users.profile.set method",
+              "properties": {
+                "callstack": {
+                  "description": "Note: PHP callstack is only visible in dev/qa",
+                  "type": "string"
+                },
+                "error": {
+                  "enum": [
+                    "reserved_name",
+                    "invalid_profile",
+                    "profile_set_failed",
+                    "not_admin",
+                    "not_app_admin",
+                    "cannot_update_admin_user",
+                    "not_authed",
+                    "invalid_auth",
+                    "account_inactive",
+                    "token_revoked",
+                    "no_permission",
+                    "org_login_required",
+                    "user_is_bot",
+                    "invalid_arg_name",
+                    "invalid_array_arg",
+                    "invalid_charset",
+                    "invalid_form_data",
+                    "invalid_post_type",
+                    "missing_post_type",
+                    "team_added_to_org",
+                    "invalid_json",
+                    "json_not_object",
+                    "request_timeout",
+                    "upgrade_required",
+                    "fatal_error"
+                  ],
+                  "type": "string"
+                },
+                "ok": {
+                  "enum": [
+                    false
+                  ],
+                  "title": "default failure response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok",
+                "error"
+              ],
+              "title": "users.profile.set error schema",
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "slackAuth": [
+              "users.profile:write"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "slackAuth": {
+            "authorizationUrl": "https://slack.com/oauth/authorize",
+            "flow": "accessCode",
+            "scopes": {
+              "admin": "admin",
+              "admin.apps:read": "admin.apps:read",
+              "admin.apps:write": "admin.apps:write",
+              "admin.conversations:read": "admin.conversations:read",
+              "admin.conversations:write": "admin.conversations:write",
+              "admin.invites:read": "admin.invites:read",
+              "admin.invites:write": "admin.invites:write",
+              "admin.teams:read": "admin.teams:read",
+              "admin.teams:write": "admin.teams:write",
+              "admin.usergroups:read": "admin.usergroups:read",
+              "admin.usergroups:write": "admin.usergroups:write",
+              "admin.users:read": "admin.users:read",
+              "admin.users:write": "admin.users:write",
+              "authorizations:read": "authorizations:read",
+              "bot": "Bot user scope",
+              "calls:read": "calls:read",
+              "calls:write": "calls:write",
+              "channels:history": "channels:history",
+              "channels:manage": "channels:manage",
+              "channels:read": "channels:read",
+              "channels:write": "channels:write",
+              "chat:write": "chat:write",
+              "chat:write:bot": "Author messages as a bot",
+              "chat:write:user": "Author messages as a user",
+              "conversations:history": "conversations:history",
+              "conversations:read": "conversations:read",
+              "conversations:write": "conversations:write",
+              "dnd:read": "dnd:read",
+              "dnd:write": "dnd:write",
+              "emoji:read": "emoji:read",
+              "files:read": "files:read",
+              "files:write:user": "files:write:user",
+              "groups:history": "groups:history",
+              "groups:read": "groups:read",
+              "groups:write": "groups:write",
+              "identity.basic": "identity.basic",
+              "im:history": "im:history",
+              "im:read": "im:read",
+              "im:write": "im:write",
+              "links:write": "links:write",
+              "mpim:history": "mpim:history",
+              "mpim:read": "mpim:read",
+              "mpim:write": "mpim:write",
+              "none": "No scope required",
+              "pins:read": "pins:read",
+              "pins:write": "pins:write",
+              "reactions:read": "reactions:read",
+              "reactions:write": "reactions:write",
+              "reminders:read": "reminders:read",
+              "reminders:write": "reminders:write",
+              "remote_files:read": "remote_files:read",
+              "remote_files:share": "remote_files:share",
+              "remote_files:write": "remote_files:write",
+              "rtm:stream": "rtm:stream",
+              "search:read": "search:read",
+              "stars:read": "stars:read",
+              "stars:write": "stars:write",
+              "team:read": "team:read",
+              "tokens.basic": "tokens.basic",
+              "usergroups:read": "usergroups:read",
+              "usergroups:write": "usergroups:write",
+              "users.profile:read": "users.profile:read",
+              "users.profile:write": "users.profile:write",
+              "users:read": "users:read",
+              "users:read.email": "users:read.email",
+              "users:write": "users:write",
+              "workflow.steps:execute": "workflow.steps:execute"
+            },
+            "tokenUrl": "https://slack.com/api/oauth.access",
+            "type": "oauth2"
+          }
+        },
+        "securitySource": "operation"
+      }
+    },
+    "GET /users.profile.get": {
+      "provenance": "operation-contract",
+      "contract": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "operationId": "users_profile_get",
+        "parameters": [
+          {
+            "description": "Authentication token. Requires scope: `users.profile:read`",
+            "in": "query",
+            "name": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Include labels for each ID in custom profile fields",
+            "in": "query",
+            "name": "include_labels",
+            "type": "boolean"
+          },
+          {
+            "description": "User to retrieve profile info for",
+            "in": "query",
+            "name": "user",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "description": "Typical success response",
+            "examples": {
+              "application/json": {
+                "ok": true,
+                "profile": {
+                  "avatar_hash": "ge3b51ca72de",
+                  "display_name": "spengler",
+                  "display_name_normalized": "spengler",
+                  "email": "spengler@ghostbusters.example.com",
+                  "image_192": "https://.../avatar/e3b51ca72dee4ef87916ae2b9240df50.jpg",
+                  "image_24": "https://.../avatar/e3b51ca72dee4ef87916ae2b9240df50.jpg",
+                  "image_32": "https://.../avatar/e3b51ca72dee4ef87916ae2b9240df50.jpg",
+                  "image_48": "https://.../avatar/e3b51ca72dee4ef87916ae2b9240df50.jpg",
+                  "image_512": "https://.../avatar/e3b51ca72dee4ef87916ae2b9240df50.jpg",
+                  "image_72": "https://.../avatar/e3b51ca72dee4ef87916ae2b9240df50.jpg",
+                  "image_original": "https://.../avatar/e3b51ca72dee4ef87916ae2b9240df50.jpg",
+                  "real_name": "Egon Spengler",
+                  "real_name_normalized": "Egon Spengler",
+                  "status_emoji": ":books:",
+                  "status_expiration": 0,
+                  "status_text": "Print is dead",
+                  "team": "T012AB3C4"
+                }
+              }
+            },
+            "schema": {
+              "additionalProperties": false,
+              "description": "Schema for successful response from users.profile.get method",
+              "properties": {
+                "ok": {
+                  "enum": [
+                    true
+                  ],
+                  "title": "default success response",
+                  "type": "boolean"
+                },
+                "profile": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "always_active": {
+                      "type": "boolean"
+                    },
+                    "api_app_id": {
+                      "pattern": "^(A[A-Z0-9]{1,})?$",
+                      "title": "App ID or empty string",
+                      "type": "string"
+                    },
+                    "avatar_hash": {
+                      "type": "string"
+                    },
+                    "bot_id": {
+                      "pattern": "^B[A-Z0-9]{8,}$",
+                      "title": "Bot User ID",
+                      "type": "string"
+                    },
+                    "display_name": {
+                      "type": "string"
+                    },
+                    "display_name_normalized": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "format": "email",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "fields": {
+                      "items": {
+                        "type": "object"
+                      },
+                      "type": [
+                        "object",
+                        "null",
+                        "array"
+                      ]
+                    },
+                    "first_name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "guest_expiration_ts": {
+                      "type": [
+                        "null",
+                        "integer"
+                      ]
+                    },
+                    "guest_invited_by": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "image_1024": {
+                      "format": "uri",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "image_192": {
+                      "format": "uri",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "image_24": {
+                      "format": "uri",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "image_32": {
+                      "format": "uri",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "image_48": {
+                      "format": "uri",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "image_512": {
+                      "format": "uri",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "image_72": {
+                      "format": "uri",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "image_original": {
+                      "format": "uri",
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "is_app_user": {
+                      "type": "boolean"
+                    },
+                    "is_custom_image": {
+                      "type": "boolean"
+                    },
+                    "is_restricted": {
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    "is_ultra_restricted": {
+                      "type": [
+                        "null",
+                        "boolean"
+                      ]
+                    },
+                    "last_avatar_image_hash": {
+                      "type": "string"
+                    },
+                    "last_name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "memberships_count": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "phone": {
+                      "type": "string"
+                    },
+                    "pronouns": {
+                      "type": "string"
+                    },
+                    "real_name": {
+                      "type": "string"
+                    },
+                    "real_name_normalized": {
+                      "type": "string"
+                    },
+                    "skype": {
+                      "type": "string"
+                    },
+                    "status_default_emoji": {
+                      "type": "string"
+                    },
+                    "status_default_text": {
+                      "type": "string"
+                    },
+                    "status_default_text_canonical": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "status_emoji": {
+                      "type": "string"
+                    },
+                    "status_expiration": {
+                      "type": "integer"
+                    },
+                    "status_text": {
+                      "type": "string"
+                    },
+                    "status_text_canonical": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    },
+                    "team": {
+                      "pattern": "^[TE][A-Z0-9]{8,}$",
+                      "title": "Team or Enterprise ID",
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "updated": {
+                      "type": "integer"
+                    },
+                    "user_id": {
+                      "type": "string"
+                    },
+                    "username": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "real_name",
+                    "display_name",
+                    "avatar_hash",
+                    "real_name_normalized",
+                    "display_name_normalized",
+                    "title",
+                    "phone",
+                    "skype",
+                    "status_text",
+                    "status_emoji",
+                    "fields"
+                  ],
+                  "title": "User profile object",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "ok",
+                "profile"
+              ],
+              "title": "users.profile.get schema",
+              "type": "object"
+            }
+          },
+          "default": {
+            "description": "Typical error response",
+            "examples": {
+              "application/json": {
+                "error": "user_not_found",
+                "ok": false
+              }
+            },
+            "schema": {
+              "additionalProperties": false,
+              "description": "Schema for error response from users.profile.get method",
+              "properties": {
+                "callstack": {
+                  "description": "Note: PHP callstack is only visible in dev/qa",
+                  "type": "string"
+                },
+                "error": {
+                  "enum": [
+                    "user_not_found",
+                    "not_authed",
+                    "invalid_auth",
+                    "account_inactive",
+                    "token_revoked",
+                    "no_permission",
+                    "org_login_required",
+                    "user_is_bot",
+                    "invalid_arg_name",
+                    "invalid_array_arg",
+                    "invalid_charset",
+                    "invalid_form_data",
+                    "invalid_post_type",
+                    "missing_post_type",
+                    "team_added_to_org",
+                    "invalid_json",
+                    "json_not_object",
+                    "request_timeout",
+                    "upgrade_required",
+                    "fatal_error"
+                  ],
+                  "type": "string"
+                },
+                "ok": {
+                  "enum": [
+                    false
+                  ],
+                  "title": "default failure response",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "ok",
+                "error"
+              ],
+              "title": "users.profile.get error schema",
+              "type": "object"
+            }
+          }
+        },
+        "security": [
+          {
+            "slackAuth": [
+              "users.profile:read"
+            ]
+          }
+        ],
+        "securitySchemes": {
+          "slackAuth": {
+            "authorizationUrl": "https://slack.com/oauth/authorize",
+            "flow": "accessCode",
+            "scopes": {
+              "admin": "admin",
+              "admin.apps:read": "admin.apps:read",
+              "admin.apps:write": "admin.apps:write",
+              "admin.conversations:read": "admin.conversations:read",
+              "admin.conversations:write": "admin.conversations:write",
+              "admin.invites:read": "admin.invites:read",
+              "admin.invites:write": "admin.invites:write",
+              "admin.teams:read": "admin.teams:read",
+              "admin.teams:write": "admin.teams:write",
+              "admin.usergroups:read": "admin.usergroups:read",
+              "admin.usergroups:write": "admin.usergroups:write",
+              "admin.users:read": "admin.users:read",
+              "admin.users:write": "admin.users:write",
+              "authorizations:read": "authorizations:read",
+              "bot": "Bot user scope",
+              "calls:read": "calls:read",
+              "calls:write": "calls:write",
+              "channels:history": "channels:history",
+              "channels:manage": "channels:manage",
+              "channels:read": "channels:read",
+              "channels:write": "channels:write",
+              "chat:write": "chat:write",
+              "chat:write:bot": "Author messages as a bot",
+              "chat:write:user": "Author messages as a user",
+              "conversations:history": "conversations:history",
+              "conversations:read": "conversations:read",
+              "conversations:write": "conversations:write",
+              "dnd:read": "dnd:read",
+              "dnd:write": "dnd:write",
+              "emoji:read": "emoji:read",
+              "files:read": "files:read",
+              "files:write:user": "files:write:user",
+              "groups:history": "groups:history",
+              "groups:read": "groups:read",
+              "groups:write": "groups:write",
+              "identity.basic": "identity.basic",
+              "im:history": "im:history",
+              "im:read": "im:read",
+              "im:write": "im:write",
+              "links:write": "links:write",
+              "mpim:history": "mpim:history",
+              "mpim:read": "mpim:read",
+              "mpim:write": "mpim:write",
+              "none": "No scope required",
+              "pins:read": "pins:read",
+              "pins:write": "pins:write",
+              "reactions:read": "reactions:read",
+              "reactions:write": "reactions:write",
+              "reminders:read": "reminders:read",
+              "reminders:write": "reminders:write",
+              "remote_files:read": "remote_files:read",
+              "remote_files:share": "remote_files:share",
+              "remote_files:write": "remote_files:write",
+              "rtm:stream": "rtm:stream",
+              "search:read": "search:read",
+              "stars:read": "stars:read",
+              "stars:write": "stars:write",
+              "team:read": "team:read",
+              "tokens.basic": "tokens.basic",
+              "usergroups:read": "usergroups:read",
+              "usergroups:write": "usergroups:write",
+              "users.profile:read": "users.profile:read",
+              "users.profile:write": "users.profile:write",
+              "users:read": "users:read",
+              "users:read.email": "users:read.email",
+              "users:write": "users:write",
+              "workflow.steps:execute": "workflow.steps:execute"
+            },
+            "tokenUrl": "https://slack.com/api/oauth.access",
+            "type": "oauth2"
+          }
+        },
+        "securitySource": "operation"
+      }
+    }
+  }
+}

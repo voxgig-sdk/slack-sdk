@@ -1,0 +1,30 @@
+# BasicFileFlow
+
+main: kit: flow: BasicFileFlow:
+{
+  entity: "file",
+  kind: "basic",
+  name: "BasicFileFlow",
+  step: [
+    {
+      input: {
+        ref: "file_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "file_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFileFlow"
+}

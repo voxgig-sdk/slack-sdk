@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Adminuser | Slack Web API</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Slack Web API<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/slack-sdk">voxgig-sdk/slack-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Slack Web API</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/adminapp.html">Adminapp</a>
+<a href="../api/adminappsapproved.html">Adminappsapproved</a>
+<a href="../api/adminappsrequest.html">Adminappsrequest</a>
+<a href="../api/adminappsrestricted.html">Adminappsrestricted</a>
+<a href="../api/adminconversation.html">Adminconversation</a>
+<a href="../api/adminconversationsekm.html">Adminconversationsekm</a>
+<a href="../api/adminconversationsrestrict_access.html">AdminconversationsrestrictAccess</a>
+<a href="../api/adminemoji.html">Adminemoji</a>
+<a href="../api/admininvite_request.html">AdmininviteRequest</a>
+<a href="../api/admininvite_requestsapproved.html">AdmininviteRequestsapproved</a>
+<a href="../api/admininvite_requestsdenied.html">AdmininviteRequestsdenied</a>
+<a href="../api/adminteam.html">Adminteam</a>
+<a href="../api/adminteamsadmin.html">Adminteamsadmin</a>
+<a href="../api/adminteamsowner.html">Adminteamsowner</a>
+<a href="../api/adminteamssetting.html">Adminteamssetting</a>
+<a aria-current="page" href="../api/adminuser.html">Adminuser</a><div class="nav-sections"><a class="nav-section" href="#post-adminusersinvite">POST /admin.users.invite</a>
+<a class="nav-section" href="#post-adminusersassign">POST /admin.users.assign</a>
+<a class="nav-section" href="#post-adminuserssetexpiration">POST /admin.users.setExpiration</a>
+<a class="nav-section" href="#post-adminusersremove">POST /admin.users.remove</a>
+<a class="nav-section" href="#post-adminuserssetadmin">POST /admin.users.setAdmin</a>
+<a class="nav-section" href="#post-adminuserssetowner">POST /admin.users.setOwner</a>
+<a class="nav-section" href="#post-adminuserssetregular">POST /admin.users.setRegular</a>
+<a class="nav-section" href="#get-adminuserslist">GET /admin.users.list</a></div>
+<a href="../api/adminusergroup.html">Adminusergroup</a>
+<a href="../api/adminuserssession.html">Adminuserssession</a>
+<a href="../api/api.html">Api</a>
+<a href="../api/app.html">App</a>
+<a href="../api/appseventauthorization.html">Appseventauthorization</a>
+<a href="../api/appspermission.html">Appspermission</a>
+<a href="../api/appspermissionsresource.html">Appspermissionsresource</a>
+<a href="../api/appspermissionsscope.html">Appspermissionsscope</a>
+<a href="../api/appspermissionsuser.html">Appspermissionsuser</a>
+<a href="../api/auth.html">Auth</a>
+<a href="../api/bot.html">Bot</a>
+<a href="../api/call.html">Call</a>
+<a href="../api/callsparticipant.html">Callsparticipant</a>
+<a href="../api/chat.html">Chat</a>
+<a href="../api/chatscheduled_message.html">ChatscheduledMessage</a>
+<a href="../api/conversation.html">Conversation</a>
+<a href="../api/dialog.html">Dialog</a>
+<a href="../api/dnd.html">Dnd</a>
+<a href="../api/emoji.html">Emoji</a>
+<a href="../api/file.html">File</a>
+<a href="../api/filescomment.html">Filescomment</a>
+<a href="../api/filesremote.html">Filesremote</a>
+<a href="../api/migration.html">Migration</a>
+<a href="../api/oauth.html">Oauth</a>
+<a href="../api/oauthv2.html">Oauthv2</a>
+<a href="../api/pin.html">Pin</a>
+<a href="../api/reaction.html">Reaction</a>
+<a href="../api/reminder.html">Reminder</a>
+<a href="../api/rtm.html">Rtm</a>
+<a href="../api/search.html">Search</a>
+<a href="../api/star.html">Star</a>
+<a href="../api/team.html">Team</a>
+<a href="../api/teamprofile.html">Teamprofile</a>
+<a href="../api/user.html">User</a>
+<a href="../api/usergroup.html">Usergroup</a>
+<a href="../api/usergroupsuser.html">Usergroupsuser</a>
+<a href="../api/usersprofile.html">Usersprofile</a>
+<a href="../api/view.html">View</a>
+<a href="../api/workflow.html">Workflow</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/js.html">JavaScript</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/debug.html">Request/response capture ring buffer for debugging</a>
+<a href="../features/idempotency.html">Idempotency keys for safe retries of mutating operations</a>
+<a href="../features/metrics.html">Statistics capture: per-operation counters and latency</a>
+<a href="../features/paging.html">Pagination signals for list operations</a>
+<a href="../features/ratelimit.html">Client-side rate limiting via a token bucket</a>
+<a href="../features/retry.html">Automatic retry of transient failures with exponential backoff</a>
+<a href="../features/test.html">In-memory mock transport for testing without a live server</a>
+<a href="../features/timeout.html">Per-request timeout with transport abort</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="adminuser">Adminuser</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-adminusersinvite"><code>/admin.users.invite</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-adminusersassign"><code>/admin.users.assign</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-adminuserssetexpiration"><code>/admin.users.setExpiration</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-adminusersremove"><code>/admin.users.remove</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-adminuserssetadmin"><code>/admin.users.setAdmin</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-adminuserssetowner"><code>/admin.users.setOwner</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-adminuserssetregular"><code>/admin.users.setRegular</code></a></td>
+<td><code>create</code></td>
+<td>Typical success response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-adminuserslist"><code>/admin.users.list</code></a></td>
+<td><code>load</code></td>
+<td>Typical success response</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ok</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-adminusersinvite" class="operation" data-method="post"><code>POST</code> /admin.users.invite</h3>
+<p>Operation ID: <code>admin_users_invite</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.users:write</code> |
+| <code>team_id</code> | <code>formData</code> | <code>any</code> | Yes | The ID (<code>T1234</code>) of the workspace. |
+| <code>email</code> | <code>formData</code> | <code>any</code> | Yes | The email address of the person to invite. |
+| <code>channel_ids</code> | <code>formData</code> | <code>any</code> | Yes | A comma-separated list of <code>channel_id</code>s for this user to join. At least one channel is required. |
+| <code>custom_message</code> | <code>formData</code> | <code>any</code> | No | An optional message to send to the user in the invite email. |
+| <code>real_name</code> | <code>formData</code> | <code>any</code> | No | Full name of the user. |
+| <code>resend</code> | <code>formData</code> | <code>any</code> | No | Allow this invite to be resent in the future if a user has not signed up yet. (default: false) |
+| <code>is_restricted</code> | <code>formData</code> | <code>any</code> | No | Is this user a multi-channel guest user? (default: false) |
+| <code>is_ultra_restricted</code> | <code>formData</code> | <code>any</code> | No | Is this user a single channel guest user? (default: false) |
+| <code>guest_expiration_ts</code> | <code>formData</code> | <code>any</code> | No | Timestamp when guest account should be disabled. Only include this timestamp if you are inviting a guest user and you want their account to expire on a certain date. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-typical-success-response" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response">default: Typical error response</h5>
+<h3 id="post-adminusersassign" class="operation" data-method="post"><code>POST</code> /admin.users.assign</h3>
+<p>Operation ID: <code>admin_users_assign</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.users:write</code> |
+| <code>team_id</code> | <code>formData</code> | <code>any</code> | Yes | The ID (<code>T1234</code>) of the workspace. |
+| <code>user_id</code> | <code>formData</code> | <code>any</code> | Yes | The ID of the user to add to the workspace. |
+| <code>is_restricted</code> | <code>formData</code> | <code>any</code> | No | True if user should be added to the workspace as a guest. |
+| <code>is_ultra_restricted</code> | <code>formData</code> | <code>any</code> | No | True if user should be added to the workspace as a single-channel guest. |
+| <code>channel_ids</code> | <code>formData</code> | <code>any</code> | No | Comma separated values of channel IDs to add user in the new workspace. |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-typical-success-response-1" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-1">default: Typical error response</h5>
+<h3 id="post-adminuserssetexpiration" class="operation" data-method="post"><code>POST</code> /admin.users.setExpiration</h3>
+<p>Operation ID: <code>admin_users_setExpiration</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.users:write</code> |
+| <code>team_id</code> | <code>formData</code> | <code>any</code> | Yes | The ID (<code>T1234</code>) of the workspace. |
+| <code>user_id</code> | <code>formData</code> | <code>any</code> | Yes | The ID of the user to set an expiration for. |
+| <code>expiration_ts</code> | <code>formData</code> | <code>any</code> | Yes | Timestamp when guest account should be disabled. |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-typical-success-response-2" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-2">default: Typical error response</h5>
+<h3 id="post-adminusersremove" class="operation" data-method="post"><code>POST</code> /admin.users.remove</h3>
+<p>Operation ID: <code>admin_users_remove</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.users:write</code> |
+| <code>team_id</code> | <code>formData</code> | <code>any</code> | Yes | The ID (<code>T1234</code>) of the workspace. |
+| <code>user_id</code> | <code>formData</code> | <code>any</code> | Yes | The ID of the user to remove. |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-typical-success-response-3" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-3">default: Typical error response</h5>
+<h3 id="post-adminuserssetadmin" class="operation" data-method="post"><code>POST</code> /admin.users.setAdmin</h3>
+<p>Operation ID: <code>admin_users_setAdmin</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.users:write</code> |
+| <code>team_id</code> | <code>formData</code> | <code>any</code> | Yes | The ID (<code>T1234</code>) of the workspace. |
+| <code>user_id</code> | <code>formData</code> | <code>any</code> | Yes | The ID of the user to designate as an admin. |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-typical-success-response-4" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-4">default: Typical error response</h5>
+<h3 id="post-adminuserssetowner" class="operation" data-method="post"><code>POST</code> /admin.users.setOwner</h3>
+<p>Operation ID: <code>admin_users_setOwner</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.users:write</code> |
+| <code>team_id</code> | <code>formData</code> | <code>any</code> | Yes | The ID (<code>T1234</code>) of the workspace. |
+| <code>user_id</code> | <code>formData</code> | <code>any</code> | Yes | Id of the user to promote to owner. |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-typical-success-response-5" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-5">default: Typical error response</h5>
+<h3 id="post-adminuserssetregular" class="operation" data-method="post"><code>POST</code> /admin.users.setRegular</h3>
+<p>Operation ID: <code>admin_users_setRegular</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.users:write</code> |
+| <code>team_id</code> | <code>formData</code> | <code>any</code> | Yes | The ID (<code>T1234</code>) of the workspace. |
+| <code>user_id</code> | <code>formData</code> | <code>any</code> | Yes | The ID of the user to designate as a regular user. |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-typical-success-response-6" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-6">default: Typical error response</h5>
+<h2 id="load">load</h2>
+<h3 id="get-adminuserslist" class="operation" data-method="get"><code>GET</code> /admin.users.list</h3>
+<p>Operation ID: <code>admin_users_list</code>.</p>
+<p>Authentication: oauth2 (<code>slackAuth</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>token</code> | <code>header</code> | <code>any</code> | Yes | Authentication token. Requires scope: <code>admin.users:read</code> |
+| <code>team_id</code> | <code>query</code> | <code>any</code> | Yes | The ID (<code>T1234</code>) of the workspace. |
+| <code>cursor</code> | <code>query</code> | <code>any</code> | No | Set <code>cursor</code> to <code>next_cursor</code> returned by the previous call to list items in the next page. |
+| <code>limit</code> | <code>query</code> | <code>any</code> | No | Limit for how many users to be retrieved per page |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-typical-success-response-7" class="status" data-status="2xx">200: Typical success response</h5>
+<h5 id="default-typical-error-response-7">default: Typical error response</h5>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

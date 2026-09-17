@@ -1,0 +1,18 @@
+# BasicCallsparticipantFlow
+
+main: kit: flow: BasicCallsparticipantFlow:
+{
+  entity: "callsparticipant",
+  kind: "basic",
+  name: "BasicCallsparticipantFlow",
+  step: [
+    {
+      input: {
+        ref: "callsparticipant_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicCallsparticipantFlow"
+}

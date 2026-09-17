@@ -1,0 +1,28 @@
+# BasicAdminteamsownerFlow
+
+main: kit: flow: BasicAdminteamsownerFlow:
+{
+  entity: "adminteamsowner",
+  kind: "basic",
+  name: "BasicAdminteamsownerFlow",
+  step: [
+    {
+      input: {
+        ref: "adminteamsowner_ref01",
+        srcdatavar: "adminteamsowner_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-adminteamsowner_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAdminteamsownerFlow"
+}

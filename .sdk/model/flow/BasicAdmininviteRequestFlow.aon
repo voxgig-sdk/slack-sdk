@@ -1,0 +1,36 @@
+# BasicAdmininviteRequestFlow
+
+main: kit: flow: BasicAdmininviteRequestFlow:
+{
+  entity: "admininvite_request",
+  kind: "basic",
+  name: "BasicAdmininviteRequestFlow",
+  step: [
+    {
+      input: {
+        ref: "admininvite_request_ref01"
+      }
+
+      op: "create"
+    }
+
+    {
+      input: {
+        ref: "admininvite_request_ref01",
+        srcdatavar: "admininvite_request_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-admininvite_request_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicAdmininviteRequestFlow"
+}

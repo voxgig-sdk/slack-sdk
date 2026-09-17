@@ -1,0 +1,18 @@
+# BasicAdminappFlow
+
+main: kit: flow: BasicAdminappFlow:
+{
+  entity: "adminapp",
+  kind: "basic",
+  name: "BasicAdminappFlow",
+  step: [
+    {
+      input: {
+        ref: "adminapp_ref01"
+      }
+
+      op: "create"
+    }
+  ],
+  "key$": "BasicAdminappFlow"
+}
